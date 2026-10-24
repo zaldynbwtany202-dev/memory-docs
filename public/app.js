@@ -344,10 +344,19 @@ async function sendLargeFile(file) {
       body: JSON.stringify({ name: file.name, size: file.size, signature }),
     });
     uploadId = session.uploadId;
-    let completedBytes = 0;
+    const uploadedParts = new Set(session.uploadedParts || []);
+    let completedBytes = session.parts
+      .filter((part) => uploadedParts.has(part.index))
+      .reduce((total, part) => total + part.size, 0);
+
+    if (session.resumed && uploadedParts.size > 0) {
+      setProgress((completedBytes / file.size) * 100);
+      showToast(`تم استئناف الرفع: ${numberFormatter.format(uploadedParts.size)} جزءًا محفوظًا بالفعل.`);
+    }
 
     for (const part of session.parts) {
       if (state.cancelRequested) throw new Error('تم إلغاء الرفع.');
+      if (uploadedParts.has(part.index)) continue;
       elements.progressLabel.textContent = `جارٍ رفع الجزء ${numberFormatter.format(part.index + 1)} من ${numberFormatter.format(session.parts.length)}…`;
       await sendLargePart(session, part, file, completedBytes);
       completedBytes += part.size;

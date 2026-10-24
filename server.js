@@ -28,6 +28,7 @@ import {
   toChunkedArchive,
   toPublicChunkedArchive,
 } from './lib/chunked-archive.js';
+import { parseChunkedUploadStatus, recoverChunkedSession } from './lib/chunked-recovery.js';
 
 const rootDir = path.dirname(fileURLToPath(import.meta.url));
 dotenv.config({ path: path.join(rootDir, '.env'), quiet: true });
@@ -143,6 +144,40 @@ async function tryWriteUploadStatus(session, status, note = '') {
   } catch (error) {
     console.warn(`Could not update status for ${session.tag}: ${error.message}`);
   }
+}
+
+async function findResumableChunkedUpload(originalName, size) {
+  const active = [...largeUploads.values()]
+    .filter((session) => (
+      session.strategy === 'chunked'
+      && session.metadata.originalName === originalName
+      && session.metadata.size === size
+    ))
+    .sort((a, b) => b.updatedAt - a.updatedAt)[0];
+  if (active) return active;
+
+  const directories = await storage.listChunkedDirectory();
+  directories.sort((a, b) => b.name.localeCompare(a.name));
+
+  for (const item of directories) {
+    if (item.type !== 'dir' || !item.name.startsWith('memory-docs-')) continue;
+    let statusText;
+    try {
+      statusText = await storage.readTextFile(`uploads/status/${item.name}.txt`);
+    } catch (error) {
+      if (error.status === 404) continue;
+      throw error;
+    }
+
+    const plan = parseChunkedUploadStatus(statusText);
+    if (!plan || plan.metadata.originalName !== originalName || plan.metadata.size !== size) continue;
+    const remoteItems = await storage.listChunkedDirectory(item.name);
+    const session = recoverChunkedSession(plan, remoteItems);
+    largeUploads.set(session.uploadId, session);
+    return session;
+  }
+
+  return null;
 }
 
 app.get('/api/config', (req, res) => {
@@ -269,6 +304,7 @@ app.post('/api/large-uploads', requireStorage, asyncRoute(async (req, res) => {
   }
 
   let session;
+  let resumed = false;
   if (strategy === 'release') {
     const plan = createReleasePlan(originalName, size);
     const release = await storage.createDraftRelease(plan.metadata, plan.tag);
@@ -293,41 +329,49 @@ app.post('/api/large-uploads', requireStorage, asyncRoute(async (req, res) => {
       updatedAt: Date.now(),
     };
   } else {
-    const plan = createChunkedPlan(originalName, size);
-    session = {
-      ...plan,
-      strategy,
-      releaseId: null,
-      releaseUrl: null,
-      statusPath: `uploads/status/${plan.tag}.txt`,
-      uploaded: new Map(),
-      updatedAt: Date.now(),
-    };
+    session = await findResumableChunkedUpload(originalName, size);
+    resumed = Boolean(session);
+    if (!session) {
+      const plan = createChunkedPlan(originalName, size);
+      session = {
+        ...plan,
+        strategy,
+        releaseId: null,
+        releaseUrl: null,
+        statusPath: `uploads/status/${plan.tag}.txt`,
+        uploaded: new Map(),
+        updatedAt: Date.now(),
+      };
+    }
   }
 
-  try {
-    await writeUploadStatus(
-      session,
-      'IN_PROGRESS',
-      strategy === 'release' ? 'التخزين في GitHub Release.' : 'قناة Releases غير متاحة؛ ستُحفظ الأجزاء داخل المستودع.',
-    );
-  } catch (error) {
-    if (session.strategy === 'release') {
-      await storage.deleteDraftRelease(session.releaseId).catch((cleanupError) => {
-        console.warn(`Could not clean draft after status failure: ${cleanupError.message}`);
-      });
+  if (!resumed) {
+    try {
+      await writeUploadStatus(
+        session,
+        'IN_PROGRESS',
+        strategy === 'release' ? 'التخزين في GitHub Release.' : 'قناة Releases غير متاحة؛ ستُحفظ الأجزاء داخل المستودع.',
+      );
+    } catch (error) {
+      if (session.strategy === 'release') {
+        await storage.deleteDraftRelease(session.releaseId).catch((cleanupError) => {
+          console.warn(`Could not clean draft after status failure: ${cleanupError.message}`);
+        });
+      }
+      throw error;
     }
-    throw error;
   }
   largeUploads.set(session.uploadId, session);
 
-  res.status(201).json({
+  res.status(resumed ? 200 : 201).json({
     uploadId: session.uploadId,
     releaseId: session.releaseId,
     statusPath: session.statusPath,
     strategy: session.strategy,
     chunkSize: session.chunkSize,
     parts: session.parts,
+    uploadedParts: [...session.uploaded.keys()].sort((a, b) => a - b),
+    resumed,
   });
 }));
 
