@@ -75,6 +75,45 @@ test('repository parts retry transient repository-rule validation timeouts', asy
   assert.equal(part.size, 4);
 });
 
+test('repository parts retry temporary GitHub gateway failures', async () => {
+  let putAttempts = 0;
+  const storage = new GitHubStorage({
+    ...settings,
+    retryDelayMs: 1,
+    fetchImpl: async (url, options) => {
+      if (options.method === 'PUT') {
+        putAttempts += 1;
+        if (putAttempts === 1) return jsonResponse({ message: "We couldn't respond in time." }, 504);
+        return jsonResponse({ content: { type: 'file', sha: 'e'.repeat(40), size: 4 } }, 201);
+      }
+      return jsonResponse({ message: 'Not Found' }, 404);
+    },
+  });
+
+  const part = await storage.uploadRepositoryPart('uploads/large/test/part001', Buffer.from('part'), 'archive.7z');
+  assert.equal(putAttempts, 2);
+  assert.equal(part.size, 4);
+});
+
+test('a gateway timeout does not duplicate a part GitHub already stored', async () => {
+  let putAttempts = 0;
+  const storage = new GitHubStorage({
+    ...settings,
+    retryDelayMs: 1,
+    fetchImpl: async (url, options) => {
+      if (options.method === 'PUT') {
+        putAttempts += 1;
+        return jsonResponse({ message: "We couldn't respond in time." }, 504);
+      }
+      return jsonResponse({ type: 'file', sha: 'f'.repeat(40), size: 4 });
+    },
+  });
+
+  const part = await storage.uploadRepositoryPart('uploads/large/test/part001', Buffer.from('part'), 'archive.7z');
+  assert.equal(putAttempts, 1);
+  assert.equal(part.sha, 'f'.repeat(40));
+});
+
 test('listFiles maps and sorts archive entries from newest to oldest', async () => {
   const storage = new GitHubStorage({
     ...settings,

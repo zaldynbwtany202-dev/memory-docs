@@ -332,7 +332,7 @@ app.post('/api/large-uploads', requireStorage, asyncRoute(async (req, res) => {
 }));
 
 // Stream Release parts directly to GitHub. Repository fallback parts are capped
-// at 32 MiB and buffered one at a time; nothing is written to server disk.
+// at 16 MiB and buffered one at a time; nothing is written to server disk.
 app.post('/api/large-uploads/:uploadId/parts/:partIndex', requireStorage, requireLargeUpload, parseLargePart, asyncRoute(async (req, res) => {
   const session = req.largeUpload;
   const partIndex = Number(req.params.partIndex);
