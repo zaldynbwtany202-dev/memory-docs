@@ -361,7 +361,8 @@ async function sendLargeFile(file) {
   } catch (error) {
     if (uploadId) {
       try {
-        await fetchJson(`/api/large-uploads/${uploadId}`, { method: 'DELETE' });
+        const outcome = state.cancelRequested ? 'cancelled' : 'incomplete';
+        await fetchJson(`/api/large-uploads/${uploadId}?outcome=${outcome}`, { method: 'DELETE' });
       } catch (cleanupError) {
         console.warn('Could not clean the incomplete upload:', cleanupError);
       }

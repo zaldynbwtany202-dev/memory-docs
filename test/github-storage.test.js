@@ -52,6 +52,29 @@ test('uploadFile sends base64 content and the target branch to GitHub', async ()
   assert.equal(file.commitUrl, 'https://github.com/example/archive/commit/123');
 });
 
+test('repository parts retry transient repository-rule validation timeouts', async () => {
+  let attempts = 0;
+  const storage = new GitHubStorage({
+    ...settings,
+    retryDelayMs: 1,
+    fetchImpl: async () => {
+      attempts += 1;
+      if (attempts < 3) {
+        return jsonResponse({ message: 'Repository rule violations found\n\nTimed out validating the rule.' }, 409);
+      }
+      return jsonResponse({ content: { sha: 'd'.repeat(40), size: 4 } }, 201);
+    },
+  });
+
+  const part = await storage.uploadRepositoryPart(
+    'uploads/large/memory-docs-test/archive.part001',
+    Buffer.from('part'),
+    'archive.7z',
+  );
+  assert.equal(attempts, 3);
+  assert.equal(part.size, 4);
+});
+
 test('listFiles maps and sorts archive entries from newest to oldest', async () => {
   const storage = new GitHubStorage({
     ...settings,

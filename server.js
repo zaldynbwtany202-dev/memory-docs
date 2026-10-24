@@ -332,7 +332,7 @@ app.post('/api/large-uploads', requireStorage, asyncRoute(async (req, res) => {
 }));
 
 // Stream Release parts directly to GitHub. Repository fallback parts are capped
-// at 95 MiB and buffered one at a time; nothing is written to server disk.
+// at 32 MiB and buffered one at a time; nothing is written to server disk.
 app.post('/api/large-uploads/:uploadId/parts/:partIndex', requireStorage, requireLargeUpload, parseLargePart, asyncRoute(async (req, res) => {
   const session = req.largeUpload;
   const partIndex = Number(req.params.partIndex);
@@ -410,20 +410,23 @@ app.post('/api/large-uploads/:uploadId/complete', requireStorage, requireLargeUp
 
 app.delete('/api/large-uploads/:uploadId', requireStorage, requireLargeUpload, asyncRoute(async (req, res) => {
   const session = req.largeUpload;
+  const interrupted = req.query.outcome === 'incomplete';
   let alreadyComplete = false;
   if (session.strategy === 'release') {
     const deletedDraft = await storage.deleteDraftRelease(session.releaseId);
     alreadyComplete = !deletedDraft;
   } else {
     const paths = [...session.uploaded.values()].map((part) => part.path).filter(Boolean);
-    await storage.deletePaths(paths, `chore: cancel chunked archive ${session.metadata.originalName}`);
+    await storage.deletePaths(paths, `chore: clean incomplete archive ${session.metadata.originalName}`);
   }
 
-  await tryWriteUploadStatus(
-    session,
-    alreadyComplete ? 'COMPLETE' : 'CANCELLED',
-    alreadyComplete ? 'كان الإصدار منشورًا بالفعل؛ لم يُحذف.' : 'أُلغيت العملية وحُذفت الأجزاء غير المكتملة.',
-  );
+  const finalStatus = alreadyComplete ? 'COMPLETE' : interrupted ? 'INCOMPLETE' : 'CANCELLED';
+  const note = alreadyComplete
+    ? 'كان الإصدار منشورًا بالفعل؛ لم يُحذف.'
+    : interrupted
+      ? 'توقف الرفع بسبب خطأ وحُذفت الأجزاء غير المكتملة. يمكن بدء عملية جديدة.'
+      : 'أُلغيت العملية وحُذفت الأجزاء غير المكتملة.';
+  await tryWriteUploadStatus(session, finalStatus, note);
   largeUploads.delete(session.uploadId);
   res.status(204).end();
 }));
@@ -607,6 +610,12 @@ app.use((error, req, res, next) => {
 
   if (error.code === 'GITHUB_ERROR') {
     console.error(error.message);
+    if (error.status === 409 && /timed out validating the rule/i.test(error.message)) {
+      return res.status(409).json({
+        error: 'انتهت مهلة فحص GitHub للجزء بعد 3 محاولات. لم يُحفظ جزء ناقص؛ أعد المحاولة.',
+        code: 'GITHUB_RULE_VALIDATION_TIMEOUT',
+      });
+    }
     const messages = {
       401: 'رمز GitHub غير صالح أو منتهي. حدّث بيانات الاتصال في الخادم.',
       403: 'رفض GitHub العملية. تأكد من صلاحية contents:write ومن الحد المسموح للطلبات.',
