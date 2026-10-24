@@ -2,6 +2,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { Readable } from 'node:stream';
 import { pipeline } from 'node:stream/promises';
+import { once } from 'node:events';
 import express from 'express';
 import multer from 'multer';
 import dotenv from 'dotenv';
@@ -21,6 +22,12 @@ import {
   toPublicReleaseArchive,
 } from './lib/release-archive.js';
 import { buildUploadStatusText } from './lib/upload-status.js';
+import {
+  CHUNKED_PART_SIZE,
+  createChunkedPlan,
+  toChunkedArchive,
+  toPublicChunkedArchive,
+} from './lib/chunked-archive.js';
 
 const rootDir = path.dirname(fileURLToPath(import.meta.url));
 dotenv.config({ path: path.join(rootDir, '.env'), quiet: true });
@@ -98,6 +105,13 @@ function requireStorage(req, res, next) {
   next();
 }
 
+const chunkedPartParser = express.raw({ type: 'application/octet-stream', limit: CHUNKED_PART_SIZE });
+
+function parseLargePart(req, res, next) {
+  if (req.largeUpload.strategy === 'chunked') return chunkedPartParser(req, res, next);
+  next();
+}
+
 function requireLargeUpload(req, res, next) {
   const session = largeUploads.get(req.params.uploadId);
   if (!session) {
@@ -148,12 +162,14 @@ app.get('/api/config', (req, res) => {
 });
 
 app.get('/api/files', requireStorage, asyncRoute(async (req, res) => {
-  const [repositoryFiles, releaseArchives] = await Promise.all([
+  const [repositoryFiles, releaseArchives, chunkedArchives] = await Promise.all([
     storage.listFiles(),
     storage.listReleaseArchives(),
+    storage.listChunkedArchives(),
   ]);
   const releaseFiles = releaseArchives.map(toPublicReleaseArchive);
-  const files = [...repositoryFiles, ...releaseFiles]
+  const chunkedFiles = chunkedArchives.map(toPublicChunkedArchive);
+  const files = [...repositoryFiles, ...releaseFiles, ...chunkedFiles]
     .sort((a, b) => b.uploadedAt.localeCompare(a.uploadedAt));
   res.json({ files });
 }));
@@ -244,34 +260,63 @@ app.post('/api/large-uploads', requireStorage, asyncRoute(async (req, res) => {
     });
   }
 
-  await storage.assertReleaseUploadsAvailable();
-  const plan = createReleasePlan(originalName, size);
-  const release = await storage.createDraftRelease(plan.metadata, plan.tag);
-  const uploadUrl = typeof release.upload_url === 'string' ? release.upload_url.split('{')[0] : null;
-
-  if (!release.id || !uploadUrl) {
-    if (release.id) await storage.deleteRelease(release.id);
-    const error = new Error('GitHub did not return a release upload URL.');
-    error.code = 'INCOMPLETE_RELEASE';
-    throw error;
+  let strategy = 'chunked';
+  try {
+    await storage.assertReleaseUploadsAvailable();
+    strategy = 'release';
+  } catch (error) {
+    if (error.code !== 'RELEASE_UPLOAD_UNAVAILABLE') throw error;
   }
 
-  const session = {
-    ...plan,
-    releaseId: String(release.id),
-    releaseUrl: release.html_url || null,
-    statusPath: `uploads/status/${plan.tag}.txt`,
-    uploadUrl,
-    uploaded: new Map(),
-    updatedAt: Date.now(),
-  };
+  let session;
+  if (strategy === 'release') {
+    const plan = createReleasePlan(originalName, size);
+    const release = await storage.createDraftRelease(plan.metadata, plan.tag);
+    const uploadUrl = typeof release.upload_url === 'string' ? release.upload_url.split('{')[0] : null;
+
+    if (!release.id || !uploadUrl) {
+      if (release.id) await storage.deleteRelease(release.id);
+      const error = new Error('GitHub did not return a release upload URL.');
+      error.code = 'INCOMPLETE_RELEASE';
+      throw error;
+    }
+
+    session = {
+      ...plan,
+      strategy,
+      chunkSize: RELEASE_PART_SIZE,
+      releaseId: String(release.id),
+      releaseUrl: release.html_url || null,
+      statusPath: `uploads/status/${plan.tag}.txt`,
+      uploadUrl,
+      uploaded: new Map(),
+      updatedAt: Date.now(),
+    };
+  } else {
+    const plan = createChunkedPlan(originalName, size);
+    session = {
+      ...plan,
+      strategy,
+      releaseId: null,
+      releaseUrl: null,
+      statusPath: `uploads/status/${plan.tag}.txt`,
+      uploaded: new Map(),
+      updatedAt: Date.now(),
+    };
+  }
 
   try {
-    await writeUploadStatus(session, 'IN_PROGRESS', 'بدأت العملية ولم تصل جميع الأجزاء بعد.');
+    await writeUploadStatus(
+      session,
+      'IN_PROGRESS',
+      strategy === 'release' ? 'التخزين في GitHub Release.' : 'قناة Releases غير متاحة؛ ستُحفظ الأجزاء داخل المستودع.',
+    );
   } catch (error) {
-    await storage.deleteDraftRelease(session.releaseId).catch((cleanupError) => {
-      console.warn(`Could not clean draft after status failure: ${cleanupError.message}`);
-    });
+    if (session.strategy === 'release') {
+      await storage.deleteDraftRelease(session.releaseId).catch((cleanupError) => {
+        console.warn(`Could not clean draft after status failure: ${cleanupError.message}`);
+      });
+    }
     throw error;
   }
   largeUploads.set(session.uploadId, session);
@@ -280,14 +325,15 @@ app.post('/api/large-uploads', requireStorage, asyncRoute(async (req, res) => {
     uploadId: session.uploadId,
     releaseId: session.releaseId,
     statusPath: session.statusPath,
-    chunkSize: RELEASE_PART_SIZE,
+    strategy: session.strategy,
+    chunkSize: session.chunkSize,
     parts: session.parts,
   });
 }));
 
-// Stream one raw Blob directly through to GitHub. No 1.75 GiB part is buffered
-// in memory or written to the server's disk.
-app.post('/api/large-uploads/:uploadId/parts/:partIndex', requireStorage, requireLargeUpload, asyncRoute(async (req, res) => {
+// Stream Release parts directly to GitHub. Repository fallback parts are capped
+// at 95 MiB and buffered one at a time; nothing is written to server disk.
+app.post('/api/large-uploads/:uploadId/parts/:partIndex', requireStorage, requireLargeUpload, parseLargePart, asyncRoute(async (req, res) => {
   const session = req.largeUpload;
   const partIndex = Number(req.params.partIndex);
   const part = session.parts.find((item) => item.index === partIndex);
@@ -309,11 +355,14 @@ app.post('/api/large-uploads/:uploadId/parts/:partIndex', requireStorage, requir
   req.setTimeout(0);
   res.setTimeout(0);
   session.updatedAt = Date.now();
-  const asset = await storage.uploadReleaseAsset(session.uploadUrl, part, req);
+  const asset = session.strategy === 'release'
+    ? await storage.uploadReleaseAsset(session.uploadUrl, part, req)
+    : await storage.uploadRepositoryPart(part.path, req.body, session.metadata.originalName);
   const uploadedPart = {
     index: partIndex,
-    id: String(asset.id),
+    id: String(asset.id || asset.sha),
     name: part.name,
+    path: part.path,
     size: asset.size || part.size,
   };
   session.uploaded.set(partIndex, uploadedPart);
@@ -333,19 +382,47 @@ app.post('/api/large-uploads/:uploadId/complete', requireStorage, requireLargeUp
     });
   }
 
-  const archive = await storage.publishRelease(session.releaseId);
+  let archive;
+  if (session.strategy === 'release') {
+    archive = await storage.publishRelease(session.releaseId);
+  } else {
+    await storage.upsertTextFile(
+      session.manifestPath,
+      JSON.stringify(session.metadata, null, 2),
+      `chore: complete chunked archive ${session.metadata.originalName}`,
+    );
+    const branchPath = branch.split('/').map(encodeURIComponent).join('/');
+    archive = toChunkedArchive(
+      session.tag,
+      session.metadata,
+      `https://github.com/${owner}/${repo}/tree/${branchPath}/${session.directory}`,
+    );
+  }
+
   largeUploads.delete(session.uploadId);
-  await tryWriteUploadStatus(session, 'COMPLETE', 'وصلت جميع الأجزاء ونُشر الإصدار بنجاح.');
-  res.json({ file: toPublicReleaseArchive(archive) });
+  await tryWriteUploadStatus(session, 'COMPLETE', 'وصلت جميع الأجزاء وأصبح الأرشيف جاهزًا.');
+  res.json({
+    file: session.strategy === 'release'
+      ? toPublicReleaseArchive(archive)
+      : toPublicChunkedArchive(archive),
+  });
 }));
 
 app.delete('/api/large-uploads/:uploadId', requireStorage, requireLargeUpload, asyncRoute(async (req, res) => {
   const session = req.largeUpload;
-  const deletedDraft = await storage.deleteDraftRelease(session.releaseId);
+  let alreadyComplete = false;
+  if (session.strategy === 'release') {
+    const deletedDraft = await storage.deleteDraftRelease(session.releaseId);
+    alreadyComplete = !deletedDraft;
+  } else {
+    const paths = [...session.uploaded.values()].map((part) => part.path).filter(Boolean);
+    await storage.deletePaths(paths, `chore: cancel chunked archive ${session.metadata.originalName}`);
+  }
+
   await tryWriteUploadStatus(
     session,
-    deletedDraft ? 'CANCELLED' : 'COMPLETE',
-    deletedDraft ? 'أُلغيت العملية وحُذفت مسودة الأجزاء.' : 'كان الإصدار منشورًا بالفعل؛ لم يُحذف.',
+    alreadyComplete ? 'COMPLETE' : 'CANCELLED',
+    alreadyComplete ? 'كان الإصدار منشورًا بالفعل؛ لم يُحذف.' : 'أُلغيت العملية وحُذفت الأجزاء غير المكتملة.',
   );
   largeUploads.delete(session.uploadId);
   res.status(204).end();
@@ -398,6 +475,58 @@ app.delete('/api/large-files/:releaseId', requireStorage, asyncRoute(async (req,
   res.status(204).end();
 }));
 
+app.get('/api/chunked-files/:tag/download', requireStorage, asyncRoute(async (req, res) => {
+  const archive = await storage.getChunkedArchive(req.params.tag);
+  if (!archive) {
+    return res.status(404).json({ error: 'الأرشيف المجزأ غير موجود.', code: 'ARCHIVE_NOT_FOUND' });
+  }
+
+  res.attachment(archive.name);
+  res.type(expectedArchiveType(archive.name) === '7z' ? 'application/x-7z-compressed' : 'application/zip');
+  res.set({ 'Content-Length': String(archive.size), 'X-Accel-Buffering': 'no' });
+  res.setTimeout(0);
+
+  try {
+    for (const part of archive.parts) {
+      if (res.destroyed) return;
+      const contents = await storage.downloadFile(part.path);
+      if (contents.length !== part.size) {
+        const error = new Error(`Part size mismatch: ${part.path}`);
+        error.code = 'INCOMPLETE_RELEASE';
+        throw error;
+      }
+      if (!res.write(contents)) await once(res, 'drain');
+    }
+    res.end();
+  } catch (error) {
+    if (res.headersSent) {
+      res.destroy(error);
+      return;
+    }
+    throw error;
+  }
+}));
+
+app.delete('/api/chunked-files/:tag', requireStorage, asyncRoute(async (req, res) => {
+  const archive = await storage.deleteChunkedArchive(req.params.tag);
+  if (!archive) {
+    return res.status(404).json({ error: 'الأرشيف المجزأ غير موجود.', code: 'ARCHIVE_NOT_FOUND' });
+  }
+
+  const statusSession = {
+    uploadId: `deleted-${archive.tag}`,
+    strategy: 'chunked',
+    releaseId: null,
+    tag: archive.tag,
+    statusPath: `uploads/status/${archive.tag}.txt`,
+    metadata: { originalName: archive.name, size: archive.size },
+    parts: archive.parts.map((part, index) => ({ ...part, index })),
+    uploaded: new Map(archive.parts.map((part, index) => [index, part])),
+  };
+  await tryWriteUploadStatus(statusSession, 'DELETED', 'حُذفت الأجزاء والبيانات الوصفية من المستودع.');
+  res.status(204).end();
+}));
+
 // Remove abandoned draft uploads after 48 hours. Each completed part extends the session.
 const cleanupTimer = setInterval(async () => {
   const now = Date.now();
@@ -405,10 +534,15 @@ const cleanupTimer = setInterval(async () => {
     if (now - session.updatedAt < 48 * 60 * 60 * 1000) continue;
     let status = 'INCOMPLETE';
     try {
-      const deletedDraft = await storage?.deleteDraftRelease(session.releaseId);
-      if (deletedDraft === false) status = 'COMPLETE';
+      if (session.strategy === 'release') {
+        const deletedDraft = await storage?.deleteDraftRelease(session.releaseId);
+        if (deletedDraft === false) status = 'COMPLETE';
+      } else {
+        const paths = [...session.uploaded.values()].map((part) => part.path).filter(Boolean);
+        await storage?.deletePaths(paths, `chore: clean incomplete archive ${session.metadata.originalName}`);
+      }
     } catch (error) {
-      console.warn(`Could not clean draft release ${session.releaseId}: ${error.message}`);
+      console.warn(`Could not clean incomplete upload ${session.uploadId}: ${error.message}`);
     }
     await tryWriteUploadStatus(session, status, 'انتهت مهلة جلسة الرفع قبل اكتمالها.');
     largeUploads.delete(uploadId);
@@ -432,6 +566,10 @@ app.use(express.static(path.join(rootDir, 'public'), {
 
 app.use((error, req, res, next) => {
   if (res.headersSent) return next(error);
+
+  if (error.type === 'entity.too.large') {
+    return res.status(413).json({ error: 'حجم الجزء أكبر من الحد المسموح.', code: 'PART_TOO_LARGE' });
+  }
 
   if (error instanceof multer.MulterError) {
     if (error.code === 'LIMIT_FILE_SIZE') {

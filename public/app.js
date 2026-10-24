@@ -190,11 +190,6 @@ function validateFile(file) {
   return null;
 }
 
-function getReleasePartCount(file) {
-  if (!state.config || file.size <= state.config.repositoryFileSize) return 0;
-  return Math.ceil(file.size / state.config.releasePartSize);
-}
-
 function selectFile(file) {
   const validationError = validateFile(file);
   if (validationError) {
@@ -206,10 +201,8 @@ function selectFile(file) {
   state.selectedFile = file;
   elements.selectedFileName.textContent = file.name;
   elements.selectedFileName.title = file.name;
-  const partCount = getReleasePartCount(file);
-  const planLabel = partCount > 1
-    ? `سيُقسّم إلى ${numberFormatter.format(partCount)} أجزاء`
-    : partCount === 1 ? 'سيُحفظ في GitHub Release' : 'جاهز للرفع';
+  const isLarge = state.config && file.size > state.config.repositoryFileSize;
+  const planLabel = isLarge ? 'سيُقسّم تلقائيًا أثناء الرفع' : 'جاهز للرفع';
   elements.selectedFileMeta.textContent = `${formatBytes(file.size)} · ${planLabel}`;
   elements.selectedFileType.textContent = getArchiveTypeLabel(file.name);
   elements.dropZone.hidden = true;
@@ -370,7 +363,7 @@ async function sendLargeFile(file) {
       try {
         await fetchJson(`/api/large-uploads/${uploadId}`, { method: 'DELETE' });
       } catch (cleanupError) {
-        console.warn('Could not clean the draft release:', cleanupError);
+        console.warn('Could not clean the incomplete upload:', cleanupError);
       }
     }
     throw error;
@@ -479,7 +472,9 @@ function buildFileRow(file) {
   const type = document.createElement('span');
   type.textContent = file.kind === 'release'
     ? `${numberFormatter.format(file.partCount)} أجزاء · GitHub Release`
-    : 'ملف مضغوط · محفوظ في GitHub';
+    : file.kind === 'chunked'
+      ? `${numberFormatter.format(file.partCount)} أجزاء · داخل المستودع`
+      : 'ملف مضغوط · محفوظ في GitHub';
   copy.append(name, type);
   main.append(typeIcon, copy);
 
@@ -501,7 +496,7 @@ function buildFileRow(file) {
   download.className = 'icon-button download-action';
   download.href = file.downloadUrl;
   download.download = file.name;
-  download.title = file.kind === 'release' ? 'تنزيل ودمج الأجزاء' : 'تنزيل الملف';
+  download.title = file.kind === 'release' || file.kind === 'chunked' ? 'تنزيل ودمج الأجزاء' : 'تنزيل الملف';
   download.setAttribute('aria-label', `${download.title} ${file.name}`);
   download.append(createIcon('download'));
 
@@ -599,6 +594,8 @@ async function deleteSelectedFile() {
   try {
     if (file.kind === 'release') {
       await fetchJson(`/api/large-files/${file.releaseId}`, { method: 'DELETE' });
+    } else if (file.kind === 'chunked') {
+      await fetchJson(`/api/chunked-files/${encodeURIComponent(file.tag)}`, { method: 'DELETE' });
     } else {
       await fetchJson('/api/files', {
         method: 'DELETE',
