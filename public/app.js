@@ -6,6 +6,8 @@ const state = {
   loadingFiles: false,
   fileToDelete: null,
   toastTimer: null,
+  cancelRequested: false,
+  activeRequest: null,
 };
 
 const elements = {
@@ -30,6 +32,7 @@ const elements = {
   progressLabel: document.querySelector('#progress-label'),
   progressValue: document.querySelector('#progress-value'),
   progressTrack: document.querySelector('#progress-track'),
+  cancelUpload: document.querySelector('#cancel-upload'),
   maxSizeLabel: document.querySelector('#max-size-label'),
   refreshFiles: document.querySelector('#refresh-files'),
   retryFiles: document.querySelector('#retry-files'),
@@ -67,7 +70,7 @@ function createIcon(name, extraClass = '') {
 
 function formatBytes(bytes) {
   if (!Number.isFinite(bytes) || bytes <= 0) return '0 بايت';
-  const units = ['بايت', 'ك.ب', 'م.ب', 'ج.ب'];
+  const units = ['بايت', 'ك.ب', 'م.ب', 'ج.ب', 'ت.ب'];
   const unitIndex = Math.min(Math.floor(Math.log(bytes) / Math.log(1024)), units.length - 1);
   const value = bytes / (1024 ** unitIndex);
   return `${numberFormatter.format(value)} ${units[unitIndex]}`;
@@ -133,7 +136,7 @@ async function loadConfig() {
   try {
     const config = await fetchJson('/api/config');
     state.config = config;
-    elements.maxSizeLabel.textContent = `${numberFormatter.format(config.maxFileSizeMb)} م.ب`;
+    elements.maxSizeLabel.textContent = formatBytes(config.maxFileSize);
 
     if (config.repository) {
       const { owner, name, branch, url } = config.repository;
@@ -180,11 +183,16 @@ function validateFile(file) {
   if (!/\.(zip|7z)$/i.test(file.name)) return 'اختر ملفًا بامتداد ZIP أو 7Z فقط.';
   if (file.size === 0) return 'هذا الملف فارغ. اختر ملفًا مضغوطًا صالحًا.';
 
-  const maxFileSize = state.config?.maxFileSize || (100 * 1024 * 1024);
+  const maxFileSize = state.config?.maxFileSize || (20 * 1024 * 1024 * 1024);
   if (file.size > maxFileSize) {
     return `حجم الملف ${formatBytes(file.size)}، بينما الحد المسموح ${formatBytes(maxFileSize)}.`;
   }
   return null;
+}
+
+function getReleasePartCount(file) {
+  if (!state.config || file.size <= state.config.repositoryFileSize) return 0;
+  return Math.ceil(file.size / state.config.releasePartSize);
 }
 
 function selectFile(file) {
@@ -198,7 +206,11 @@ function selectFile(file) {
   state.selectedFile = file;
   elements.selectedFileName.textContent = file.name;
   elements.selectedFileName.title = file.name;
-  elements.selectedFileMeta.textContent = `${formatBytes(file.size)} · جاهز للرفع`;
+  const partCount = getReleasePartCount(file);
+  const planLabel = partCount > 1
+    ? `سيُقسّم إلى ${numberFormatter.format(partCount)} أجزاء`
+    : partCount === 1 ? 'سيُحفظ في GitHub Release' : 'جاهز للرفع';
+  elements.selectedFileMeta.textContent = `${formatBytes(file.size)} · ${planLabel}`;
   elements.selectedFileType.textContent = getArchiveTypeLabel(file.name);
   elements.dropZone.hidden = true;
   elements.selectedFile.hidden = false;
@@ -224,6 +236,8 @@ function resetProgress() {
   elements.progressValue.textContent = '0%';
   elements.progressLabel.textContent = 'جارٍ رفع الملف…';
   elements.progressTrack.setAttribute('aria-valuenow', '0');
+  elements.cancelUpload.hidden = true;
+  elements.cancelUpload.disabled = false;
 }
 
 function setProgress(percent) {
@@ -236,10 +250,10 @@ function setProgress(percent) {
   elements.progressTrack.setAttribute('aria-valuenow', String(safePercent));
 }
 
-function setSavingProgress() {
+function setSavingProgress(label = 'اكتمل الرفع، جارٍ الحفظ في GitHub…') {
   elements.uploadProgress.hidden = false;
   elements.uploadProgress.classList.add('is-saving');
-  elements.progressLabel.textContent = 'اكتمل الرفع، جارٍ الحفظ في GitHub…';
+  elements.progressLabel.textContent = label;
   elements.progressValue.textContent = '100%';
   elements.progressTrack.removeAttribute('value');
   elements.progressTrack.removeAttribute('aria-valuenow');
@@ -260,7 +274,7 @@ function sendFile(file) {
         if (event.loaded === event.total) setSavingProgress();
       }
     });
-    request.upload.addEventListener('load', setSavingProgress);
+    request.upload.addEventListener('load', () => setSavingProgress());
 
     request.addEventListener('load', () => {
       let response = null;
@@ -282,6 +296,97 @@ function sendFile(file) {
   });
 }
 
+async function readArchiveSignature(file) {
+  const bytes = new Uint8Array(await file.slice(0, 6).arrayBuffer());
+  return Array.from(bytes, (byte) => byte.toString(16).padStart(2, '0')).join('');
+}
+
+function sendLargePart(session, part, file, completedBytes) {
+  return new Promise((resolve, reject) => {
+    const request = new XMLHttpRequest();
+    const start = part.index * session.chunkSize;
+    const blob = file.slice(start, start + part.size);
+
+    request.open('POST', `/api/large-uploads/${session.uploadId}/parts/${part.index}`);
+    request.setRequestHeader('Content-Type', 'application/octet-stream');
+    request.timeout = 4 * 60 * 60 * 1000;
+    state.activeRequest = request;
+
+    request.upload.addEventListener('progress', (event) => {
+      if (event.lengthComputable) {
+        setProgress(((completedBytes + event.loaded) / file.size) * 100);
+      }
+    });
+    request.addEventListener('load', () => {
+      let response = null;
+      try {
+        response = JSON.parse(request.responseText);
+      } catch {
+        response = null;
+      }
+      if (request.status >= 200 && request.status < 300) {
+        resolve(response?.part);
+      } else {
+        reject(new Error(response?.error || `تعذر رفع الجزء ${part.index + 1}.`));
+      }
+    });
+    request.addEventListener('error', () => reject(new Error('انقطع الاتصال أثناء رفع أحد الأجزاء.')));
+    request.addEventListener('timeout', () => reject(new Error('استغرق رفع الجزء وقتًا طويلًا. حاول مجددًا.')));
+    request.addEventListener('abort', () => reject(new Error('تم إلغاء الرفع.')));
+    request.addEventListener('loadend', () => {
+      if (state.activeRequest === request) state.activeRequest = null;
+    });
+    request.send(blob);
+  });
+}
+
+async function sendLargeFile(file) {
+  let uploadId = null;
+
+  try {
+    const signature = await readArchiveSignature(file);
+    const session = await fetchJson('/api/large-uploads', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name: file.name, size: file.size, signature }),
+    });
+    uploadId = session.uploadId;
+    let completedBytes = 0;
+
+    for (const part of session.parts) {
+      if (state.cancelRequested) throw new Error('تم إلغاء الرفع.');
+      elements.progressLabel.textContent = `جارٍ رفع الجزء ${numberFormatter.format(part.index + 1)} من ${numberFormatter.format(session.parts.length)}…`;
+      await sendLargePart(session, part, file, completedBytes);
+      completedBytes += part.size;
+      setProgress((completedBytes / file.size) * 100);
+    }
+
+    elements.cancelUpload.disabled = true;
+    setSavingProgress('اكتمل رفع الأجزاء، جارٍ نشر الأرشيف في GitHub…');
+    const result = await fetchJson(`/api/large-uploads/${uploadId}/complete`, { method: 'POST' });
+    return result.file;
+  } catch (error) {
+    if (uploadId) {
+      try {
+        await fetchJson(`/api/large-uploads/${uploadId}`, { method: 'DELETE' });
+      } catch (cleanupError) {
+        console.warn('Could not clean the draft release:', cleanupError);
+      }
+    }
+    throw error;
+  } finally {
+    state.activeRequest = null;
+    elements.cancelUpload.disabled = false;
+  }
+}
+
+function cancelLargeUpload() {
+  if (!state.uploading) return;
+  state.cancelRequested = true;
+  elements.cancelUpload.disabled = true;
+  state.activeRequest?.abort();
+}
+
 async function handleUpload(event) {
   event.preventDefault();
   if (state.uploading) return;
@@ -298,12 +403,19 @@ async function handleUpload(event) {
   }
 
   const file = state.selectedFile;
+  const isLarge = file.size > state.config.repositoryFileSize;
   state.uploading = true;
+  state.cancelRequested = false;
+  elements.cancelUpload.hidden = !isLarge;
   setProgress(0);
   updateUploadButton();
 
   try {
-    await sendFile(file);
+    if (isLarge) {
+      await sendLargeFile(file);
+    } else {
+      await sendFile(file);
+    }
     showToast(`تم حفظ «${file.name}» في GitHub بنجاح.`);
     state.uploading = false;
     clearSelection();
@@ -312,7 +424,10 @@ async function handleUpload(event) {
     state.uploading = false;
     elements.uploadProgress.hidden = true;
     updateUploadButton();
-    showToast(error.message, 'error');
+    showToast(
+      state.cancelRequested ? 'تم إلغاء الرفع.' : error.message,
+      state.cancelRequested ? 'success' : 'error',
+    );
   }
 }
 
@@ -362,7 +477,9 @@ function buildFileRow(file) {
   name.title = file.name;
   name.dir = 'auto';
   const type = document.createElement('span');
-  type.textContent = 'ملف مضغوط · محفوظ في GitHub';
+  type.textContent = file.kind === 'release'
+    ? `${numberFormatter.format(file.partCount)} أجزاء · GitHub Release`
+    : 'ملف مضغوط · محفوظ في GitHub';
   copy.append(name, type);
   main.append(typeIcon, copy);
 
@@ -384,8 +501,8 @@ function buildFileRow(file) {
   download.className = 'icon-button download-action';
   download.href = file.downloadUrl;
   download.download = file.name;
-  download.title = 'تنزيل الملف';
-  download.setAttribute('aria-label', `تنزيل ${file.name}`);
+  download.title = file.kind === 'release' ? 'تنزيل ودمج الأجزاء' : 'تنزيل الملف';
+  download.setAttribute('aria-label', `${download.title} ${file.name}`);
   download.append(createIcon('download'));
 
   const github = document.createElement('a');
@@ -480,11 +597,15 @@ async function deleteSelectedFile() {
   elements.confirmDelete.textContent = 'جارٍ الحذف…';
 
   try {
-    await fetchJson('/api/files', {
-      method: 'DELETE',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ path: file.path, sha: file.sha }),
-    });
+    if (file.kind === 'release') {
+      await fetchJson(`/api/large-files/${file.releaseId}`, { method: 'DELETE' });
+    } else {
+      await fetchJson('/api/files', {
+        method: 'DELETE',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ path: file.path, sha: file.sha }),
+      });
+    }
 
     state.files = state.files.filter((item) => item.path !== file.path);
     elements.deleteDialog.close();
@@ -514,6 +635,7 @@ elements.dropZone.addEventListener('click', () => {
 elements.fileInput.addEventListener('change', () => selectFile(elements.fileInput.files[0]));
 elements.removeFile.addEventListener('click', clearSelection);
 elements.uploadForm.addEventListener('submit', handleUpload);
+elements.cancelUpload.addEventListener('click', cancelLargeUpload);
 elements.refreshFiles.addEventListener('click', () => loadFiles());
 elements.retryFiles.addEventListener('click', () => loadFiles());
 

@@ -1,5 +1,7 @@
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { Readable } from 'node:stream';
+import { pipeline } from 'node:stream/promises';
 import express from 'express';
 import multer from 'multer';
 import dotenv from 'dotenv';
@@ -12,6 +14,12 @@ import {
   parseStoragePath,
   sanitizeFilename,
 } from './lib/file-utils.js';
+import {
+  createReleasePlan,
+  RELEASE_PART_SIZE,
+  REPOSITORY_FILE_SIZE_LIMIT,
+  toPublicReleaseArchive,
+} from './lib/release-archive.js';
 
 const rootDir = path.dirname(fileURLToPath(import.meta.url));
 dotenv.config({ path: path.join(rootDir, '.env'), quiet: true });
@@ -21,13 +29,21 @@ const owner = (process.env.GITHUB_OWNER || repositoryOwner).trim();
 const repo = (process.env.GITHUB_REPO || repositoryName).trim();
 const token = process.env.GITHUB_TOKEN || process.env.GH_TOKEN || '';
 const branch = (process.env.GITHUB_BRANCH || 'main').trim();
-const requestedLimit = Number(process.env.MAX_FILE_SIZE_MB || 100);
-const maxFileSizeMb = Number.isFinite(requestedLimit) && requestedLimit > 0
-  ? Math.min(requestedLimit, 100)
-  : 100;
-const maxFileSize = Math.floor(maxFileSizeMb * 1024 * 1024);
+const requestedLimitGb = Number(process.env.MAX_FILE_SIZE_GB || 20);
+const maxFileSizeGb = Number.isFinite(requestedLimitGb) && requestedLimitGb > 0
+  ? Math.min(requestedLimitGb, 100)
+  : 20;
+const maxFileSize = Math.floor(maxFileSizeGb * 1024 * 1024 * 1024);
 const isConfigured = Boolean(token && owner && repo && branch);
-const storage = isConfigured ? new GitHubStorage({ token, owner, repo, branch }) : null;
+const storage = isConfigured ? new GitHubStorage({
+  token,
+  owner,
+  repo,
+  branch,
+  apiUrl: process.env.GITHUB_API_URL || 'https://api.github.com',
+  uploadUrl: process.env.GITHUB_UPLOAD_URL || 'https://uploads.github.com',
+}) : null;
+const largeUploads = new Map();
 
 export const app = express();
 app.disable('x-powered-by');
@@ -46,12 +62,12 @@ app.use('/api', (req, res, next) => {
   res.set('Cache-Control', 'no-store');
   next();
 });
-app.use(express.json({ limit: '12kb' }));
+app.use(express.json({ limit: '16kb' }));
 
 const upload = multer({
   storage: multer.memoryStorage(),
   limits: {
-    fileSize: maxFileSize,
+    fileSize: REPOSITORY_FILE_SIZE_LIMIT,
     files: 1,
     fields: 0,
     parts: 2,
@@ -81,11 +97,29 @@ function requireStorage(req, res, next) {
   next();
 }
 
+function requireLargeUpload(req, res, next) {
+  const session = largeUploads.get(req.params.uploadId);
+  if (!session) {
+    return res.status(404).json({
+      error: 'جلسة الرفع غير موجودة أو انتهت. ابدأ رفع الملف من جديد.',
+      code: 'UPLOAD_SESSION_NOT_FOUND',
+    });
+  }
+  req.largeUpload = session;
+  next();
+}
+
+function expectedArchiveType(name) {
+  return getArchiveExtension(name) === '.7z' ? '7z' : 'zip';
+}
+
 app.get('/api/config', (req, res) => {
   res.json({
     configured: isConfigured,
     maxFileSize,
-    maxFileSizeMb,
+    maxFileSizeGb,
+    repositoryFileSize: REPOSITORY_FILE_SIZE_LIMIT,
+    releasePartSize: RELEASE_PART_SIZE,
     repository: owner && repo ? {
       owner,
       name: repo,
@@ -96,10 +130,17 @@ app.get('/api/config', (req, res) => {
 });
 
 app.get('/api/files', requireStorage, asyncRoute(async (req, res) => {
-  const files = await storage.listFiles();
+  const [repositoryFiles, releaseArchives] = await Promise.all([
+    storage.listFiles(),
+    storage.listReleaseArchives(),
+  ]);
+  const releaseFiles = releaseArchives.map(toPublicReleaseArchive);
+  const files = [...repositoryFiles, ...releaseFiles]
+    .sort((a, b) => b.uploadedAt.localeCompare(a.uploadedAt));
   res.json({ files });
 }));
 
+// Small archives are stored directly in the repository, up to GitHub's 100 MiB limit.
 app.post(
   '/api/files',
   requireStorage,
@@ -118,8 +159,7 @@ app.post(
       });
     }
 
-    const expectedType = getArchiveExtension(originalName) === '.7z' ? '7z' : 'zip';
-    if (archiveType !== expectedType) {
+    if (archiveType !== expectedArchiveType(originalName)) {
       return res.status(415).json({
         error: 'امتداد الملف لا يطابق محتواه. أعد تسميته بالامتداد الصحيح ثم حاول مجددًا.',
         code: 'ARCHIVE_TYPE_MISMATCH',
@@ -141,7 +181,7 @@ app.get('/api/files/download', requireStorage, asyncRoute(async (req, res) => {
   const { originalName } = parseStoragePath(storagePath);
   const contents = await storage.downloadFile(storagePath);
   res.attachment(originalName);
-  res.type(getArchiveExtension(originalName) === '.7z' ? 'application/x-7z-compressed' : 'application/zip');
+  res.type(expectedArchiveType(originalName) === '7z' ? 'application/x-7z-compressed' : 'application/zip');
   res.set('Content-Length', String(contents.length));
   res.send(contents);
 }));
@@ -157,6 +197,184 @@ app.delete('/api/files', requireStorage, asyncRoute(async (req, res) => {
   res.status(204).end();
 }));
 
+// Start a chunked release upload. Only six signature bytes cross the server here;
+// the large file itself remains in the browser until each Blob part is streamed.
+app.post('/api/large-uploads', requireStorage, asyncRoute(async (req, res) => {
+  const { name, size, signature } = req.body || {};
+  if (!getArchiveExtension(name || '')) {
+    return res.status(415).json({ error: 'اختر ملفًا بامتداد ZIP أو 7Z.', code: 'INVALID_FILE_TYPE' });
+  }
+  if (!Number.isSafeInteger(size) || size <= REPOSITORY_FILE_SIZE_LIMIT) {
+    return res.status(400).json({ error: 'استخدم الرفع العادي لهذا الحجم.', code: 'SMALL_FILE_REQUIRED' });
+  }
+  if (size > maxFileSize) {
+    return res.status(413).json({
+      error: `حجم الملف أكبر من الحد المسموح (${maxFileSizeGb} ج.ب).`,
+      code: 'FILE_TOO_LARGE',
+    });
+  }
+  if (typeof signature !== 'string' || !/^[a-f0-9]{12}$/i.test(signature)) {
+    return res.status(400).json({ error: 'تعذر التحقق من توقيع الملف.', code: 'INVALID_SIGNATURE' });
+  }
+
+  const originalName = sanitizeFilename(name);
+  const archiveType = getArchiveType(Buffer.from(signature, 'hex'));
+  if (!archiveType || archiveType !== expectedArchiveType(originalName)) {
+    return res.status(415).json({
+      error: 'امتداد الملف لا يطابق توقيع ZIP أو 7Z الموجود في محتواه.',
+      code: 'ARCHIVE_TYPE_MISMATCH',
+    });
+  }
+
+  await storage.assertReleaseUploadsAvailable();
+  const plan = createReleasePlan(originalName, size);
+  const release = await storage.createDraftRelease(plan.metadata, plan.tag);
+  const uploadUrl = typeof release.upload_url === 'string' ? release.upload_url.split('{')[0] : null;
+
+  if (!release.id || !uploadUrl) {
+    if (release.id) await storage.deleteRelease(release.id);
+    const error = new Error('GitHub did not return a release upload URL.');
+    error.code = 'INCOMPLETE_RELEASE';
+    throw error;
+  }
+
+  largeUploads.set(plan.uploadId, {
+    ...plan,
+    releaseId: String(release.id),
+    uploadUrl,
+    uploaded: new Map(),
+    updatedAt: Date.now(),
+  });
+
+  res.status(201).json({
+    uploadId: plan.uploadId,
+    releaseId: String(release.id),
+    chunkSize: RELEASE_PART_SIZE,
+    parts: plan.parts,
+  });
+}));
+
+// Stream one raw Blob directly through to GitHub. No 1.75 GiB part is buffered
+// in memory or written to the server's disk.
+app.post('/api/large-uploads/:uploadId/parts/:partIndex', requireStorage, requireLargeUpload, asyncRoute(async (req, res) => {
+  const session = req.largeUpload;
+  const partIndex = Number(req.params.partIndex);
+  const part = session.parts.find((item) => item.index === partIndex);
+  if (!part) {
+    return res.status(404).json({ error: 'رقم الجزء غير صالح.', code: 'INVALID_PART' });
+  }
+
+  const previousAsset = session.uploaded.get(partIndex);
+  if (previousAsset) return res.status(200).json({ part: previousAsset });
+
+  const contentLength = Number(req.get('content-length'));
+  if (!Number.isSafeInteger(contentLength) || contentLength !== part.size) {
+    return res.status(400).json({
+      error: 'حجم الجزء المرسل لا يطابق خطة الرفع.',
+      code: 'INVALID_PART_SIZE',
+    });
+  }
+
+  req.setTimeout(0);
+  res.setTimeout(0);
+  session.updatedAt = Date.now();
+  const asset = await storage.uploadReleaseAsset(session.uploadUrl, part, req);
+  const uploadedPart = {
+    index: partIndex,
+    id: String(asset.id),
+    name: part.name,
+    size: asset.size || part.size,
+  };
+  session.uploaded.set(partIndex, uploadedPart);
+  session.updatedAt = Date.now();
+  res.status(201).json({ part: uploadedPart });
+}));
+
+app.post('/api/large-uploads/:uploadId/complete', requireStorage, requireLargeUpload, asyncRoute(async (req, res) => {
+  const session = req.largeUpload;
+  if (session.uploaded.size !== session.parts.length) {
+    return res.status(409).json({
+      error: 'لم تكتمل جميع الأجزاء بعد.',
+      code: 'PARTS_MISSING',
+      uploadedParts: session.uploaded.size,
+      totalParts: session.parts.length,
+    });
+  }
+
+  const archive = await storage.publishRelease(session.releaseId);
+  largeUploads.delete(session.uploadId);
+  res.json({ file: toPublicReleaseArchive(archive) });
+}));
+
+app.delete('/api/large-uploads/:uploadId', requireStorage, requireLargeUpload, asyncRoute(async (req, res) => {
+  const session = req.largeUpload;
+  await storage.deleteRelease(session.releaseId);
+  largeUploads.delete(session.uploadId);
+  res.status(204).end();
+}));
+
+// Join release assets in order while streaming, so the browser receives the
+// original archive without the server ever holding the complete file in memory.
+app.get('/api/large-files/:releaseId/download', requireStorage, asyncRoute(async (req, res) => {
+  if (!/^\d+$/.test(req.params.releaseId)) {
+    return res.status(400).json({ error: 'معرّف الإصدار غير صالح.', code: 'INVALID_RELEASE' });
+  }
+
+  const archive = await storage.getReleaseArchive(req.params.releaseId);
+  if (!archive) {
+    return res.status(404).json({ error: 'الأرشيف الكبير غير موجود أو أجزاؤه غير مكتملة.', code: 'ARCHIVE_NOT_FOUND' });
+  }
+
+  res.attachment(archive.name);
+  res.type(expectedArchiveType(archive.name) === '7z' ? 'application/x-7z-compressed' : 'application/zip');
+  res.set({
+    'Content-Length': String(archive.size),
+    'X-Accel-Buffering': 'no',
+  });
+  res.setTimeout(0);
+
+  try {
+    for (const asset of archive.assets) {
+      if (res.destroyed) return;
+      const response = await storage.downloadReleaseAsset(asset.id);
+      await pipeline(Readable.fromWeb(response.body), res, { end: false });
+    }
+    res.end();
+  } catch (error) {
+    if (res.headersSent) {
+      res.destroy(error);
+      return;
+    }
+    throw error;
+  }
+}));
+
+app.delete('/api/large-files/:releaseId', requireStorage, asyncRoute(async (req, res) => {
+  if (!/^\d+$/.test(req.params.releaseId)) {
+    return res.status(400).json({ error: 'معرّف الإصدار غير صالح.', code: 'INVALID_RELEASE' });
+  }
+  const deleted = await storage.deleteReleaseArchive(req.params.releaseId);
+  if (!deleted) {
+    return res.status(404).json({ error: 'الأرشيف المطلوب غير موجود.', code: 'ARCHIVE_NOT_FOUND' });
+  }
+  res.status(204).end();
+}));
+
+// Remove abandoned draft uploads after 48 hours. Each completed part extends the session.
+const cleanupTimer = setInterval(async () => {
+  const now = Date.now();
+  for (const [uploadId, session] of largeUploads) {
+    if (now - session.updatedAt < 48 * 60 * 60 * 1000) continue;
+    try {
+      await storage?.deleteRelease(session.releaseId);
+    } catch (error) {
+      console.warn(`Could not clean draft release ${session.releaseId}: ${error.message}`);
+    }
+    largeUploads.delete(uploadId);
+  }
+}, 6 * 60 * 60 * 1000);
+cleanupTimer.unref();
+
 app.use('/api', (req, res) => {
   res.status(404).json({ error: 'المسار المطلوب غير موجود.', code: 'NOT_FOUND' });
 });
@@ -166,7 +384,6 @@ app.use(express.static(path.join(rootDir, 'public'), {
     if (filePath.includes(`${path.sep}fonts${path.sep}`)) {
       res.setHeader('Cache-Control', 'public, max-age=31536000, immutable');
     } else {
-      // Revalidate HTML, CSS, and JS so newly supported formats appear immediately.
       res.setHeader('Cache-Control', 'no-cache');
     }
   },
@@ -178,7 +395,7 @@ app.use((error, req, res, next) => {
   if (error instanceof multer.MulterError) {
     if (error.code === 'LIMIT_FILE_SIZE') {
       return res.status(413).json({
-        error: `حجم الملف أكبر من الحد المسموح (${maxFileSizeMb} م.ب).`,
+        error: 'الملف أكبر من 100 م.ب. استخدم النسخة الحديثة من الصفحة لرفعه مجزّأً.',
         code: 'FILE_TOO_LARGE',
       });
     }
@@ -187,6 +404,18 @@ app.use((error, req, res, next) => {
 
   if (error.publicMessage) {
     return res.status(error.status || 400).json({ error: error.publicMessage, code: 'INVALID_FILE' });
+  }
+
+  if (error.code === 'RELEASE_UPLOAD_UNAVAILABLE') {
+    return res.status(503).json({
+      error: 'بيئة التشغيل لا تسمح بالوصول إلى uploads.github.com. الرفع المجزأ يحتاج خادمًا يسمح بهذا العنوان.',
+      code: 'RELEASE_UPLOAD_UNAVAILABLE',
+    });
+  }
+
+  if (error.code === 'INCOMPLETE_RELEASE') {
+    console.error(error.message);
+    return res.status(409).json({ error: 'بيانات الإصدار أو أجزاؤه غير مكتملة.', code: error.code });
   }
 
   if (error.message === 'fetch failed' || error.code === 'GITHUB_UNAVAILABLE') {
@@ -225,7 +454,7 @@ if (isDirectRun) {
     console.log(isConfigured ? `GitHub archive: ${owner}/${repo} (${branch})` : 'GitHub archive: not configured');
   });
 
-  // Allow enough time for a 100 MiB archive on slower connections.
-  server.requestTimeout = 15 * 60 * 1000;
+  // Each release part can be up to 1.75 GiB on a slow connection.
+  server.requestTimeout = 4 * 60 * 60 * 1000;
   server.headersTimeout = 60 * 1000;
 }
