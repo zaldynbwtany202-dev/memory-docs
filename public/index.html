@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#20372b">
+    <meta name="description" content="مَخزَن: ارفع ملفات ZIP إلى GitHub واحتفظ بها جاهزة للتنزيل متى احتجتها.">
+    <title>مَخزَن — أرشيفك على GitHub</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="stylesheet" href="/styles.css">
+    <script src="/app.js" defer></script>
+  </head>
+  <body>
+    <svg class="svg-sprite" aria-hidden="true">
+      <symbol id="icon-github" viewBox="0 0 24 24">
+        <path d="M12 .8a11.4 11.4 0 0 0-3.6 22.2c.6.1.8-.3.8-.6v-2.2c-3.3.7-4-1.4-4-1.4-.5-1.4-1.3-1.8-1.3-1.8-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1.1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.2 1.2a11 11 0 0 1 5.8 0C17 4.7 18 5 18 5c.6 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A11.4 11.4 0 0 0 12 .8Z"/>
+      </symbol>
+      <symbol id="icon-upload" viewBox="0 0 24 24">
+        <path d="M12 16V4m0 0L7.5 8.5M12 4l4.5 4.5M5 14v4a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-4"/>
+      </symbol>
+      <symbol id="icon-download" viewBox="0 0 24 24">
+        <path d="M12 4v12m0 0 4.5-4.5M12 16l-4.5-4.5M5 20h14"/>
+      </symbol>
+      <symbol id="icon-refresh" viewBox="0 0 24 24">
+        <path d="M20 7v5h-5M4 17v-5h5M6.1 8.3A7 7 0 0 1 18.7 7L20 12M4 12l1.3 5a7 7 0 0 0 12.6-1.3"/>
+      </symbol>
+      <symbol id="icon-external" viewBox="0 0 24 24">
+        <path d="M14 5h5v5M19 5l-8 8M19 14v4a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h4"/>
+      </symbol>
+      <symbol id="icon-trash" viewBox="0 0 24 24">
+        <path d="M4 7h16M9 7V4h6v3M7 7l1 13h8l1-13M10 11v5M14 11v5"/>
+      </symbol>
+      <symbol id="icon-close" viewBox="0 0 24 24">
+        <path d="m6 6 12 12M18 6 6 18"/>
+      </symbol>
+      <symbol id="icon-check" viewBox="0 0 24 24">
+        <path d="m5 12 4.5 4.5L19 7"/>
+      </symbol>
+      <symbol id="icon-file" viewBox="0 0 24 24">
+        <path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8l-5-5Z"/><path d="M14 3v5h5M9 13h6M9 17h4"/>
+      </symbol>
+      <symbol id="icon-shield" viewBox="0 0 24 24">
+        <path d="M12 3 4.5 6v5.5c0 4.7 3.2 7.8 7.5 9.5 4.3-1.7 7.5-4.8 7.5-9.5V6L12 3Z"/><path d="m8.5 12 2.2 2.2 4.8-5"/>
+      </symbol>
+      <symbol id="icon-folder" viewBox="0 0 24 24">
+        <path d="M3 7a2 2 0 0 1 2-2h5l2 3h7a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7Z"/>
+      </symbol>
+      <symbol id="icon-branch" viewBox="0 0 24 24">
+        <circle cx="6" cy="5" r="2"/><circle cx="18" cy="6" r="2"/><circle cx="6" cy="19" r="2"/><path d="M6 7v10M18 8v2a4 4 0 0 1-4 4H8"/>
+      </symbol>
+      <symbol id="icon-alert" viewBox="0 0 24 24">
+        <path d="M10.3 4.1 2.6 18a2 2 0 0 0 1.8 3h15.2a2 2 0 0 0 1.8-3L13.7 4.1a2 2 0 0 0-3.4 0Z"/><path d="M12 9v4M12 17h.01"/>
+      </symbol>
+      <symbol id="icon-arrow-up" viewBox="0 0 24 24">
+        <path d="M12 19V5m0 0L6 11m6-6 6 6"/>
+      </symbol>
+    </svg>
+
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="/" aria-label="مَخزَن — الصفحة الرئيسية">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 40 40" fill="none">
+              <path d="M11 12.5h18v19H11z" stroke="currentColor" stroke-width="2"/>
+              <path d="M9 8.5h22v5H9z" fill="currentColor"/>
+              <path d="M17 18h6M20 18v8m0 0-3-3m3 3 3-3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+          <span class="brand-copy">
+            <strong>مَخزَن</strong>
+            <span>أرشيفك، ببساطة</span>
+          </span>
+        </a>
+
+        <div class="header-actions">
+          <div class="status-pill is-loading" id="connection-status" role="status">
+            <span class="status-dot" aria-hidden="true"></span>
+            <span id="connection-label">جارٍ الاتصال…</span>
+          </div>
+          <a class="repository-link" id="repository-link" href="#" target="_blank" rel="noopener noreferrer" hidden>
+            <svg class="icon icon-filled" aria-hidden="true"><use href="#icon-github"></use></svg>
+            <span>المستودع</span>
+            <svg class="icon icon-small" aria-hidden="true"><use href="#icon-external"></use></svg>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero container" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <div class="eyebrow"><span></span> نسختك الاحتياطية، دائمًا قريبة</div>
+          <h1 id="hero-title">احفظ ملفاتك اليوم.<br><em>وعُد إليها متى شئت.</em></h1>
+          <p>ارفع ملفات ZIP إلى مستودعك على GitHub، واحتفظ بها منظّمة وجاهزة للتنزيل من أي مكان.</p>
+        </div>
+        <div class="hero-stamp" aria-hidden="true">
+          <div class="stamp-orbit">
+            <svg viewBox="0 0 24 24"><use href="#icon-folder"></use></svg>
+          </div>
+          <span>ZIP</span>
+          <small>آمن ومحفوظ</small>
+        </div>
+      </section>
+
+      <section class="workspace container" aria-label="رفع الملفات وإعدادات التخزين">
+        <div class="primary-column">
+          <article class="card upload-card">
+            <div class="card-heading">
+              <div class="heading-number" aria-hidden="true">01</div>
+              <div>
+                <h2>إضافة ملف جديد</h2>
+                <p>اختر ملفًا مضغوطًا، ودع الباقي علينا.</p>
+              </div>
+            </div>
+
+            <div class="setup-alert" id="setup-alert" role="alert" hidden>
+              <svg class="icon" aria-hidden="true"><use href="#icon-alert"></use></svg>
+              <div>
+                <strong>الاتصال بـ GitHub غير مكتمل</strong>
+                <p>أضف بيانات المستودع ورمز الوصول إلى ملف <code>.env</code> في الخادم، ثم أعد التشغيل.</p>
+              </div>
+            </div>
+
+            <form id="upload-form">
+              <input class="visually-hidden" type="file" id="file-input" name="file" accept=".zip,application/zip" aria-describedby="file-rules">
+              <button class="drop-zone" id="drop-zone" type="button" aria-label="اختر ملف ZIP أو اسحبه هنا">
+                <span class="zip-illustration" aria-hidden="true">
+                  <svg viewBox="0 0 88 96" fill="none">
+                    <path d="M15 8h40l18 18v62H15V8Z" fill="#EFF4E8" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/>
+                    <path d="M55 8v19h18" fill="#DDE9D2" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/>
+                    <path d="M35 8v12m0 5v12m0 5v12m0 5v12" stroke="currentColor" stroke-width="3" stroke-dasharray="4 4"/>
+                    <rect x="28" y="48" width="15" height="17" rx="3" fill="#C7EF73" stroke="currentColor" stroke-width="2.5"/>
+                    <path d="M31 73h9" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+                  </svg>
+                  <span class="illustration-spark spark-one">✦</span>
+                  <span class="illustration-spark spark-two">✦</span>
+                </span>
+                <span class="drop-title">أسقط ملفك هنا</span>
+                <span class="drop-subtitle">أو <span>تصفّح ملفاتك</span> من جهازك</span>
+                <span class="file-rules" id="file-rules">ZIP فقط <b>·</b> بحد أقصى <span id="max-size-label">25 م.ب</span></span>
+              </button>
+
+              <div class="selected-file" id="selected-file" hidden>
+                <div class="selected-file-icon">
+                  <svg class="icon" aria-hidden="true"><use href="#icon-file"></use></svg>
+                  <span>ZIP</span>
+                </div>
+                <div class="selected-file-copy">
+                  <strong id="selected-file-name"></strong>
+                  <span id="selected-file-meta"></span>
+                </div>
+                <button class="icon-button remove-file" type="button" id="remove-file" aria-label="إزالة الملف المحدد" title="إزالة الملف">
+                  <svg class="icon" aria-hidden="true"><use href="#icon-close"></use></svg>
+                </button>
+              </div>
+
+              <div class="upload-progress" id="upload-progress" hidden aria-live="polite">
+                <div class="progress-copy">
+                  <span id="progress-label">جارٍ رفع الملف…</span>
+                  <strong id="progress-value">0%</strong>
+                </div>
+                <progress class="progress-track" id="progress-track" max="100" value="0" aria-label="تقدم رفع الملف">0%</progress>
+              </div>
+
+              <div class="upload-footer">
+                <p class="upload-note">
+                  <svg class="icon" aria-hidden="true"><use href="#icon-shield"></use></svg>
+                  يُحفظ مباشرة في مستودعك
+                </p>
+                <button class="button button-primary" type="submit" id="upload-button" disabled>
+                  <span>حفظ في GitHub</span>
+                  <svg class="icon" aria-hidden="true"><use href="#icon-upload"></use></svg>
+                </button>
+              </div>
+            </form>
+          </article>
+        </div>
+
+        <aside class="side-column">
+          <article class="card destination-card">
+            <div class="destination-topline">
+              <span class="section-kicker">وجهة الحفظ</span>
+              <svg class="icon icon-filled github-watermark" aria-hidden="true"><use href="#icon-github"></use></svg>
+            </div>
+            <div class="destination-icon" aria-hidden="true">
+              <svg class="icon"><use href="#icon-folder"></use></svg>
+            </div>
+            <h2 id="repository-name">جارٍ قراءة الإعدادات…</h2>
+            <div class="branch-label" id="branch-wrapper" hidden>
+              <svg class="icon" aria-hidden="true"><use href="#icon-branch"></use></svg>
+              <span id="branch-name" dir="ltr"></span>
+            </div>
+            <p class="destination-path">تُحفظ جميع النسخ داخل <code dir="ltr">uploads/</code></p>
+            <a class="text-link" id="repository-folder-link" href="#" target="_blank" rel="noopener noreferrer" hidden>
+              عرض المجلد في GitHub
+              <svg class="icon" aria-hidden="true"><use href="#icon-external"></use></svg>
+            </a>
+          </article>
+
+          <article class="card guide-card">
+            <span class="section-kicker">كيف يعمل؟</span>
+            <h2>ثلاث خطوات، وينتهي الأمر.</h2>
+            <ol class="steps-list">
+              <li><span>1</span><div><strong>اختر ملف ZIP</strong><p>اسحبه من جهازك أو تصفّح ملفاتك.</p></div></li>
+              <li><span>2</span><div><strong>احفظه في GitHub</strong><p>نرتّبه باسمه وتاريخ رفعه تلقائيًا.</p></div></li>
+              <li><span>3</span><div><strong>نزّله عند الحاجة</strong><p>سيبقى في قائمة الملفات المحفوظة.</p></div></li>
+            </ol>
+            <div class="privacy-note">
+              <svg class="icon" aria-hidden="true"><use href="#icon-shield"></use></svg>
+              <p><strong>اتصال محمي.</strong> رمز GitHub يبقى في الخادم ولا يظهر في المتصفح.</p>
+            </div>
+          </article>
+        </aside>
+      </section>
+
+      <section class="files-section container" aria-labelledby="files-title">
+        <div class="section-heading">
+          <div>
+            <div class="title-line">
+              <h2 id="files-title">الملفات المحفوظة</h2>
+              <span class="count-badge" id="files-count" hidden>0</span>
+            </div>
+            <p>أرشيفك مرتّب من الأحدث إلى الأقدم.</p>
+          </div>
+          <button class="button button-secondary refresh-button" type="button" id="refresh-files">
+            <svg class="icon" aria-hidden="true"><use href="#icon-refresh"></use></svg>
+            <span>تحديث القائمة</span>
+          </button>
+        </div>
+
+        <div class="card files-card">
+          <div class="files-table-header" aria-hidden="true">
+            <span>الملف</span>
+            <span>الحجم</span>
+            <span>تاريخ الحفظ</span>
+            <span>إجراءات</span>
+          </div>
+          <div class="files-list" id="files-list" aria-live="polite" aria-busy="true">
+            <div class="skeleton-row"><span></span><span></span><span></span></div>
+            <div class="skeleton-row"><span></span><span></span><span></span></div>
+            <div class="skeleton-row"><span></span><span></span><span></span></div>
+          </div>
+          <div class="files-state" id="files-empty" hidden>
+            <div class="empty-illustration" aria-hidden="true">
+              <svg class="icon"><use href="#icon-folder"></use></svg>
+              <span>✦</span>
+            </div>
+            <h3>الأرشيف بانتظار أول ملف</h3>
+            <p>ارفع ملف ZIP من الأعلى، وسيظهر هنا جاهزًا للتنزيل.</p>
+            <a class="text-link" href="#upload-form">رفع أول ملف <span aria-hidden="true">↑</span></a>
+          </div>
+          <div class="files-state" id="files-error" hidden>
+            <div class="empty-illustration is-error" aria-hidden="true">
+              <svg class="icon"><use href="#icon-alert"></use></svg>
+            </div>
+            <h3>تعذر تحميل الأرشيف</h3>
+            <p id="files-error-message">تحقق من الاتصال ثم حاول مرة أخرى.</p>
+            <button class="button button-secondary" type="button" id="retry-files">إعادة المحاولة</button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <p><strong>مَخزَن</strong> <span>—</span> لا قواعد بيانات، لا تعقيد. فقط ملفاتك وGitHub.</p>
+        <a href="#hero-title" class="back-to-top">العودة للأعلى <svg class="icon" aria-hidden="true"><use href="#icon-arrow-up"></use></svg></a>
+      </div>
+    </footer>
+
+    <dialog class="delete-dialog" id="delete-dialog" aria-labelledby="delete-title">
+      <button class="icon-button dialog-close" type="button" id="close-delete-dialog" aria-label="إغلاق">
+        <svg class="icon" aria-hidden="true"><use href="#icon-close"></use></svg>
+      </button>
+      <div class="dialog-icon" aria-hidden="true"><svg class="icon"><use href="#icon-trash"></use></svg></div>
+      <h2 id="delete-title">حذف هذا الملف؟</h2>
+      <p>سيتم حذف <strong id="delete-file-name"></strong> من مستودع GitHub نهائيًا.</p>
+      <div class="dialog-actions">
+        <button class="button button-secondary" type="button" id="cancel-delete">إلغاء</button>
+        <button class="button button-danger" type="button" id="confirm-delete">نعم، احذف الملف</button>
+      </div>
+    </dialog>
+
+    <div class="toast-container" id="toast-container" aria-live="polite" aria-atomic="true"></div>
+  </body>
+</html>
