@@ -58,12 +58,12 @@ test('listFiles maps and sorts archive entries from newest to oldest', async () 
     fetchImpl: async () => jsonResponse([
       { type: 'file', path: 'uploads/1761301800000-deadbeef-old.zip', size: 10, sha: 'a'.repeat(40) },
       { type: 'file', path: 'uploads/README.md', size: 20, sha: 'b'.repeat(40) },
-      { type: 'file', path: 'uploads/1761390000000-1234abcd-new.zip', size: 30, sha: 'c'.repeat(40) },
+      { type: 'file', path: 'uploads/1761390000000-1234abcd-new.7z', size: 30, sha: 'c'.repeat(40) },
     ]),
   });
 
   const files = await storage.listFiles();
-  assert.deepEqual(files.map((file) => file.name), ['new.zip', 'old.zip']);
+  assert.deepEqual(files.map((file) => file.name), ['new.7z', 'old.zip']);
 });
 
 test('a missing uploads directory is empty only when the repository exists', async () => {

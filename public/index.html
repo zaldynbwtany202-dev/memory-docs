@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#20372b">
-    <meta name="description" content="مَخزَن: ارفع ملفات ZIP إلى GitHub واحتفظ بها جاهزة للتنزيل متى احتجتها.">
+    <meta name="description" content="مَخزَن: ارفع ملفات ZIP و7Z إلى GitHub واحتفظ بها جاهزة للتنزيل متى احتجتها.">
     <title>مَخزَن — أرشيفك على GitHub</title>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <link rel="stylesheet" href="/styles.css">
@@ -91,13 +91,13 @@
         <div class="hero-copy">
           <div class="eyebrow"><span></span> نسختك الاحتياطية، دائمًا قريبة</div>
           <h1 id="hero-title">احفظ ملفاتك اليوم.<br><em>وعُد إليها متى شئت.</em></h1>
-          <p>ارفع ملفات ZIP إلى مستودعك على GitHub، واحتفظ بها منظّمة وجاهزة للتنزيل من أي مكان.</p>
+          <p>ارفع ملفات ZIP أو 7Z إلى مستودعك على GitHub، واحتفظ بها منظّمة وجاهزة للتنزيل من أي مكان.</p>
         </div>
         <div class="hero-stamp" aria-hidden="true">
           <div class="stamp-orbit">
             <svg viewBox="0 0 24 24"><use href="#icon-folder"></use></svg>
           </div>
-          <span>ZIP</span>
+          <span>7Z</span>
           <small>آمن ومحفوظ</small>
         </div>
       </section>
@@ -122,8 +122,8 @@
             </div>
 
             <form id="upload-form">
-              <input class="visually-hidden" type="file" id="file-input" name="file" accept=".zip,application/zip" aria-describedby="file-rules">
-              <button class="drop-zone" id="drop-zone" type="button" aria-label="اختر ملف ZIP أو اسحبه هنا">
+              <input class="visually-hidden" type="file" id="file-input" name="file" accept=".zip,.7z,application/zip,application/x-7z-compressed" aria-describedby="file-rules">
+              <button class="drop-zone" id="drop-zone" type="button" aria-label="اختر ملف ZIP أو 7Z أو اسحبه هنا">
                 <span class="zip-illustration" aria-hidden="true">
                   <svg viewBox="0 0 88 96" fill="none">
                     <path d="M15 8h40l18 18v62H15V8Z" fill="#EFF4E8" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/>
@@ -137,13 +137,13 @@
                 </span>
                 <span class="drop-title">أسقط ملفك هنا</span>
                 <span class="drop-subtitle">أو <span>تصفّح ملفاتك</span> من جهازك</span>
-                <span class="file-rules" id="file-rules">ZIP فقط <b>·</b> بحد أقصى <span id="max-size-label">25 م.ب</span></span>
+                <span class="file-rules" id="file-rules">ZIP أو 7Z <b>·</b> بحد أقصى <span id="max-size-label">25 م.ب</span></span>
               </button>
 
               <div class="selected-file" id="selected-file" hidden>
                 <div class="selected-file-icon">
                   <svg class="icon" aria-hidden="true"><use href="#icon-file"></use></svg>
-                  <span>ZIP</span>
+                  <span id="selected-file-type">ZIP</span>
                 </div>
                 <div class="selected-file-copy">
                   <strong id="selected-file-name"></strong>
@@ -201,7 +201,7 @@
             <span class="section-kicker">كيف يعمل؟</span>
             <h2>ثلاث خطوات، وينتهي الأمر.</h2>
             <ol class="steps-list">
-              <li><span>1</span><div><strong>اختر ملف ZIP</strong><p>اسحبه من جهازك أو تصفّح ملفاتك.</p></div></li>
+              <li><span>1</span><div><strong>اختر ملف ZIP أو 7Z</strong><p>اسحبه من جهازك أو تصفّح ملفاتك.</p></div></li>
               <li><span>2</span><div><strong>احفظه في GitHub</strong><p>نرتّبه باسمه وتاريخ رفعه تلقائيًا.</p></div></li>
               <li><span>3</span><div><strong>نزّله عند الحاجة</strong><p>سيبقى في قائمة الملفات المحفوظة.</p></div></li>
             </ol>
@@ -246,7 +246,7 @@
               <span>✦</span>
             </div>
             <h3>الأرشيف بانتظار أول ملف</h3>
-            <p>ارفع ملف ZIP من الأعلى، وسيظهر هنا جاهزًا للتنزيل.</p>
+            <p>ارفع ملف ZIP أو 7Z من الأعلى، وسيظهر هنا جاهزًا للتنزيل.</p>
             <a class="text-link" href="#upload-form">رفع أول ملف <span aria-hidden="true">↑</span></a>
           </div>
           <div class="files-state" id="files-error" hidden>

@@ -2,7 +2,7 @@
   "name": "memory-docs",
   "version": "1.0.0",
   "private": true,
-  "description": "A small Arabic web app for archiving ZIP files in GitHub.",
+  "description": "A small Arabic web app for archiving ZIP and 7z files in GitHub.",
   "type": "module",
   "main": "server.js",
   "scripts": {

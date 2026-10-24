@@ -6,8 +6,9 @@ import dotenv from 'dotenv';
 import { GitHubStorage } from './lib/github-storage.js';
 import {
   buildStoragePath,
+  getArchiveExtension,
+  getArchiveType,
   isValidStoragePath,
-  isZipBuffer,
   parseStoragePath,
   sanitizeFilename,
 } from './lib/file-utils.js';
@@ -56,10 +57,10 @@ const upload = multer({
     parts: 2,
   },
   fileFilter: (req, file, callback) => {
-    if (!/\.zip$/i.test(file.originalname)) {
-      const error = new Error('Only ZIP files are accepted.');
+    if (!getArchiveExtension(file.originalname)) {
+      const error = new Error('Only ZIP and 7z files are accepted.');
       error.status = 415;
-      error.publicMessage = 'صيغة الملف غير مدعومة. اختر ملفًا بامتداد ZIP.';
+      error.publicMessage = 'صيغة الملف غير مدعومة. اختر ملفًا بامتداد ZIP أو 7Z.';
       return callback(error);
     }
     callback(null, true);
@@ -105,17 +106,26 @@ app.post(
   upload.single('file'),
   asyncRoute(async (req, res) => {
     if (!req.file) {
-      return res.status(400).json({ error: 'اختر ملف ZIP أولًا.', code: 'FILE_REQUIRED' });
-    }
-
-    if (!isZipBuffer(req.file.buffer)) {
-      return res.status(415).json({
-        error: 'محتوى هذا الملف لا يطابق صيغة ZIP. اختر ملفًا مضغوطًا صالحًا.',
-        code: 'INVALID_ZIP',
-      });
+      return res.status(400).json({ error: 'اختر ملف ZIP أو 7Z أولًا.', code: 'FILE_REQUIRED' });
     }
 
     const originalName = sanitizeFilename(req.file.originalname);
+    const archiveType = getArchiveType(req.file.buffer);
+    if (!archiveType) {
+      return res.status(415).json({
+        error: 'محتوى هذا الملف لا يطابق ZIP أو 7Z. اختر ملفًا مضغوطًا صالحًا.',
+        code: 'INVALID_ARCHIVE',
+      });
+    }
+
+    const expectedType = getArchiveExtension(originalName) === '.7z' ? '7z' : 'zip';
+    if (archiveType !== expectedType) {
+      return res.status(415).json({
+        error: 'امتداد الملف لا يطابق محتواه. أعد تسميته بالامتداد الصحيح ثم حاول مجددًا.',
+        code: 'ARCHIVE_TYPE_MISMATCH',
+      });
+    }
+
     const storagePath = buildStoragePath(originalName);
     const file = await storage.uploadFile(storagePath, req.file.buffer, originalName);
     res.status(201).json({ file });
@@ -131,7 +141,7 @@ app.get('/api/files/download', requireStorage, asyncRoute(async (req, res) => {
   const { originalName } = parseStoragePath(storagePath);
   const contents = await storage.downloadFile(storagePath);
   res.attachment(originalName);
-  res.type('application/zip');
+  res.type(getArchiveExtension(originalName) === '.7z' ? 'application/x-7z-compressed' : 'application/zip');
   res.set('Content-Length', String(contents.length));
   res.send(contents);
 }));
@@ -153,12 +163,11 @@ app.use('/api', (req, res) => {
 
 app.use(express.static(path.join(rootDir, 'public'), {
   setHeaders(res, filePath) {
-    if (filePath.endsWith('index.html')) {
-      res.setHeader('Cache-Control', 'no-cache');
-    } else if (filePath.includes(`${path.sep}fonts${path.sep}`)) {
+    if (filePath.includes(`${path.sep}fonts${path.sep}`)) {
       res.setHeader('Cache-Control', 'public, max-age=31536000, immutable');
     } else {
-      res.setHeader('Cache-Control', 'public, max-age=3600');
+      // Revalidate HTML, CSS, and JS so newly supported formats appear immediately.
+      res.setHeader('Cache-Control', 'no-cache');
     }
   },
 }));

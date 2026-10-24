@@ -23,6 +23,7 @@ const elements = {
   selectedFile: document.querySelector('#selected-file'),
   selectedFileName: document.querySelector('#selected-file-name'),
   selectedFileMeta: document.querySelector('#selected-file-meta'),
+  selectedFileType: document.querySelector('#selected-file-type'),
   removeFile: document.querySelector('#remove-file'),
   uploadButton: document.querySelector('#upload-button'),
   uploadProgress: document.querySelector('#upload-progress'),
@@ -75,6 +76,10 @@ function formatBytes(bytes) {
 function formatDate(value) {
   const date = new Date(value);
   return Number.isNaN(date.getTime()) ? 'تاريخ غير متاح' : dateFormatter.format(date);
+}
+
+function getArchiveTypeLabel(name) {
+  return /\.7z$/i.test(name) ? '7Z' : 'ZIP';
 }
 
 async function fetchJson(url, options = {}) {
@@ -172,8 +177,8 @@ function updateUploadButton() {
 
 function validateFile(file) {
   if (!file) return 'لم يتم اختيار ملف.';
-  if (!/\.zip$/i.test(file.name)) return 'اختر ملفًا بامتداد ZIP فقط.';
-  if (file.size === 0) return 'هذا الملف فارغ. اختر ملف ZIP صالحًا.';
+  if (!/\.(zip|7z)$/i.test(file.name)) return 'اختر ملفًا بامتداد ZIP أو 7Z فقط.';
+  if (file.size === 0) return 'هذا الملف فارغ. اختر ملفًا مضغوطًا صالحًا.';
 
   const maxFileSize = state.config?.maxFileSize || (25 * 1024 * 1024);
   if (file.size > maxFileSize) {
@@ -194,6 +199,7 @@ function selectFile(file) {
   elements.selectedFileName.textContent = file.name;
   elements.selectedFileName.title = file.name;
   elements.selectedFileMeta.textContent = `${formatBytes(file.size)} · جاهز للرفع`;
+  elements.selectedFileType.textContent = getArchiveTypeLabel(file.name);
   elements.dropZone.hidden = true;
   elements.selectedFile.hidden = false;
   resetProgress();
@@ -344,9 +350,9 @@ function buildFileRow(file) {
   const typeIcon = document.createElement('div');
   typeIcon.className = 'file-type-icon';
   typeIcon.append(createIcon('file'));
-  const zipLabel = document.createElement('small');
-  zipLabel.textContent = 'ZIP';
-  typeIcon.append(zipLabel);
+  const archiveLabel = document.createElement('small');
+  archiveLabel.textContent = getArchiveTypeLabel(file.name);
+  typeIcon.append(archiveLabel);
 
   const copy = document.createElement('div');
   copy.className = 'file-copy';
