@@ -20,6 +20,7 @@ import {
   REPOSITORY_FILE_SIZE_LIMIT,
   toPublicReleaseArchive,
 } from './lib/release-archive.js';
+import { buildUploadStatusText } from './lib/upload-status.js';
 
 const rootDir = path.dirname(fileURLToPath(import.meta.url));
 dotenv.config({ path: path.join(rootDir, '.env'), quiet: true });
@@ -111,6 +112,23 @@ function requireLargeUpload(req, res, next) {
 
 function expectedArchiveType(name) {
   return getArchiveExtension(name) === '.7z' ? '7z' : 'zip';
+}
+
+async function writeUploadStatus(session, status, note = '') {
+  const text = buildUploadStatusText(session, status, note);
+  await storage.upsertTextFile(
+    session.statusPath,
+    text,
+    `chore: mark archive ${session.tag} ${status.toLowerCase()}`,
+  );
+}
+
+async function tryWriteUploadStatus(session, status, note = '') {
+  try {
+    await writeUploadStatus(session, status, note);
+  } catch (error) {
+    console.warn(`Could not update status for ${session.tag}: ${error.message}`);
+  }
 }
 
 app.get('/api/config', (req, res) => {
@@ -238,19 +256,32 @@ app.post('/api/large-uploads', requireStorage, asyncRoute(async (req, res) => {
     throw error;
   }
 
-  largeUploads.set(plan.uploadId, {
+  const session = {
     ...plan,
     releaseId: String(release.id),
+    releaseUrl: release.html_url || null,
+    statusPath: `uploads/status/${plan.tag}.txt`,
     uploadUrl,
     uploaded: new Map(),
     updatedAt: Date.now(),
-  });
+  };
+
+  try {
+    await writeUploadStatus(session, 'IN_PROGRESS', 'بدأت العملية ولم تصل جميع الأجزاء بعد.');
+  } catch (error) {
+    await storage.deleteDraftRelease(session.releaseId).catch((cleanupError) => {
+      console.warn(`Could not clean draft after status failure: ${cleanupError.message}`);
+    });
+    throw error;
+  }
+  largeUploads.set(session.uploadId, session);
 
   res.status(201).json({
-    uploadId: plan.uploadId,
-    releaseId: String(release.id),
+    uploadId: session.uploadId,
+    releaseId: session.releaseId,
+    statusPath: session.statusPath,
     chunkSize: RELEASE_PART_SIZE,
-    parts: plan.parts,
+    parts: session.parts,
   });
 }));
 
@@ -287,6 +318,7 @@ app.post('/api/large-uploads/:uploadId/parts/:partIndex', requireStorage, requir
   };
   session.uploaded.set(partIndex, uploadedPart);
   session.updatedAt = Date.now();
+  await writeUploadStatus(session, 'IN_PROGRESS', `وصل الجزء ${partIndex + 1} من ${session.parts.length}.`);
   res.status(201).json({ part: uploadedPart });
 }));
 
@@ -303,12 +335,18 @@ app.post('/api/large-uploads/:uploadId/complete', requireStorage, requireLargeUp
 
   const archive = await storage.publishRelease(session.releaseId);
   largeUploads.delete(session.uploadId);
+  await tryWriteUploadStatus(session, 'COMPLETE', 'وصلت جميع الأجزاء ونُشر الإصدار بنجاح.');
   res.json({ file: toPublicReleaseArchive(archive) });
 }));
 
 app.delete('/api/large-uploads/:uploadId', requireStorage, requireLargeUpload, asyncRoute(async (req, res) => {
   const session = req.largeUpload;
-  await storage.deleteRelease(session.releaseId);
+  const deletedDraft = await storage.deleteDraftRelease(session.releaseId);
+  await tryWriteUploadStatus(
+    session,
+    deletedDraft ? 'CANCELLED' : 'COMPLETE',
+    deletedDraft ? 'أُلغيت العملية وحُذفت مسودة الأجزاء.' : 'كان الإصدار منشورًا بالفعل؛ لم يُحذف.',
+  );
   largeUploads.delete(session.uploadId);
   res.status(204).end();
 }));
@@ -365,11 +403,14 @@ const cleanupTimer = setInterval(async () => {
   const now = Date.now();
   for (const [uploadId, session] of largeUploads) {
     if (now - session.updatedAt < 48 * 60 * 60 * 1000) continue;
+    let status = 'INCOMPLETE';
     try {
-      await storage?.deleteRelease(session.releaseId);
+      const deletedDraft = await storage?.deleteDraftRelease(session.releaseId);
+      if (deletedDraft === false) status = 'COMPLETE';
     } catch (error) {
       console.warn(`Could not clean draft release ${session.releaseId}: ${error.message}`);
     }
+    await tryWriteUploadStatus(session, status, 'انتهت مهلة جلسة الرفع قبل اكتمالها.');
     largeUploads.delete(uploadId);
   }
 }, 6 * 60 * 60 * 1000);
