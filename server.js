@@ -21,10 +21,10 @@ const owner = (process.env.GITHUB_OWNER || repositoryOwner).trim();
 const repo = (process.env.GITHUB_REPO || repositoryName).trim();
 const token = process.env.GITHUB_TOKEN || process.env.GH_TOKEN || '';
 const branch = (process.env.GITHUB_BRANCH || 'main').trim();
-const requestedLimit = Number(process.env.MAX_FILE_SIZE_MB || 25);
+const requestedLimit = Number(process.env.MAX_FILE_SIZE_MB || 100);
 const maxFileSizeMb = Number.isFinite(requestedLimit) && requestedLimit > 0
-  ? Math.min(requestedLimit, 25)
-  : 25;
+  ? Math.min(requestedLimit, 100)
+  : 100;
 const maxFileSize = Math.floor(maxFileSizeMb * 1024 * 1024);
 const isConfigured = Boolean(token && owner && repo && branch);
 const storage = isConfigured ? new GitHubStorage({ token, owner, repo, branch }) : null;
@@ -220,8 +220,12 @@ const port = Number(process.env.PORT || 3000);
 const isDirectRun = process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url);
 
 if (isDirectRun) {
-  app.listen(port, '0.0.0.0', () => {
+  const server = app.listen(port, '0.0.0.0', () => {
     console.log(`Memory Docs is ready at http://0.0.0.0:${port}`);
     console.log(isConfigured ? `GitHub archive: ${owner}/${repo} (${branch})` : 'GitHub archive: not configured');
   });
+
+  // Allow enough time for a 100 MiB archive on slower connections.
+  server.requestTimeout = 15 * 60 * 1000;
+  server.headersTimeout = 60 * 1000;
 }

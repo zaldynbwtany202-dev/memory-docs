@@ -180,7 +180,7 @@ function validateFile(file) {
   if (!/\.(zip|7z)$/i.test(file.name)) return 'اختر ملفًا بامتداد ZIP أو 7Z فقط.';
   if (file.size === 0) return 'هذا الملف فارغ. اختر ملفًا مضغوطًا صالحًا.';
 
-  const maxFileSize = state.config?.maxFileSize || (25 * 1024 * 1024);
+  const maxFileSize = state.config?.maxFileSize || (100 * 1024 * 1024);
   if (file.size > maxFileSize) {
     return `حجم الملف ${formatBytes(file.size)}، بينما الحد المسموح ${formatBytes(maxFileSize)}.`;
   }
@@ -252,7 +252,7 @@ function sendFile(file) {
     data.append('file', file, file.name);
 
     request.open('POST', '/api/files');
-    request.timeout = 180000;
+    request.timeout = 15 * 60 * 1000;
 
     request.upload.addEventListener('progress', (event) => {
       if (event.lengthComputable) {
