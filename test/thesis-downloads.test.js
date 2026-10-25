@@ -28,9 +28,9 @@ test('thesis page exposes working PDF and DOCX download links', async (t) => {
   const response = await fetch(`${baseUrl}/thesis.html`);
   assert.equal(response.status, 200);
   const html = await response.text();
-  assert.match(html, /href="\/thesis\/download\/pdf"/);
-  assert.match(html, /href="\/thesis\/download\/docx"/);
-  assert.doesNotMatch(html, /sandbox:|localhost|127\.0\.0\.1/);
+  assert.match(html, /href="https:\/\/github\.com\/zaldynbwtany202-dev\/memory-docs\/raw\/refs\/heads\/arena\/e525d4a8-memory-docs\/thesis_revision\/deliverables\/These_revisee_BERKANE_Dhiyaddine\.pdf"/);
+  assert.match(html, /href="https:\/\/github\.com\/zaldynbwtany202-dev\/memory-docs\/raw\/refs\/heads\/arena\/e525d4a8-memory-docs\/thesis_revision\/deliverables\/These_revisee_BERKANE_Dhiyaddine\.docx"/);
+  assert.doesNotMatch(html, /sandbox:|localhost|127\.0\.0\.1|e2b\.app/);
 
   const home = await fetch(`${baseUrl}/`);
   assert.equal(home.status, 200);
