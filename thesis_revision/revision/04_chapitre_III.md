@@ -278,6 +278,14 @@ Une table de synthèse ne remplace pas les données brutes. Le rapport distingue
 | Interprétation | Formules, hypothèses, corrections et corrélations | Feuilles de calcul reproductibles et références |
 | Synthèse | Cohérence entre méthodes et incertitudes | Tableau de revue et décisions documentées |
 
+Les photographies suivantes complètent la figure III.2 par des équipements réels. Elles illustrent les conditions d’exécution à consigner, sans documenter une campagne réalisée pour cette révision.
+
+[[FIGURE:photo_spt_equipment|Deux configurations de matériel de forage équipé pour des essais SPT]]
+[[SOURCE:Engineering LibreTexts, « The Standard Penetration Test », figure 1.15 ; Geoengineering.org, reproduction autorisée indiquée par la source.]]
+
+[[FIGURE:photo_cpt_truck|Unité de pénétration statique CPT montée sur camion]]
+[[SOURCE:photographie AMDRILL, Inc., « Cone Penetration Testing / CPT », 2023.]]
+
 ## III.12 Construction du programme final
 
 Le programme final présente, pour chaque opération, la question posée, la localisation, la méthode, la profondeur ou l’étendue visée, les critères d’adaptation et le livrable attendu. Il indique aussi les conditions de sécurité, d’accès et de protection du milieu.

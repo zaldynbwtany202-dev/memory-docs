@@ -1,7 +1,7 @@
 {
   "status": "pass",
   "pdf": "deliverables/These_revisee_BERKANE_Dhiyaddine.pdf",
-  "pages": 109,
+  "pages": 116,
   "checks": {
     "guide_40_question_references_match_curated_final_pdf": true,
     "guide_15_slide_references_match_curated_final_pdf": true,
@@ -17,20 +17,20 @@
     "slide_rows": 15,
     "journal_revision_rows": 45,
     "arabic_caption_references": 15,
-    "visual_figure_pages": 21
+    "visual_figure_pages": 34
   },
   "major_pages_expected": {
     "INTRODUCTION GÉNÉRALE": 12,
     "CHAPITRE I": 17,
-    "CHAPITRE II": 34,
-    "CHAPITRE III": 45,
-    "CHAPITRE IV": 59,
-    "CHAPITRE V": 73,
-    "CHAPITRE VI": 84,
-    "CONCLUSION GÉNÉRALE": 94,
-    "BIBLIOGRAPHIE": 97,
-    "ANNEXE A": 104,
-    "ANNEXE B": 107
+    "CHAPITRE II": 38,
+    "CHAPITRE III": 50,
+    "CHAPITRE IV": 65,
+    "CHAPITRE V": 79,
+    "CHAPITRE VI": 91,
+    "CONCLUSION GÉNÉRALE": 101,
+    "BIBLIOGRAPHIE": 104,
+    "ANNEXE A": 111,
+    "ANNEXE B": 114
   },
   "major_pages_actual": {
     "INTRODUCTION GÉNÉRALE": [
@@ -40,31 +40,31 @@
       17
     ],
     "CHAPITRE II": [
-      34
+      38
     ],
     "CHAPITRE III": [
-      45
+      50
     ],
     "CHAPITRE IV": [
-      59
+      65
     ],
     "CHAPITRE V": [
-      73
+      79
     ],
     "CHAPITRE VI": [
-      84
+      91
     ],
     "CONCLUSION GÉNÉRALE": [
-      94
+      101
     ],
     "BIBLIOGRAPHIE": [
-      97
-    ],
-    "ANNEXE A": [
       104
     ],
+    "ANNEXE A": [
+      111
+    ],
     "ANNEXE B": [
-      107
+      114
     ]
   },
   "v03_expected": [
@@ -74,23 +74,23 @@
     ],
     [
       "II.3",
-      41
+      45
     ],
     [
       "IV.1",
-      60
+      66
     ],
     [
       "IV.2",
-      62
+      68
     ],
     [
       "IV.3",
-      64
+      70
     ],
     [
       "IV.4",
-      68
+      74
     ]
   ],
   "v03_actual": [
@@ -100,23 +100,23 @@
     ],
     [
       "II.3",
-      41
+      45
     ],
     [
       "IV.1",
-      60
+      66
     ],
     [
       "IV.2",
-      62
+      68
     ],
     [
       "IV.3",
-      64
+      70
     ],
     [
       "IV.4",
-      68
+      74
     ]
   ],
   "caption_failures": [],
@@ -134,32 +134,32 @@
     {
       "row": "A11",
       "caption": "Figure IV.5",
-      "page": 71
+      "page": 77
     },
     {
       "row": "A12",
       "caption": "Tableau III.3",
-      "page": 52
+      "page": 57
     },
     {
       "row": "A14",
       "caption": "Figure III.3",
-      "page": 56
+      "page": 61
     },
     {
       "row": "A17",
       "caption": "Figure V.2",
-      "page": 79
+      "page": 85
     },
     {
       "row": "A18",
       "caption": "Figure IV.2",
-      "page": 62
+      "page": 68
     },
     {
       "row": "A21",
       "caption": "Figure VI.1",
-      "page": 90
+      "page": 97
     },
     {
       "row": "V01",
@@ -179,17 +179,17 @@
     {
       "row": "V06",
       "caption": "Figure IV.2",
-      "page": 62
+      "page": 68
     },
     {
       "row": "V07",
       "caption": "Figure II.3",
-      "page": 41
+      "page": 45
     },
     {
       "row": "V08",
       "caption": "Figure III.3",
-      "page": 56
+      "page": 61
     },
     {
       "row": "V09",

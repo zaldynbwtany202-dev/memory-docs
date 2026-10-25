@@ -16,7 +16,7 @@ ROOT = Path(__file__).resolve().parents[1]
 AUDITS = ROOT / "audits"
 DELIVERABLES = ROOT / "deliverables"
 RELEASE_DATE = "2026-10-25"
-EXPECTED_PAGES = 109
+EXPECTED_PAGES = 116
 
 DELIVERABLE_NAMES = [
     "These_revisee_BERKANE_Dhiyaddine.pdf",
@@ -48,6 +48,8 @@ REQUIRED_FILES = [
     "audits/pdf_page_inventory.json",
     "source/registre_superviseurs_etendu_ar.md",
     "references/verification_notes.md",
+    "references/credits_photographies.md",
+    "references/photograph_assets_manifest.json",
     "references/manual_citation_resolutions.csv",
     "references/bibliography_manual_triage.csv",
     "revision/00_front.md",
@@ -101,6 +103,8 @@ def main() -> None:
     reference_qa = load("release_reference_audit.json")
     build = load("build_report.json")
     docx_build = load("docx_build_report.json")
+    photograph_records = json.loads((ROOT / "references/photograph_assets_manifest.json").read_text(encoding="utf-8"))
+    photograph_credits = (ROOT / "references/credits_photographies.md").read_text(encoding="utf-8")
 
     deliverables = [file_record(DELIVERABLES / name) for name in DELIVERABLE_NAMES]
     by_name = {Path(item["path"]).name: item for item in deliverables}
@@ -155,6 +159,17 @@ def main() -> None:
 
     checks = {
         "required_files_present": all((ROOT / name).is_file() for name in required_paths),
+        "photographic_assets_and_credits_verified": (
+            len(photograph_records) == 13
+            and "**15 photographies**" in photograph_credits
+            and all(
+                item["asset"].startswith("photo_")
+                and item["asset"] in photograph_credits
+                and (ROOT / "assets" / "figures" / item["asset"]).is_file()
+                and sha256(ROOT / "assets" / "figures" / item["asset"]) == item["sha256"]
+                for item in photograph_records
+            )
+        ),
         "expanded_register_traceability_complete": expanded_register_complete,
         "all_34_requirement_ids_present": reqs["expected_ids_present"],
         "33_completed_and_only_R27_blocked": len(reqs["completed"]) == 33 and reqs["blocked"] == ["R27"],
@@ -166,11 +181,11 @@ def main() -> None:
             and all(reference_qa["checks"].values())
             and reference_qa["counts"] == {
                 "guide_questions": 40, "slide_rows": 15, "journal_revision_rows": 45,
-                "arabic_caption_references": 15, "visual_figure_pages": 21,
+                "arabic_caption_references": 15, "visual_figure_pages": 34,
             }
         ),
         "formatting_profile_source_keyed": (
-            all(token in formatting for token in ("C3", "USTHB-IA", "ULT-FST", "Times New Roman", "25 mm", "1,5", "109 pages"))
+            all(token in formatting for token in ("C3", "USTHB-IA", "ULT-FST", "Times New Roman", "25 mm", "1,5", "116 pages"))
             and "ni une certification de conformité administrative" in formatting
             and "consultation intégrale non revendiquée" in formatting
             and "accès direct indisponible" in formatting
@@ -241,6 +256,9 @@ def main() -> None:
             "bibliography_entries": 65,
             "resolved_author_year_occurrences": 93,
             "figures": build["figures"],
+            "photographic_assets": len(photograph_records),
+            "photographs": 15,
+            "photograph_credits": "references/credits_photographies.md",
             "tables_in_pdf": build["tables"],
             "pdf_outline_entries": build["outline_entries"],
         },

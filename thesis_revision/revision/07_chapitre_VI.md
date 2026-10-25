@@ -164,6 +164,11 @@ La trame suivante n’est pas une étude de cas chiffrée. Elle décrit les livr
 [[FIGURE:evidence_based_decisions|Chaîne de décision fondée sur la qualité et la portée des preuves]]
 [[SOURCE:schéma original de synthèse.]]
 
+Ces vues sont contextuelles et ne documentent pas les fondations.
+
+[[FIGURE:photo_constantine_bridges|Deux ouvrages de Constantine : (a) pont de Sidi M’Cid ; (b) pont Bab El Kantara]]
+[[SOURCE:(a) Mohameddhiamerazka, Wikimedia Commons, CC BY-SA 4.0 ; (b) Bernard Gagnon, Wikimedia Commons, CC BY 4.0.]]
+
 ## VI.8 Recommandations pour les études et la recherche
 
 Les études futures gagneraient à conserver des jeux de données anonymisés lorsque la confidentialité l’exige : logs, résultats bruts, localisation relative, méthodes et interprétations. Cette pratique permettrait de comparer les corrélations et d’évaluer leur validité locale sans copier des paramètres d’un site à l’autre.

@@ -222,6 +222,11 @@ Avant l’instrumentation, le projet définit ce qui sera mesuré, la fréquence
 | Enregistrement de battage | Profil et énergie cohérents avec la fondation | Critères d’arrêt et anomalies | Vérification, essai complémentaire ou adaptation |
 | Intégrité des pieux | Continuité et qualité de l’exécution | Critères d’acceptation du référentiel | Investigation et traitement de la non-conformité |
 
+Les photographies de chantier peuvent compléter les enregistrements d’exécution lorsqu’elles sont datées, localisées et reliées à un élément précis. La vue suivante, extraite du mémoire original, illustre la cage de renforcement, les foreuses et les opérations de réalisation ; elle ne constitue pas une campagne de terrain nouvelle menée pour cette révision.
+
+[[FIGURE:photo_bored_piles_original|Réalisation de pieux forés : cage de renforcement et matériel de forage sur chantier]]
+[[SOURCE:mémoire original, page 38, panneau (b) ; photographie extraite et recadrée.]]
+
 ## V.11 Contenu du dossier géotechnique
 
 Le dossier final doit permettre à un tiers de reconstruire le raisonnement. Il comprend les données sources, les logs, les résultats bruts et corrigés, le modèle de site, les paramètres, les hypothèses, les vérifications, les exigences de construction et le plan de suivi. Les figures et les tableaux indiquent leur origine et leurs unités.

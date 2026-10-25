@@ -92,12 +92,12 @@ heading_styles_ok = (
 caption_paragraphs = [p for p in doc.paragraphs if p._p.xpath("./w:bookmarkStart")]
 source_paragraphs = [p for p in doc.paragraphs if p.text.startswith("Source :")]
 caption_format_ok = (
-    len(caption_paragraphs) == len(scan.captions) == 67
+    len(caption_paragraphs) == len(scan.captions)
     and all(p.alignment == WD_ALIGN_PARAGRAPH.CENTER for p in caption_paragraphs)
     and all(all(run.font.size is not None and abs(run.font.size.pt - 10) < 0.01 for run in p.runs if run.text) for p in caption_paragraphs)
 )
 source_format_ok = (
-    len(source_paragraphs) >= 21
+    len(source_paragraphs) >= sum(item.kind == "Figure" for item in scan.captions)
     and all(p.alignment == WD_ALIGN_PARAGRAPH.RIGHT for p in source_paragraphs)
     and all(all(run.font.size is not None and abs(run.font.size.pt - 10) < 0.01 for run in p.runs if run.text) for p in source_paragraphs)
 )
@@ -137,12 +137,12 @@ checks = {
     "luzancy_source": "Luzancy" in all_text and "XERCAVINS" in all_text,
     "bibliography_65th_reference": "Liquefaction Resistance of Soils: Summary Report" in all_text,
     "expected_table_count": len(doc.tables) == build["tables"],
-    "expected_inline_shape_count": len(doc.inline_shapes) == build["inline_shapes"] == 23,
-    "caption_bookmarks_complete_and_unique": len(bookmark_names) == len(scan.captions) == 67 and set(bookmark_names) == expected_caption_bookmarks and len(set(bookmark_names)) == len(bookmark_names),
-    "pageref_fields_match_captions": sum(value.startswith("PAGEREF ") for value in instructions) == len(scan.captions) == 67,
+    "expected_inline_shape_count": len(doc.inline_shapes) == build["inline_shapes"] == 2 + sum(item.kind == "Figure" for item in scan.captions),
+    "caption_bookmarks_complete_and_unique": len(bookmark_names) == len(scan.captions) and set(bookmark_names) == expected_caption_bookmarks and len(set(bookmark_names)) == len(bookmark_names),
+    "pageref_fields_match_captions": sum(value.startswith("PAGEREF ") for value in instructions) == len(scan.captions),
     "single_toc_field": sum(value.startswith("TOC ") for value in instructions) == 1,
     "update_fields_on_open": update_fields and b"<w:updateFields" in settings_xml,
-    "embedded_media_match_current_assets": len(media) == 23 and embedded_hashes == expected_hashes,
+    "embedded_media_match_current_assets": len(media) == len(expected_media) and embedded_hashes == expected_hashes,
     "no_unresolved_markers_or_known_source_defects": not any(token in all_text for token in ["[[", "]]", "浸水", "214 références", "Error!", "PENDING", "�"]),
     "six_rtl_paragraphs": bidi_paragraphs == 6,
 }

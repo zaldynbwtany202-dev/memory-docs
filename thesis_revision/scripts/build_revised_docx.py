@@ -388,7 +388,10 @@ class ThesisDocx:
         path = ASSETS / "figures" / f"{asset}.png"
         with Image.open(path) as image:
             aspect = image.height / image.width
-        width = 160
+            # Keep archival photographs near 110 dpi or better instead of
+            # stretching small source files across the whole page.
+            resolution_limited_width = image.width * 25.4 / 110
+        width = min(160, resolution_limited_width)
         if width * aspect > 145:
             width = 145 / aspect
         p = self.doc.add_paragraph()
@@ -576,9 +579,11 @@ class ThesisDocx:
                 "sources": "right aligned, 10 pt", "pagination": "centered PAGE field in footer",
             },
         }
-        if report["inline_shapes"] != 23:  # two cover logos + 21 technical figures
+        expected = scan_content().captions
+        expected_figures = sum(item.kind == "Figure" for item in expected)
+        if report["inline_shapes"] != 2 + expected_figures:  # two cover logos + technical figures
             raise ValueError(f"Unexpected DOCX image count: {report}")
-        if len(self.captions) != 67 or len(set(self.captions)) != 67:
+        if len(self.captions) != len(expected) or len(set(self.captions)) != len(expected):
             raise ValueError(f"Caption mismatch: {report}")
         return report
 

@@ -252,6 +252,11 @@ Les interactions sont explicitées : affouillement du pied et instabilité de ri
 | Agressivité | Chimie, exposition et matériaux | Durabilité des éléments enterrés ou exposés | Classes d’exposition, conception et maintenance |
 | Exécution | Méthode, eau, obstacles et qualité | Défauts et modification du terrain | Contrôles, adaptation de méthode et traçabilité |
 
+La vulnérabilité peut également provenir d’une interaction qui dépasse le seul modèle géotechnique. Le cas de Tacoma Narrows, analysé à la section I.3.5, est rappelé ici pour ne pas réduire tous les désordres à un problème de fondation : la photographie documente la rupture du tablier par un phénomène aérodynamique, non un affouillement.
+
+[[FIGURE:photo_tacoma_collapse|Rupture du tablier de Tacoma Narrows le 7 novembre 1940 : interaction vent–structure]]
+[[SOURCE:photographie d’archive, « Tacoma-narrows-bridge-collapse.jpg », Wikimedia Commons, domaine public.]]
+
 ## IV.12 Conclusion du chapitre
 
 Les risques propres aux ponts sont liés par l’eau, les déplacements du terrain et le fonctionnement de l’ouvrage. Leur analyse exige des scénarios et des preuves plutôt qu’une liste de pourcentages ou de seuils généraux. L’affouillement est décomposé sans confusion, l’érosion interne est distinguée du renard seul, la liquéfaction est reliée à la sollicitation et aux conséquences, et l’agressivité est rattachée à l’exposition et aux matériaux.

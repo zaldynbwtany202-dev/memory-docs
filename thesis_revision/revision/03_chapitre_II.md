@@ -143,6 +143,11 @@ Le guide HDS-2 de la FHWA (2024) structure les analyses hydrologiques routières
 [[FIGURE:fluvial_system|Chaîne de transmission entre bassin versant, écoulement, morphodynamique et fondation]]
 [[SOURCE:schéma original de synthèse d’après FHWA (2012b, 2024).]]
 
+La photographie aérienne suivante illustre les méandres, les dépôts et la mobilité du chenal évoqués dans cette chaîne. Il s’agit d’un exemple de processus fluviaux, non du site d’un pont étudié dans ce mémoire.
+
+[[FIGURE:photo_meandering_river|Méandres et barres sédimentaires de la rivière Togiak (Alaska)]]
+[[SOURCE:photographie de Steve Hillebrand, U.S. Fish and Wildlife Service, Wikimedia Commons, domaine public.]]
+
 [[TABLE:Questions distinctes posées par l’hydrologie, l’hydraulique et la morphodynamique|1,2,2]]
 | Domaine | Questions principales | Données et limites |
 |---|---|---|

@@ -116,7 +116,8 @@ arabic = page_texts[3]
 arabic_letters = len(re.findall(r"[\u0600-\u06ff]", arabic))
 checks["arabic_abstract_has_real_glyph_text"] = arabic_letters > 1000 and "تتناول" in arabic and "الكلمات" in arabic
 image_placements = sum(len(page.get_images(full=True)) for page in doc)
-checks["expected_image_placements"] = image_placements == 23  # 2 logos + 21 figures
+expected_figures = sum(item.kind == "Figure" for item in scan.captions)
+checks["expected_image_placements"] = image_placements == 2 + expected_figures  # two logos + technical figures
 
 # Source-keyed Algerian Master's formatting profile. These measurements come
 # from the rendered PDF, not only from builder constants.
@@ -178,7 +179,7 @@ checks["times_new_roman_12pt_body_rendered"] = (
 )
 checks["body_line_spacing_1_5_measured"] = len(line_pitches) > 100 and abs(median_line_pitch - 20.7) < 0.25
 checks["text_respects_25mm_side_margins"] = not side_margin_violations
-checks["figure_table_sources_10pt"] = len(source_sizes) >= 21 and all(size == 10.0 for size in source_sizes)
+checks["figure_table_sources_10pt"] = len(source_sizes) >= expected_figures and all(size == 10.0 for size in source_sizes)
 
 # Refresh the page-keyed inventory from the exact file that has just passed the
 # checks above. Raw extraction order is retained; sorting Arabic by coordinates
@@ -222,7 +223,7 @@ report = {
         "caption_list_mismatches": caption_list_mismatches, "forbidden_found": forbidden_found,
         "side_margin_violations": side_margin_violations,
     },
-    "manual_visual_review": f"Contact sheets of all {len(doc)} pages, the full-size Arabic abstract, all 21 source figures and corrected full-size pages inspected separately.",
+    "manual_visual_review": f"Contact sheets of all {len(doc)} pages, the full-size Arabic abstract, all {expected_figures} figures and corrected full-size pages inspected separately.",
     "status": "pass" if all(boolean_checks.values()) else "fail",
 }
 OUT.write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding="utf-8")

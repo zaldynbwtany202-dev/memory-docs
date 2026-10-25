@@ -413,7 +413,10 @@ class ThesisPDF(FPDF):
             raise FileNotFoundError(path)
         with Image.open(path) as image:
             aspect = image.height / image.width
-        width = min(160, self.content_width)
+            # Avoid enlarging small archival photographs beyond a legible
+            # resolution; larger schematics still use the full text width.
+            resolution_limited_width = image.width * 25.4 / 110
+        width = min(160, self.content_width, resolution_limited_width)
         height = width * aspect
         if height > 145:
             height = 145

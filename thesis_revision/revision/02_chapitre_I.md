@@ -280,7 +280,34 @@ Le cycle de vie ajoute d’autres questions : la fondation peut-elle être inspe
 
 Cette logique prépare la méthode observationnelle : énoncer les hypothèses, définir les mesures utiles, prévoir les actions en cas d’écart et conserver la trace des révisions. Elle évite de considérer le rapport géotechnique comme un document figé à la remise des plans.
 
-## I.11 Synthèse du chapitre
+## I.11 Lecture photographique d’ouvrages réels
+
+Les photographies suivantes donnent un support visuel aux exemples analysés aux sections I.3 et I.4. Elles documentent les formes et les contextes des ouvrages, mais ne remplacent ni les dossiers de fondation ni les investigations de site.
+
+[[FIGURE:photo_alcantara|Pont romain d’Alcántara sur le Tage (Espagne) : arcs de maçonnerie et piles en rivière]]
+[[SOURCE:photographie de Piutus, « Puente de Alcántara… Pic 03 », Wikimedia Commons, CC BY 2.0.]]
+
+[[FIGURE:photo_iron_bridge|Iron Bridge à Ironbridge (Royaume-Uni) : arc en fonte et appuis de rive]]
+[[SOURCE:photographie d’Adam Jones, Wikimedia Commons, CC BY-SA 2.0.]]
+
+[[FIGURE:photo_brooklyn_construction|Brooklyn Bridge (New York) pendant la construction des câbles en 1878]]
+[[SOURCE:photographie de journal, auteur inconnu, « Brooklyn Bridge Under Construction 1878 », Wikimedia Commons, domaine public.]]
+
+[[FIGURE:photo_stromsund|Pont de Strömsund (Suède) : exemple historique de pont haubané moderne]]
+[[SOURCE:photographie de Lars Falkdalen Lindahl, Wikimedia Commons, CC BY-SA 3.0.]]
+
+[[FIGURE:photo_millau|Viaduc de Millau (France) : travées haubanées et pylônes]]
+[[SOURCE:photographie de Stefan Krause, Wikimedia Commons, CC BY-SA 3.0.]]
+
+Les deux vues ci-dessous sont extraites du mémoire original. Elles rapprochent les principes structuraux schématisés précédemment de réalisations concrètes, sans attribuer aux ouvrages photographiés une localisation ou un dossier géotechnique non fourni.
+
+[[FIGURE:photo_beam_bridge_original|Exemple réel de pont à poutres sur piles en cours d’eau]]
+[[SOURCE:mémoire original, page 25, panneau (b) ; photographie extraite et recadrée.]]
+
+[[FIGURE:photo_cable_stayed_original|Exemple réel de pont à haubans : pylône central, câbles et appuis]]
+[[SOURCE:mémoire original, page 34, panneau (b) ; photographie extraite et recadrée.]]
+
+## I.12 Synthèse du chapitre
 
 L’évolution des ponts montre une diversification des chemins de charge et des exigences de performance. Les quatre familles retenues ne conduisent pas à quatre recettes de reconnaissance, mais à quatre ensembles de questions. Les poutres et dalles attirent l’attention sur les déplacements entre appuis et les transitions de rive ; les arcs sur les poussées et la stabilité des culées ; les suspendus sur les pylônes et les ancrages ; les haubanés sur les phases, les déplacements et les réactions variables.
 

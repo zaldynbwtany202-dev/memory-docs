@@ -1,0 +1,119 @@
+[
+  {
+    "asset": "photo_alcantara.png",
+    "source_file": "/home/user/memory-docs/image-search/alc-ntara-roman-bridge-c-ceres-wikimedia-1.jpg",
+    "pixel_size": [
+      525,
+      180
+    ],
+    "sha256": "dfb01efe2d6ca05f93c0e106cf8af0b61d49485adc2477d74b26321fef1c8311"
+  },
+  {
+    "asset": "photo_iron_bridge.png",
+    "source_file": "/home/user/memory-docs/image-search/site-commons-wikimedia-org-wiki-file-iro-1.jpg",
+    "pixel_size": [
+      960,
+      720
+    ],
+    "sha256": "490aaf5835587f5949af44761e41edacd3d4a9c3ca312047b6cf8e17580f552b"
+  },
+  {
+    "asset": "photo_brooklyn_construction.png",
+    "source_file": "/home/user/memory-docs/image-search/site-commons-wikimedia-org-brooklyn-brid-1.jpg",
+    "pixel_size": [
+      876,
+      543
+    ],
+    "sha256": "fc3fdb2e7b1b6de16dd0a6e1352db53184ad5ffe7c4baf792f647a6421534c86"
+  },
+  {
+    "asset": "photo_stromsund.png",
+    "source_file": "/home/user/memory-docs/image-search/str-msund-bridge-sweden-wikimedia-common-1.jpg",
+    "pixel_size": [
+      500,
+      345
+    ],
+    "sha256": "78cffc74385646d7ab1b111a3395760d5d0399b8f83b3b8ab47841c3a81dd2cd"
+  },
+  {
+    "asset": "photo_millau.png",
+    "source_file": "/home/user/memory-docs/image-search/site-commons-wikimedia-org-wiki-file-mil-1.jpg",
+    "pixel_size": [
+      960,
+      639
+    ],
+    "sha256": "7d0399bebd21abcea229b334a819d70a29d2375a4c510f40d8704faf7903c26e"
+  },
+  {
+    "asset": "photo_meandering_river.png",
+    "source_file": "/home/user/memory-docs/image-search/site-commons-wikimedia-org-wiki-file-riv-1.jpg",
+    "pixel_size": [
+      960,
+      639
+    ],
+    "sha256": "c071baf83981af782e5b7100dc3b12740f30d46ce4e9b361c73a7c31c62a769d"
+  },
+  {
+    "asset": "photo_spt_equipment.png",
+    "source_file": "/home/user/memory-docs/image-search/standard-penetration-test-spt-drilling-r-1.png",
+    "pixel_size": [
+      900,
+      284
+    ],
+    "sha256": "a36d413655f6618a2bf13240ce24b9f5ba4e78be972382bf6a647a016ecea03d"
+  },
+  {
+    "asset": "photo_cpt_truck.png",
+    "source_file": "/home/user/memory-docs/image-search/cone-penetration-testing-cpt-truck-photo-1.jpg",
+    "pixel_size": [
+      720,
+      540
+    ],
+    "sha256": "c9ba3b690145e3f5b85819032f352a55d4a64b09633e886269d2ae8e0f46b8f2"
+  },
+  {
+    "asset": "photo_tacoma_collapse.png",
+    "source_file": "/home/user/memory-docs/image-search/tacoma-narrows-bridge-collapse-jpg-1.jpg",
+    "pixel_size": [
+      365,
+      300
+    ],
+    "sha256": "324fd02931e4597e2c80292e5a92af0a8912160aadac95cc90d382c7320f3d31"
+  },
+  {
+    "asset": "photo_beam_bridge_original.png",
+    "source_file": "original thesis page 25, page_25_xref_894.jpeg, crop=(0, 805, 1400, 1781)",
+    "pixel_size": [
+      1400,
+      976
+    ],
+    "sha256": "4290b2035b8db0dd2ac4509f1e6c625bf0ddaf2df6122b8917b448d4337224da"
+  },
+  {
+    "asset": "photo_cable_stayed_original.png",
+    "source_file": "original thesis page 34, page_34_xref_1118.jpeg, crop=(0, 900, 1400, 1616)",
+    "pixel_size": [
+      1400,
+      716
+    ],
+    "sha256": "98bb26b4c0e576a84b882a1b86d936bf72e6510187866a377b180db2ebd17070"
+  },
+  {
+    "asset": "photo_bored_piles_original.png",
+    "source_file": "original thesis page 38, page_38_xref_1138.jpeg, crop=(0, 800, 1400, 1781)",
+    "pixel_size": [
+      1400,
+      981
+    ],
+    "sha256": "a5dc7441738001ec87827a97207787f3890f474f6a37f4cf6a12bd48a6f9ff6a"
+  },
+  {
+    "asset": "photo_constantine_bridges.png",
+    "source_file": "Wikimedia Commons: Bridge_of_Sidi_Mcid.jpg + Pont_El_Kantara_(Constantine).jpg",
+    "pixel_size": [
+      1800,
+      700
+    ],
+    "sha256": "01045667316ff257b816aae4f0e006c531160fd5a198879292f2be70f46aa61f"
+  }
+]
