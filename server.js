@@ -601,6 +601,34 @@ app.use('/api', (req, res) => {
   res.status(404).json({ error: 'المسار المطلوب غير موجود.', code: 'NOT_FOUND' });
 });
 
+app.get('/thesis', (req, res) => {
+  res.redirect(302, '/thesis.html');
+});
+
+const thesisDownloadDirectory = path.join(rootDir, 'thesis_revision', 'deliverables');
+const thesisDownloads = {
+  pdf: {
+    fileName: 'These_revisee_BERKANE_Dhiyaddine.pdf',
+    mimeType: 'application/pdf',
+  },
+  docx: {
+    fileName: 'These_revisee_BERKANE_Dhiyaddine.docx',
+    mimeType: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+  },
+};
+
+app.get('/thesis/download/:format', (req, res, next) => {
+  const document = thesisDownloads[req.params.format];
+  if (!document) {
+    return res.status(404).type('text/plain').send('الملف المطلوب غير موجود.');
+  }
+  res.type(document.mimeType);
+  const filePath = path.join(thesisDownloadDirectory, document.fileName);
+  res.download(filePath, document.fileName, (error) => {
+    if (error) next(error);
+  });
+});
+
 app.use(express.static(path.join(rootDir, 'public'), {
   setHeaders(res, filePath) {
     if (filePath.includes(`${path.sep}fonts${path.sep}`)) {
