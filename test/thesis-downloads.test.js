@@ -31,6 +31,10 @@ test('thesis page exposes working PDF and DOCX download links', async (t) => {
   assert.match(html, /href="\/thesis\/download\/pdf"/);
   assert.match(html, /href="\/thesis\/download\/docx"/);
   assert.doesNotMatch(html, /sandbox:|localhost|127\.0\.0\.1/);
+
+  const home = await fetch(`${baseUrl}/`);
+  assert.equal(home.status, 200);
+  assert.match(await home.text(), /href="\/thesis"[^>]*aria-label="فتح صفحة تحميل مذكرة/);
 });
 
 test('thesis download routes return the exact audited deliverables', async (t) => {
