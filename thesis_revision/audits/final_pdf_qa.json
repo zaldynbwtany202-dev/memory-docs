@@ -1,12 +1,99 @@
 {
   "file": "/home/user/memory-docs/thesis_revision/deliverables/These_revisee_BERKANE_Dhiyaddine.pdf",
-  "bytes": 2840511,
-  "sha256": "7801e035603b1adfcfbc62d74f1ec6afd272b1777ace8efa5e9f61f131afaae2",
-  "pages": 98,
+  "bytes": 2821827,
+  "sha256": "0fdca0f009e87d207d15e69c28c92346ccd5d5b25a08ec071bb36d2daeeb7258",
+  "pages": 109,
   "outline_entries": 95,
   "image_placements": 23,
-  "page_inventory_entries": 98,
+  "page_inventory_entries": 109,
   "arabic_letters_extracted": 1317,
+  "formatting_evidence": {
+    "profile": {
+      "paper": "A4",
+      "margins_mm": {
+        "top": 25,
+        "right": 25,
+        "bottom": 25,
+        "left": 25
+      },
+      "body_font": "Times New Roman",
+      "body_size_pt": 12,
+      "body_line_spacing": 1.5,
+      "body_line_height_mm": 7.3,
+      "chapter_titles": "Times New Roman 14 pt bold",
+      "section_titles": "Times New Roman 12 pt bold",
+      "figure_captions": "centered below, 10 pt",
+      "table_captions": "centered above, 10 pt",
+      "sources": "right aligned, 10 pt",
+      "paragraph_alignment": "justified",
+      "pagination": "continuous Arabic numerals, centered in footer",
+      "glyph_fallback": "DejaVu Serif/Sans only for characters absent from the source Times subsets; Arabic abstract uses DejaVu Sans"
+    },
+    "times_new_roman_provenance": [
+      {
+        "source_xref": 245,
+        "font": "Times New Roman",
+        "style": "regular",
+        "bytes": 421264,
+        "sha256": "7492a6fe71105a844675fbde7d016fa8546ab66e4d0764949216bd13c315e899",
+        "os2_fsType": 8,
+        "storage": "temporary build directory only"
+      },
+      {
+        "source_xref": 267,
+        "font": "Times New Roman,Bold",
+        "style": "B",
+        "bytes": 369192,
+        "sha256": "5a6f1dd836594bb3832f5193154ceeec7ef9879b2b3d618f440ca9b75c391b16",
+        "os2_fsType": 8,
+        "storage": "temporary build directory only"
+      },
+      {
+        "source_xref": 280,
+        "font": "Times New Roman,Italic",
+        "style": "I",
+        "bytes": 276260,
+        "sha256": "fca7a2bba79b3454a6e729a6ef571169ed4f0dde35c54ccfaaf695af5e953ad6",
+        "os2_fsType": 8,
+        "storage": "temporary build directory only"
+      }
+    ],
+    "font_characters": {
+      "TimesNewRomanBold": 18116,
+      "DejaVuSerifBold": 90,
+      "TimesNewRoman": 195174,
+      "DejaVuSerifBook": 1201,
+      "DejaVuSansBold": 24,
+      "DejaVuSansBook": 1498
+    },
+    "size_12_characters": 154857,
+    "body_line_pitch_samples": 1371,
+    "median_body_line_pitch_pt": 20.69000244140625,
+    "expected_word_1_5_pitch_pt": 20.7,
+    "source_span_sizes": [
+      10.0,
+      10.0,
+      10.0,
+      10.0,
+      10.0,
+      10.0,
+      10.0,
+      10.0,
+      10.0,
+      10.0,
+      10.0,
+      10.0,
+      10.0,
+      10.0,
+      10.0,
+      10.0,
+      10.0,
+      10.0,
+      10.0,
+      10.0,
+      10.0
+    ]
+  },
   "checks": {
     "page_count_matches_builder": true,
     "a4_pages": true,
@@ -20,6 +107,12 @@
     "no_unresolved_markers_or_known_source_defects": true,
     "arabic_abstract_has_real_glyph_text": true,
     "expected_image_placements": true,
+    "documented_formatting_profile": true,
+    "times_new_roman_embedding_provenance": true,
+    "times_new_roman_12pt_body_rendered": true,
+    "body_line_spacing_1_5_measured": true,
+    "text_respects_25mm_side_margins": true,
+    "figure_table_sources_10pt": true,
     "page_inventory_complete": true
   },
   "details": {
@@ -29,8 +122,9 @@
     "footer_mismatches": [],
     "outline_mismatches": [],
     "caption_list_mismatches": [],
-    "forbidden_found": {}
+    "forbidden_found": {},
+    "side_margin_violations": []
   },
-  "manual_visual_review": "Contact sheets of all 98 pages, the full-size Arabic abstract, all 21 source figures and corrected full-size pages inspected separately.",
+  "manual_visual_review": "Contact sheets of all 109 pages, the full-size Arabic abstract, all 21 source figures and corrected full-size pages inspected separately.",
   "status": "pass"
 }

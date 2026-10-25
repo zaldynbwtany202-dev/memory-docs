@@ -16,6 +16,7 @@ ROOT = Path(__file__).resolve().parents[1]
 AUDITS = ROOT / "audits"
 DELIVERABLES = ROOT / "deliverables"
 RELEASE_DATE = "2026-10-25"
+EXPECTED_PAGES = 109
 
 DELIVERABLE_NAMES = [
     "These_revisee_BERKANE_Dhiyaddine.pdf",
@@ -30,8 +31,10 @@ AUDIT_NAMES = [
     "final_pdf_qa.json",
     "docx_content_audit.json",
     "revised_citation_audit.json",
+    "release_reference_audit.json",
     "visual_review.md",
     "registre_etendu_traceability.md",
+    "formatting_profile.md",
 ]
 REQUIRED_FILES = [
     "00_cahier_des_charges.md",
@@ -41,6 +44,7 @@ REQUIRED_FILES = [
     "audits/scientific_review.md",
     "audits/visual_review.md",
     "audits/registre_etendu_traceability.md",
+    "audits/formatting_profile.md",
     "audits/pdf_page_inventory.json",
     "source/registre_superviseurs_etendu_ar.md",
     "references/verification_notes.md",
@@ -94,6 +98,7 @@ def main() -> None:
     pdf_qa = load("final_pdf_qa.json")
     docx_qa = load("docx_content_audit.json")
     citations = load("revised_citation_audit.json")
+    reference_qa = load("release_reference_audit.json")
     build = load("build_report.json")
     docx_build = load("docx_build_report.json")
 
@@ -111,6 +116,10 @@ def main() -> None:
     visual = (AUDITS / "visual_review.md").read_text(encoding="utf-8")
     expanded_register = (ROOT / "source/registre_superviseurs_etendu_ar.md").read_text(encoding="utf-8")
     expanded_trace = (AUDITS / "registre_etendu_traceability.md").read_text(encoding="utf-8")
+    formatting = (AUDITS / "formatting_profile.md").read_text(encoding="utf-8")
+    memory = (ROOT / "MEMORY.md").read_text(encoding="utf-8")
+    progress = (ROOT / "PROGRESS.md").read_text(encoding="utf-8")
+    cahier = (ROOT / "00_cahier_des_charges.md").read_text(encoding="utf-8")
 
     def trace_ids(prefix: str, count: int) -> bool:
         expected = [f"{prefix}{i:02d}" for i in range(1, count + 1)]
@@ -138,6 +147,10 @@ def main() -> None:
         cells = [cell.strip() for cell in line.split("|")]
         if len(cells) >= 5 and re.fullmatch(r"[\d,;\s–-]+", cells[2] or "x") and re.search(r"\d", cells[2]):
             page_refs.extend(int(value) for value in re.findall(r"\d+", cells[2]))
+    for start, end in re.findall(r"ص\s*(\d+)(?:[–-](\d+))?", expanded_trace):
+        page_refs.append(int(start))
+        if end:
+            page_refs.append(int(end))
     required_paths = REQUIRED_FILES + [f"deliverables/{name}" for name in DELIVERABLE_NAMES]
 
     checks = {
@@ -148,6 +161,30 @@ def main() -> None:
         "pdf_qa_pass_and_all_checks_true": pdf_qa["status"] == "pass" and all(pdf_qa["checks"].values()),
         "docx_qa_pass_and_all_checks_true": docx_qa["status"] == "pass" and all(docx_qa["checks"].values()),
         "citation_audit_pass": citations["status"] == "pass",
+        "release_reference_audit_pass": (
+            reference_qa["status"] == "pass"
+            and all(reference_qa["checks"].values())
+            and reference_qa["counts"] == {
+                "guide_questions": 40, "slide_rows": 15, "journal_revision_rows": 45,
+                "arabic_caption_references": 15, "visual_figure_pages": 21,
+            }
+        ),
+        "formatting_profile_source_keyed": (
+            all(token in formatting for token in ("C3", "USTHB-IA", "ULT-FST", "Times New Roman", "25 mm", "1,5", "109 pages"))
+            and "ni une certification de conformité administrative" in formatting
+            and "consultation intégrale non revendiquée" in formatting
+            and "accès direct indisponible" in formatting
+        ),
+        "pdf_formatting_checks_pass": all(pdf_qa["checks"].get(key) is True for key in (
+            "documented_formatting_profile", "times_new_roman_embedding_provenance",
+            "times_new_roman_12pt_body_rendered", "body_line_spacing_1_5_measured",
+            "text_respects_25mm_side_margins", "figure_table_sources_10pt",
+        )),
+        "docx_formatting_checks_pass": all(docx_qa["checks"].get(key) is True for key in (
+            "documented_formatting_profile", "margins_25mm_all_sections",
+            "times_new_roman_12_and_1_5_spacing", "chapter_headers_and_continuous_page_fields",
+            "caption_and_source_typography",
+        )),
         "citation_counts_complete": (
             citations["bibliography_entries"] == 65
             and citations["bibliography_entries_cited"] == 65
@@ -159,9 +196,9 @@ def main() -> None:
         ),
         "pdf_hash_matches_qa": pdf_hash == pdf_qa["sha256"],
         "docx_hash_matches_qa": docx_hash == docx_qa["sha256"],
-        "pdf_hash_propagated_to_human_records": all(pdf_hash in text for text in (journal, readme, visual)),
+        "pdf_hash_propagated_to_human_records": all(pdf_hash in text for text in (journal, readme, visual, expanded_trace)),
         "docx_hash_propagated_to_readme": docx_hash in readme,
-        "builder_and_qa_page_counts_match": build["pages"] == pdf_qa["pages"] == 98,
+        "builder_and_qa_page_counts_match": build["pages"] == pdf_qa["pages"] == EXPECTED_PAGES,
         "builder_has_stable_captions_and_no_warnings": (
             build["caption_pages_stable_between_passes"]
             and build["page_count_stable_between_passes"]
@@ -171,11 +208,15 @@ def main() -> None:
         ),
         "docx_builder_counts_match_qa": (
             docx_build["paragraphs"] == docx_qa["paragraphs"]
+            and docx_build["sections"] == docx_qa["sections"] == 12
             and docx_build["tables"] == docx_qa["tables"]
             and docx_build["inline_shapes"] == docx_qa["inline_shapes"]
         ),
-        "journal_and_guide_page_references_in_range": bool(page_refs) and all(1 <= n <= 98 for n in page_refs),
-        "no_stale_99_page_release_claim": "99 pages" not in (journal + guide + readme + visual),
+        "journal_guide_and_register_page_references_in_range": bool(page_refs) and all(1 <= n <= EXPECTED_PAGES for n in page_refs),
+        "no_stale_98_or_99_page_release_claim": not re.search(
+            r"(?<!\d)(?:98|99) pages\b|(?<!\d)(?:98|99) صفحة|الـ(?:98|99)\b|1–(?:98|99)\b",
+            journal + guide + readme + visual + expanded_trace + memory + progress + cahier,
+        ),
         "docx_renderer_limit_explicit": "renderer-dependent" in docx_qa["rendering_note"],
         "r27_missing_deck_limit_explicit": "diaporama" in journal and "R27" in journal and "غير مرفق" in readme,
     }
@@ -186,7 +227,14 @@ def main() -> None:
         "artifact_status": "pass" if all(checks.values()) else "fail",
         "requirement_status": "33_completed_1_blocked",
         "reference_document": f"deliverables/{pdf_name}",
-        "reference_pagination": {"pages": 98, "paper": "A4", "note": "PDF is authoritative; DOCX pagination is renderer-dependent."},
+        "reference_pagination": {"pages": EXPECTED_PAGES, "paper": "A4", "note": "PDF is authoritative; DOCX pagination is renderer-dependent."},
+        "formatting_profile": {
+            "record": "audits/formatting_profile.md",
+            "sources": {"C3": "Université Constantine 3 — Guide de présentation d’un mémoire de Master (2014/2015)", "USTHB-IA": "USTHB FEI — Département Instrumentation Automatique, présentation d’un mémoire de PFE Master", "ULT-FST": "Université Larbi Tébessi FST — avis de dépôt et corrections du jury"},
+            "paper": "A4", "margins_mm": 25, "body_font": "Times New Roman", "body_size_pt": 12,
+            "line_spacing": 1.5, "chapter_title_size_pt": 14, "section_title_size_pt": 12,
+            "institutional_claim": "Harmonised documented profile; not an official Larbi Tébessi compliance certification.",
+        },
         "deliverables": deliverables,
         "audit_evidence": [file_record(AUDITS / name) for name in AUDIT_NAMES],
         "scientific_summary": {
@@ -208,7 +256,7 @@ def main() -> None:
         },
         "known_reservations": [
             "R27 remains blocked: no original slide deck was supplied; the guide contains a proposed plan, not a corrected deck.",
-            "No official Larbi Tébessi formatting guide was located; institutional compliance is not claimed.",
+            "A source-keyed Algerian-university formatting profile is applied to PDF/DOCX; it is not represented as an official Larbi Tébessi guide or a universal national format.",
             "DOCX package/content are audited, but Word-specific visual pagination was not rendered in this environment.",
             "The work is bibliographic/theoretical and is not presented as fieldwork.",
         ],

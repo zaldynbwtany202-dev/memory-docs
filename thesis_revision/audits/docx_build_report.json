@@ -1,10 +1,30 @@
 {
   "output": "/home/user/memory-docs/thesis_revision/deliverables/These_revisee_BERKANE_Dhiyaddine.docx",
   "paragraphs": 961,
+  "sections": 12,
   "tables": 49,
   "inline_shapes": 23,
   "numbered_captions": 67,
   "unique_captions": 67,
-  "bytes": 1696696,
-  "field_update_on_open": true
+  "bytes": 1727861,
+  "field_update_on_open": true,
+  "formatting_profile": {
+    "paper": "A4",
+    "margins_mm": {
+      "top": 25,
+      "right": 25,
+      "bottom": 25,
+      "left": 25
+    },
+    "body_font": "Times New Roman",
+    "body_size_pt": 12,
+    "body_line_spacing": 1.5,
+    "paragraph_alignment": "justified",
+    "chapter_titles": "Times New Roman 14 pt bold",
+    "section_titles": "Times New Roman 12 pt bold",
+    "figure_captions": "centered below, 10 pt",
+    "table_captions": "centered above, 10 pt",
+    "sources": "right aligned, 10 pt",
+    "pagination": "centered PAGE field in footer"
+  }
 }

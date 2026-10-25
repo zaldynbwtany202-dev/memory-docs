@@ -5,6 +5,7 @@ from __future__ import annotations
 import hashlib
 import json
 import re
+import statistics
 import warnings
 from pathlib import Path
 
@@ -117,6 +118,68 @@ checks["arabic_abstract_has_real_glyph_text"] = arabic_letters > 1000 and "تت�
 image_placements = sum(len(page.get_images(full=True)) for page in doc)
 checks["expected_image_placements"] = image_placements == 23  # 2 logos + 21 figures
 
+# Source-keyed Algerian Master's formatting profile. These measurements come
+# from the rendered PDF, not only from builder constants.
+profile = build.get("formatting_profile", {})
+checks["documented_formatting_profile"] = (
+    profile.get("paper") == "A4"
+    and profile.get("margins_mm") == {"top": 25, "right": 25, "bottom": 25, "left": 25}
+    and profile.get("body_font") == "Times New Roman"
+    and profile.get("body_size_pt") == 12
+    and profile.get("body_line_spacing") == 1.5
+    and profile.get("chapter_titles") == "Times New Roman 14 pt bold"
+    and profile.get("section_titles") == "Times New Roman 12 pt bold"
+)
+font_provenance = build.get("times_new_roman_provenance", [])
+checks["times_new_roman_embedding_provenance"] = (
+    len(font_provenance) == 3
+    and all("Times New Roman" in row.get("font", "") and row.get("os2_fsType") == 8 for row in font_provenance)
+)
+
+font_characters: dict[str, int] = {}
+size_12_characters = 0
+source_sizes = []
+side_margin_violations = []
+body_lines_by_page: list[list[tuple[float, float, float]]] = []
+for index, page in enumerate(doc, 1):
+    page_lines = []
+    for block in page.get_text("dict")["blocks"]:
+        for line in block.get("lines", []):
+            spans = [span for span in line.get("spans", []) if span["text"].strip()]
+            if not spans:
+                continue
+            text = "".join(span["text"] for span in spans).strip()
+            for span in spans:
+                font_characters[span["font"]] = font_characters.get(span["font"], 0) + len(span["text"])
+                if abs(span["size"] - 12) < 0.15:
+                    size_12_characters += len(span["text"])
+                if span["text"].strip().startswith("Source :"):
+                    source_sizes.append(round(span["size"], 1))
+                x0, _, x1, _ = span["bbox"]
+                # 25 mm = 70.866 pt; 3 pt tolerance covers font side bearings.
+                if x0 < 67.8 or x1 > page.rect.width - 67.8:
+                    side_margin_violations.append({"page": index, "text": span["text"][:80], "bbox": span["bbox"]})
+            if text and all(abs(span["size"] - 12) < 0.15 for span in spans):
+                y0 = min(span["bbox"][1] for span in spans)
+                if 60 < y0 < 770:
+                    page_lines.append((y0, min(span["bbox"][0] for span in spans), max(span["bbox"][2] for span in spans)))
+    body_lines_by_page.append(sorted(page_lines))
+
+line_pitches = []
+for lines in body_lines_by_page:
+    for first, second in zip(lines, lines[1:]):
+        delta = second[0] - first[0]
+        if 18 <= delta <= 23:
+            line_pitches.append(delta)
+median_line_pitch = statistics.median(line_pitches) if line_pitches else 0
+checks["times_new_roman_12pt_body_rendered"] = (
+    sum(count for name, count in font_characters.items() if "TimesNewRoman" in name) > 100000
+    and size_12_characters > 100000
+)
+checks["body_line_spacing_1_5_measured"] = len(line_pitches) > 100 and abs(median_line_pitch - 20.7) < 0.25
+checks["text_respects_25mm_side_margins"] = not side_margin_violations
+checks["figure_table_sources_10pt"] = len(source_sizes) >= 21 and all(size == 10.0 for size in source_sizes)
+
 # Refresh the page-keyed inventory from the exact file that has just passed the
 # checks above. Raw extraction order is retained; sorting Arabic by coordinates
 # would scramble its logical reading order.
@@ -142,11 +205,22 @@ report = {
     "pages": len(doc), "outline_entries": len(toc), "image_placements": image_placements,
     "page_inventory_entries": len(inventory),
     "arabic_letters_extracted": arabic_letters,
+    "formatting_evidence": {
+        "profile": profile,
+        "times_new_roman_provenance": font_provenance,
+        "font_characters": font_characters,
+        "size_12_characters": size_12_characters,
+        "body_line_pitch_samples": len(line_pitches),
+        "median_body_line_pitch_pt": median_line_pitch,
+        "expected_word_1_5_pitch_pt": 20.7,
+        "source_span_sizes": source_sizes,
+    },
     "checks": checks,
     "details": {
         "blank_pages": low_content, "outside_text": outside, "header_band_text": header_band,
         "footer_mismatches": footer_mismatches, "outline_mismatches": outline_mismatches,
         "caption_list_mismatches": caption_list_mismatches, "forbidden_found": forbidden_found,
+        "side_margin_violations": side_margin_violations,
     },
     "manual_visual_review": f"Contact sheets of all {len(doc)} pages, the full-size Arabic abstract, all 21 source figures and corrected full-size pages inspected separately.",
     "status": "pass" if all(boolean_checks.values()) else "fail",

@@ -10,9 +10,10 @@ from collections import Counter
 from pathlib import Path
 
 from docx import Document
+from docx.enum.text import WD_ALIGN_PARAGRAPH
 from docx.oxml.ns import qn
 
-from build_revised_thesis import ASSETS, ROOT, scan_content
+from build_revised_thesis import ASSETS, BODY_FILES, CONTENT, ROOT, read, scan_content
 
 DOCX = ROOT / "deliverables" / "These_revisee_BERKANE_Dhiyaddine.docx"
 BUILD_REPORT = ROOT / "audits" / "docx_build_report.json"
@@ -60,10 +61,75 @@ expected_hashes = Counter(sha256_file(path) for path in expected_media)
 embedded_hashes = Counter(sha256_bytes(value) for value in media.values())
 
 jury_names = ["Pr BAALI Fathi", "Pr FEHDI Chems eddine", "Dr MOUICI Ridha", "Dr AOUN Mounira"]
+expected_chapter_headers = [
+    line.strip()[2:].strip()
+    for filename in BODY_FILES
+    for line in read(CONTENT / filename).splitlines()
+    if line.strip().startswith("# ")
+]
+chapter_headers = [section.header.paragraphs[0].text for section in doc.sections[1:]]
+footer_fields_ok = all(
+    any("PAGE" in "".join(node.itertext()) for node in section.footer._element.xpath(".//w:instrText"))
+    and section.footer.paragraphs[0].alignment == WD_ALIGN_PARAGRAPH.CENTER
+    for section in doc.sections
+)
+first_page_footer_fields_ok = all(
+    any("PAGE" in "".join(node.itertext()) for node in section.first_page_footer._element.xpath(".//w:instrText"))
+    and section.first_page_footer.paragraphs[0].alignment == WD_ALIGN_PARAGRAPH.CENTER
+    for section in doc.sections[1:]
+)
+normal = doc.styles["Normal"]
+heading_styles_ok = (
+    doc.styles["Heading 1"].font.name == "Times New Roman"
+    and abs(doc.styles["Heading 1"].font.size.pt - 14) < 0.01
+    and all(
+        doc.styles[f"Heading {level}"].font.name == "Times New Roman"
+        and abs(doc.styles[f"Heading {level}"].font.size.pt - 12) < 0.01
+        and doc.styles[f"Heading {level}"].font.bold
+        for level in (2, 3, 4)
+    )
+)
+caption_paragraphs = [p for p in doc.paragraphs if p._p.xpath("./w:bookmarkStart")]
+source_paragraphs = [p for p in doc.paragraphs if p.text.startswith("Source :")]
+caption_format_ok = (
+    len(caption_paragraphs) == len(scan.captions) == 67
+    and all(p.alignment == WD_ALIGN_PARAGRAPH.CENTER for p in caption_paragraphs)
+    and all(all(run.font.size is not None and abs(run.font.size.pt - 10) < 0.01 for run in p.runs if run.text) for p in caption_paragraphs)
+)
+source_format_ok = (
+    len(source_paragraphs) >= 21
+    and all(p.alignment == WD_ALIGN_PARAGRAPH.RIGHT for p in source_paragraphs)
+    and all(all(run.font.size is not None and abs(run.font.size.pt - 10) < 0.01 for run in p.runs if run.text) for p in source_paragraphs)
+)
+profile = build.get("formatting_profile", {})
 checks = {
     "zip_package_integrity": corrupt_member is None,
     "python_docx_reopen": len(doc.paragraphs) == build["paragraphs"],
     "a4_page_setup": all(abs(section.page_width.mm - 210) < 0.1 and abs(section.page_height.mm - 297) < 0.1 for section in doc.sections),
+    "documented_formatting_profile": (
+        profile.get("paper") == "A4"
+        and profile.get("margins_mm") == {"top": 25, "right": 25, "bottom": 25, "left": 25}
+        and profile.get("body_font") == "Times New Roman"
+        and profile.get("body_size_pt") == 12
+        and profile.get("body_line_spacing") == 1.5
+    ),
+    "margins_25mm_all_sections": all(
+        all(abs(value.mm - 25) < 0.1 for value in (section.top_margin, section.right_margin, section.bottom_margin, section.left_margin))
+        for section in doc.sections
+    ),
+    "times_new_roman_12_and_1_5_spacing": (
+        normal.font.name == "Times New Roman"
+        and normal.font.size is not None and abs(normal.font.size.pt - 12) < 0.01
+        and normal.paragraph_format.line_spacing == 1.5
+        and normal.paragraph_format.alignment == WD_ALIGN_PARAGRAPH.JUSTIFY
+        and heading_styles_ok
+    ),
+    "chapter_headers_and_continuous_page_fields": (
+        len(doc.sections) == len(expected_chapter_headers) + 1
+        and chapter_headers == expected_chapter_headers
+        and footer_fields_ok and first_page_footer_fields_ok
+    ),
+    "caption_and_source_typography": caption_format_ok and source_format_ok,
     "cover_jury_names": all(name in all_text for name in jury_names),
     "no_placeholder_names": not any(token in all_text for token in ["NOM PRÉNOM", "NOM ET PRÉNOM", "Nom du jury", "Nom du promoteur"]),
     "arabic_abstract": len(re.findall(r"[\u0600-\u06ff]", all_text)) > 1000 and "تتناول" in all_text and "الكلمات" in all_text,
@@ -85,6 +151,7 @@ report = {
     "bytes": DOCX.stat().st_size,
     "sha256": sha256_file(DOCX),
     "paragraphs": len(doc.paragraphs),
+    "sections": len(doc.sections),
     "tables": len(doc.tables),
     "inline_shapes": len(doc.inline_shapes),
     "bidi_paragraphs": bidi_paragraphs,
@@ -92,6 +159,15 @@ report = {
     "pageref_fields": sum(value.startswith("PAGEREF ") for value in instructions),
     "toc_fields": sum(value.startswith("TOC ") for value in instructions),
     "media_files": len(media),
+    "formatting_evidence": {
+        "profile": profile,
+        "normal_font": normal.font.name,
+        "normal_size_pt": normal.font.size.pt if normal.font.size else None,
+        "normal_line_spacing": normal.paragraph_format.line_spacing,
+        "chapter_headers": chapter_headers,
+        "caption_paragraphs_checked": len(caption_paragraphs),
+        "source_paragraphs_checked": len(source_paragraphs),
+    },
     "checks": checks,
     "details": {
         "corrupt_member": corrupt_member,

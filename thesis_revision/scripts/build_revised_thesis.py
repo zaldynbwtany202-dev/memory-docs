@@ -7,15 +7,21 @@ PDF page numbers. FPDF's native TOC placeholder is used for the section outline.
 from __future__ import annotations
 
 import argparse
+import hashlib
+import io
 import json
 import math
 import re
 import sys
+import tempfile
+import warnings
 from collections import defaultdict
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Iterable
 
+import pymupdf
+from fontTools.ttLib import TTFont
 from fpdf import FPDF
 from fpdf.enums import XPos, YPos
 from fpdf.fonts import FontFace
@@ -26,6 +32,10 @@ CONTENT = ROOT / "revision"
 ASSETS = ROOT / "assets"
 DELIVERABLES = ROOT / "deliverables"
 FONT_DIR = Path("/usr/share/fonts/truetype/dejavu")
+SOURCE_PDF = ROOT / "source" / "Étude_bibliographique_sur_les_fondations_de_ponts.pdf"
+MARGIN_MM = 25
+BODY_SIZE_PT = 12
+BODY_LINE_MM = 7.3  # Word-compatible 1.5 spacing for 12 pt Times New Roman.
 BODY_FILES = [
     "01_introduction.md", "02_chapitre_I.md", "03_chapitre_II.md",
     "04_chapitre_III.md", "05_chapitre_IV.md", "06_chapitre_V.md",
@@ -71,6 +81,44 @@ def chapter_from_heading(text: str) -> str | None:
     return None
 
 
+def install_times_new_roman(pdf: FPDF):
+    """Reuse the source thesis's editable-embedded Times New Roman fonts.
+
+    The source PDF contains subsetted fonts with editable-embedding permission
+    (OS/2 fsType=8). They are extracted to a temporary build directory only;
+    no standalone proprietary font files are added to the repository. DejaVu
+    is registered as a glyph fallback for characters absent from those subsets.
+    """
+    temporary = tempfile.TemporaryDirectory(prefix="thesis-tnr-")
+    font_dir = Path(temporary.name)
+    provenance = []
+    with pymupdf.open(SOURCE_PDF) as source:
+        for xref, style, filename in ((245, "", "regular.ttf"), (267, "B", "bold.ttf"), (280, "I", "italic.ttf")):
+            name, extension, _, data = source.extract_font(xref)
+            if not data or extension != "ttf" or "Times New Roman" not in name:
+                raise ValueError(f"Times New Roman extraction failed at source xref {xref}: {name}")
+            font = TTFont(io.BytesIO(data))
+            fs_type = font["OS/2"].fsType if "OS/2" in font else None
+            if fs_type is None or fs_type & 0x0002:
+                raise ValueError(f"Font embedding is not permitted at source xref {xref}: fsType={fs_type}")
+            path = font_dir / filename
+            path.write_bytes(data)
+            pdf.add_font("Serif", style, str(path))
+            provenance.append({
+                "source_xref": xref, "font": name, "style": style or "regular",
+                "bytes": len(data), "sha256": hashlib.sha256(data).hexdigest(),
+                "os2_fsType": fs_type, "storage": "temporary build directory only",
+            })
+    for family, regular, bold in (
+        ("FallbackSerif", "DejaVuSerif.ttf", "DejaVuSerif-Bold.ttf"),
+        ("Sans", "DejaVuSans.ttf", "DejaVuSans-Bold.ttf"),
+    ):
+        pdf.add_font(family, "", str(FONT_DIR / regular))
+        pdf.add_font(family, "B", str(FONT_DIR / bold))
+    pdf.set_fallback_fonts(["FallbackSerif", "Sans"], exact_match=False)
+    return temporary, provenance
+
+
 def scan_content() -> ScanResult:
     result = ScanResult()
     chapter = ""
@@ -109,14 +157,11 @@ def scan_content() -> ScanResult:
 class ThesisPDF(FPDF):
     def __init__(self, previous_pages: dict[str, int] | None = None):
         super().__init__(orientation="P", unit="mm", format="A4")
-        self.set_margins(24, 20, 20)
-        self.set_auto_page_break(True, 20)
+        self.set_margins(MARGIN_MM, MARGIN_MM, MARGIN_MM)
+        self.set_auto_page_break(True, MARGIN_MM)
         self.set_text_shaping(True)
-        self.add_font("Serif", "", str(FONT_DIR / "DejaVuSerif.ttf"))
-        self.add_font("Serif", "B", str(FONT_DIR / "DejaVuSerif-Bold.ttf"))
-        self.add_font("Sans", "", str(FONT_DIR / "DejaVuSans.ttf"))
-        self.add_font("Sans", "B", str(FONT_DIR / "DejaVuSans-Bold.ttf"))
-        self.set_font("Serif", "", 11)
+        self._font_tempdir, self.font_provenance = install_times_new_roman(self)
+        self.set_font("Serif", "", BODY_SIZE_PT)
         self.set_line_width(0.2)
         self.current_chapter = ""
         self.current_part = ""
@@ -145,22 +190,32 @@ class ThesisPDF(FPDF):
         if self.page_no() == 1 or self.in_cover or not self.header_text:
             return
         self.set_y(9)
-        self.set_font("Sans", "", 7.5)
+        header_text = self.header_text
+        header_size = 9.0
+        self.set_font("Serif", "", header_size)
+        available = self.content_width - 4
+        while header_size > 8 and self.get_string_width(header_text) > available:
+            header_size -= 0.5
+            self.set_font("Serif", "", header_size)
+        while header_text and self.get_string_width(header_text + " …") > available:
+            header_text = header_text[:-1].rstrip()
+        if header_text != self.header_text:
+            header_text += " …"
         self.set_text_color(90, 100, 105)
-        self.cell(0, 5, self.header_text[:110], align="R")
+        self.cell(0, 5, header_text, align="R")
         self.set_draw_color(180, 190, 195)
         self.line(self.l_margin, 15, self.w - self.r_margin, 15)
         self.set_text_color(0, 0, 0)
         self.set_x(self.l_margin)
         # FPDF does not restore y after header(); without this reset, pages
         # created by automatic breaks start body text inside the running header.
-        self.set_y(20)
+        self.set_y(MARGIN_MM)
 
     def footer(self):
         if self.page_no() == 1 or self.in_cover:
             return
-        self.set_y(-14)
-        self.set_font("Sans", "", 8)
+        self.set_y(-15)
+        self.set_font("Serif", "", 10)
         self.set_text_color(80, 80, 80)
         self.cell(0, 6, str(self.page_no()), align="C")
         self.set_text_color(0, 0, 0)
@@ -169,13 +224,13 @@ class ThesisPDF(FPDF):
         self.in_cover = False
         self.add_page()
         self.set_x(self.l_margin)
-        self.set_y(20)
+        self.set_y(MARGIN_MM)
 
     def ensure_space(self, needed: float):
         if self.get_y() + needed > self.page_break_trigger:
             self.add_page()
             self.set_x(self.l_margin)
-            self.set_y(20)
+            self.set_y(MARGIN_MM)
 
     def set_rtl(self, enabled: bool):
         self.arabic_mode = enabled
@@ -224,7 +279,7 @@ class ThesisPDF(FPDF):
         self.set_draw_color(70, 90, 100)
         self.rect(x, y, w, h, style="DF", round_corners=True, corner_radius=3)
         self.set_xy(x + 5, y + 5)
-        self.set_font("Sans", "B", 14)
+        self.set_font("Serif", "B", 16)
         self.multi_cell(w - 10, 8, "Particularités de la reconnaissance géotechnique des ponts", align="C")
         self.set_x(x + 5)
         self.set_font("Serif", "", 11)
@@ -260,7 +315,7 @@ class ThesisPDF(FPDF):
         if self.continue_current_page:
             self.continue_current_page = False
             self.set_x(self.l_margin)
-            self.set_y(20)
+            self.set_y(MARGIN_MM)
         else:
             self.add_content_page()
         self.current_part = text
@@ -282,9 +337,9 @@ class ThesisPDF(FPDF):
         else:
             self.header_text = ""
         self.set_rtl(text.strip() == "الملخص")
-        self.set_font("Sans", "B", 15 if chapter else 14)
+        self.set_font("Sans" if self.arabic_mode else "Serif", "B", 14)
         self.set_text_color(31, 78, 121)
-        self.multi_cell(0, 9, text, align="C" if self.arabic_mode else "L")
+        self.multi_cell(0, 8, text, align="C" if self.arabic_mode else "L")
         self.set_text_color(0, 0, 0)
         self.set_draw_color(31, 78, 121)
         self.line(self.l_margin, self.get_y() + 1, self.w - self.r_margin, self.get_y() + 1)
@@ -294,56 +349,56 @@ class ThesisPDF(FPDF):
             self.start_section(text, level=0)
 
     def add_heading(self, text: str, level: int):
-        sizes = {2: 12.5, 3: 11.3, 4: 10.8}
-        self.ensure_space(24 if level == 2 else 18)
-        self.set_font("Sans", "B", sizes.get(level, 11))
+        self.ensure_space(28 if level == 2 else 22)
+        self.set_font("Serif", "B", BODY_SIZE_PT)
         self.set_text_color(31, 78, 121) if level == 2 else self.set_text_color(35, 55, 65)
-        self.multi_cell(0, 6.5, text, align="L")
+        self.multi_cell(0, BODY_LINE_MM, text, align="L")
         self.set_text_color(0, 0, 0)
         self.ln(2 if level == 2 else 1)
         if level == 2:
             self.start_section(text, level=1)
 
     def add_paragraph(self, text: str):
-        # DejaVu Serif has no Arabic glyphs; DejaVu Sans plus HarfBuzz does.
-        self.set_font("Sans" if self.arabic_mode else "Serif", "", 10.8)
+        # The embedded Times subsets lack part of the Arabic alphabet. Arabic
+        # therefore uses DejaVu Sans explicitly; Latin text uses Times New Roman.
+        self.set_font("Sans" if self.arabic_mode else "Serif", "", BODY_SIZE_PT)
         align = "R" if self.arabic_mode else "J"
-        self.multi_cell(0, 5.6, text, align=align, markdown=True, new_x=XPos.LMARGIN, new_y=YPos.NEXT)
-        self.ln(2.1)
+        self.multi_cell(0, BODY_LINE_MM, text, align=align, markdown=True, new_x=XPos.LMARGIN, new_y=YPos.NEXT)
+        self.ln(2)
 
     def add_bullet(self, text: str, ordered: str | None = None):
-        self.set_font("Serif", "", 10.6)
+        self.set_font("Serif", "", BODY_SIZE_PT)
         prefix = f"{ordered}. " if ordered else "• "
         self.set_x(self.l_margin + 4)
-        self.multi_cell(self.content_width - 4, 5.4, prefix + text, align="J", markdown=True,
+        self.multi_cell(self.content_width - 4, BODY_LINE_MM, prefix + text, align="J", markdown=True,
                         new_x=XPos.LMARGIN, new_y=YPos.NEXT)
-        self.ln(0.8)
+        self.ln(1)
 
     def add_callout(self, text: str):
-        self.ensure_space(18)
-        self.set_font("Sans", "B", 9.5)
+        self.ensure_space(24)
+        self.set_font("Serif", "B", BODY_SIZE_PT)
         self.set_fill_color(232, 241, 245)
-        self.multi_cell(0, 5.5, text, align="J", fill=True, markdown=True,
+        self.multi_cell(0, BODY_LINE_MM, text, align="J", fill=True, markdown=True,
                         padding=(2, 2, 2, 2), new_x=XPos.LMARGIN, new_y=YPos.NEXT)
         self.ln(2.5)
 
     def add_equation(self, text: str):
-        self.ensure_space(15)
-        self.set_font("Sans", "", 10.5)
-        self.multi_cell(0, 7, text, align="C", new_x=XPos.LMARGIN, new_y=YPos.NEXT)
+        self.ensure_space(18)
+        self.set_font("Serif", "", BODY_SIZE_PT)
+        self.multi_cell(0, BODY_LINE_MM, text, align="C", new_x=XPos.LMARGIN, new_y=YPos.NEXT)
         self.ln(2)
 
     def add_source(self, text: str):
-        self.set_font("Sans", "", 7.8)
+        self.set_font("Serif", "", 10)
         self.set_text_color(85, 85, 85)
-        self.multi_cell(0, 4.3, "Source : " + text, align="L", wrapmode="WORD")
+        self.multi_cell(0, 5.5, "Source : " + text, align="R", wrapmode="WORD")
         self.set_text_color(0, 0, 0)
         self.ln(1.5)
 
     def add_reference(self, text: str):
-        self.set_font("Serif", "", 9.4)
+        self.set_font("Serif", "", BODY_SIZE_PT)
         self.set_x(self.l_margin + 5)
-        self.multi_cell(self.content_width - 5, 5, text, align="L", wrapmode="WORD",
+        self.multi_cell(self.content_width - 5, BODY_LINE_MM, text, align="L", wrapmode="WORD",
                         new_x=XPos.LMARGIN, new_y=YPos.NEXT)
         self.ln(1.8)
 
@@ -358,17 +413,17 @@ class ThesisPDF(FPDF):
             raise FileNotFoundError(path)
         with Image.open(path) as image:
             aspect = image.height / image.width
-        width = min(164, self.content_width)
+        width = min(160, self.content_width)
         height = width * aspect
         if height > 145:
             height = 145
             width = height / aspect
-        self.ensure_space(height + 21)
+        self.ensure_space(height + 24)
         x = (self.w - width) / 2
         self.image(str(path), x=x, y=self.get_y(), w=width, h=height)
         self.set_y(self.get_y() + height + 3)
-        self.set_font("Sans", "B", 8.8)
-        self.multi_cell(0, 5, f"{label} — {title}", align="C")
+        self.set_font("Serif", "B", 10)
+        self.multi_cell(0, 5.5, f"{label} — {title}", align="C")
         self.caption_pages[label] = self.page_no()
         self.ln(2)
 
@@ -390,21 +445,26 @@ class ThesisPDF(FPDF):
             label = f"Tableau {self.current_chapter}.{self.counts[key]}"
             self.ensure_space(35)
             self.set_x(self.l_margin)
-            self.set_font("Sans", "B", 8.8)
-            self.multi_cell(0, 5, f"{label} — {caption}", align="L")
+            self.set_font("Serif", "B", 10)
+            self.multi_cell(0, 5.5, f"{label} — {caption}", align="C")
             self.caption_pages[label] = self.page_no()
             self.ln(1)
-        self.set_font("Sans", "", 8.1)
+        # The unnumbered abbreviation index is a front-matter lookup table;
+        # compact leading keeps its explanatory note off an otherwise empty page.
+        compact_index = caption is None and self.current_part == "LISTE DES ABRÉVIATIONS"
+        table_size = 8.1 if compact_index else 8.5
+        table_leading = 4.2 if compact_index else 4.6
+        self.set_font("Serif", "", table_size)
         self.set_x(self.l_margin)
         kwargs = {
             "rows": rows,
             "width": self.content_width,
             "borders_layout": "ALL",
-            "line_height": 4.2,
+            "line_height": table_leading,
             "padding": 0.8,
             "text_align": "L",
             "markdown": True,
-            "headings_style": FontFace(family="Sans", emphasis="B", size_pt=8.1, color=(255, 255, 255), fill_color=(31, 78, 121)),
+            "headings_style": FontFace(family="Serif", emphasis="B", size_pt=table_size, color=(255, 255, 255), fill_color=(31, 78, 121)),
             "repeat_headings": 1,
         }
         if weights:
@@ -420,7 +480,7 @@ class ThesisPDF(FPDF):
         for index in range(pages):
             self.add_content_page()
             if index == 0:
-                self.set_font("Sans", "B", 14)
+                self.set_font("Serif", "B", 14)
                 self.multi_cell(0, 8, f"LISTE DES {kind.upper()}S", align="C")
                 self.ln(5)
             subset = templates[index * 40:(index + 1) * 40]
@@ -442,7 +502,7 @@ class ThesisPDF(FPDF):
                 continue
             self.set_x(self.l_margin + section.level * 6)
             if section.level == 0:
-                self.set_font("Sans", "B", 9.2)
+                self.set_font("Serif", "B", 9.2)
             else:
                 self.set_font("Serif", "", 8.8)
             text = section.name
@@ -571,7 +631,7 @@ def build(output: Path, previous_pages: dict[str, int] | None = None) -> tuple[T
     pdf.render_caption_list("Tableau", tables, max(1, math.ceil(len(tables) / 40)))
     render_markdown(pdf, read(CONTENT / "00_abbreviations.md"), body=False)
     pdf.add_content_page()
-    pdf.set_font("Sans", "B", 14)
+    pdf.set_font("Serif", "B", 14)
     pdf.multi_cell(0, 8, "TABLE DES MATIÈRES", align="C")
     pdf.ln(5)
     toc_pages = max(1, math.ceil(scan.outline_count / 43))
@@ -612,6 +672,18 @@ def main() -> int:
         "page_count_stable_between_passes": page_count_stable,
         "caption_pages": second.caption_pages,
         "warnings": second.warnings,
+        "formatting_profile": {
+            "paper": "A4", "margins_mm": {"top": 25, "right": 25, "bottom": 25, "left": 25},
+            "body_font": "Times New Roman", "body_size_pt": 12,
+            "body_line_spacing": 1.5, "body_line_height_mm": BODY_LINE_MM,
+            "chapter_titles": "Times New Roman 14 pt bold",
+            "section_titles": "Times New Roman 12 pt bold",
+            "figure_captions": "centered below, 10 pt", "table_captions": "centered above, 10 pt",
+            "sources": "right aligned, 10 pt", "paragraph_alignment": "justified",
+            "pagination": "continuous Arabic numerals, centered in footer",
+            "glyph_fallback": "DejaVu Serif/Sans only for characters absent from the source Times subsets; Arabic abstract uses DejaVu Sans",
+        },
+        "times_new_roman_provenance": second.font_provenance,
     }
     args.report.write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding="utf-8")
     print(json.dumps({k: v for k, v in report.items() if k != "caption_pages"}, ensure_ascii=False, indent=2))

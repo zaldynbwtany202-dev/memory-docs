@@ -1,0 +1,201 @@
+{
+  "status": "pass",
+  "pdf": "deliverables/These_revisee_BERKANE_Dhiyaddine.pdf",
+  "pages": 109,
+  "checks": {
+    "guide_40_question_references_match_curated_final_pdf": true,
+    "guide_15_slide_references_match_curated_final_pdf": true,
+    "journal_45_revision_references_match_curated_final_pdf": true,
+    "arabic_caption_references_match_build_report": true,
+    "arabic_v03_has_no_replacement_cascade": true,
+    "major_part_starts_match_pdf_outline": true,
+    "visual_review_lists_all_final_figure_pages": true,
+    "visual_review_bibliography_range_is_final": true
+  },
+  "counts": {
+    "guide_questions": 40,
+    "slide_rows": 15,
+    "journal_revision_rows": 45,
+    "arabic_caption_references": 15,
+    "visual_figure_pages": 21
+  },
+  "major_pages_expected": {
+    "INTRODUCTION GÉNÉRALE": 12,
+    "CHAPITRE I": 17,
+    "CHAPITRE II": 34,
+    "CHAPITRE III": 45,
+    "CHAPITRE IV": 59,
+    "CHAPITRE V": 73,
+    "CHAPITRE VI": 84,
+    "CONCLUSION GÉNÉRALE": 94,
+    "BIBLIOGRAPHIE": 97,
+    "ANNEXE A": 104,
+    "ANNEXE B": 107
+  },
+  "major_pages_actual": {
+    "INTRODUCTION GÉNÉRALE": [
+      12
+    ],
+    "CHAPITRE I": [
+      17
+    ],
+    "CHAPITRE II": [
+      34
+    ],
+    "CHAPITRE III": [
+      45
+    ],
+    "CHAPITRE IV": [
+      59
+    ],
+    "CHAPITRE V": [
+      73
+    ],
+    "CHAPITRE VI": [
+      84
+    ],
+    "CONCLUSION GÉNÉRALE": [
+      94
+    ],
+    "BIBLIOGRAPHIE": [
+      97
+    ],
+    "ANNEXE A": [
+      104
+    ],
+    "ANNEXE B": [
+      107
+    ]
+  },
+  "v03_expected": [
+    [
+      "I.1",
+      18
+    ],
+    [
+      "II.3",
+      41
+    ],
+    [
+      "IV.1",
+      60
+    ],
+    [
+      "IV.2",
+      62
+    ],
+    [
+      "IV.3",
+      64
+    ],
+    [
+      "IV.4",
+      68
+    ]
+  ],
+  "v03_actual": [
+    [
+      "I.1",
+      18
+    ],
+    [
+      "II.3",
+      41
+    ],
+    [
+      "IV.1",
+      60
+    ],
+    [
+      "IV.2",
+      62
+    ],
+    [
+      "IV.3",
+      64
+    ],
+    [
+      "IV.4",
+      68
+    ]
+  ],
+  "caption_failures": [],
+  "verified_caption_references": [
+    {
+      "row": "A07",
+      "caption": "Figure I.3",
+      "page": 21
+    },
+    {
+      "row": "A08",
+      "caption": "Figure I.4",
+      "page": 23
+    },
+    {
+      "row": "A11",
+      "caption": "Figure IV.5",
+      "page": 71
+    },
+    {
+      "row": "A12",
+      "caption": "Tableau III.3",
+      "page": 52
+    },
+    {
+      "row": "A14",
+      "caption": "Figure III.3",
+      "page": 56
+    },
+    {
+      "row": "A17",
+      "caption": "Figure V.2",
+      "page": 79
+    },
+    {
+      "row": "A18",
+      "caption": "Figure IV.2",
+      "page": 62
+    },
+    {
+      "row": "A21",
+      "caption": "Figure VI.1",
+      "page": 90
+    },
+    {
+      "row": "V01",
+      "caption": "Figure I.4",
+      "page": 23
+    },
+    {
+      "row": "V05",
+      "caption": "Figure I.1",
+      "page": 18
+    },
+    {
+      "row": "V05",
+      "caption": "Figure I.2",
+      "page": 19
+    },
+    {
+      "row": "V06",
+      "caption": "Figure IV.2",
+      "page": 62
+    },
+    {
+      "row": "V07",
+      "caption": "Figure II.3",
+      "page": 41
+    },
+    {
+      "row": "V08",
+      "caption": "Figure III.3",
+      "page": 56
+    },
+    {
+      "row": "V09",
+      "caption": "Figure I.3",
+      "page": 21
+    }
+  ],
+  "note": "Topic ranges are curated from the final PDF; caption pages and major-part starts are independently derived from build/PDF evidence."
+}

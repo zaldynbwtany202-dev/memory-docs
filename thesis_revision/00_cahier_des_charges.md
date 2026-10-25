@@ -56,6 +56,7 @@ Les versions Markdown et TXT portent sur le même enregistrement. Les remarques 
 4. **Ne pas appliquer mécaniquement toutes les simplifications de la discussion orale.** Un pont suspendu ou haubané peut rester exposé à l'affouillement si ses pylônes, culées ou ancrages sont en zone inondable ; les risques communs du site ne disparaissent pas avec le changement de superstructure.
 5. **Préserver le contenu exact et utile du PDF.** La révision privilégie les corrections ciblées, la réorganisation des synthèses et les ajouts nécessaires.
 6. **Traçabilité.** Chaque modification sera consignée avec sa motivation, sa page d'origine et sa référence R01–R34.
+7. **Profil de présentation.** Appliquer les instructions des encadrants et des conventions universitaires algériennes documentées lorsque le guide typographique détaillé de Larbi Tébessi n'est pas disponible. Identifier exactement chaque établissement source et ne jamais présenter ces conventions comme un guide officiel local ou une norme nationale unique.
 
 ## 4. État d'avancement
 
@@ -66,5 +67,5 @@ Les versions Markdown et TXT portent sur le même enregistrement. Les remarques 
 - [x] Vérification documentaire des exemples et références.
 - [x] Rédaction et intégration des corrections.
 - [x] Contrôle scientifique, linguistique, bibliographique et visuel de la version révisée.
-- [x] Production du PDF de 98 pages, du DOCX éditable, du journal paginé et du guide de soutenance.
+- [x] Production du PDF de 109 pages et du DOCX éditable selon le profil algérien documenté, du journal paginé et du guide de soutenance.
 - [ ] R27 seulement : correction du diaporama, impossible sans le fichier de présentation ; une trame neuve est fournie dans le guide sans être présentée comme une correction du fichier absent.

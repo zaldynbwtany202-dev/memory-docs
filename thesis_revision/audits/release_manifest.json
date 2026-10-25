@@ -5,57 +5,73 @@
   "requirement_status": "33_completed_1_blocked",
   "reference_document": "deliverables/These_revisee_BERKANE_Dhiyaddine.pdf",
   "reference_pagination": {
-    "pages": 98,
+    "pages": 109,
     "paper": "A4",
     "note": "PDF is authoritative; DOCX pagination is renderer-dependent."
+  },
+  "formatting_profile": {
+    "record": "audits/formatting_profile.md",
+    "sources": {
+      "C3": "Université Constantine 3 — Guide de présentation d’un mémoire de Master (2014/2015)",
+      "USTHB-IA": "USTHB FEI — Département Instrumentation Automatique, présentation d’un mémoire de PFE Master",
+      "ULT-FST": "Université Larbi Tébessi FST — avis de dépôt et corrections du jury"
+    },
+    "paper": "A4",
+    "margins_mm": 25,
+    "body_font": "Times New Roman",
+    "body_size_pt": 12,
+    "line_spacing": 1.5,
+    "chapter_title_size_pt": 14,
+    "section_title_size_pt": 12,
+    "institutional_claim": "Harmonised documented profile; not an official Larbi Tébessi compliance certification."
   },
   "deliverables": [
     {
       "path": "deliverables/These_revisee_BERKANE_Dhiyaddine.pdf",
-      "bytes": 2840511,
-      "sha256": "7801e035603b1adfcfbc62d74f1ec6afd272b1777ace8efa5e9f61f131afaae2"
+      "bytes": 2821827,
+      "sha256": "0fdca0f009e87d207d15e69c28c92346ccd5d5b25a08ec071bb36d2daeeb7258"
     },
     {
       "path": "deliverables/These_revisee_BERKANE_Dhiyaddine.docx",
-      "bytes": 1696696,
-      "sha256": "52406eca9d369f1ff3e2dd8766fba6ce50cce044fac1755cfa726962a707f526"
+      "bytes": 1727861,
+      "sha256": "3995fcf4ad4774379336288454f31e3c16478145e8599a1c1c12d34a59ab70d9"
     },
     {
       "path": "deliverables/Journal_des_revisions_BERKANE_Dhiyaddine.md",
-      "bytes": 12804,
-      "sha256": "a525131e98086189a1a799a6c8c8d0f6c7a393d60ac6d9f74195c44af7217488"
+      "bytes": 13373,
+      "sha256": "fa6004592a64f3506a8c3b91b69dba498c3482e6625233832a49c8e6985e6953"
     },
     {
       "path": "deliverables/Guide_de_soutenance_BERKANE_Dhiyaddine.md",
-      "bytes": 21390,
-      "sha256": "2929abf309a54e882ce42fb50fee9987723dbabf6bc68bad588da5144b76366a"
+      "bytes": 21454,
+      "sha256": "2872c26b50b9d776077ee32546854649ed68b9c8a703885824e055ed7a28f8dd"
     },
     {
       "path": "deliverables/LISEZ_MOI.md",
-      "bytes": 3607,
-      "sha256": "d5a9865ce7f1718bbaf0a97b5f673055894c383a44a0f8ec87bf88fc2f0fde05"
+      "bytes": 5386,
+      "sha256": "4815e2f38b5cbf4477891d13005a96407035d49cffe22240f29ea0a4f6e9fb69"
     }
   ],
   "audit_evidence": [
     {
       "path": "audits/build_report.json",
-      "bytes": 1938,
-      "sha256": "1515775c0310df52878b57050e30fedbe82e95890a8eb20fc6ea34587fb571ce"
+      "bytes": 3565,
+      "sha256": "71a1a1e27314f8da1664d4e62d285e91320471c6ead8d04ce25940c708e32849"
     },
     {
       "path": "audits/docx_build_report.json",
-      "bytes": 271,
-      "sha256": "6bb22709564042ec9fd4ac822452f27ce683bc09a3df15b20908078da220f435"
+      "bytes": 857,
+      "sha256": "b7a8442ccbbb27422a8b2e47af878251145bc4b962e8574fb0206d5335a06ca1"
     },
     {
       "path": "audits/final_pdf_qa.json",
-      "bytes": 1294,
-      "sha256": "27d37cc49d5f9698bfc507bf0fba8f6e79fb3b5ca4ab5419ba673b3472c748c1"
+      "bytes": 4005,
+      "sha256": "fa08c2f9761d3809abea24d99560aebedf94f2a2eef2c5b929e7477a34dda25e"
     },
     {
       "path": "audits/docx_content_audit.json",
-      "bytes": 1414,
-      "sha256": "655352b575d704a64d9bbba97a4c54bb1af587efdd8c188c2b74087014c6f705"
+      "bytes": 3219,
+      "sha256": "518db708953373de590fc9d1bf7f568d785ec8c09bd43539a0927c543904c713"
     },
     {
       "path": "audits/revised_citation_audit.json",
@@ -63,14 +79,24 @@
       "sha256": "be992784af8bf896db108a836ce8b3f3ed2e701ea992c1b87f6ffaebbfd3051d"
     },
     {
+      "path": "audits/release_reference_audit.json",
+      "bytes": 3426,
+      "sha256": "df31a8db7c0bc290e93715183da886756bc77b83c28dc4085f32781765478eac"
+    },
+    {
       "path": "audits/visual_review.md",
-      "bytes": 4360,
-      "sha256": "e418d752077b21387a4d3bf454e383ac7b31ee0bd401be52778c196e084a0b71"
+      "bytes": 5298,
+      "sha256": "da7962d8cf8ba087b93857eb058f72516862d90be8676d9c4890ebf2060d6144"
     },
     {
       "path": "audits/registre_etendu_traceability.md",
-      "bytes": 14575,
-      "sha256": "d33fad81ed3e7ff7c9893f71dd00352e0e14568c2d43b5b94e16cfbd625f8deb"
+      "bytes": 15314,
+      "sha256": "7ae07328b3b56565bab0c0c1bea4eb51ee913f9827b4848b21acbfc441efee55"
+    },
+    {
+      "path": "audits/formatting_profile.md",
+      "bytes": 8284,
+      "sha256": "906e892425c89ed25098b4feb61527268064f4feb2d694fdca26361ce8e9679d"
     }
   ],
   "scientific_summary": {
@@ -96,9 +122,9 @@
   },
   "known_reservations": [
     "R27 remains blocked: no original slide deck was supplied; the guide contains a proposed plan, not a corrected deck.",
-    "No official Larbi Tébessi formatting guide was located; institutional compliance is not claimed.",
+    "A source-keyed Algerian-university formatting profile is applied to PDF/DOCX; it is not represented as an official Larbi Tébessi guide or a universal national format.",
     "DOCX package/content are audited, but Word-specific visual pagination was not rendered in this environment.",
     "The work is bibliographic/theoretical and is not presented as fieldwork."
   ],
-  "page_reference_count_checked": 210
+  "page_reference_count_checked": 329
 }

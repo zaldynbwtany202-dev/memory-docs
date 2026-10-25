@@ -15,6 +15,7 @@ from collections import defaultdict
 from pathlib import Path
 
 from docx import Document
+from docx.enum.section import WD_SECTION
 from docx.enum.table import WD_CELL_VERTICAL_ALIGNMENT, WD_TABLE_ALIGNMENT
 from docx.enum.text import WD_ALIGN_PARAGRAPH, WD_TAB_ALIGNMENT, WD_TAB_LEADER
 from docx.oxml import OxmlElement
@@ -30,7 +31,9 @@ from build_revised_thesis import (
 BLUE = "1F4E79"
 LIGHT_BLUE = "E8F1F5"
 GREY = "59636B"
-CONTENT_WIDTH_MM = 166
+CONTENT_WIDTH_MM = 160
+BODY_FONT = "Times New Roman"
+BODY_SIZE_PT = 12
 
 
 def set_cell_shading(cell, fill: str) -> None:
@@ -105,8 +108,11 @@ def add_field(paragraph, instruction: str, placeholder: str = "Mettre à jour le
     end_run._r.append(end)
 
 
-def add_markdown_runs(paragraph, text: str, font: str = "Serif", size: float = 10.8,
+def add_markdown_runs(paragraph, text: str, font: str = BODY_FONT, size: float = BODY_SIZE_PT,
                       color: str | None = None, rtl: bool = False) -> None:
+    # Historical call sites use Serif/Sans as semantic slots. Both now resolve
+    # to the documented Algerian Master's body typeface in the editable file.
+    font = BODY_FONT
     # The controlled sources use bold as their only inline Markdown convention.
     parts = re.split(r"(\*\*.*?\*\*)", text)
     for part in parts:
@@ -129,6 +135,23 @@ def add_markdown_runs(paragraph, text: str, font: str = "Serif", size: float = 1
         set_rtl(paragraph, True)
 
 
+def set_running_header(paragraph, text: str) -> None:
+    paragraph.clear()
+    paragraph.alignment = WD_ALIGN_PARAGRAPH.RIGHT
+    paragraph.paragraph_format.line_spacing = 1.0
+    add_markdown_runs(paragraph, text, BODY_FONT, 9, GREY)
+
+
+def set_centered_page_field(paragraph) -> None:
+    paragraph.clear()
+    paragraph.alignment = WD_ALIGN_PARAGRAPH.CENTER
+    paragraph.paragraph_format.line_spacing = 1.0
+    add_field(paragraph, "PAGE", "1")
+    for run in paragraph.runs:
+        run.font.name = BODY_FONT
+        run.font.size = Pt(10)
+
+
 class ThesisDocx:
     def __init__(self):
         self.doc = Document()
@@ -144,24 +167,24 @@ class ThesisDocx:
         section = self.doc.sections[0]
         section.page_width = Mm(210)
         section.page_height = Mm(297)
-        section.top_margin = Mm(20)
-        section.bottom_margin = Mm(20)
-        section.left_margin = Mm(24)
-        section.right_margin = Mm(20)
+        section.top_margin = Mm(25)
+        section.bottom_margin = Mm(25)
+        section.left_margin = Mm(25)
+        section.right_margin = Mm(25)
         section.header_distance = Mm(8)
         section.footer_distance = Mm(8)
         section.different_first_page_header_footer = True
 
         styles = self.doc.styles
         normal = styles["Normal"]
-        normal.font.name = "Serif"
-        normal.font.size = Pt(10.8)
-        normal.paragraph_format.line_spacing = 1.12
+        normal.font.name = BODY_FONT
+        normal.font.size = Pt(BODY_SIZE_PT)
+        normal.paragraph_format.line_spacing = 1.5
         normal.paragraph_format.space_after = Pt(5)
         normal.paragraph_format.alignment = WD_ALIGN_PARAGRAPH.JUSTIFY
-        for name, size in (("Heading 1", 14), ("Heading 2", 12.5), ("Heading 3", 11.3), ("Heading 4", 10.8)):
+        for name, size in (("Heading 1", 14), ("Heading 2", 12), ("Heading 3", 12), ("Heading 4", 12)):
             style = styles[name]
-            style.font.name = "Sans"
+            style.font.name = BODY_FONT
             style.font.size = Pt(size)
             style.font.bold = True
             style.font.color.rgb = RGBColor.from_string(BLUE)
@@ -170,15 +193,8 @@ class ThesisDocx:
             style.paragraph_format.keep_with_next = True
         styles["Heading 1"].paragraph_format.page_break_before = False
 
-        header = section.header.paragraphs[0]
-        header.alignment = WD_ALIGN_PARAGRAPH.RIGHT
-        add_markdown_runs(header, "Particularités de la reconnaissance géotechnique des ponts — version révisée", "Sans", 7.5, GREY)
-        footer = section.footer.paragraphs[0]
-        footer.alignment = WD_ALIGN_PARAGRAPH.CENTER
-        add_field(footer, "PAGE", "1")
-        for run in footer.runs:
-            run.font.name = "Serif"
-            run.font.size = Pt(8)
+        set_running_header(section.header.paragraphs[0], "Particularités de la reconnaissance géotechnique des ponts — version révisée")
+        set_centered_page_field(section.footer.paragraphs[0])
 
         settings = self.doc.settings.element
         update = OxmlElement("w:updateFields")
@@ -190,6 +206,29 @@ class ThesisDocx:
 
     def page_break(self) -> None:
         self.doc.add_page_break()
+
+    def start_body_section(self, heading: str) -> None:
+        """Start a chapter-level section with its own running header.
+
+        Footers remain centered PAGE fields and no numbering restart is set, so
+        pagination continues while the header follows the current chapter.
+        """
+        section = self.doc.add_section(WD_SECTION.NEW_PAGE)
+        section.page_width = Mm(210)
+        section.page_height = Mm(297)
+        section.top_margin = Mm(25)
+        section.bottom_margin = Mm(25)
+        section.left_margin = Mm(25)
+        section.right_margin = Mm(25)
+        section.header_distance = Mm(8)
+        section.footer_distance = Mm(8)
+        section.different_first_page_header_footer = True
+        for part in (section.header, section.footer, section.first_page_header, section.first_page_footer):
+            part.is_linked_to_previous = False
+        set_running_header(section.header.paragraphs[0], heading)
+        section.first_page_header.paragraphs[0].clear()
+        set_centered_page_field(section.footer.paragraphs[0])
+        set_centered_page_field(section.first_page_footer.paragraphs[0])
 
     def add_cover(self) -> None:
         for text in ("République Algérienne Démocratique et Populaire",
@@ -226,7 +265,7 @@ class ThesisDocx:
         p.alignment = WD_ALIGN_PARAGRAPH.CENTER
         p.paragraph_format.space_before = Pt(10)
         p.paragraph_format.space_after = Pt(10)
-        add_markdown_runs(p, "**Particularités de la reconnaissance géotechnique des ponts**\n(Étude bibliographique)", "Serif", 13)
+        add_markdown_runs(p, "**Particularités de la reconnaissance géotechnique des ponts**\n(Étude bibliographique)", BODY_FONT, 16)
         p_pr = p._p.get_or_add_pPr()
         borders = OxmlElement("w:pBdr")
         for side in ("top", "left", "bottom", "right"):
@@ -251,14 +290,28 @@ class ThesisDocx:
                 cell.text = value
                 for p in cell.paragraphs:
                     for run in p.runs:
-                        run.font.name = "Sans"
+                        run.font.name = BODY_FONT
                         run.font.size = Pt(8.5)
         p = self.doc.add_paragraph()
         p.alignment = WD_ALIGN_PARAGRAPH.CENTER
         add_markdown_runs(p, "**Session Juin 2026**", "Serif", 10)
+        # Cover typography is compact and single-spaced; the 1.5 rule applies
+        # to the manuscript body, not to the institutional identification block.
+        for paragraph in self.doc.paragraphs:
+            paragraph.paragraph_format.line_spacing = 1.0
+            paragraph.paragraph_format.space_after = Pt(2)
+        for cover_table in self.doc.tables:
+            for row in cover_table.rows:
+                for cell in row.cells:
+                    for paragraph in cell.paragraphs:
+                        paragraph.paragraph_format.line_spacing = 1.0
+                        paragraph.paragraph_format.space_after = Pt(0)
 
     def add_major_heading(self, text: str, body: bool) -> None:
-        self.page_break()
+        if body:
+            self.start_body_section(text)
+        else:
+            self.page_break()
         self.current_part = text
         chapter = chapter_from_heading(text)
         if chapter:
@@ -282,27 +335,27 @@ class ThesisDocx:
 
     def add_heading(self, text: str, level: int) -> None:
         p = self.doc.add_paragraph(style=f"Heading {min(level, 4)}")
-        add_markdown_runs(p, text, "Sans", {2: 12.5, 3: 11.3, 4: 10.8}.get(level, 11), BLUE if level == 2 else "233741")
+        add_markdown_runs(p, text, BODY_FONT, BODY_SIZE_PT, BLUE if level == 2 else "233741")
         for run in p.runs:
             run.bold = True
 
     def add_paragraph(self, text: str) -> None:
         p = self.doc.add_paragraph()
         p.alignment = WD_ALIGN_PARAGRAPH.RIGHT if self.arabic_mode else WD_ALIGN_PARAGRAPH.JUSTIFY
-        add_markdown_runs(p, text, "Sans" if self.arabic_mode else "Serif", 10.8, rtl=self.arabic_mode)
+        add_markdown_runs(p, text, BODY_FONT, BODY_SIZE_PT, rtl=self.arabic_mode)
 
     def add_bullet(self, text: str, ordered: str | None = None) -> None:
         p = self.doc.add_paragraph()
         p.paragraph_format.left_indent = Mm(4)
         p.paragraph_format.first_line_indent = Mm(-3)
         p.paragraph_format.space_after = Pt(2)
-        add_markdown_runs(p, f"{ordered + '. ' if ordered else '• '}{text}", "Serif", 10.6)
+        add_markdown_runs(p, f"{ordered + '. ' if ordered else '• '}{text}", BODY_FONT, BODY_SIZE_PT)
 
     def add_callout(self, text: str) -> None:
         p = self.doc.add_paragraph()
         p.paragraph_format.left_indent = Mm(2)
         p.paragraph_format.right_indent = Mm(2)
-        add_markdown_runs(p, text, "Sans", 9.5)
+        add_markdown_runs(p, text, BODY_FONT, BODY_SIZE_PT)
         p_pr = p._p.get_or_add_pPr()
         shd = OxmlElement("w:shd")
         shd.set(qn("w:fill"), LIGHT_BLUE)
@@ -311,11 +364,12 @@ class ThesisDocx:
     def add_equation(self, text: str) -> None:
         p = self.doc.add_paragraph()
         p.alignment = WD_ALIGN_PARAGRAPH.CENTER
-        add_markdown_runs(p, text, "Sans", 10.5)
+        add_markdown_runs(p, text, BODY_FONT, BODY_SIZE_PT)
 
     def add_source(self, text: str) -> None:
         p = self.doc.add_paragraph()
-        add_markdown_runs(p, "Source : " + text, "Sans", 7.8, GREY)
+        p.alignment = WD_ALIGN_PARAGRAPH.RIGHT
+        add_markdown_runs(p, "Source : " + text, BODY_FONT, 10, GREY)
 
     def add_reference(self, text: str) -> None:
         p = self.doc.add_paragraph()
@@ -323,7 +377,7 @@ class ThesisDocx:
         p.paragraph_format.left_indent = Mm(5)
         p.paragraph_format.first_line_indent = Mm(-5)
         p.paragraph_format.space_after = Pt(4)
-        add_markdown_runs(p, text, "Serif", 9.4)
+        add_markdown_runs(p, text, BODY_FONT, BODY_SIZE_PT)
 
     def add_figure(self, asset: str, title: str) -> None:
         if not self.current_chapter:
@@ -334,7 +388,7 @@ class ThesisDocx:
         path = ASSETS / "figures" / f"{asset}.png"
         with Image.open(path) as image:
             aspect = image.height / image.width
-        width = 164
+        width = 160
         if width * aspect > 145:
             width = 145 / aspect
         p = self.doc.add_paragraph()
@@ -343,7 +397,7 @@ class ThesisDocx:
         p.add_run().add_picture(str(path), width=Mm(width))
         caption = self.doc.add_paragraph()
         caption.alignment = WD_ALIGN_PARAGRAPH.CENTER
-        add_markdown_runs(caption, f"**{label} — {title}**", "Sans", 8.8)
+        add_markdown_runs(caption, f"**{label} — {title}**", BODY_FONT, 10)
         add_bookmark(caption, bookmark_name(label), self.bookmark_id)
         self.bookmark_id += 1
         self.captions.append(label)
@@ -360,8 +414,9 @@ class ThesisDocx:
             self.counts[key] += 1
             label = f"Tableau {self.current_chapter}.{self.counts[key]}"
             p = self.doc.add_paragraph()
+            p.alignment = WD_ALIGN_PARAGRAPH.CENTER
             p.paragraph_format.keep_with_next = True
-            add_markdown_runs(p, f"**{label} — {caption}**", "Sans", 8.8)
+            add_markdown_runs(p, f"**{label} — {caption}**", BODY_FONT, 10)
             add_bookmark(p, bookmark_name(label), self.bookmark_id)
             self.bookmark_id += 1
             self.captions.append(label)
@@ -386,7 +441,7 @@ class ThesisDocx:
                     set_cell_shading(cell, "F3F6F8")
                 p = cell.paragraphs[0]
                 p.paragraph_format.space_after = Pt(1.5)
-                add_markdown_runs(p, text, "Sans", 8.1, "FFFFFF" if r_index == 0 else None)
+                add_markdown_runs(p, text, BODY_FONT, 8.5, "FFFFFF" if r_index == 0 else None)
                 if r_index == 0:
                     for run in p.runs:
                         run.bold = True
@@ -506,10 +561,20 @@ class ThesisDocx:
         reopened = Document(output)
         report = {
             "output": str(output), "paragraphs": len(reopened.paragraphs),
+            "sections": len(reopened.sections),
             "tables": len(reopened.tables), "inline_shapes": len(reopened.inline_shapes),
             "numbered_captions": len(self.captions), "unique_captions": len(set(self.captions)),
             "bytes": output.stat().st_size,
             "field_update_on_open": True,
+            "formatting_profile": {
+                "paper": "A4", "margins_mm": {"top": 25, "right": 25, "bottom": 25, "left": 25},
+                "body_font": BODY_FONT, "body_size_pt": BODY_SIZE_PT,
+                "body_line_spacing": 1.5, "paragraph_alignment": "justified",
+                "chapter_titles": "Times New Roman 14 pt bold",
+                "section_titles": "Times New Roman 12 pt bold",
+                "figure_captions": "centered below, 10 pt", "table_captions": "centered above, 10 pt",
+                "sources": "right aligned, 10 pt", "pagination": "centered PAGE field in footer",
+            },
         }
         if report["inline_shapes"] != 23:  # two cover logos + 21 technical figures
             raise ValueError(f"Unexpected DOCX image count: {report}")
