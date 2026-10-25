@@ -1,0 +1,36 @@
+{
+  "file": "/home/user/memory-docs/thesis_revision/deliverables/These_revisee_BERKANE_Dhiyaddine.pdf",
+  "bytes": 2840511,
+  "sha256": "7801e035603b1adfcfbc62d74f1ec6afd272b1777ace8efa5e9f61f131afaae2",
+  "pages": 98,
+  "outline_entries": 95,
+  "image_placements": 23,
+  "page_inventory_entries": 98,
+  "arabic_letters_extracted": 1317,
+  "checks": {
+    "page_count_matches_builder": true,
+    "a4_pages": true,
+    "not_encrypted": true,
+    "no_blank_pages": true,
+    "no_text_outside_page": true,
+    "no_body_text_in_running_header_band": true,
+    "page_footers_match_physical_pages": true,
+    "outline_destinations_match_headings": true,
+    "caption_lists_match_titles_and_actual_pages": true,
+    "no_unresolved_markers_or_known_source_defects": true,
+    "arabic_abstract_has_real_glyph_text": true,
+    "expected_image_placements": true,
+    "page_inventory_complete": true
+  },
+  "details": {
+    "blank_pages": [],
+    "outside_text": [],
+    "header_band_text": [],
+    "footer_mismatches": [],
+    "outline_mismatches": [],
+    "caption_list_mismatches": [],
+    "forbidden_found": {}
+  },
+  "manual_visual_review": "Contact sheets of all 98 pages, the full-size Arabic abstract, all 21 source figures and corrected full-size pages inspected separately.",
+  "status": "pass"
+}

@@ -1,0 +1,23 @@
+{
+  "source": "source/Étude_bibliographique_sur_les_fondations_de_ponts.pdf",
+  "source_sha256": "a2d1ab3b3d8ebfc4a4f9bd954cd3435a8722f09f042cc52ad5a342c7147f5900",
+  "pdf_pages": 198,
+  "body_pages_scanned_for_citation_candidates": 194,
+  "bibliography_pages_scanned": [
+    195,
+    196,
+    197,
+    198
+  ],
+  "bibliography_entry_count_by_hanging_indent": 86,
+  "bibliography_entries_without_detected_author_year": [],
+  "document_index_rows": 505,
+  "citation_candidate_occurrences": 664,
+  "citation_candidate_distinct_strings": 137,
+  "total_words_by_extraction": 68549,
+  "notes": [
+    "Counts are derived from the supplied PDF and must be visually checked for layout exceptions.",
+    "Citation candidates require manual normalization; regex matches are not automatically valid references.",
+    "The bibliography count uses the visible hanging-indent convention on PDF pages 195-198."
+  ]
+}

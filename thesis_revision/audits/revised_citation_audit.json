@@ -1,0 +1,23 @@
+{
+  "main_files_audited": [
+    "01_introduction.md",
+    "02_chapitre_I.md",
+    "03_chapitre_II.md",
+    "04_chapitre_III.md",
+    "05_chapitre_IV.md",
+    "06_chapitre_V.md",
+    "07_chapitre_VI.md",
+    "08_conclusion.md",
+    "10_annexes.md"
+  ],
+  "bibliography_entries": 65,
+  "bibliography_entries_cited": 65,
+  "bibliography_entries_uncited": 0,
+  "citation_occurrences_expanded_by_author_year": 93,
+  "resolved_citation_occurrences": 93,
+  "unresolved_citation_occurrences": 0,
+  "abstract_citation_violations": [],
+  "uncited_entries": [],
+  "status": "pass",
+  "scope_note": "Controlled author–year audit of revised Markdown sources; event dates and standard designations without an author are intentionally excluded."
+}

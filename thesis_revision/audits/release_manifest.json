@@ -1,0 +1,92 @@
+{
+  "release_id": "BERKANE-Dhiyaddine-revision-2026-10-25",
+  "release_date": "2026-10-25",
+  "artifact_status": "pass",
+  "requirement_status": "33_completed_1_blocked",
+  "reference_document": "deliverables/These_revisee_BERKANE_Dhiyaddine.pdf",
+  "reference_pagination": {
+    "pages": 98,
+    "paper": "A4",
+    "note": "PDF is authoritative; DOCX pagination is renderer-dependent."
+  },
+  "deliverables": [
+    {
+      "path": "deliverables/These_revisee_BERKANE_Dhiyaddine.pdf",
+      "bytes": 2840511,
+      "sha256": "7801e035603b1adfcfbc62d74f1ec6afd272b1777ace8efa5e9f61f131afaae2"
+    },
+    {
+      "path": "deliverables/These_revisee_BERKANE_Dhiyaddine.docx",
+      "bytes": 1696696,
+      "sha256": "52406eca9d369f1ff3e2dd8766fba6ce50cce044fac1755cfa726962a707f526"
+    },
+    {
+      "path": "deliverables/Journal_des_revisions_BERKANE_Dhiyaddine.md",
+      "bytes": 12804,
+      "sha256": "a525131e98086189a1a799a6c8c8d0f6c7a393d60ac6d9f74195c44af7217488"
+    },
+    {
+      "path": "deliverables/Guide_de_soutenance_BERKANE_Dhiyaddine.md",
+      "bytes": 21390,
+      "sha256": "2929abf309a54e882ce42fb50fee9987723dbabf6bc68bad588da5144b76366a"
+    },
+    {
+      "path": "deliverables/LISEZ_MOI.md",
+      "bytes": 3396,
+      "sha256": "9c9f4c0dcb15d1ee9d6d5d307203f95ef7ad63d3683d11c00ba5b9aaf31812c3"
+    }
+  ],
+  "audit_evidence": [
+    {
+      "path": "audits/build_report.json",
+      "bytes": 1938,
+      "sha256": "1515775c0310df52878b57050e30fedbe82e95890a8eb20fc6ea34587fb571ce"
+    },
+    {
+      "path": "audits/docx_build_report.json",
+      "bytes": 271,
+      "sha256": "6bb22709564042ec9fd4ac822452f27ce683bc09a3df15b20908078da220f435"
+    },
+    {
+      "path": "audits/final_pdf_qa.json",
+      "bytes": 1294,
+      "sha256": "27d37cc49d5f9698bfc507bf0fba8f6e79fb3b5ca4ab5419ba673b3472c748c1"
+    },
+    {
+      "path": "audits/docx_content_audit.json",
+      "bytes": 1414,
+      "sha256": "655352b575d704a64d9bbba97a4c54bb1af587efdd8c188c2b74087014c6f705"
+    },
+    {
+      "path": "audits/revised_citation_audit.json",
+      "bytes": 734,
+      "sha256": "be992784af8bf896db108a836ce8b3f3ed2e701ea992c1b87f6ffaebbfd3051d"
+    },
+    {
+      "path": "audits/visual_review.md",
+      "bytes": 4360,
+      "sha256": "e418d752077b21387a4d3bf454e383ac7b31ee0bd401be52778c196e084a0b71"
+    }
+  ],
+  "scientific_summary": {
+    "bibliography_entries": 65,
+    "resolved_author_year_occurrences": 93,
+    "figures": 21,
+    "tables_in_pdf": 46,
+    "pdf_outline_entries": 95
+  },
+  "source_provenance": {
+    "original_thesis": "source/Étude_bibliographique_sur_les_fondations_de_ponts.pdf",
+    "original_thesis_sha256": "a2d1ab3b3d8ebfc4a4f9bd954cd3435a8722f09f042cc52ad5a342c7147f5900",
+    "original_archive_sha256": "d169370dbf3d40257d3d60d330838b5e08179956d83689fdfa47ee9a1e55553b",
+    "verified_reference_library": "/home/user/thesis-reference-library (outside Git)",
+    "library_pdf_count": 2150
+  },
+  "known_reservations": [
+    "R27 remains blocked: no original slide deck was supplied; the guide contains a proposed plan, not a corrected deck.",
+    "No official Larbi Tébessi formatting guide was located; institutional compliance is not claimed.",
+    "DOCX package/content are audited, but Word-specific visual pagination was not rendered in this environment.",
+    "The work is bibliographic/theoretical and is not presented as fieldwork."
+  ],
+  "page_reference_count_checked": 210
+}

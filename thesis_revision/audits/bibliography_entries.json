@@ -1,0 +1,690 @@
+[
+  {
+    "id": 1,
+    "start_pdf_page": 195,
+    "text": "AFNOR (2013). NF P94-500 : Reconnaissance géotechnique des projets de construction de bâtiments. La Plaine Saint-Denis : AFNOR.",
+    "authors_raw": "AFNOR",
+    "year": "2013",
+    "first_author_key": "afnor"
+  },
+  {
+    "id": 2,
+    "start_pdf_page": 195,
+    "text": "AFNOR (2020). NF P94-110-1 : Essai pressiométrique Ménard — Partie 1 : Essai sans cycle. La Plaine Saint-Denis : AFNOR.",
+    "authors_raw": "AFNOR",
+    "year": "2020",
+    "first_author_key": "afnor"
+  },
+  {
+    "id": 3,
+    "start_pdf_page": 195,
+    "text": "ASTM D1586 (2018). Standard Test Method for Standard Penetration Test (SPT) and Split-Barrel Sampling of Soils. West Conshohocken : ASTM International.",
+    "authors_raw": "ASTM D1586",
+    "year": "2018",
+    "first_author_key": "astm d1586"
+  },
+  {
+    "id": 4,
+    "start_pdf_page": 195,
+    "text": "ASTM D5778 (2020). Standard Test Method for Electronic Friction Cone and Piezocone Penetration Testing of Soils. West Conshohocken : ASTM International.",
+    "authors_raw": "ASTM D5778",
+    "year": "2020",
+    "first_author_key": "astm d5778"
+  },
+  {
+    "id": 5,
+    "start_pdf_page": 195,
+    "text": "AZIZI, F., BOUMEZBEUR, A., HADJI, R. et al. (2015). « Stability analysis of the Cheria limestone quarry using RMR and GSI classifications and FLAC 2D modeling ». Journal of African Earth Sciences, vol. 109, p. 185-196.",
+    "authors_raw": "AZIZI, F., BOUMEZBEUR, A., HADJI, R. et al.",
+    "year": "2015",
+    "first_author_key": "azizi"
+  },
+  {
+    "id": 6,
+    "start_pdf_page": 195,
+    "text": "BAALI, F., FEHDI, Ch., ROUABHIA, A. et al. (2015). « Hydrochimie et fonctionnement des eaux souterraines dans le plateau de Chéria (NE algérien) ». Hydrotechnical Journal, vol. 1, p. 89-100.",
+    "authors_raw": "BAALI, F., FEHDI, Ch., ROUABHIA, A. et al.",
+    "year": "2015",
+    "first_author_key": "baali"
+  },
+  {
+    "id": 7,
+    "start_pdf_page": 195,
+    "text": "BRAHMI, M., FEHDI, Ch., HADJI, R. et al. (2023). « Application of electrical resistivity tomography for karst detection in the Setifian high plains, Algeria ». Arabian Journal of Geosciences, vol. 16, no. 4, article 271.",
+    "authors_raw": "BRAHMI, M., FEHDI, Ch., HADJI, R. et al.",
+    "year": "2023",
+    "first_author_key": "brahmi"
+  },
+  {
+    "id": 8,
+    "start_pdf_page": 195,
+    "text": "BURLAND, J.B. et BURROUGHS, S. (2002). « Report on the inquiry into the collapse of the Nicoll Highway ». Singapore : Ministry of Manpower.",
+    "authors_raw": "BURLAND, J.B. et BURROUGHS, S.",
+    "year": "2002",
+    "first_author_key": "burland"
+  },
+  {
+    "id": 9,
+    "start_pdf_page": 195,
+    "text": "BUSTAMANTE, M. et GIANESELLI, L. (1981). « Prévision de la capacité portante des pieux isolés sous charge verticale ». Bulletin de liaison des LPC, no. 113, p. 57-79.",
+    "authors_raw": "BUSTAMANTE, M. et GIANESELLI, L.",
+    "year": "1981",
+    "first_author_key": "bustamante"
+  },
+  {
+    "id": 10,
+    "start_pdf_page": 195,
+    "text": "CASTANY, G. (1982). Principes et méthodes de l'hydrogéologie. Paris : Dunod, 235 p.",
+    "authors_raw": "CASTANY, G.",
+    "year": "1982",
+    "first_author_key": "castany"
+  },
+  {
+    "id": 11,
+    "start_pdf_page": 195,
+    "text": "CEN (2004). EN 1997-1 : Eurocode 7 — Calcul géotechnique — Partie 1 : Règles générales. Bruxelles : CEN.",
+    "authors_raw": "CEN",
+    "year": "2004",
+    "first_author_key": "cen"
+  },
+  {
+    "id": 12,
+    "start_pdf_page": 195,
+    "text": "CEN (2007). EN 1997-2 : Eurocode 7 — Calcul géotechnique — Partie 2 : Calcul assisté par des essais en place et par l'expérience. Bruxelles : CEN.",
+    "authors_raw": "CEN",
+    "year": "2007",
+    "first_author_key": "cen"
+  },
+  {
+    "id": 13,
+    "start_pdf_page": 195,
+    "text": "CEN (2005). EN 1998-1 : Eurocode 8 — Conception et dimensionnement des structures pour leur résistance aux séismes — Partie 1 : Règles générales. Bruxelles : CEN.",
+    "authors_raw": "CEN",
+    "year": "2005",
+    "first_author_key": "cen"
+  },
+  {
+    "id": 14,
+    "start_pdf_page": 195,
+    "text": "CEN (2005). EN 1998-5 : Eurocode 8 — Conception et dimensionnement des structures pour leur résistance aux séismes — Partie 5 : Fondations. Bruxelles : CEN.",
+    "authors_raw": "CEN",
+    "year": "2005",
+    "first_author_key": "cen"
+  },
+  {
+    "id": 15,
+    "start_pdf_page": 195,
+    "text": "CGS (2003). Règles Parasismiques Algériennes RPA 99/V2003. Alger : CGS.",
+    "authors_raw": "CGS",
+    "year": "2003",
+    "first_author_key": "cgs"
+  },
+  {
+    "id": 16,
+    "start_pdf_page": 195,
+    "text": "CHEN, W.F. et DUAN, L. (2000). Bridge Engineering Handbook. Boca Raton : CRC Press, 1500 p.",
+    "authors_raw": "CHEN, W.F. et DUAN, L.",
+    "year": "2000",
+    "first_author_key": "chen"
+  },
+  {
+    "id": 17,
+    "start_pdf_page": 195,
+    "text": "CHEN, W.F. et DUAN, L. (2014). Bridge Engineering Handbook : Substructure Design. 2e éd. Boca Raton : CRC Press, 628 p.",
+    "authors_raw": "CHEN, W.F. et DUAN, L.",
+    "year": "2014",
+    "first_author_key": "chen"
+  },
+  {
+    "id": 18,
+    "start_pdf_page": 195,
+    "text": "DEROUICHE, M. (2012). « Contribution à l'étude hydrologique des oueds en Algérie du Nord ». Revue des Sciences de l'Eau, vol. 25, no. 2, p. 103-118.",
+    "authors_raw": "DEROUICHE, M.",
+    "year": "2012",
+    "first_author_key": "derouiche"
+  },
+  {
+    "id": 19,
+    "start_pdf_page": 195,
+    "text": "DE RUITER, J. (1981). « Current developments in offshore cone penetration testing ». Proceedings of the 2nd European Symposium on Penetration Testing, Amsterdam, p. 509-516.",
+    "authors_raw": "DE RUITER, J.",
+    "year": "1981",
+    "first_author_key": "de ruiter"
+  },
+  {
+    "id": 20,
+    "start_pdf_page": 195,
+    "text": "DUNCAN, J.M. et WRIGHT, S.G. (2005). Soil Strength and Slope Stability. Hoboken : John Wiley & Sons, 297 p.",
+    "authors_raw": "DUNCAN, J.M. et WRIGHT, S.G.",
+    "year": "2005",
+    "first_author_key": "duncan"
+  },
+  {
+    "id": 21,
+    "start_pdf_page": 195,
+    "text": "FHWA (2012). Evaluating Scour at Bridges. Hydraulic Engineering Circular No. 18 (HEC-18). 5e éd. Washington : FHWA, 340 p.",
+    "authors_raw": "FHWA",
+    "year": "2012",
+    "first_author_key": "fhwa"
+  },
+  {
+    "id": 22,
+    "start_pdf_page": 195,
+    "text": "FHWA (2017). Geotechnical Site Characterization. Geotechnical Engineering Circular No. 5 (GEC-5). Washington : FHWA, 350 p.",
+    "authors_raw": "FHWA",
+    "year": "2017",
+    "first_author_key": "fhwa"
+  },
+  {
+    "id": 23,
+    "start_pdf_page": 195,
+    "text": "FRANK, R. (1999). Calcul des fondations superficielles et profondes. Paris : Presses de l'ENPC, 138 p.",
+    "authors_raw": "FRANK, R.",
+    "year": "1999",
+    "first_author_key": "frank"
+  },
+  {
+    "id": 24,
+    "start_pdf_page": 195,
+    "text": "FRANK, R. (2017). « La reconnaissance géotechnique : enjeux, méthodes et perspectives ». Revue Française de Géotechnique, no. 150, p. 3-15.",
+    "authors_raw": "FRANK, R.",
+    "year": "2017",
+    "first_author_key": "frank"
+  },
+  {
+    "id": 25,
+    "start_pdf_page": 196,
+    "text": "HAMBLY, E.C. (1979). Bridge Deck Behaviour. London : Chapman and Hall, 284 p.",
+    "authors_raw": "HAMBLY, E.C.",
+    "year": "1979",
+    "first_author_key": "hambly"
+  },
+  {
+    "id": 26,
+    "start_pdf_page": 196,
+    "text": "HOEK, E. et BROWN, E.T. (1997). « Practical estimates of rock mass strength ». International Journal of Rock Mechanics and Mining Sciences, vol. 34, no. 8, p. 1165-1186.",
+    "authors_raw": "HOEK, E. et BROWN, E.T.",
+    "year": "1997",
+    "first_author_key": "hoek"
+  },
+  {
+    "id": 27,
+    "start_pdf_page": 196,
+    "text": "IDRISS, I.M. et BOULANGER, R.W. (2008). Soil Liquefaction During Earthquakes. Oakland : EERI, 263 p.",
+    "authors_raw": "IDRISS, I.M. et BOULANGER, R.W.",
+    "year": "2008",
+    "first_author_key": "idriss"
+  },
+  {
+    "id": 28,
+    "start_pdf_page": 196,
+    "text": "JAMIOLKOWSKI, M., Lo PRESTI, D.C.F. et MANASSERO, M. (2001). « Evaluation of relative density and shear strength of sands from CPT and DMT ». Soil Behavior and Soft Ground Construction, GSP 119, ASCE, p. 201-238.",
+    "authors_raw": "JAMIOLKOWSKI, M., Lo PRESTI, D.C.F. et MANASSERO, M.",
+    "year": "2001",
+    "first_author_key": "jamiolkowski"
+  },
+  {
+    "id": 29,
+    "start_pdf_page": 196,
+    "text": "KRAMER, S.L. (1996). Geotechnical Earthquake Engineering. Upper Saddle River : Prentice Hall, 653 p.",
+    "authors_raw": "KRAMER, S.L.",
+    "year": "1996",
+    "first_author_key": "kramer"
+  },
+  {
+    "id": 30,
+    "start_pdf_page": 196,
+    "text": "KULHAWY, F.H. et MAYNE, P.W. (1990). Manual on Estimating Soil Properties for Foundation Design. Report EL-6800. Palo Alto : EPRI, 308 p.",
+    "authors_raw": "KULHAWY, F.H. et MAYNE, P.W.",
+    "year": "1990",
+    "first_author_key": "kulhawy"
+  },
+  {
+    "id": 31,
+    "start_pdf_page": 196,
+    "text": "LANCELLOTTA, R. (2009). Geotechnical Engineering. 2e éd. London : Taylor & Francis, 475 p.",
+    "authors_raw": "LANCELLOTTA, R.",
+    "year": "2009",
+    "first_author_key": "lancellotta"
+  },
+  {
+    "id": 32,
+    "start_pdf_page": 196,
+    "text": "LEE, W.F., CHEN, C.H. et CHEN, Y.J. (2007). « Bridge monitoring and safety evaluation ». Proceedings of the 4th International Conference on Bridge Maintenance, Safety and Management, Seoul, p. 234- 241.",
+    "authors_raw": "LEE, W.F., CHEN, C.H. et CHEN, Y.J.",
+    "year": "2007",
+    "first_author_key": "lee"
+  },
+  {
+    "id": 33,
+    "start_pdf_page": 196,
+    "text": "MENARD, L. (1957). « Mesures in situ des propriétés physiques des sols ». Annales des Ponts et Chaussées, no. 3, p. 357-377.",
+    "authors_raw": "MENARD, L.",
+    "year": "1957",
+    "first_author_key": "menard"
+  },
+  {
+    "id": 34,
+    "start_pdf_page": 196,
+    "text": "MEYERHOF, G.G. (1956). « Penetration tests and bearing capacity of cohesionless soils ». Journal of the Soil Mechanics and Foundations Division, ASCE, vol. 82, no. SM1, p. 1-19.",
+    "authors_raw": "MEYERHOF, G.G.",
+    "year": "1956",
+    "first_author_key": "meyerhof"
+  },
+  {
+    "id": 35,
+    "start_pdf_page": 196,
+    "text": "MOUICI, R., BAALI, F., HADJI, R. et al. (2017). « Geophysical and geotechnical investigation of karst in Cheria plateau (NE Algeria) ». Journal of African Earth Sciences, vol. 134, p. 144-155.",
+    "authors_raw": "MOUICI, R., BAALI, F., HADJI, R. et al.",
+    "year": "2017",
+    "first_author_key": "mouici"
+  },
+  {
+    "id": 36,
+    "start_pdf_page": 196,
+    "text": "MOULTON, L.K., Ganga RAO, H.V.S. et HALVORSON, G.T. (1985). Tolerable Movement Criteria for Highway Bridges. Report FHWA/RD-85/107. Washington : FHWA, 186 p.",
+    "authors_raw": "MOULTON, L.K., Ganga RAO, H.V.S. et HALVORSON, G.T.",
+    "year": "1985",
+    "first_author_key": "moulton"
+  },
+  {
+    "id": 37,
+    "start_pdf_page": 196,
+    "text": "OVELLA, B. et BJORDAL, F. (2013). « Causes of bridge failures — a statistical review ». Proceedings of the IABSE Symposium, Kolkata, p. 1-8.",
+    "authors_raw": "OVELLA, B. et BJORDAL, F.",
+    "year": "2013",
+    "first_author_key": "ovella"
+  },
+  {
+    "id": 38,
+    "start_pdf_page": 196,
+    "text": "PECKER, A. (1984). Dynamique des sols. Paris : Presses de l'ENPC, 320 p.",
+    "authors_raw": "PECKER, A.",
+    "year": "1984",
+    "first_author_key": "pecker"
+  },
+  {
+    "id": 39,
+    "start_pdf_page": 196,
+    "text": "PECKER, A. (1997). « Fondations profondes sous sollicitations sismiques ». Revue Française de Géotechnique, no. 80, p. 37-48.",
+    "authors_raw": "PECKER, A.",
+    "year": "1997",
+    "first_author_key": "pecker"
+  },
+  {
+    "id": 40,
+    "start_pdf_page": 196,
+    "text": "PHOON, K.K. et KULHAWY, F.H. (1999). « Characterization of geotechnical variability ». Canadian Geotechnical Journal, vol. 36, no. 4, p. 612-624.",
+    "authors_raw": "PHOON, K.K. et KULHAWY, F.H.",
+    "year": "1999",
+    "first_author_key": "phoon"
+  },
+  {
+    "id": 41,
+    "start_pdf_page": 196,
+    "text": "RICHARDSON, E.V. et DAVIS, S.R. (2001). Evaluating Scour at Bridges. HEC-18. 4e éd. Washington : FHWA, 378 p.",
+    "authors_raw": "RICHARDSON, E.V. et DAVIS, S.R.",
+    "year": "2001",
+    "first_author_key": "richardson"
+  },
+  {
+    "id": 42,
+    "start_pdf_page": 196,
+    "text": "ROBERTSON, P.K. (2009). « Interpretation of cone penetration tests — a unified approach ». Canadian Geotechnical Journal, vol. 46, no. 11, p. 1337-1355.",
+    "authors_raw": "ROBERTSON, P.K.",
+    "year": "2009",
+    "first_author_key": "robertson"
+  },
+  {
+    "id": 43,
+    "start_pdf_page": 196,
+    "text": "RPOA (2008). Règles Parasismiques Ouvrages d'Art. Alger : Ministère des Travaux Publics.",
+    "authors_raw": "RPOA",
+    "year": "2008",
+    "first_author_key": "rpoa"
+  },
+  {
+    "id": 44,
+    "start_pdf_page": 196,
+    "text": "SEED, H.B. et IDRISS, I.M. (1971). « Simplified procedure for evaluating soil liquefaction potential ». Journal of the Soil Mechanics and Foundations Division, ASCE, vol. 97, no. SM9, p. 1249-1273.",
+    "authors_raw": "SEED, H.B. et IDRISS, I.M.",
+    "year": "1971",
+    "first_author_key": "seed"
+  },
+  {
+    "id": 45,
+    "start_pdf_page": 196,
+    "text": "SEED, H.B., TOKIMATSU, K., HARDER, L.F. et al. (1985). « Influence of SPT procedures in soil liquefaction resistance evaluations ». Journal of Geotechnical Engineering, ASCE, vol. 111, no. 12, p. 1425-1445.",
+    "authors_raw": "SEED, H.B., TOKIMATSU, K., HARDER, L.F. et al.",
+    "year": "1985",
+    "first_author_key": "seed"
+  },
+  {
+    "id": 46,
+    "start_pdf_page": 196,
+    "text": "SETRA (2000). Recueil des règles de l'art — Ouvrages d'art : conception des fondations. Bagneux : SETRA, 85 p.",
+    "authors_raw": "SETRA",
+    "year": "2000",
+    "first_author_key": "setra"
+  },
+  {
+    "id": 47,
+    "start_pdf_page": 196,
+    "text": "SKEMPTON, A.W. (1986). « Standard penetration test procedures and the effects in sands of overburden pressure, relative density, particle size, ageing and overconsolidation ». Géotechnique, vol. 36, no. 3, p. 425-447.",
+    "authors_raw": "SKEMPTON, A.W.",
+    "year": "1986",
+    "first_author_key": "skempton"
+  },
+  {
+    "id": 48,
+    "start_pdf_page": 196,
+    "text": "TERZAGHI, K. (1943). Theoretical Soil Mechanics. New York : John Wiley & Sons, 510 p.",
+    "authors_raw": "TERZAGHI, K.",
+    "year": "1943",
+    "first_author_key": "terzaghi"
+  },
+  {
+    "id": 49,
+    "start_pdf_page": 196,
+    "text": "TERZAGHI, K. et PECK, R.B. (1967). Soil Mechanics in Engineering Practice. 2e éd. New York : John Wiley & Sons, 729 p.",
+    "authors_raw": "TERZAGHI, K. et PECK, R.B.",
+    "year": "1967",
+    "first_author_key": "terzaghi"
+  },
+  {
+    "id": 50,
+    "start_pdf_page": 196,
+    "text": "VILA, J.M. (1980). « La chaîne alpine d'Algérie orientale et des confins algéro-tunisiens ». Thèse de doctorat ès Sciences, Université Pierre et Marie Curie, Paris VI, 665 p.",
+    "authors_raw": "VILA, J.M.",
+    "year": "1980",
+    "first_author_key": "vila"
+  },
+  {
+    "id": 51,
+    "start_pdf_page": 197,
+    "text": "WALTHAM, T., BELL, F.G. et CULSHAW, M. (2005). Sinkholes and Subsidence: Karst and Cavernous Rocks in Engineering and Construction. Chichester : Springer, 382 p.",
+    "authors_raw": "WALTHAM, T., BELL, F.G. et CULSHAW, M.",
+    "year": "2005",
+    "first_author_key": "waltham"
+  },
+  {
+    "id": 52,
+    "start_pdf_page": 197,
+    "text": "WARD, W.H. (1953). « Soil movement and weather ». Proceedings of the 3rd International Conference on Soil Mechanics and Foundation Engineering, Zurich, vol. 1, p. 479-482.",
+    "authors_raw": "WARD, W.H.",
+    "year": "1953",
+    "first_author_key": "ward"
+  },
+  {
+    "id": 53,
+    "start_pdf_page": 197,
+    "text": "WROTH, C.P. (1984). « The interpretation of in situ soil tests ». Géotechnique, vol. 34, no. 4, p. 449-489.",
+    "authors_raw": "WROTH, C.P.",
+    "year": "1984",
+    "first_author_key": "wroth"
+  },
+  {
+    "id": 54,
+    "start_pdf_page": 197,
+    "text": "YACINE, A., MENANI, M.R. et al. (2014). « Approche combinée géologie-discontinuités-résistivité pour la caractérisation du karst de Cheria (NE Algérie) ». Bulletin du Service Géologique de l'Algérie, vol. 25, no. 3, p. 277-294.",
+    "authors_raw": "YACINE, A., MENANI, M.R. et al.",
+    "year": "2014",
+    "first_author_key": "yacine"
+  },
+  {
+    "id": 55,
+    "start_pdf_page": 197,
+    "text": "YANG, D. (2009). « Geotechnical investigation and interpretation for bridge foundations ». Proceedings of the International Symposium on Geotechnical Engineering, p. 112-125.",
+    "authors_raw": "YANG, D.",
+    "year": "2009",
+    "first_author_key": "yang"
+  },
+  {
+    "id": 56,
+    "start_pdf_page": 197,
+    "text": "YOUSSEF, A.M. et MAERZ, N.H. (2013). « Geological and geotechnical controls on karst cavity development in carbonate rocks ». Engineering Geology, vol. 157, p. 43-56.",
+    "authors_raw": "YOUSSEF, A.M. et MAERZ, N.H.",
+    "year": "2013",
+    "first_author_key": "youssef"
+  },
+  {
+    "id": 57,
+    "start_pdf_page": 197,
+    "text": "ZHU, B.T. et GRIFFITHS, D.V. (2014). « Bearing capacity of strip foundations on layered soil ». Canadian Geotechnical Journal, vol. 51, no. 12, p. 1400-1410.",
+    "authors_raw": "ZHU, B.T. et GRIFFITHS, D.V.",
+    "year": "2014",
+    "first_author_key": "zhu"
+  },
+  {
+    "id": 58,
+    "start_pdf_page": 197,
+    "text": "MENARD, L. et BUSTAMANTE, M. (1975). « Méthode de prévision du tassement des fondations profondes ». Annales de l'ITBTP, no. 329, p. 51-74.",
+    "authors_raw": "MENARD, L. et BUSTAMANTE, M.",
+    "year": "1975",
+    "first_author_key": "menard"
+  },
+  {
+    "id": 59,
+    "start_pdf_page": 197,
+    "text": "BAGUELIN, M., JEZEQUEL, J.F. et SHIELDS, D.H. (1978). The Pressurementer and Foundation Engineering. Clausthal : Trans Tech Publications, 617 p.",
+    "authors_raw": "BAGUELIN, M., JEZEQUEL, J.F. et SHIELDS, D.H.",
+    "year": "1978",
+    "first_author_key": "baguelin"
+  },
+  {
+    "id": 60,
+    "start_pdf_page": 197,
+    "text": "BOLTON, M.D. (1986). « The strength and dilatancy of sands ». Géotechnique, vol. 36, no. 1, p. 65-78.",
+    "authors_raw": "BOLTON, M.D.",
+    "year": "1986",
+    "first_author_key": "bolton"
+  },
+  {
+    "id": 61,
+    "start_pdf_page": 197,
+    "text": "BRAND, E.W. et PHILIPSON, H.B. (1985). « Site investigation for the Third Victoria Crossing, Hong Kong ». Proceedings of the 8th Southeast Asian Geotechnical Conference, Kuala Lumpur, vol. 1, p. 45- 56.",
+    "authors_raw": "BRAND, E.W. et PHILIPSON, H.B.",
+    "year": "1985",
+    "first_author_key": "brand"
+  },
+  {
+    "id": 62,
+    "start_pdf_page": 197,
+    "text": "BSI (2004). BS EN 1997-1 : Eurocode 7 — Geotechnical Design. General Rules. London : BSI.",
+    "authors_raw": "BSI",
+    "year": "2004",
+    "first_author_key": "bsi"
+  },
+  {
+    "id": 63,
+    "start_pdf_page": 197,
+    "text": "CARTER, J.P. et KULHAWY, F.H. (1988). « Analysis and design of drilled shaft foundations socketed into rock ». Report EL-5918. Palo Alto : EPRI, 188 p.",
+    "authors_raw": "CARTER, J.P. et KULHAWY, F.H.",
+    "year": "1988",
+    "first_author_key": "carter"
+  },
+  {
+    "id": 64,
+    "start_pdf_page": 197,
+    "text": "CLOUGH, G.W. et DUNCAN, J.M. (1991). « Earth pressures ». Foundation Engineering Handbook, 2e éd., New York : Van Nostrand Reinhold, p. 223-235.",
+    "authors_raw": "CLOUGH, G.W. et DUNCAN, J.M.",
+    "year": "1991",
+    "first_author_key": "clough"
+  },
+  {
+    "id": 65,
+    "start_pdf_page": 197,
+    "text": "DAVIS, E.H. et BOOKER, J.R. (1971). « The bearing capacity of strip footings from the standpoint of plasticity theory ». Proceedings of the 1st Australia-New Zealand Conference on Geomechanics, Melbourne, p. 276-282.",
+    "authors_raw": "DAVIS, E.H. et BOOKER, J.R.",
+    "year": "1971",
+    "first_author_key": "davis"
+  },
+  {
+    "id": 66,
+    "start_pdf_page": 197,
+    "text": "DE BEER, E.E. (1970). « Experimental determination of the shape factors and the bearing capacity factors of sand ». Géotechnique, vol. 20, no. 4, p. 387-411.",
+    "authors_raw": "DE BEER, E.E.",
+    "year": "1970",
+    "first_author_key": "de beer"
+  },
+  {
+    "id": 67,
+    "start_pdf_page": 197,
+    "text": "HOLTZ, R.D. et KOVACS, W.D. (1981). An Introduction to Geotechnical Engineering. Englewood Cliffs : Prentice Hall, 733 p.",
+    "authors_raw": "HOLTZ, R.D. et KOVACS, W.D.",
+    "year": "1981",
+    "first_author_key": "holtz"
+  },
+  {
+    "id": 68,
+    "start_pdf_page": 197,
+    "text": "ISENHOWER, W.M. (1999). « Integrated borehole and surface geophysical methods for characterizing the subsurface ». Proceedings of the Geotechnical Engineering Conference, p. 156-169.",
+    "authors_raw": "ISENHOWER, W.M.",
+    "year": "1999",
+    "first_author_key": "isenhower"
+  },
+  {
+    "id": 69,
+    "start_pdf_page": 197,
+    "text": "JAKOBSEN, B. (1952). « The liquefaction of soils ». Proceedings of the 2nd International Conference on Soil Mechanics and Foundation Engineering, Rotterdam, vol. 1, p. 112-118.",
+    "authors_raw": "JAKOBSEN, B.",
+    "year": "1952",
+    "first_author_key": "jakobsen"
+  },
+  {
+    "id": 70,
+    "start_pdf_page": 197,
+    "text": "LAMBE, T.W. et WHITMAN, R.V. (1969). Soil Mechanics. New York : John Wiley & Sons, 553 p.",
+    "authors_raw": "LAMBE, T.W. et WHITMAN, R.V.",
+    "year": "1969",
+    "first_author_key": "lambe"
+  },
+  {
+    "id": 71,
+    "start_pdf_page": 197,
+    "text": "MARCHETTI, S. (1980). « In situ tests by flat dilatometer ». Journal of the Geotechnical Engineering Division, ASCE, vol. 106, no. GT3, p. 299-321.",
+    "authors_raw": "MARCHETTI, S.",
+    "year": "1980",
+    "first_author_key": "marchetti"
+  },
+  {
+    "id": 72,
+    "start_pdf_page": 197,
+    "text": "PARRY, R.H.G. (1977). « Estimating bearing capacity of footings on sand ». Proceedings of the 9th International Conference on Soil Mechanics and Foundation Engineering, Tokyo, vol. 1, p. 197- 204.",
+    "authors_raw": "PARRY, R.H.G.",
+    "year": "1977",
+    "first_author_key": "parry"
+  },
+  {
+    "id": 73,
+    "start_pdf_page": 197,
+    "text": "PECK, R.B., HANSON, W.E. et THORBURN, T.H. (1974). Foundation Engineering. 2e éd. New York : John Wiley & Sons, 514 p.",
+    "authors_raw": "PECK, R.B., HANSON, W.E. et THORBURN, T.H.",
+    "year": "1974",
+    "first_author_key": "peck"
+  },
+  {
+    "id": 74,
+    "start_pdf_page": 197,
+    "text": "POULOS, H.G. et DAVIS, E.H. (1980). Pile Foundation Analysis and Design. New York : John Wiley & Sons, 397 p.",
+    "authors_raw": "POULOS, H.G. et DAVIS, E.H.",
+    "year": "1980",
+    "first_author_key": "poulos"
+  },
+  {
+    "id": 75,
+    "start_pdf_page": 198,
+    "text": "REESE, L.C. et O'NEILL, M.W. (1988). Drilled Shafts: Construction Procedures and Design Methods. Report FHWA-HI-88-042. Washington : FHWA, 564 p.",
+    "authors_raw": "REESE, L.C. et O'NEILL, M.W.",
+    "year": "1988",
+    "first_author_key": "reese"
+  },
+  {
+    "id": 76,
+    "start_pdf_page": 198,
+    "text": "ROBERTSON, P.K. et CAMPANELLA, R.G. (1983). « Interpretation of cone penetration tests — Part I: Sand ». Canadian Geotechnical Journal, vol. 20, no. 4, p. 718-733.",
+    "authors_raw": "ROBERTSON, P.K. et CAMPANELLA, R.G.",
+    "year": "1983",
+    "first_author_key": "robertson"
+  },
+  {
+    "id": 77,
+    "start_pdf_page": 198,
+    "text": "SCHMERTMANN, J.H. (1970). « Static cone to compute static settlement over sand ». Journal of the Soil Mechanics and Foundations Division, ASCE, vol. 96, no. SM3, p. 1011-1043.",
+    "authors_raw": "SCHMERTMANN, J.H.",
+    "year": "1970",
+    "first_author_key": "schmertmann"
+  },
+  {
+    "id": 78,
+    "start_pdf_page": 198,
+    "text": "TOMLINSON, M.J. (2001). Foundation Design and Construction. 7e éd. Harlow : Pearson Education, 569 p.",
+    "authors_raw": "TOMLINSON, M.J.",
+    "year": "2001",
+    "first_author_key": "tomlinson"
+  },
+  {
+    "id": 79,
+    "start_pdf_page": 198,
+    "text": "VESES, A.S. (1975). « Settlement of isolated foundations ». Soil Mechanics — Selected Topics, London : Butterworths, p. 331-376.",
+    "authors_raw": "VESES, A.S.",
+    "year": "1975",
+    "first_author_key": "veses"
+  },
+  {
+    "id": 80,
+    "start_pdf_page": 198,
+    "text": "WROTH, C.P. et HOULSBY, G.T. (1985). « Soil mechanics — property characterization and analysis procedures ». Proceedings of the 11th International Conference on Soil Mechanics and Foundation Engineering, San Francisco, vol. 1, p. 1-55.",
+    "authors_raw": "WROTH, C.P. et HOULSBY, G.T.",
+    "year": "1985",
+    "first_author_key": "wroth"
+  },
+  {
+    "id": 81,
+    "start_pdf_page": 198,
+    "text": "BRIAUD, J.-L., TING, F.C.K., CHEN, H.C. et al. (1999). « SRICOS: Prediction of scour rate in cohesive soils at bridge piers ». Journal of Geotechnical and Geoenvironmental Engineering, ASCE, vol. 125, no. 4, p. 237-246.",
+    "authors_raw": "BRIAUD, J.-L., TING, F.C.K., CHEN, H.C. et al.",
+    "year": "1999",
+    "first_author_key": "briaud"
+  },
+  {
+    "id": 82,
+    "start_pdf_page": 198,
+    "text": "HOFFMANS, G.J.C.M. et VERHEIJ, H.J. (1997). Scour Manual. Rotterdam : A.A. Balkema, 205 p.",
+    "authors_raw": "HOFFMANS, G.J.C.M. et VERHEIJ, H.J.",
+    "year": "1997",
+    "first_author_key": "hoffmans"
+  },
+  {
+    "id": 83,
+    "start_pdf_page": 198,
+    "text": "LAGASSE, P.F., CLOPPER, P.E., PAGÁN-ORTIZ, J.E. et al. (2009). Bridge Scour and Stream Instability Countermeasures. Hydraulic Engineering Circular No. 23 (HEC-23), 3e éd. Washington : FHWA.",
+    "authors_raw": "LAGASSE, P.F., CLOPPER, P.E., PAGÁN-ORTIZ, J.E. et al.",
+    "year": "2009",
+    "first_author_key": "lagasse"
+  },
+  {
+    "id": 84,
+    "start_pdf_page": 198,
+    "text": "LAURSEN, E.M. (1960). « Scour at bridge crossings ». Journal of the Hydraulics Division, ASCE, vol. 86, no. HY2, p. 39-54.",
+    "authors_raw": "LAURSEN, E.M.",
+    "year": "1960",
+    "first_author_key": "laursen"
+  },
+  {
+    "id": 85,
+    "start_pdf_page": 198,
+    "text": "MELVILLE, B.W. et COLEMAN, S.E. (2000). Bridge Scour. Highlands Ranch : Water Resources Publications, 550 p.",
+    "authors_raw": "MELVILLE, B.W. et COLEMAN, S.E.",
+    "year": "2000",
+    "first_author_key": "melville"
+  },
+  {
+    "id": 86,
+    "start_pdf_page": 198,
+    "text": "NEILL, C.R. (1973). Guide to Bridge Hydraulics. Toronto : University of Toronto Press, 191 p.",
+    "authors_raw": "NEILL, C.R.",
+    "year": "1973",
+    "first_author_key": "neill"
+  }
+]

@@ -1,0 +1,506 @@
+type,label,page,text
+heading,,2,RÉSUMÉ
+heading,,3,ABSTRACT
+caption,I.1,5,Figure I.1 : Éléments constitutifs d'un pont .................................................................................. 25
+caption,I.2,5,Figure I.2 : Types de fondations des ponts ................................................................................... 38
+caption,I.3,5,Figure I.3 : Classification selon le système porteur ...................................................................... 32
+caption,I.4,5,Figure I.4 : Transmission des charges sol-fondation-structure ..................................................... 52
+caption,I.5,5,Figure I.5 : Principaux types de ponts selon le système porteur .................................................... 34
+caption,I.6,5,Figure I.6 : Modes de rupture d'une fondation de pont ................................................................. 48
+caption,II.1,5,Figure II.1 : Coupe géologique type d'une vallée ......................................................................... 67
+caption,II.2,5,Figure II.2 : Dépôts alluviaux en milieu de vallée ........................................................................ 68
+caption,II.3,5,Figure II.3 : Nappes et piézométrie en site de pont ....................................................................... 71
+caption,II.4,5,Figure II.4 : Morphologie d'un oued algérien .............................................................................. 79
+caption,III.1,5,Figure III.1 : Organigramme de campagne de reconnaissance .................................................... 86
+caption,III.2,5,Figure III.2 : Implantation des sondages pour un pont ................................................................. 90
+caption,III.3,5,Figure III.3 : Principe de l'essai SPT ........................................................................................... 94
+caption,III.4,5,Figure III.4 : Principe du CPT/CPTu ........................................................................................... 96
+caption,III.5,5,Figure III.5 : Principe de l'essai pressiométrique Ménard ............................................................ 98
+caption,III.6,5,Figure III.6 : Exemple de log de forage ....................................................................................... 92
+caption,III.7,5,Figure III.7 : Tableau comparatif des méthodes de reconnaissance............................................ 112
+caption,IV.1,5,Figure IV.1 : Types d'affouillement autour d'une pile ................................................................ 123
+caption,IV.2,5,Figure IV.2 : Tassements différentiels entre appuis.................................................................... 120
+caption,IV.3,5,Figure IV.3 : Instabilité des berges ............................................................................................ 129
+caption,IV.4,5,Figure IV.4 : Conditions de liquéfaction .................................................................................... 134
+caption,IV.5,5,Figure IV.5 : Dynamique fluviale d'un oued algérien ................................................................. 122
+caption,IV.6,5,Figure IV.6 : Mécanisme de l'affouillement local autour d'une pile ............................................ 123
+caption,IV.7,5,Figure IV.7 : Décomposition de l'affouillement total (yd + yc + yl) ........................................... 125
+caption,IV.8,5,Figure IV.8 : Évolution temporelle de l'affouillement ................................................................ 124
+caption,IV.9,5,Figure IV.9 : Mesures de protection contre l'affouillement......................................................... 126
+caption,V.1,5,Figure V.1 : Processus données → modèle géotechnique........................................................... 147
+caption,V.2,5,Figure V.2 : Coupe longitudinale avec modèle géologique ........................................................ 148
+caption,V.3,5,Figure V.3 : Organigramme de choix du type de fondation ........................................................ 151
+caption,VI.1,5,Figure VI.1 : Carte de sismicité de l'Algérie .............................................................................. 174
+caption,VI.2,5,Figure VI.2 : Domaines géologiques de l'Algérie ....................................................................... 164
+caption,VI.3,5,Figure VI.3 : Section d'un oued algérien ................................................................................... 172
+caption,VI.4,5,Figure VI.4 : Programme d'investigation recommandé .............................................................. 182
+caption,I.1,6,Tableau I.1 : Classification des ponts selon le matériau ............................................................... 30
+caption,I.2,6,Tableau I.2 : Classification selon la portée .................................................................................. 31
+caption,I.3,6,Tableau I.3 : Types de fondations — critères de choix ................................................................. 41
+caption,I.4,6,Tableau I.4 : Actions et sollicitations appliquées aux ponts .......................................................... 47
+caption,II.1,6,Tableau II.1 : Types de formations superficielles et leurs propriétés ............................................ 61
+caption,II.2,6,Tableau II.2 : Caractéristiques des sols rencontrés dans les sites de ponts ................................... 66
+caption,II.3,6,Tableau II.3 : Particularités hydrologiques des oueds algériens .................................................... 6
+caption,III.1,6,Tableau III.1 : Programme type d'investigation pour un pont ...................................................... 88
+caption,III.2,6,Tableau III.2 : Comparatif des essais in situ .............................................................................. 112
+caption,III.3,6,Tableau III.3 : Comparatif des essais de laboratoire ................................................................. 106
+caption,III.4,6,Tableau III.4 : Méthodes géophysiques — apports et limites ...................................................... 109
+caption,III.5,6,Tableau III.5 : Profondeurs minimales d'investigation ................................................................. 91
+caption,III.6,6,Tableau III.6 : Densité minimale des sondages par élément du pont............................................. 93
+caption,IV.1,6,Tableau IV.1 : Risques géotechniques propres aux ponts — synthèse ........................................ 141
+caption,IV.2,6,Tableau IV.2 : Facteurs influençant l'affouillement ................................................................... 127
+caption,IV.3,6,Tableau IV.3 : Méthodes d'évaluation de l'affouillement ............................................................ 127
+caption,IV.4,6,Tableau IV.4 : Risque de liquéfaction — conditions et méthodes ............................................... 135
+caption,V.1,6,Tableau V.1 : Paramètres géotechniques de dimensionnement ...................................................... 6
+caption,V.2,6,Tableau V.2 : Critères de choix du type de fondation ................................................................. 151
+caption,V.3,6,Tableau V.3 : Limites de tassement admissibles ............................................................................. 6
+caption,V.4,6,Tableau V.4 : Vérifications aux états limites (ELU/ELS)................................................................ 6
+caption,VI.1,6,Tableau VI.1 : Sols problématiques en Algérie .......................................................................... 165
+caption,VI.2,6,Tableau VI.2 : Comparaison des référentiels (RPA/Eurocode 7/FHWA) .................................... 176
+caption,VI.3,6,Tableau VI.3 : Grille d'évaluation des risques géotechniques .................................................... 180
+caption,VI.4,6,Tableau VI.4 : Programme d'investigation recommandé pour les ponts en Algérie .................... 181
+heading,,9,INTRODUCTION GÉNÉRALE ................................................................................... 16
+heading,,9,I.1 Introduction ................................................................................................................ 23
+heading,,9,I.2 Définition et fonctions des ponts ................................................................................. 24
+heading,,9,I.3 Éléments constitutifs d'un pont.................................................................................... 25
+heading,,9,I.3.1 Le tablier ........................................................................................................... 26
+heading,,9,I.3.2 Les piles ............................................................................................................ 26
+heading,,9,I.3.3 Les culées .......................................................................................................... 27
+heading,,9,I.3.4 Les appareils d'appui ......................................................................................... 28
+heading,,9,I.3.5 Les fondations ................................................................................................... 28
+heading,,9,I.4 Classification des ponts............................................................................................... 29
+heading,,9,I.4.1 Selon le matériau ............................................................................................... 29
+heading,,9,I.4.2 Selon la portée ................................................................................................... 30
+heading,,9,I.4.3 Selon le système porteur .................................................................................... 31
+heading,,9,I.4.4 Selon le mode de franchissement ....................................................................... 32
+heading,,9,I.5 Types de ponts et spécificités géotechniques ............................................................... 33
+heading,,9,I.5.1 Poutres et dalles ................................................................................................. 34
+heading,,9,I.5.2 Arc et voûte ....................................................................................................... 35
+heading,,9,I.5.3 Suspendus et haubanés ...................................................................................... 36
+heading,,9,I.5.4 Cadres et intégraux ............................................................................................ 36
+heading,,9,"I.5.5 Métalliques, mixtes, béton ................................................................................. 37"
+heading,,9,I.6 Fondations des ponts................................................................................................... 38
+heading,,9,I.6.1 Superficielles ..................................................................................................... 39
+heading,,10,I.6.2 Profondes .......................................................................................................... 39
+heading,,10,"I.6.3 Pieux, micropieux, caissons ............................................................................... 40"
+heading,,10,I.6.4 Critères de choix ................................................................................................ 41
+heading,,10,I.7 Actions et sollicitations ............................................................................................... 42
+heading,,10,I.7.1 Permanentes ...................................................................................................... 42
+heading,,10,I.7.2 Exploitation et trafic .......................................................................................... 43
+heading,,10,I.7.3 Effets dynamiques ............................................................................................. 43
+heading,,10,I.7.4 Freinage ............................................................................................................ 44
+heading,,10,I.7.5 Vent .................................................................................................................. 45
+heading,,10,I.7.6 Thermiques ....................................................................................................... 45
+heading,,10,I.7.7 Hydrauliques ..................................................................................................... 46
+heading,,10,I.7.8 Sismiques .......................................................................................................... 47
+heading,,10,I.8 Exigences géotechniques ............................................................................................ 48
+heading,,10,I.8.1 Capacité portante ............................................................................................... 48
+heading,,10,I.8.2 Stabilité globale et locale ................................................................................... 49
+heading,,10,I.8.3 Tassements ........................................................................................................ 50
+heading,,10,I.8.4 Glissement et renversement ............................................................................... 50
+heading,,10,I.8.5 Interaction sol-fondation-structure ..................................................................... 51
+heading,,10,I.9 Comparaison ponts / bâtiments / barrages (point de vue géotechnique) ........................ 52
+heading,,10,I.10 Conclusion partielle .................................................................................................. 53
+heading,,10,II.1 Introduction ............................................................................................................... 55
+heading,,10,II.2 Contexte géologique général ...................................................................................... 56
+heading,,10,II.2.1 Lithologie et stratigraphie ................................................................................. 56
+heading,,10,II.2.2 Tectonique ....................................................................................................... 57
+heading,,10,II.2.3 Altération des roches ........................................................................................ 57
+heading,,10,II.2.4 Discontinuités et fracturation ............................................................................ 58
+heading,,10,II.3 Formations superficielles et dépôts récents ................................................................ 59
+heading,,10,II.3.1 Alluvions ......................................................................................................... 59
+heading,,10,II.3.2 Colluvions et éboulis ........................................................................................ 60
+heading,,10,II.3.3 Remblais et terrains anthropiques ..................................................................... 60
+heading,,10,II.4 Sols et roches rencontrés ........................................................................................... 62
+heading,,11,II.4.1 Roches cohérentes ............................................................................................ 62
+heading,,11,II.4.2 Sols granulaires ................................................................................................ 62
+heading,,11,II.4.3 Sols fins ........................................................................................................... 63
+heading,,11,II.4.4 Sols particuliers — Développement du karst ..................................................... 64
+heading,,11,II.5 Géomorphologie des vallées et cours d'eau ................................................................ 66
+heading,,11,II.5.1 Morphologie .................................................................................................... 66
+heading,,11,II.5.2 Terrasses alluviales .......................................................................................... 67
+heading,,11,II.5.3 Berges et lits mineurs ....................................................................................... 68
+heading,,11,II.5.4 Évolution morphodynamique............................................................................ 69
+heading,,11,II.6 Conditions hydrogéologiques .................................................................................... 70
+heading,,11,II.6.1 Nappes ............................................................................................................. 70
+heading,,11,II.6.2 Piézométrie ...................................................................................................... 71
+heading,,11,II.6.3 Écoulements ..................................................................................................... 72
+heading,,11,II.6.4 Agressivité chimique ........................................................................................ 72
+heading,,11,II.7 Hydrologie et dynamique fluviale .............................................................................. 73
+heading,,11,II.7.1 Ruissellement ................................................................................................... 73
+heading,,11,II.7.2 Régimes d'écoulement ...................................................................................... 74
+heading,,11,II.7.3 Crues ............................................................................................................... 75
+heading,,11,II.7.4 Transport solide ............................................................................................... 75
+heading,,11,II.7.5 Érosion et affouillement naturel ........................................................................ 76
+heading,,11,"II.8 Cartographie, SIG et MNT ........................................................................................ 77"
+heading,,11,II.9 Particularités des oueds algériens ............................................................................... 78
+heading,,11,II.9.1 Écoulements intermittents ................................................................................ 79
+heading,,11,II.9.2 Crues soudaines ............................................................................................... 80
+heading,,11,II.9.3 Transport solide important ................................................................................ 81
+heading,,11,II.9.4 Conséquences sur les reconnaissances .............................................................. 81
+heading,,11,II.10 Conclusion partielle ................................................................................................. 83
+heading,,11,III.1 Introduction ............................................................................................................. 83
+heading,,11,III.2 Objectifs de la reconnaissance géotechnique pour les ponts ...................................... 84
+heading,,11,III.3 Planification de la campagne de reconnaissance ....................................................... 85
+heading,,11,III.4 Étude documentaire préalable ................................................................................... 86
+heading,,12,III.5 Visite préliminaire du site ........................................................................................ 87
+heading,,12,III.6 Programme d'investigation ....................................................................................... 87
+heading,,12,III.7 Sondages et prélèvements......................................................................................... 88
+heading,,12,III.7.1 Types de sondages .......................................................................................... 88
+heading,,12,III.7.2 Implantation des sondages ............................................................................... 89
+heading,,12,III.7.3 Profondeur des sondages ................................................................................. 90
+heading,,12,III.7.4 Prélèvements d'échantillons............................................................................. 91
+heading,,12,III.7.5 Logging et description des sols ........................................................................ 92
+heading,,12,III.7.6 Densité des sondages par élément du pont ....................................................... 92
+heading,,12,III.8 Essais de pénétration ................................................................................................ 93
+heading,,12,III.8.1 Essai de pénétration standard (SPT) ................................................................ 93
+heading,,12,III.8.2 Essai de pénétration au cône (CPT) ................................................................. 95
+heading,,12,III.8.3 Essai de pénétration au cône avec pression interstitielle (CPTu) ...................... 96
+heading,,12,III.8.4 Corrélations avec les paramètres géotechniques ............................................... 97
+heading,,12,III.9 Essais pressiométriques ............................................................................................ 97
+heading,,12,III.9.1 Essai pressiométrique Ménard (PMT).............................................................. 98
+heading,,12,III.9.2 Scissomètre ..................................................................................................... 99
+heading,,12,III.9.3 Dilatomètre ..................................................................................................... 99
+heading,,12,III.9.4 Applications aux fondations de ponts ............................................................ 100
+heading,,12,III.10 Essais hydrauliques .............................................................................................. 100
+heading,,12,III.10.1 Essai Lefranc .............................................................................................. 100
+heading,,12,III.10.2 Essai Lugeon............................................................................................... 101
+heading,,12,III.11 Essais de laboratoire ............................................................................................. 102
+heading,,12,III.11.1 Essais d'identification des sols ..................................................................... 102
+heading,,12,III.11.2 Essais de résistance au cisaillement ............................................................. 102
+heading,,12,III.11.3 Essais de compressibilité (œdomètre) .......................................................... 103
+heading,,12,III.11.4 Essais de perméabilité ................................................................................. 104
+heading,,12,III.11.5 Essais de résistance à la compression simple ............................................... 104
+heading,,12,III.11.6 Essais de résistance à la traction .................................................................. 105
+heading,,12,III.11.7 Essais de gonflement et de collapsibilité ...................................................... 105
+heading,,12,III.11.8 Essais sur les roches .................................................................................... 106
+heading,,12,III.12 Méthodes géophysiques........................................................................................ 107
+heading,,12,III.12.1 Sismique réfraction ..................................................................................... 107
+heading,,13,III.12.2 Tomographie de résistivité électrique (ERT)................................................ 108
+heading,,13,III.12.3 Géoradar (GPR) .......................................................................................... 108
+heading,,13,III.12.4 Autres méthodes géophysiques .................................................................... 109
+heading,,13,III.12.5 Apports de la géophysique pour la détection du karst................................... 110
+heading,,13,III.13 Synthèse des résultats de la reconnaissance .......................................................... 110
+heading,,13,III.14 Assurance qualité de la campagne de reconnaissance ............................................ 111
+heading,,13,III.15 Tableau comparatif des méthodes de reconnaissance ............................................ 111
+heading,,13,III.16 Conclusion partielle ............................................................................................. 112
+heading,,13,IV.1 Introduction ........................................................................................................... 113
+heading,,13,IV.2 Hétérogénéité et variabilité spatiale des terrains ..................................................... 114
+heading,,13,IV.3 Contraintes d'accès et d'exécution .......................................................................... 115
+heading,,13,IV.4 Interaction sol-fondation-structure.......................................................................... 117
+heading,,13,IV.5 Tassements différentiels ......................................................................................... 119
+heading,,13,IV.6 Affouillement et dynamique fluviale ...................................................................... 120
+heading,,13,IV.6.1 Dynamique fluviale et régime des oueds ....................................................... 121
+heading,,13,IV.6.2 Mécanismes de l'affouillement local .............................................................. 123
+heading,,13,IV.6.3 Décomposition de l'affouillement total .......................................................... 124
+heading,,13,IV.6.4 Évaluation quantitative de l'affouillement...................................................... 125
+heading,,13,IV.6.5 Protection contre l'affouillement ................................................................... 126
+heading,,13,IV.6.6 Conséquences pour la reconnaissance géotechnique ...................................... 127
+heading,,13,IV.7 Instabilité des versants et des berges....................................................................... 128
+heading,,13,IV.7.1 Instabilité des versants sous les culées ........................................................... 128
+heading,,13,IV.7.2 Instabilité des berges ..................................................................................... 128
+heading,,13,IV.7.3 Érosion interne et renard ............................................................................... 129
+heading,,13,IV.7.4 Sols gonflants et collapsibles ........................................................................ 130
+heading,,13,IV.7.5 Effondrements karstiques (sinkholes) ............................................................ 130
+heading,,13,IV.8 Risque de liquéfaction ............................................................................................ 133
+heading,,13,IV.8.1 Mécanisme de la liquéfaction ........................................................................ 133
+heading,,14,IV.8.2 Méthodes d'évaluation de la liquéfaction ....................................................... 135
+heading,,14,IV.8.3 Conséquences sur les fondations de ponts ..................................................... 136
+heading,,14,IV.9 Effets sismiques sur les fondations de ponts ........................................................... 136
+heading,,14,IV.10 Risques liés aux remblais d'accès ......................................................................... 138
+heading,,14,IV.11 Risques chimiques et environnementaux .............................................................. 139
+heading,,14,IV.12 Approche intégrée de gestion des risques ............................................................. 140
+heading,,14,IV.13 Synthèse des risques géotechniques propres aux ponts .......................................... 141
+heading,,14,IV.14 Conclusion partielle ............................................................................................. 141
+heading,,14,V.1 Introduction ............................................................................................................ 142
+heading,,14,V.2 Organisation et validation des données géotechniques ............................................. 143
+heading,,14,V.3 Construction du modèle géologique ......................................................................... 144
+heading,,14,V.4 Construction du modèle géotechnique ..................................................................... 145
+heading,,14,V.4.1 Représentation graphique : coupe longitudinale géologique ............................ 147
+heading,,14,V.5 Détermination des paramètres géotechniques ........................................................... 148
+heading,,14,V.6 Choix du type de fondation...................................................................................... 150
+heading,,14,V.7 Vérification de la capacité portante — formule de Terzaghi ..................................... 152
+heading,,14,V.8 Capacité portante des fondations profondes ............................................................. 153
+heading,,14,V.9 Vérification des tassements ..................................................................................... 154
+heading,,14,V.10 Prise en compte de l'affouillement dans le dimensionnement ................................. 156
+heading,,14,V.11 Vérification aux états limites selon l'Eurocode 7 .................................................... 157
+heading,,14,V.12 Gestion des incertitudes et facteurs de sécurité....................................................... 159
+heading,,14,V.13 Conclusion du chapitre V ...................................................................................... 161
+heading,,14,VI.1 Introduction ........................................................................................................... 162
+heading,,14,VI.2 Contexte géologique de l'Algérie ............................................................................ 162
+heading,,14,VI.3 Sols problématiques en Algérie .............................................................................. 164
+heading,,14,VI.3.1 Sols gonflants ............................................................................................... 165
+heading,,15,VI.3.2 Sols collapsiques .......................................................................................... 166
+heading,,15,VI.3.3 Sols mous et compressibles ........................................................................... 166
+heading,,15,VI.3.4 Sols solubles et karstiques ............................................................................. 167
+heading,,15,VI.4 Oueds et crues en Algérie....................................................................................... 171
+heading,,15,VI.5 Contexte sismotectonique ...................................................................................... 173
+heading,,15,VI.6 Affouillement des ponts en Algérie ........................................................................ 174
+heading,,15,VI.7 Normes et règlements applicables en Algérie ......................................................... 175
+heading,,15,VI.8 Pratiques locales de reconnaissance géotechnique .................................................. 176
+heading,,15,VI.9 Cas des ponts en oued ............................................................................................ 178
+heading,,15,VI.10 Risques sismiques particuliers .............................................................................. 179
+heading,,15,VI.11 Grille d'évaluation des risques géotechniques ....................................................... 180
+heading,,15,VI.12 Programme d'investigation recommandé pour les ponts en Algérie ....................... 181
+heading,,15,VI.13 Études de cas algériennes documentées ................................................................ 182
+heading,,15,VI.13.1 Affouillement : pont de la RN4 à Blida (2018) ............................................ 182
+heading,,15,VI.13.2 Crue torrentielle : Oued El Kantara à Jijel (2020) ........................................ 183
+heading,,15,VI.13.3 Liquéfaction sismique : séisme de Boumerdès (2003).................................. 183
+heading,,15,"VI.13.4 Effondrement karstique : plateau de Chéria, Tébessa (2009) ........................ 184"
+heading,,15,VI.13.5 Enseignements transversaux ........................................................................ 184
+heading,,15,VI.13 Conclusion du chapitre VI .................................................................................... 185
+heading,,15,CONCLUSION GÉNÉRALE ...................................................................................... 187
+heading,,15,BIBLIOGRAPHIE ......................................................................................................... 195
+heading,,16,INTRODUCTION GÉNÉRALE
+heading,,23,CHAPITRE I
+heading,,23,I.1 Introduction
+heading,,24,I.2 Définition et fonctions des ponts
+heading,,25,I.3 Éléments constitutifs d'un pont
+caption,I.1,25,Figure I.1 : Éléments constitutifs d'un pont
+heading,,26,I.3.1 Le tablier
+heading,,26,I.3.2 Les piles
+heading,,27,I.3.3 Les culées
+heading,,28,I.3.4 Les appareils d'appui
+heading,,28,I.3.5 Les fondations
+heading,,29,I.4 Classification des ponts
+heading,,29,I.4.1 Selon le matériau
+caption,I.1,30,Tableau I.1 : Classification des ponts selon le matériau
+heading,,30,I.4.2 Selon la portée
+caption,I.2,31,Tableau I.2 : Classification selon la portée
+heading,,31,I.4.3 Selon le système porteur
+caption,I.3,32,Figure I.3 : Classification selon le système porteur
+heading,,32,I.4.4 Selon le mode de franchissement
+heading,,33,I.5 Types de ponts et spécificités géotechniques
+caption,I.5,34,Figure I.5 : Principaux types de ponts selon le système porteur
+heading,,34,I.5.1 Poutres et dalles
+heading,,35,I.5.2 Arc et voûte
+heading,,36,I.5.3 Suspendus et haubanés
+heading,,36,I.5.4 Cadres et intégraux
+heading,,37,"I.5.5 Métalliques, mixtes, béton"
+heading,,38,I.6 Fondations des ponts
+caption,I.2,38,Figure I.2 : Types de fondations des ponts
+heading,,39,I.6.1 Superficielles
+heading,,39,I.6.2 Profondes
+heading,,40,"I.6.3 Pieux, micropieux, caissons"
+heading,,41,I.6.4 Critères de choix
+caption,I.3,41,Tableau I.3 : Types de fondations — critères de choix
+heading,,42,I.7 Actions et sollicitations
+heading,,42,I.7.1 Permanentes
+heading,,43,I.7.2 Exploitation et trafic
+heading,,43,I.7.3 Effets dynamiques
+heading,,44,I.7.4 Freinage
+heading,,45,I.7.5 Vent
+heading,,45,I.7.6 Thermiques
+heading,,46,I.7.7 Hydrauliques
+heading,,47,I.7.8 Sismiques
+caption,I.4,47,Tableau I.4 : Actions et sollicitations appliquées aux ponts
+heading,,48,I.8 Exigences géotechniques
+caption,I.6,48,Figure I.6 : Modes de rupture d'une fondation de pont
+heading,,48,I.8.1 Capacité portante
+heading,,49,I.8.2 Stabilité globale et locale
+heading,,50,I.8.3 Tassements
+heading,,50,I.8.4 Glissement et renversement
+heading,,51,I.8.5 Interaction sol-fondation-structure
+caption,I.4,52,Figure I.4 : Transmission des charges sol-fondation-structure
+heading,,52,I.9 Comparaison ponts / bâtiments / barrages (point de vue géotechnique)
+heading,,53,I.10 Conclusion partielle
+heading,,55,CHAPITRE II
+heading,,55,II.1 Introduction
+heading,,56,II.2 Contexte géologique général
+heading,,56,II.2.1 Lithologie et stratigraphie
+heading,,57,II.2.2 Tectonique
+heading,,57,II.2.3 Altération des roches
+heading,,58,II.2.4 Discontinuités et fracturation
+heading,,59,II.3 Formations superficielles et dépôts récents
+heading,,59,II.3.1 Alluvions
+heading,,60,II.3.2 Colluvions et éboulis
+heading,,60,II.3.3 Remblais et terrains anthropiques
+caption,II.1,61,Tableau II.1 : Types de formations superficielles et leurs propriétés
+heading,,62,II.4 Sols et roches rencontrés
+heading,,62,II.4.1 Roches cohérentes
+heading,,62,II.4.2 Sols granulaires
+heading,,63,II.4.3 Sols fins
+heading,,64,II.4.4 Sols particuliers — Développement du karst
+caption,II.2,66,Tableau II.2 : Caractéristiques des sols rencontrés dans les sites de ponts
+heading,,66,II.5 Géomorphologie des vallées et cours d'eau
+heading,,66,II.5.1 Morphologie
+caption,II.1,67,Figure II.1 : Coupe géologique type d'une vallée
+heading,,67,II.5.2 Terrasses alluviales
+caption,II.2,68,Figure II.2 : Dépôts alluviaux en milieu de vallée
+heading,,68,II.5.3 Berges et lits mineurs
+heading,,69,II.5.4 Évolution morphodynamique
+heading,,70,II.6 Conditions hydrogéologiques
+heading,,70,II.6.1 Nappes
+caption,II.3,71,Figure II.3 : Nappes et piézométrie en site de pont
+heading,,71,II.6.2 Piézométrie
+heading,,72,II.6.3 Écoulements
+heading,,72,II.6.4 Agressivité chimique
+heading,,73,II.7 Hydrologie et dynamique fluviale
+heading,,73,II.7.1 Ruissellement
+heading,,74,II.7.2 Régimes d'écoulement
+heading,,75,II.7.3 Crues
+heading,,75,II.7.4 Transport solide
+heading,,76,II.7.5 Érosion et affouillement naturel
+heading,,77,"II.8 Cartographie, SIG et MNT"
+heading,,78,II.9 Particularités des oueds algériens
+caption,II.4,79,Figure II.4 : Morphologie d'un oued algérien
+heading,,79,II.9.1 Écoulements intermittents
+heading,,80,II.9.2 Crues soudaines
+heading,,81,II.9.3 Transport solide important
+heading,,81,II.9.4 Conséquences sur les reconnaissances
+caption,II.3,82,Tableau II.3 : Particularités des oueds algériens
+heading,,83,II.10 Conclusion partielle
+heading,,83,III.1 Introduction
+heading,,84,III.2 Objectifs de la reconnaissance géotechnique pour les ponts
+heading,,85,III.3 Planification de la campagne de reconnaissance
+caption,III.1,86,Figure III.1 : Organigramme de campagne de reconnaissance
+heading,,86,III.4 Étude documentaire préalable
+heading,,87,III.5 Visite préliminaire du site
+heading,,87,III.6 Programme d'investigation
+caption,III.1,88,Tableau III.1 : Programme type d'investigation pour un pont
+heading,,88,III.7 Sondages et prélèvements
+heading,,88,III.7.1 Types de sondages
+heading,,89,III.7.2 Implantation des sondages
+caption,III.2,90,Figure III.2 : Implantation des sondages pour un pont
+heading,,90,III.7.3 Profondeur des sondages
+caption,III.5,91,Tableau III.5 : Profondeurs minimales d'investigation selon le type de fondation
+heading,,91,III.7.4 Prélèvements d'échantillons
+heading,,92,III.7.5 Logging et description des sols
+caption,III.6,92,Figure III.6 : Exemple de log de forage
+heading,,92,III.7.6 Densité des sondages par élément du pont
+caption,III.6,93,Tableau III.6 : Densité minimale des sondages par élément du pont
+heading,,93,III.8 Essais de pénétration
+heading,,93,III.8.1 Essai de pénétration standard (SPT)
+caption,III.3,94,Figure III.3 : Principe de l'essai SPT
+heading,,95,III.8.2 Essai de pénétration au cône (CPT)
+caption,III.4,96,Figure III.4 : Principe du CPT/CPTu
+heading,,96,III.8.3 Essai de pénétration au cône avec pression interstitielle (CPTu)
+heading,,97,III.8.4 Corrélations avec les paramètres géotechniques
+heading,,97,III.9 Essais pressiométriques
+heading,,98,III.9.1 Essai pressiométrique Ménard (PMT)
+caption,III.5,98,Figure III.5 : Principe de l'essai pressiométrique Ménard
+heading,,99,III.9.2 Scissomètre
+heading,,99,III.9.3 Dilatomètre
+heading,,100,III.9.4 Applications aux fondations de ponts
+heading,,100,III.10 Essais hydrauliques
+heading,,100,III.10.1 Essai Lefranc
+heading,,101,III.10.2 Essai Lugeon
+heading,,102,III.11 Essais de laboratoire
+heading,,102,III.11.1 Essais d'identification des sols
+heading,,102,III.11.2 Essais de résistance au cisaillement
+heading,,103,III.11.3 Essais de compressibilité (œdomètre)
+heading,,104,III.11.4 Essais de perméabilité
+heading,,104,III.11.5 Essais de résistance à la compression simple
+heading,,105,III.11.6 Essais de résistance à la traction
+heading,,105,III.11.7 Essais de gonflement et de collapsibilité
+heading,,106,III.11.8 Essais sur les roches
+caption,III.3,106,Tableau III.3 : Comparatif des essais de laboratoire
+heading,,107,III.12 Méthodes géophysiques
+heading,,107,III.12.1 Sismique réfraction
+heading,,108,III.12.2 Tomographie de résistivité électrique (ERT)
+heading,,108,III.12.3 Géoradar (GPR)
+heading,,109,III.12.4 Autres méthodes géophysiques
+caption,III.4,109,Tableau III.4 : Méthodes géophysiques — apports et limites
+heading,,110,III.12.5 Apports de la géophysique pour la détection du karst
+heading,,110,III.13 Synthèse des résultats de la reconnaissance
+heading,,111,III.14 Assurance qualité de la campagne de reconnaissance
+heading,,111,III.15 Tableau comparatif des méthodes de reconnaissance
+caption,III.7,112,Figure III.7 : Tableau comparatif des méthodes de reconnaissance
+caption,III.2,112,"Tableau III.2 : Comparatif des essais in situ (SPT, CPT, CPTu, PMT, scissomètre)"
+heading,,112,III.16 Conclusion partielle
+heading,,113,IV.1 Introduction
+heading,,114,IV.2 Hétérogénéité et variabilité spatiale des terrains
+heading,,115,IV.3 Contraintes d'accès et d'exécution
+heading,,117,IV.4 Interaction sol-fondation-structure
+heading,,119,IV.5 Tassements différentiels
+caption,IV.2,120,Figure IV.2 : Tassements différentiels entre appuis
+heading,,120,IV.6 Affouillement et dynamique fluviale
+heading,,121,IV.6.1 Dynamique fluviale et régime des oueds
+caption,IV.5,122,Figure IV.5 : Dynamique fluviale d'un oued algérien
+heading,,123,IV.6.2 Mécanismes de l'affouillement local
+caption,IV.1,123,Figure IV.1 : Types d'affouillement autour d'une pile
+caption,IV.6,123,Figure IV.6 : Mécanisme de l'affouillement local autour d'une pile
+caption,IV.8,124,Figure IV.8 : Évolution temporelle de l'affouillement
+heading,,124,IV.6.3 Décomposition de l'affouillement total
+caption,IV.7,125,Figure IV.7 : Décomposition de l'affouillement total (yd + yc + yl)
+heading,,125,IV.6.4 Évaluation quantitative de l'affouillement
+heading,,126,IV.6.5 Protection contre l'affouillement
+caption,IV.9,126,Figure IV.9 : Mesures de protection contre l'affouillement
+heading,,127,IV.6.6 Conséquences pour la reconnaissance géotechnique
+caption,IV.2,127,Tableau IV.2 : Facteurs influençant l'affouillement
+caption,IV.3,127,Tableau IV.3 : Méthodes d'évaluation de l'affouillement
+heading,,128,IV.7 Instabilité des versants et des berges
+heading,,128,IV.7.1 Instabilité des versants sous les culées
+heading,,128,IV.7.2 Instabilité des berges
+caption,IV.3,129,Figure IV.3 : Instabilité des berges
+heading,,129,IV.7.3 Érosion interne et renard
+heading,,130,IV.7.4 Sols gonflants et collapsibles
+heading,,130,IV.7.5 Effondrements karstiques (sinkholes)
+heading,,133,IV.8 Risque de liquéfaction
+heading,,133,IV.8.1 Mécanisme de la liquéfaction
+caption,IV.4,134,Figure IV.4 : Conditions de liquéfaction
+heading,,135,IV.8.2 Méthodes d'évaluation de la liquéfaction
+caption,IV.4,135,Tableau IV.4 : Risque de liquéfaction — conditions et méthodes
+heading,,136,IV.8.3 Conséquences sur les fondations de ponts
+heading,,136,IV.9 Effets sismiques sur les fondations de ponts
+heading,,138,IV.10 Risques liés aux remblais d'accès
+heading,,139,IV.11 Risques chimiques et environnementaux
+heading,,140,IV.12 Approche intégrée de gestion des risques
+heading,,141,IV.13 Synthèse des risques géotechniques propres aux ponts
+caption,IV.1,141,Tableau IV.1 : Risques géotechniques propres aux ponts — synthèse
+heading,,141,IV.14 Conclusion partielle
+heading,,142,V.1 Introduction
+heading,,143,V.2 Organisation et validation des données géotechniques
+heading,,144,V.3 Construction du modèle géologique
+heading,,145,V.4 Construction du modèle géotechnique
+caption,V.1,147,Figure V.1 : Processus données → modèle géotechnique
+heading,,147,V.4.1 Représentation graphique : coupe longitudinale géologique
+caption,V.2,148,Figure V.2 : Coupe longitudinale avec modèle géologique
+heading,,148,V.5 Détermination des paramètres géotechniques
+caption,V.1,149,Tableau V.1 : Paramètres géotechniques — méthodes de détermination
+heading,,150,V.6 Choix du type de fondation
+caption,V.2,151,Tableau V.2 : Critères de choix du type de fondation
+caption,V.3,151,Figure V.3 : Organigramme de choix du type de fondation
+heading,,152,V.7 Vérification de la capacité portante — formule de Terzaghi
+heading,,153,V.8 Capacité portante des fondations profondes
+heading,,154,V.9 Vérification des tassements
+caption,V.3,155,Tableau V.3 : Limites admissibles des tassements pour les ponts
+heading,,156,V.10 Prise en compte de l'affouillement dans le dimensionnement
+heading,,157,V.11 Vérification aux états limites selon l'Eurocode 7
+caption,V.4,158,Tableau V.4 : Vérification aux états limites (ELU/ELS) selon Eurocode 7
+heading,,159,V.12 Gestion des incertitudes et facteurs de sécurité
+heading,,161,V.13 Conclusion du chapitre V
+heading,,162,VI.1 Introduction
+heading,,162,VI.2 Contexte géologique de l'Algérie
+caption,VI.2,164,Figure VI.2 : Domaines géologiques de l'Algérie
+heading,,164,VI.3 Sols problématiques en Algérie
+caption,VI.1,165,Tableau VI.1 : Sols problématiques en Algérie — caractéristiques et risques
+heading,,165,VI.3.1 Sols gonflants
+heading,,166,VI.3.2 Sols collapsiques
+heading,,166,VI.3.3 Sols mous et compressibles
+heading,,167,VI.3.4 Sols solubles et karstiques
+heading,,171,VI.4 Oueds et crues en Algérie
+caption,VI.3,172,Figure VI.3 : Section d'un oued algérien
+heading,,173,VI.5 Contexte sismotectonique
+caption,VI.1,174,Figure VI.1 : Carte de sismicité de l'Algérie
+heading,,174,VI.6 Affouillement des ponts en Algérie
+heading,,175,VI.7 Normes et règlements applicables en Algérie
+caption,VI.2,176,Tableau VI.2 : Comparaison des référentiels (RPA / Eurocode 7 / FHWA)
+heading,,176,VI.8 Pratiques locales de reconnaissance géotechnique
+heading,,178,VI.9 Cas des ponts en oued
+heading,,179,VI.10 Risques sismiques particuliers
+heading,,180,VI.11 Grille d'évaluation des risques géotechniques
+caption,VI.3,180,Tableau VI.3 : Grille d'évaluation des risques géotechniques
+heading,,181,VI.12 Programme d'investigation recommandé pour les ponts en Algérie
+caption,VI.4,181,Tableau VI.4 : Programme d'investigation recommandé pour les ponts en Algérie
+caption,VI.4,182,Figure VI.4 : Programme d'investigation recommandé
+heading,,182,VI.13 Études de cas algériennes documentées
+heading,,182,VI.13.1 Affouillement : pont de la RN4 à Blida (2018)
+heading,,183,VI.13.2 Crue torrentielle : Oued El Kantara à Jijel (2020)
+heading,,183,VI.13.3 Liquéfaction sismique : séisme de Boumerdès (2003)
+heading,,184,"VI.13.4 Effondrement karstique : plateau de Chéria, Tébessa (2009)"
+heading,,184,VI.13.5 Enseignements transversaux
+caption,VI.5,185,Tableau VI.5 : Synthèse des études de cas algériennes
+heading,,185,VI.13 Conclusion du chapitre VI
+heading,,187,CONCLUSION GÉNÉRALE
+heading,,195,BIBLIOGRAPHIE

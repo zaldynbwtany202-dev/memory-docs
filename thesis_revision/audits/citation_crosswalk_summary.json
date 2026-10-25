@@ -1,0 +1,9 @@
+{
+  "normalized_citation_occurrences": 445,
+  "normalized_citation_groups": 106,
+  "groups_with_exact_first_author_year_match": 65,
+  "groups_requiring_review": 41,
+  "bibliography_entries_matched_at_least_once": 41,
+  "bibliography_entries_requiring_manual_unused_review": 45,
+  "warning": "First-author/year matching is a review aid, not proof of citation validity or bibliographic accuracy."
+}

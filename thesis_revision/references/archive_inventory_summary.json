@@ -1,0 +1,32 @@
+{
+  "generated_utc": "2026-10-25T06:10:01Z",
+  "library": "/home/user/thesis-reference-library",
+  "pdf_count": 2150,
+  "pdf_bytes": 8516729960,
+  "pdf_pages_when_readable": 122588,
+  "unique_sha256": 2138,
+  "duplicate_groups": 12,
+  "duplicate_file_instances_beyond_first": 12,
+  "parse_status_counts": {
+    "ok": 2143,
+    "empty_pdf": 6,
+    "error": 1
+  },
+  "categories": {
+    "racine": 10,
+    "A_Rassembler": 10,
+    "Algerie_Maghreb": 68,
+    "Articles": 1434,
+    "Articles_Académiques": 21,
+    "Cartes_Donnees": 7,
+    "Guides_Rapports": 330,
+    "Normes_Reglements": 59,
+    "quarantine_non_pdf": 123,
+    "Reconnaissance_Geophysique": 2,
+    "Reglementation_Algérienne": 4,
+    "Theses_Memoires": 82
+  },
+  "csv": "/home/user/memory-docs/thesis_revision/references/archive_pdf_inventory.csv",
+  "search_index": "/tmp/thesis-reference-opening-text.jsonl",
+  "note": "Inventory facts are not relevance or quality judgments; exact duplicates are not automatic deletion decisions."
+}

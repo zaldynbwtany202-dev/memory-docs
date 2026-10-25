@@ -1,0 +1,42 @@
+{
+  "file": "/home/user/memory-docs/thesis_revision/deliverables/These_revisee_BERKANE_Dhiyaddine.docx",
+  "bytes": 1696696,
+  "sha256": "52406eca9d369f1ff3e2dd8766fba6ce50cce044fac1755cfa726962a707f526",
+  "paragraphs": 961,
+  "tables": 49,
+  "inline_shapes": 23,
+  "bidi_paragraphs": 6,
+  "bookmarks": 67,
+  "pageref_fields": 67,
+  "toc_fields": 1,
+  "media_files": 23,
+  "checks": {
+    "zip_package_integrity": true,
+    "python_docx_reopen": true,
+    "a4_page_setup": true,
+    "cover_jury_names": true,
+    "no_placeholder_names": true,
+    "arabic_abstract": true,
+    "roman_example": true,
+    "luzancy_source": true,
+    "bibliography_65th_reference": true,
+    "expected_table_count": true,
+    "expected_inline_shape_count": true,
+    "caption_bookmarks_complete_and_unique": true,
+    "pageref_fields_match_captions": true,
+    "single_toc_field": true,
+    "update_fields_on_open": true,
+    "embedded_media_match_current_assets": true,
+    "no_unresolved_markers_or_known_source_defects": true,
+    "six_rtl_paragraphs": true
+  },
+  "details": {
+    "corrupt_member": null,
+    "missing_bookmarks": [],
+    "unexpected_bookmarks": [],
+    "missing_media_hashes": [],
+    "unexpected_media_hashes": []
+  },
+  "rendering_note": "Package, structure and content are validated. Word-specific pagination is renderer-dependent and has not been visually rendered in this environment.",
+  "status": "pass"
+}
