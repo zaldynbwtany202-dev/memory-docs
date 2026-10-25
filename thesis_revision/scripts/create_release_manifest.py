@@ -31,6 +31,7 @@ AUDIT_NAMES = [
     "docx_content_audit.json",
     "revised_citation_audit.json",
     "visual_review.md",
+    "registre_etendu_traceability.md",
 ]
 REQUIRED_FILES = [
     "00_cahier_des_charges.md",
@@ -39,7 +40,9 @@ REQUIRED_FILES = [
     "CHANGELOG.md",
     "audits/scientific_review.md",
     "audits/visual_review.md",
+    "audits/registre_etendu_traceability.md",
     "audits/pdf_page_inventory.json",
+    "source/registre_superviseurs_etendu_ar.md",
     "references/verification_notes.md",
     "references/manual_citation_resolutions.csv",
     "references/bibliography_manual_triage.csv",
@@ -106,6 +109,26 @@ def main() -> None:
     guide = (DELIVERABLES / "Guide_de_soutenance_BERKANE_Dhiyaddine.md").read_text(encoding="utf-8")
     readme = (DELIVERABLES / "LISEZ_MOI.md").read_text(encoding="utf-8")
     visual = (AUDITS / "visual_review.md").read_text(encoding="utf-8")
+    expanded_register = (ROOT / "source/registre_superviseurs_etendu_ar.md").read_text(encoding="utf-8")
+    expanded_trace = (AUDITS / "registre_etendu_traceability.md").read_text(encoding="utf-8")
+
+    def trace_ids(prefix: str, count: int) -> bool:
+        expected = [f"{prefix}{i:02d}" for i in range(1, count + 1)]
+        return re.findall(rf"^\| ({prefix}\d{{2}}) \|", expanded_trace, flags=re.MULTILINE) == expected
+
+    expanded_register_complete = (
+        trace_ids("A", 22)
+        and trace_ids("V", 9)
+        and trace_ids("U", 17)
+        and "## أولًا" in expanded_register
+        and "## ثانيًا" in expanded_register
+        and "## ثالثًا" in expanded_register
+        and "## رابعًا" in expanded_register
+        and "## خامسًا" in expanded_register
+        and "## سادسًا" in expanded_register
+        and "## ملحق خاص بالصور" in expanded_register
+        and "R27 وحده محجوب" in expanded_trace
+    )
 
     page_refs: list[int] = []
     for line in guide.splitlines():
@@ -119,6 +142,7 @@ def main() -> None:
 
     checks = {
         "required_files_present": all((ROOT / name).is_file() for name in required_paths),
+        "expanded_register_traceability_complete": expanded_register_complete,
         "all_34_requirement_ids_present": reqs["expected_ids_present"],
         "33_completed_and_only_R27_blocked": len(reqs["completed"]) == 33 and reqs["blocked"] == ["R27"],
         "pdf_qa_pass_and_all_checks_true": pdf_qa["status"] == "pass" and all(pdf_qa["checks"].values()),
@@ -175,6 +199,9 @@ def main() -> None:
         "source_provenance": {
             "original_thesis": "source/Étude_bibliographique_sur_les_fondations_de_ponts.pdf",
             "original_thesis_sha256": "a2d1ab3b3d8ebfc4a4f9bd954cd3435a8722f09f042cc52ad5a342c7147f5900",
+            "expanded_supervisor_register": "source/registre_superviseurs_etendu_ar.md",
+            "expanded_supervisor_register_sha256": sha256(ROOT / "source/registre_superviseurs_etendu_ar.md"),
+            "expanded_register_coverage": {"thematic_axes": 22, "visual_points": 9, "uncertainty_items": 17},
             "original_archive_sha256": "d169370dbf3d40257d3d60d330838b5e08179956d83689fdfa47ee9a1e55553b",
             "verified_reference_library": "/home/user/thesis-reference-library (outside Git)",
             "library_pdf_count": 2150,

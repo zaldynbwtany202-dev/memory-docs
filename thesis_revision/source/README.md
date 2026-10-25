@@ -8,5 +8,6 @@
 | `transcript_professional_ar_fr.txt` | 66,211 بايت | `9929dd2e7e974dafa38e9488d47856e69d7bc17c8796cd9dc7b60d3412b70667` |
 | `transcript_uncertainty_log.txt` | 14,657 بايت | `d95419fca36462b0d88be8168b9e1bcdcbd6880f5ef6d46eb851a06388b573bf` |
 | `تفريغ احترافي للتسجيل الصوتي.md` | 67,074 بايت | `a9586aa60edce5a322d207b8ace82ebd2205eb9b5a97bbf967bd2ee57d826b1d` |
+| `registre_superviseurs_etendu_ar.md` | 76,712 بايت | `d3970fac24989c48182480b19b595bbfc10e9ebb845b509309a2723e0192b694` |
 
-السجل العربي الموسع المرسل في المحادثة استُعمل لاستكمال `../00_cahier_des_charges.md` و`../PROGRESS.md`. ملف PDF الأصلي هو المرجع عند أي تعارض مع النصوص المستخرجة آليًا.
+السجل العربي الموسع محفوظ الآن نصًا داخل المشروع، واستُعمل لاستكمال `../00_cahier_des_charges.md` و`../PROGRESS.md` ومصفوفة `../audits/registre_etendu_traceability.md`. ملف PDF الأصلي هو المرجع عند أي تعارض مع النصوص المستخرجة آليًا.

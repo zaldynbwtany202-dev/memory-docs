@@ -4,6 +4,7 @@
   "release_status": "ready_except_R27",
   "checks": {
     "required_files_present": true,
+    "expanded_register_traceability_complete": true,
     "all_34_requirement_ids_present": true,
     "33_completed_and_only_R27_blocked": true,
     "pdf_qa_pass_and_all_checks_true": true,

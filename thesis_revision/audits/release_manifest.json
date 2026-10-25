@@ -32,8 +32,8 @@
     },
     {
       "path": "deliverables/LISEZ_MOI.md",
-      "bytes": 3396,
-      "sha256": "9c9f4c0dcb15d1ee9d6d5d307203f95ef7ad63d3683d11c00ba5b9aaf31812c3"
+      "bytes": 3607,
+      "sha256": "d5a9865ce7f1718bbaf0a97b5f673055894c383a44a0f8ec87bf88fc2f0fde05"
     }
   ],
   "audit_evidence": [
@@ -66,6 +66,11 @@
       "path": "audits/visual_review.md",
       "bytes": 4360,
       "sha256": "e418d752077b21387a4d3bf454e383ac7b31ee0bd401be52778c196e084a0b71"
+    },
+    {
+      "path": "audits/registre_etendu_traceability.md",
+      "bytes": 14575,
+      "sha256": "d33fad81ed3e7ff7c9893f71dd00352e0e14568c2d43b5b94e16cfbd625f8deb"
     }
   ],
   "scientific_summary": {
@@ -78,6 +83,13 @@
   "source_provenance": {
     "original_thesis": "source/Étude_bibliographique_sur_les_fondations_de_ponts.pdf",
     "original_thesis_sha256": "a2d1ab3b3d8ebfc4a4f9bd954cd3435a8722f09f042cc52ad5a342c7147f5900",
+    "expanded_supervisor_register": "source/registre_superviseurs_etendu_ar.md",
+    "expanded_supervisor_register_sha256": "d3970fac24989c48182480b19b595bbfc10e9ebb845b509309a2723e0192b694",
+    "expanded_register_coverage": {
+      "thematic_axes": 22,
+      "visual_points": 9,
+      "uncertainty_items": 17
+    },
     "original_archive_sha256": "d169370dbf3d40257d3d60d330838b5e08179956d83689fdfa47ee9a1e55553b",
     "verified_reference_library": "/home/user/thesis-reference-library (outside Git)",
     "library_pdf_count": 2150

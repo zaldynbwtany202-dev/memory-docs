@@ -5,6 +5,7 @@
 - Mémoire source : `Étude_bibliographique_sur_les_fondations_de_ponts.pdf`, 198 pages.
 - Transcription intégrale de la soutenance : 55 min 12 s, versions Markdown et TXT.
 - Journal des passages incertains : utilisé uniquement pour repérer les limites de fiabilité de la transcription.
+- Registre arabe élargi intégral : `source/registre_superviseurs_etendu_ar.md` ; sa couverture est vérifiée dans `audits/registre_etendu_traceability.md`.
 
 Les versions Markdown et TXT portent sur le même enregistrement. Les remarques entre environ 36:32 et 40:00 sont trop fragmentaires pour être transformées en consignes techniques précises. Elles ne seront pas devinées. Les exemples oraux et les chiffres ne seront repris dans le mémoire qu'après vérification documentaire.
 
