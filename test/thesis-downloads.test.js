@@ -30,6 +30,10 @@ test('thesis page exposes working PDF and DOCX download links', async (t) => {
   const html = await response.text();
   assert.match(html, /href="https:\/\/github\.com\/zaldynbwtany202-dev\/memory-docs\/raw\/refs\/heads\/arena\/e525d4a8-memory-docs\/thesis_revision\/deliverables\/These_revisee_BERKANE_Dhiyaddine\.pdf"/);
   assert.match(html, /href="https:\/\/github\.com\/zaldynbwtany202-dev\/memory-docs\/raw\/refs\/heads\/arena\/e525d4a8-memory-docs\/thesis_revision\/deliverables\/These_revisee_BERKANE_Dhiyaddine\.docx"/);
+  assert.match(html, /<strong>116<\/strong> صفحات/);
+  assert.match(html, /24\/24/);
+  assert.match(html, /20\.08 م\.ب/);
+  assert.match(html, /15\.32 م\.ب/);
   assert.doesNotMatch(html, /sandbox:|localhost|127\.0\.0\.1|e2b\.app/);
 
   const home = await fetch(`${baseUrl}/`);
