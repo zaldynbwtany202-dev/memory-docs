@@ -115,5 +115,104 @@
       700
     ],
     "sha256": "01045667316ff257b816aae4f0e006c531160fd5a198879292f2be70f46aa61f"
+  },
+  {
+    "asset": "photo_abutment_types_usfs.png",
+    "source_file": "/home/user/memory-docs/image-search/usda-forest-service-bridge-scour-figure--2.jpg + /home/user/memory-docs/image-search/usda-bridge-scour-figure-10-independence-2.jpg",
+    "pixel_size": [
+      1500,
+      650
+    ],
+    "sha256": "1e9a2700becdd7fe0e9064f4cdb6c2c9d00fa52c70e6cba6fbdc83498fbbef11"
+  },
+  {
+    "asset": "photo_channel_evolution_usfs.png",
+    "source_file": "/home/user/memory-docs/image-search/usda-bridge-scour-figure-10-independence-3.jpg + /home/user/memory-docs/image-search/usda-bridge-scour-figure-10-independence-1.jpg",
+    "pixel_size": [
+      1500,
+      650
+    ],
+    "sha256": "c80cb8a4e3a9c39c8d939bb5d96a919dc785dc0295cceb409922a8f24b13da12"
+  },
+  {
+    "asset": "photo_ert_land_water.png",
+    "source_file": "/home/user/memory-docs/image-search/wikimedia-commons-geophysical-resistivit-3.png + /home/user/memory-docs/image-search/wikimedia-commons-geophysical-resistivit-2.png",
+    "pixel_size": [
+      1500,
+      650
+    ],
+    "sha256": "ef52f956690ed32e13d0843f6e9dae0dcb1991cf3af8147495056d018d7ae2c8"
+  },
+  {
+    "asset": "photo_triaxial_lab.png",
+    "source_file": "/home/user/memory-docs/image-search/site-commons-wikimedia-org-triaxial-shea-1.jpg + /home/user/memory-docs/image-search/site-commons-wikimedia-org-triaxial-shea-2.jpg",
+    "pixel_size": [
+      1500,
+      650
+    ],
+    "sha256": "769b7cc735d5276ea88373c519de98a54116a1c03e5bf89dcf5051577b9f8a15"
+  },
+  {
+    "asset": "photo_scour_piping_usfs.png",
+    "source_file": "/home/user/memory-docs/image-search/fhwa-bridge-scour-pier-photograph-public-1.jpg + /home/user/memory-docs/image-search/usda-forest-service-bridge-scour-figure--1.jpg",
+    "pixel_size": [
+      1500,
+      650
+    ],
+    "sha256": "da82c9f1a691a137f8c14b5690b75c8c182bf85cd898becf37c863ecdb5e7dd1"
+  },
+  {
+    "asset": "photo_triaxial_rock_csiro.png",
+    "source_file": "/home/user/memory-docs/image-search/csiro-scienceimage-11125-high-pressure-t-1.jpg",
+    "pixel_size": [
+      500,
+      753
+    ],
+    "sha256": "5a83a59236a7302701249f7945d24f6ad41b1e00585c1b4987bb33adae311c88"
+  },
+  {
+    "asset": "photo_monture_fill_failure.png",
+    "source_file": "/home/user/memory-docs/image-search/usda-monture-bridge-abutment-fill-failur-2.jpg",
+    "pixel_size": [
+      380,
+      288
+    ],
+    "sha256": "0f0362aca22c7041e2eecae7904ed4a752abb7861aabe2afe251d5a32115e85d"
+  },
+  {
+    "asset": "photo_bridge_spalling.png",
+    "source_file": "/home/user/memory-docs/image-search/site-commons-wikimedia-org-reinforced-co-2.jpg",
+    "pixel_size": [
+      500,
+      375
+    ],
+    "sha256": "fe5657d8203ee39ac5bcb56709137bd6d77c410d7874133622180ce88e6275b5"
+  },
+  {
+    "asset": "photo_monture_riprap.png",
+    "source_file": "/home/user/memory-docs/image-search/usda-monture-bridge-abutment-fill-failur-1.jpg",
+    "pixel_size": [
+      360,
+      270
+    ],
+    "sha256": "f0c2e63e3699ed65b2edb75e63b03ea6f7e148a1c8375336bf001c65f504f524"
+  },
+  {
+    "asset": "photo_monroe_construction.png",
+    "source_file": "/home/user/memory-docs/image-search/site-commons-wikimedia-org-bridge-pier-r-3.jpg",
+    "pixel_size": [
+      500,
+      394
+    ],
+    "sha256": "8fbd3e1db979fd2708f3674d17fc7d6555e8846c38f5c4fb496ff51cad416f1a"
+  },
+  {
+    "asset": "photo_sidi_rached.png",
+    "source_file": "/home/user/memory-docs/image-search/pont-de-sidi-rached-jpg-yelles-1.jpg",
+    "pixel_size": [
+      512,
+      214
+    ],
+    "sha256": "604e81eab4b02689b545b92450a73025282129ad20b0c1d8f1b155f9b92bb163"
   }
 ]

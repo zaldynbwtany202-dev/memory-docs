@@ -169,6 +169,11 @@ Ces vues sont contextuelles et ne documentent pas les fondations.
 [[FIGURE:photo_constantine_bridges|Deux ouvrages de Constantine : (a) pont de Sidi M’Cid ; (b) pont Bab El Kantara]]
 [[SOURCE:(a) Mohameddhiamerazka, Wikimedia Commons, CC BY-SA 4.0 ; (b) Bernard Gagnon, Wikimedia Commons, CC BY 4.0.]]
 
+Le pont de Sidi Rached complète ces exemples algériens par une structure maçonnée à arches multiples. Cette vue sert à identifier la géométrie générale et le contexte d’appuis en gorge ; elle ne documente ni les fondations ni l’état structural actuel.
+
+[[FIGURE:photo_sidi_rached|Pont de Sidi Rached à Constantine : arches multiples et appuis en gorge]]
+[[SOURCE:Algerie360, « Le Pont de Sidi-Rached, une vieille histoire constantinoise » ; aucune licence libre revendiquée.]]
+
 ## VI.8 Recommandations pour les études et la recherche
 
 Les études futures gagneraient à conserver des jeux de données anonymisés lorsque la confidentialité l’exige : logs, résultats bruts, localisation relative, méthodes et interprétations. Cette pratique permettrait de comparer les corrélations et d’évaluer leur validité locale sans copier des paramètres d’un site à l’autre.

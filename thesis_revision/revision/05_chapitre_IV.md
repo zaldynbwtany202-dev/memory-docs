@@ -257,6 +257,21 @@ La vulnérabilité peut également provenir d’une interaction qui dépasse le 
 [[FIGURE:photo_tacoma_collapse|Rupture du tablier de Tacoma Narrows le 7 novembre 1940 : interaction vent–structure]]
 [[SOURCE:photographie d’archive, « Tacoma-narrows-bridge-collapse.jpg », Wikimedia Commons, domaine public.]]
 
+Les archives de l’USDA permettent de distinguer des mécanismes qui ne doivent pas être réunis sous le terme générique d’« érosion » : affouillement d’appuis d’un pont, puis perte d’un remblai de ponceau associée à un piping et à l’affouillement. Le second exemple reste explicitement un ponceau, et non un pont.
+
+[[FIGURE:photo_scour_piping_usfs|Conséquences hydrauliques documentées : (a) rupture du Little Salmon River Bridge après affouillement ; (b) rupture du remblai d’un ponceau à Moss Creek après piping et affouillement]]
+[[SOURCE:USDA Forest Service, « Bridge Scour Evaluation » (1998), figures 1 et 8 ; crue de janvier 1997 pour le panneau (a).]]
+
+L’affouillement du remblai de culée peut compromettre l’accès sans détruire immédiatement la structure porteuse. La photographie suivante illustre ce scénario et justifie d’inspecter les remblais, les murs en aile et les appuis ensemble.
+
+[[FIGURE:photo_monture_fill_failure|Rupture du remblai de culée au Monture Bridge, avec dommages limités à l’ouvrage]]
+[[SOURCE:USDA Forest Service, « Bridge Scour Evaluation » (1998), figure 15.]]
+
+En matière de durabilité, l’écaillage est un indice visuel à localiser et à suivre. La photographie ne démontre pas à elle seule son origine chimique ou l’état des armatures ; l’enquête doit associer matériaux, exposition et mesures complémentaires.
+
+[[FIGURE:photo_bridge_spalling|Écaillage du béton au Lewis River Bridge : exemple d’indice visuel à documenter]]
+[[SOURCE:NPS / Doug Madsen, Yellowstone National Park, domaine public, via Wikimedia Commons.]]
+
 ## IV.12 Conclusion du chapitre
 
 Les risques propres aux ponts sont liés par l’eau, les déplacements du terrain et le fonctionnement de l’ouvrage. Leur analyse exige des scénarios et des preuves plutôt qu’une liste de pourcentages ou de seuils généraux. L’affouillement est décomposé sans confusion, l’érosion interne est distinguée du renard seul, la liquéfaction est reliée à la sollicitation et aux conséquences, et l’agressivité est rattachée à l’exposition et aux matériaux.

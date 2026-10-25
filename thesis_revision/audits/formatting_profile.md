@@ -43,7 +43,7 @@ Ces incorporations PDF sont des sous-ensembles de caractères. DejaVu Serif/Sans
 
 - Le profil est une **harmonisation documentée**, pas une prétendue norme algérienne uniforme : les sources C3 et USTHB-IA divergent notamment sur les marges et le style de citation.
 - Aucune conformité administrative officielle à Larbi Tébessi n’est affirmée sans guide local complet. L’avis ULT-FST confirme seulement l’obligation d’appliquer les corrections du jury avant dépôt.
-- La longueur n’est pas réduite pour importer la limite C3 de 50–80 pages. La version révisée compte **116 pages**, contre 198 pour le source, avec le contenu scientifique et les développements demandés conservés.
+- La longueur n’est pas réduite pour importer la limite C3 de 50–80 pages. La version révisée compte **124 pages**, contre 198 pour le source, avec le contenu scientifique et les développements demandés conservés.
 - La pagination arabe continue du manuscrit fourni est conservée pour des renvois stables ; la convention romaine des liminaires de C3 n’est pas revendiquée.
 - La pagination du DOCX reste dépendante du moteur Word/LibreOffice ; le PDF constitue la référence fixe.
 

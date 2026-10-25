@@ -169,6 +169,16 @@ Les indices de mobilité comprennent les changements de tracé, les dépôts ré
 
 L’historique du lit permet de distinguer une tendance à long terme d’une réponse à un événement. Les aménagements en amont, les extractions de granulats, les barrages et les changements d’occupation du bassin peuvent modifier l’équilibre sédimentaire. Leur étude évite d’attribuer toute évolution à la seule présence de la pile.
 
+La géométrie des appuis modifie l’écoulement et les zones exposées à l’affouillement. Ces deux photographies USDA comparent des configurations réelles ; elles ne fournissent pas, à elles seules, un coefficient de calcul.
+
+[[FIGURE:photo_abutment_types_usfs|Configurations d’appuis : (a) murs verticaux avec murs en aile à LaMarche Creek ; (b) culée évasée « spill-through » à Independence Creek]]
+[[SOURCE:USDA Forest Service, « Bridge Scour Evaluation » (1998), figures 9 et 10.]]
+
+Les exemples suivants distinguent deux évolutions souvent confondues : l’aggradation, qui réduit la hauteur libre par dépôt, et la dégradation, qui abaisse le lit et peut exposer la fondation. Ils illustrent la nécessité de levés répétés plutôt qu’une interprétation à partir d’une seule photographie.
+
+[[FIGURE:photo_channel_evolution_usfs|Évolution du lit : (a) aggradation à Eagle Creek ; (b) dégradation exposant le mudsill à Shepherd Creek]]
+[[SOURCE:USDA Forest Service, « Bridge Scour Evaluation » (1998), figures 11 et 12.]]
+
 ## II.7 Sols à comportement particulier
 
 ### II.7.1 Sols gonflants

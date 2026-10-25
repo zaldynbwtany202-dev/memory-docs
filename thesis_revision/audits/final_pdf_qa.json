@@ -1,11 +1,11 @@
 {
   "file": "/home/user/memory-docs/thesis_revision/deliverables/These_revisee_BERKANE_Dhiyaddine.pdf",
-  "bytes": 20077034,
-  "sha256": "7da0db13e99a7da40520fcfc35b94c0bfa9bf937d01a6685071a6ae76a52cc08",
-  "pages": 116,
+  "bytes": 25161022,
+  "sha256": "3c358289ec44c82a7b5363fe96559b046912f92f957c143f31874280af7cfc2e",
+  "pages": 124,
   "outline_entries": 96,
-  "image_placements": 36,
-  "page_inventory_entries": 116,
+  "image_placements": 47,
+  "page_inventory_entries": 124,
   "arabic_letters_extracted": 1317,
   "formatting_evidence": {
     "profile": {
@@ -59,18 +59,29 @@
       }
     ],
     "font_characters": {
-      "TimesNewRomanBold": 19187,
-      "DejaVuSerifBold": 98,
-      "TimesNewRoman": 199683,
-      "DejaVuSerifBook": 1218,
+      "TimesNewRomanBold": 20453,
+      "DejaVuSerifBold": 109,
+      "TimesNewRoman": 205367,
+      "DejaVuSerifBook": 1251,
       "DejaVuSansBold": 24,
       "DejaVuSansBook": 1498
     },
-    "size_12_characters": 156550,
-    "body_line_pitch_samples": 1385,
+    "size_12_characters": 159372,
+    "body_line_pitch_samples": 1408,
     "median_body_line_pitch_pt": 20.69000244140625,
     "expected_word_1_5_pitch_pt": 20.7,
     "source_span_sizes": [
+      10.0,
+      10.0,
+      10.0,
+      10.0,
+      10.0,
+      10.0,
+      10.0,
+      10.0,
+      10.0,
+      10.0,
+      10.0,
       10.0,
       10.0,
       10.0,
@@ -138,6 +149,6 @@
     "forbidden_found": {},
     "side_margin_violations": []
   },
-  "manual_visual_review": "Contact sheets of all 116 pages, the full-size Arabic abstract, all 34 figures and corrected full-size pages inspected separately.",
+  "manual_visual_review": "Contact sheets of all 124 pages, the full-size Arabic abstract, all 45 figures and corrected full-size pages inspected separately.",
   "status": "pass"
 }

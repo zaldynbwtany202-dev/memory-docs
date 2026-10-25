@@ -5,7 +5,7 @@
   "requirement_status": "33_completed_1_blocked",
   "reference_document": "deliverables/These_revisee_BERKANE_Dhiyaddine.pdf",
   "reference_pagination": {
-    "pages": 116,
+    "pages": 124,
     "paper": "A4",
     "note": "PDF is authoritative; DOCX pagination is renderer-dependent."
   },
@@ -28,50 +28,50 @@
   "deliverables": [
     {
       "path": "deliverables/These_revisee_BERKANE_Dhiyaddine.pdf",
-      "bytes": 20077034,
-      "sha256": "7da0db13e99a7da40520fcfc35b94c0bfa9bf937d01a6685071a6ae76a52cc08"
+      "bytes": 25161022,
+      "sha256": "3c358289ec44c82a7b5363fe96559b046912f92f957c143f31874280af7cfc2e"
     },
     {
       "path": "deliverables/These_revisee_BERKANE_Dhiyaddine.docx",
-      "bytes": 15324546,
-      "sha256": "6ea263de33754a5fc55410f9112bfee5c44e92c40c6c2839810f9ce85f11e290"
+      "bytes": 19434455,
+      "sha256": "e8de23846df229397cefac8c74f80adcbb56d753085471395c2f935c4d399383"
     },
     {
       "path": "deliverables/Journal_des_revisions_BERKANE_Dhiyaddine.md",
-      "bytes": 13681,
-      "sha256": "10a5f4b8bb2a85db780f4f008ab7165e8c364f6859f51adf672babb64128fc56"
+      "bytes": 13693,
+      "sha256": "de374af873a2b65268074794d379e474b80f52588ba4dd5b6eafa6169f262ea9"
     },
     {
       "path": "deliverables/Guide_de_soutenance_BERKANE_Dhiyaddine.md",
-      "bytes": 21463,
-      "sha256": "cfb7d2451a1812fa4e8a232f949fe038601267c0d08f4deedfd497db662ee970"
+      "bytes": 21472,
+      "sha256": "85980f91456e9070c1594b38ef897c6adf605ccee8d8a6c8c55eda6a0140ee0f"
     },
     {
       "path": "deliverables/LISEZ_MOI.md",
-      "bytes": 5823,
-      "sha256": "f7e45bb5dc4d8203d1b4bbd290cd4ca3c723eeabf41bdc1425034c7964093133"
+      "bytes": 5825,
+      "sha256": "ce7ec6ed4a566377d1bacb119a874ef134be139d7de2a6f6d942dd1b0cc2bc70"
     }
   ],
   "audit_evidence": [
     {
       "path": "audits/build_report.json",
-      "bytes": 3861,
-      "sha256": "32a46dd44a0df9321e59dbf89845b2a0d83fa077403a9faab90b41cd79f6ccc4"
+      "bytes": 4123,
+      "sha256": "959762b127863b7d0ebd6969fcc2c966815a3164109601bf415491726893468a"
     },
     {
       "path": "audits/docx_build_report.json",
       "bytes": 859,
-      "sha256": "393c52151c624f8a092c6f1b5a257a047f9d9fc1bfd28c5cc0ccee4c7239dbcd"
+      "sha256": "33e8de10205b4d570e659bffdadf9a75136944aa58fc37223bbce98f9e421423"
     },
     {
       "path": "audits/final_pdf_qa.json",
-      "bytes": 4155,
-      "sha256": "5d664155ede5035e23bb0de5250ce8eed6013da4b6484130a71af2280e302acd"
+      "bytes": 4288,
+      "sha256": "60a60f999885e0e6fb0a676df68331b6474fdf9e761b5e9c861a41fb4c85e923"
     },
     {
       "path": "audits/docx_content_audit.json",
       "bytes": 3221,
-      "sha256": "080f352a07652b1fb1c5153eaa114a77488074ca17383862b2cf56328a80f2f0"
+      "sha256": "305e01beea12239d0f279d443eaef814bc9feda125c7df18e0ec5cb9101e5595"
     },
     {
       "path": "audits/revised_citation_audit.json",
@@ -80,31 +80,31 @@
     },
     {
       "path": "audits/release_reference_audit.json",
-      "bytes": 3430,
-      "sha256": "9e2e64fbe353f0180e60758445ab0b8a5ae3777f0baf14ad67d1e639f65551c4"
+      "bytes": 3431,
+      "sha256": "e31bede4403980f6f3cf4d79411d667663cbf8cfd089c2f6e81b189846637425"
     },
     {
       "path": "audits/visual_review.md",
-      "bytes": 6540,
-      "sha256": "b915183d328084b6f598955de9759a25a5259d4525842a92ba496a0fc58c8dd6"
+      "bytes": 6797,
+      "sha256": "865e271d1e1a613ccd0029ac0de34871dcff579fe907816c1f22b5653c12e135"
     },
     {
       "path": "audits/registre_etendu_traceability.md",
-      "bytes": 15549,
-      "sha256": "75338f4461db5a5ac105ee784ee214dbbd999bad2645a13dc48c301b73714eba"
+      "bytes": 15558,
+      "sha256": "91f7ee00bd3707d490707a1e2986b659009568662af5136d238c6d7442c5298f"
     },
     {
       "path": "audits/formatting_profile.md",
       "bytes": 8284,
-      "sha256": "6a15cfc6097f42e12c67a3f7f84e32953f4d64b7685c4e089eb40f553e7628ff"
+      "sha256": "2bdce76616e69fd8998a4a11fbc2b61a5af791a7514188992392e058d2e8c2c4"
     }
   ],
   "scientific_summary": {
     "bibliography_entries": 65,
     "resolved_author_year_occurrences": 93,
-    "figures": 34,
-    "photographic_assets": 13,
-    "photographs": 15,
+    "figures": 45,
+    "photographic_assets": 24,
+    "photographs": 31,
     "photograph_credits": "references/credits_photographies.md",
     "tables_in_pdf": 46,
     "pdf_outline_entries": 96

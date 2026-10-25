@@ -286,6 +286,21 @@ Les photographies suivantes complètent la figure III.2 par des équipements ré
 [[FIGURE:photo_cpt_truck|Unité de pénétration statique CPT montée sur camion]]
 [[SOURCE:photographie AMDRILL, Inc., « Cone Penetration Testing / CPT », 2023.]]
 
+Les méthodes électriques se déclinent aussi selon le milieu d’acquisition. Les vues suivantes documentent un dispositif terrestre et un profilage continu sur l’eau ; elles ne constituent pas une campagne géophysique réalisée sur un pont pour ce mémoire.
+
+[[FIGURE:photo_ert_land_water|Acquisition de résistivité électrique : (a) dispositif ERT terrestre ; (b) profilage continu CRP avec électrodes remorquées]]
+[[SOURCE:US EPA, « Electrical Resistivity » et « Continuous Resistivity Profiling » ; photographies USGS indiquées par l’EPA.]]
+
+Au laboratoire, la cellule, les circuits de pression et la mesure interstitielle conditionnent l’interprétation de l’essai. Les photographies montrent le matériel et ne dispensent pas de consigner le chemin de contrainte, le drainage et la saturation.
+
+[[FIGURE:photo_triaxial_lab|Essais triaxiaux : (a) éprouvette pendant un essai cyclique ; (b) mesure de pression interstitielle]]
+[[SOURCE:(a) TomasSab, Wikimedia Commons, CC BY-SA 4.0 ; (b) Ayratayrat, Wikimedia Commons, CC BY-SA 4.0.]]
+
+Pour les éprouvettes rocheuses, des cellules spécifiques permettent des confinements élevés. Cet équipement illustre la différence de matériel ; il ne justifie pas de transposer une corrélation de résistance sans connaître les conditions de l’essai.
+
+[[FIGURE:photo_triaxial_rock_csiro|Cellule triaxiale haute pression pour la mesure de la résistance du rocher au laboratoire CSIRO]]
+[[SOURCE:Darryl Peroni, CSIRO, Wikimedia Commons, CC BY 3.0.]]
+
 ## III.12 Construction du programme final
 
 Le programme final présente, pour chaque opération, la question posée, la localisation, la méthode, la profondeur ou l’étendue visée, les critères d’adaptation et le livrable attendu. Il indique aussi les conditions de sécurité, d’accès et de protection du milieu.

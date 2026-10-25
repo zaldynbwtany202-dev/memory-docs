@@ -227,6 +227,16 @@ Les photographies de chantier peuvent compléter les enregistrements d’exécut
 [[FIGURE:photo_bored_piles_original|Réalisation de pieux forés : cage de renforcement et matériel de forage sur chantier]]
 [[SOURCE:mémoire original, page 38, panneau (b) ; photographie extraite et recadrée.]]
 
+La réparation documentée au Monture Bridge associe reconstitution du remblai et enrochements de protection. Elle illustre une action corrective, mais ne dispense pas de vérifier la granulométrie, le filtre, la mise en place et l’ouverture hydraulique propres au projet.
+
+[[FIGURE:photo_monture_riprap|Réparation du remblai de culée et protection par enrochements au Monture Bridge]]
+[[SOURCE:USDA Forest Service, « Bridge Scour Evaluation » (1998), figure 16.]]
+
+Les photographies anciennes sont également utiles pour comprendre les phases de construction. Ici, les cintres, les arcs et les appuis sont visibles simultanément ; l’image sert à la lecture du phasage et non à la détermination de paramètres géotechniques.
+
+[[FIGURE:photo_monroe_construction|Monroe Street Bridge en construction à Spokane en 1911 : cintres, arcs et appuis]]
+[[SOURCE:William O. Reed, University of Washington, 1er juin 1911, domaine public, via Wikimedia Commons.]]
+
 ## V.11 Contenu du dossier géotechnique
 
 Le dossier final doit permettre à un tiers de reconstruire le raisonnement. Il comprend les données sources, les logs, les résultats bruts et corrigés, le modèle de site, les paramètres, les hypothèses, les vérifications, les exigences de construction et le plan de suivi. Les figures et les tableaux indiquent leur origine et leurs unités.

@@ -67,5 +67,5 @@ Les versions Markdown et TXT portent sur le même enregistrement. Les remarques 
 - [x] Vérification documentaire des exemples et références.
 - [x] Rédaction et intégration des corrections.
 - [x] Contrôle scientifique, linguistique, bibliographique et visuel de la version révisée.
-- [x] Production du PDF de 116 pages et du DOCX éditable selon le profil algérien documenté, du journal paginé et du guide de soutenance.
+- [x] Production du PDF de 124 pages et du DOCX éditable selon le profil algérien documenté, du journal paginé et du guide de soutenance.
 - [ ] R27 seulement : correction du diaporama, impossible sans le fichier de présentation ; une trame neuve est fournie dans le guide sans être présentée comme une correction du fichier absent.
