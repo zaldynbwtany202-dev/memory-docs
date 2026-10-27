@@ -1,16 +1,16 @@
 {
   "file": "/home/user/memory-docs/thesis_revision/deliverables/These_revisee_BERKANE_Dhiyaddine.docx",
-  "bytes": 19434455,
-  "sha256": "e8de23846df229397cefac8c74f80adcbb56d753085471395c2f935c4d399383",
-  "paragraphs": 1076,
+  "bytes": 37708012,
+  "sha256": "18d2ff7a7500aac8787f3283b160c2806c234c2f7dd6baeec77e53b4345d8874",
+  "paragraphs": 1166,
   "sections": 12,
   "tables": 49,
-  "inline_shapes": 47,
+  "inline_shapes": 65,
   "bidi_paragraphs": 6,
-  "bookmarks": 91,
-  "pageref_fields": 91,
+  "bookmarks": 109,
+  "pageref_fields": 109,
   "toc_fields": 1,
-  "media_files": 47,
+  "media_files": 65,
   "formatting_evidence": {
     "profile": {
       "paper": "A4",
@@ -47,8 +47,8 @@
       "ANNEXE A — AIDE-MÉMOIRE POUR UN PROJET DE PONT",
       "ANNEXE B — FORMULES, UNITÉS ET CONTRÔLES DE COHÉRENCE"
     ],
-    "caption_paragraphs_checked": 91,
-    "source_paragraphs_checked": 45
+    "caption_paragraphs_checked": 109,
+    "source_paragraphs_checked": 63
   },
   "checks": {
     "zip_package_integrity": true,

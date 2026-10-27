@@ -33,70 +33,78 @@
   },
   {
     "page": 5,
-    "chars": 3868,
-    "words": 634,
+    "chars": 3902,
+    "words": 649,
     "images": 0,
     "drawings": 0,
-    "start": "LISTE DES FIGURES Figure I.1 — Éléments constitutifs et relation avec le terrain et l’eau 19 Figure I.2 — Transmission d"
+    "start": "LISTE DES FIGURES Figure I.1 — Éléments constitutifs et relation avec le terrain et l’eau 20 Figure I.2 — Transmission d"
   },
   {
     "page": 6,
-    "chars": 460,
-    "words": 86,
+    "chars": 166,
+    "words": 26,
     "images": 0,
     "drawings": 0,
-    "start": "Figure V.6 — Monroe Street Bridge en construction à Spokane en 1911 : cintres, arcs et appuis 96 Figure VI.1 — Interface"
+    "start": "Figure IV.2 — Dégradation à long terme, contraction et affouillement local 80 Figure IV.3 — Quatre mécanismes d’érosion "
   },
   {
     "page": 7,
-    "chars": 2896,
-    "words": 461,
+    "chars": 2451,
+    "words": 414,
     "images": 0,
     "drawings": 0,
-    "start": "LISTE DES TABLEAUS Tableau I.1 — Éléments de l’ouvrage et données géotechniques associées 19 Tableau I.2 — Lecture géote"
+    "start": "Figure IV.4 — Chaîne d’évaluation de la liquéfaction, du dépistage aux conséquences 86 Figure IV.5 — Manifestations de l"
   },
   {
     "page": 8,
+    "chars": 2901,
+    "words": 461,
+    "images": 0,
+    "drawings": 0,
+    "start": "LISTE DES TABLEAUS Tableau I.1 — Éléments de l’ouvrage et données géotechniques associées 20 Tableau I.2 — Lecture géote"
+  },
+  {
+    "page": 9,
     "chars": 432,
     "words": 70,
     "images": 0,
     "drawings": 0,
-    "start": "Tableau VI.2 — Portée de quatre publications algériennes sur le karst 102 Tableau VI.3 — Niveau de preuve des exemples a"
+    "start": "Tableau VI.2 — Portée de quatre publications algériennes sur le karst 116 Tableau VI.3 — Niveau de preuve des exemples a"
   },
   {
-    "page": 9,
-    "chars": 2002,
+    "page": 10,
+    "chars": 2003,
     "words": 301,
     "images": 0,
     "drawings": 66,
     "start": "LISTE DES ABRÉVIATIONS Abréviation ou symbole Signification retenue dans ce mémoire AFNOR Association française de norma"
   },
   {
-    "page": 10,
+    "page": 11,
     "chars": 1924,
     "words": 288,
     "images": 0,
     "drawings": 0,
-    "start": "TABLE DES MATIÈRES 10 INTRODUCTION GÉNÉRALE 13 1. Contexte et justification du sujet 13 2. Problématique 14 3. Objectifs"
-  },
-  {
-    "page": 11,
-    "chars": 1913,
-    "words": 290,
-    "images": 0,
-    "drawings": 0,
-    "start": "11 III.12 Construction du programme final 67 III.13 Conclusion du chapitre 68 CHAPITRE IV — MÉCANISMES DE RISQUE ET VULN"
+    "start": "TABLE DES MATIÈRES 11 INTRODUCTION GÉNÉRALE 14 1. Contexte et justification du sujet 14 2. Problématique 15 3. Objectifs"
   },
   {
     "page": 12,
+    "chars": 1924,
+    "words": 290,
+    "images": 0,
+    "drawings": 0,
+    "start": "12 III.12 Construction du programme final 75 III.13 Conclusion du chapitre 76 CHAPITRE IV — MÉCANISMES DE RISQUE ET VULN"
+  },
+  {
+    "page": 13,
     "chars": 447,
     "words": 71,
     "images": 0,
     "drawings": 0,
-    "start": "12 A.1 Objet et mode d’emploi 119 A.2 Fiche initiale du projet 119 A.3 Matrice question–méthode–preuve 119 A.4 Structure"
+    "start": "13 A.1 Objet et mode d’emploi 133 A.2 Fiche initiale du projet 133 A.3 Matrice question–méthode–preuve 133 A.4 Structure"
   },
   {
-    "page": 13,
+    "page": 14,
     "chars": 2536,
     "words": 391,
     "images": 0,
@@ -104,7 +112,7 @@
     "start": "INTRODUCTION GÉNÉRALE 1. Contexte et justification du sujet Un pont ne repose pas sur un terrain unique et stable dans l"
   },
   {
-    "page": 14,
+    "page": 15,
     "chars": 2242,
     "words": 335,
     "images": 0,
@@ -112,7 +120,7 @@
     "start": "INTRODUCTION GÉNÉRALE documents ne permet de déduire un programme de sondages identique pour tous les ponts. 2. Probléma"
   },
   {
-    "page": 15,
+    "page": 16,
     "chars": 2309,
     "words": 345,
     "images": 0,
@@ -120,7 +128,7 @@
     "start": "INTRODUCTION GÉNÉRALE 3. Objectifs du mémoire L’objectif général est d’élaborer une lecture structurée des particularité"
   },
   {
-    "page": 16,
+    "page": 17,
     "chars": 2493,
     "words": 376,
     "images": 0,
@@ -128,7 +136,7 @@
     "start": "INTRODUCTION GÉNÉRALE hypothèses. Un article de recherche apporte un résultat lié à ses matériaux, ses essais et son mod"
   },
   {
-    "page": 17,
+    "page": 18,
     "chars": 2175,
     "words": 316,
     "images": 0,
@@ -136,7 +144,7 @@
     "start": "INTRODUCTION GÉNÉRALE qui propose une démarche pour un projet futur. Cette distinction est essentielle dans un travail b"
   },
   {
-    "page": 18,
+    "page": 19,
     "chars": 1882,
     "words": 286,
     "images": 0,
@@ -144,7 +152,7 @@
     "start": "CHAPITRE I — ÉVOLUTION DES PONTS ET EXIGENCES GÉOTECHNIQUES I.1 Introduction Comprendre la reconnaissance géotechnique d"
   },
   {
-    "page": 19,
+    "page": 20,
     "chars": 1770,
     "words": 252,
     "images": 1,
@@ -152,7 +160,7 @@
     "start": "CHAPITRE I — ÉVOLUTION DES PONTS ET EXIGENCES GÉOTECHNIQUES Figure I.1 — Éléments constitutifs et relation avec le terra"
   },
   {
-    "page": 20,
+    "page": 21,
     "chars": 1635,
     "words": 241,
     "images": 1,
@@ -160,7 +168,7 @@
     "start": "CHAPITRE I — ÉVOLUTION DES PONTS ET EXIGENCES GÉOTECHNIQUES Une moyenne de résistance ne suffit pas à prévoir le tasseme"
   },
   {
-    "page": 21,
+    "page": 22,
     "chars": 2538,
     "words": 378,
     "images": 0,
@@ -168,7 +176,7 @@
     "start": "CHAPITRE I — ÉVOLUTION DES PONTS ET EXIGENCES GÉOTECHNIQUES L’enseignement bibliographique n’est pas de reproduire ces s"
   },
   {
-    "page": 22,
+    "page": 23,
     "chars": 1980,
     "words": 282,
     "images": 1,
@@ -176,7 +184,7 @@
     "start": "CHAPITRE I — ÉVOLUTION DES PONTS ET EXIGENCES GÉOTECHNIQUES référence avant travaux, critères d’alerte et possibilité de"
   },
   {
-    "page": 23,
+    "page": 24,
     "chars": 2115,
     "words": 307,
     "images": 0,
@@ -184,7 +192,7 @@
     "start": "CHAPITRE I — ÉVOLUTION DES PONTS ET EXIGENCES GÉOTECHNIQUES dangereuse partout, mais qu’un nouveau niveau d’élancement e"
   },
   {
-    "page": 24,
+    "page": 25,
     "chars": 1769,
     "words": 249,
     "images": 1,
@@ -192,7 +200,7 @@
     "start": "CHAPITRE I — ÉVOLUTION DES PONTS ET EXIGENCES GÉOTECHNIQUES Figure I.4 — Quatre familles structurales et chemins princip"
   },
   {
-    "page": 25,
+    "page": 26,
     "chars": 2490,
     "words": 360,
     "images": 0,
@@ -200,7 +208,7 @@
     "start": "CHAPITRE I — ÉVOLUTION DES PONTS ET EXIGENCES GÉOTECHNIQUES Pour les piles situées dans le lit, l’affouillement modifie "
   },
   {
-    "page": 26,
+    "page": 27,
     "chars": 2562,
     "words": 390,
     "images": 0,
@@ -208,7 +216,7 @@
     "start": "CHAPITRE I — ÉVOLUTION DES PONTS ET EXIGENCES GÉOTECHNIQUES différentiels. Les ancrages nécessitent une compréhension de"
   },
   {
-    "page": 27,
+    "page": 28,
     "chars": 2776,
     "words": 397,
     "images": 0,
@@ -216,7 +224,7 @@
     "start": "CHAPITRE I — ÉVOLUTION DES PONTS ET EXIGENCES GÉOTECHNIQUES associe suspension et haubans selon la notice Archnet. Il ra"
   },
   {
-    "page": 28,
+    "page": 29,
     "chars": 2623,
     "words": 393,
     "images": 0,
@@ -224,7 +232,7 @@
     "start": "CHAPITRE I — ÉVOLUTION DES PONTS ET EXIGENCES GÉOTECHNIQUES Tableau I.6 — Ce que les classifications apportent — et ce q"
   },
   {
-    "page": 29,
+    "page": 30,
     "chars": 2642,
     "words": 387,
     "images": 0,
@@ -232,7 +240,7 @@
     "start": "CHAPITRE I — ÉVOLUTION DES PONTS ET EXIGENCES GÉOTECHNIQUES section offerte à l’écoulement, des piles, des afflux, de la"
   },
   {
-    "page": 30,
+    "page": 31,
     "chars": 2797,
     "words": 392,
     "images": 0,
@@ -240,7 +248,7 @@
     "start": "CHAPITRE I — ÉVOLUTION DES PONTS ET EXIGENCES GÉOTECHNIQUES I.7 Actions et situations à considérer Les actions permanent"
   },
   {
-    "page": 31,
+    "page": 32,
     "chars": 1849,
     "words": 284,
     "images": 0,
@@ -248,7 +256,7 @@
     "start": "CHAPITRE I — ÉVOLUTION DES PONTS ET EXIGENCES GÉOTECHNIQUES mobilité du lit. La justification associe stabilité de ruptu"
   },
   {
-    "page": 32,
+    "page": 33,
     "chars": 1866,
     "words": 255,
     "images": 1,
@@ -256,7 +264,7 @@
     "start": "CHAPITRE I — ÉVOLUTION DES PONTS ET EXIGENCES GÉOTECHNIQUES Figure I.5 — Principales alternatives de fondation et questi"
   },
   {
-    "page": 33,
+    "page": 34,
     "chars": 2573,
     "words": 364,
     "images": 0,
@@ -264,7 +272,7 @@
     "start": "CHAPITRE I — ÉVOLUTION DES PONTS ET EXIGENCES GÉOTECHNIQUES être transformés en une limite unique pour tous les systèmes"
   },
   {
-    "page": 34,
+    "page": 35,
     "chars": 697,
     "words": 113,
     "images": 2,
@@ -272,7 +280,7 @@
     "start": "CHAPITRE I — ÉVOLUTION DES PONTS ET EXIGENCES GÉOTECHNIQUES I.11 Lecture photographique d’ouvrages réels Les photographi"
   },
   {
-    "page": 35,
+    "page": 36,
     "chars": 441,
     "words": 68,
     "images": 2,
@@ -280,7 +288,7 @@
     "start": "CHAPITRE I — ÉVOLUTION DES PONTS ET EXIGENCES GÉOTECHNIQUES Figure I.8 — Brooklyn Bridge (New York) pendant la construct"
   },
   {
-    "page": 36,
+    "page": 37,
     "chars": 461,
     "words": 65,
     "images": 1,
@@ -288,7 +296,7 @@
     "start": "CHAPITRE I — ÉVOLUTION DES PONTS ET EXIGENCES GÉOTECHNIQUES Figure I.10 — Viaduc de Millau (France) : travées haubanées "
   },
   {
-    "page": 37,
+    "page": 38,
     "chars": 382,
     "words": 65,
     "images": 2,
@@ -296,7 +304,7 @@
     "start": "CHAPITRE I — ÉVOLUTION DES PONTS ET EXIGENCES GÉOTECHNIQUES Figure I.11 — Exemple réel de pont à poutres sur piles en co"
   },
   {
-    "page": 38,
+    "page": 39,
     "chars": 922,
     "words": 142,
     "images": 0,
@@ -304,7 +312,7 @@
     "start": "CHAPITRE I — ÉVOLUTION DES PONTS ET EXIGENCES GÉOTECHNIQUES I.12 Synthèse du chapitre L’évolution des ponts montre une d"
   },
   {
-    "page": 39,
+    "page": 40,
     "chars": 2220,
     "words": 325,
     "images": 0,
@@ -312,103 +320,119 @@
     "start": "CHAPITRE II — MODÈLE GÉOLOGIQUE, HYDROGÉOLOGIQUE ET FLUVIAL DU SITE II.1 Introduction Le modèle de site est la représent"
   },
   {
-    "page": 40,
-    "chars": 2489,
-    "words": 342,
-    "images": 0,
-    "drawings": 25,
-    "start": "CHAPITRE II — MODÈLE GÉOLOGIQUE, HYDROGÉOLOGIQUE ET FLUVIAL DU SITE disciplines. II.2.2 Observations, interpolations et "
-  },
-  {
     "page": 41,
-    "chars": 1362,
-    "words": 197,
+    "chars": 852,
+    "words": 136,
     "images": 1,
     "drawings": 1,
-    "start": "CHAPITRE II — MODÈLE GÉOLOGIQUE, HYDROGÉOLOGIQUE ET FLUVIAL DU SITE position des chenaux anciens ; des remblaiements peu"
+    "start": "CHAPITRE II — MODÈLE GÉOLOGIQUE, HYDROGÉOLOGIQUE ET FLUVIAL DU SITE disciplines. La description directe d’un profil aide"
   },
   {
     "page": 42,
-    "chars": 2427,
-    "words": 351,
-    "images": 0,
-    "drawings": 13,
-    "start": "CHAPITRE II — MODÈLE GÉOLOGIQUE, HYDROGÉOLOGIQUE ET FLUVIAL DU SITE Les limons et argiles molles posent surtout des ques"
+    "chars": 1666,
+    "words": 236,
+    "images": 1,
+    "drawings": 10,
+    "start": "CHAPITRE II — MODÈLE GÉOLOGIQUE, HYDROGÉOLOGIQUE ET FLUVIAL DU SITE Figure II.2 — Glissement de Mameyes à Ponce (Porto R"
   },
   {
     "page": 43,
-    "chars": 1706,
-    "words": 256,
+    "chars": 1541,
+    "words": 212,
     "images": 0,
-    "drawings": 1,
-    "start": "CHAPITRE II — MODÈLE GÉOLOGIQUE, HYDROGÉOLOGIQUE ET FLUVIAL DU SITE II.4 Karst et cavités : une lecture proportionnée II"
+    "drawings": 19,
+    "start": "CHAPITRE II — MODÈLE GÉOLOGIQUE, HYDROGÉOLOGIQUE ET FLUVIAL DU SITE Composante Contenu attendu Conséquence si elle reste"
   },
   {
     "page": 44,
-    "chars": 1709,
-    "words": 241,
+    "chars": 1524,
+    "words": 220,
     "images": 1,
-    "drawings": 19,
-    "start": "CHAPITRE II — MODÈLE GÉOLOGIQUE, HYDROGÉOLOGIQUE ET FLUVIAL DU SITE Figure II.2 — Processus karstiques, investigations e"
+    "drawings": 1,
+    "start": "CHAPITRE II — MODÈLE GÉOLOGIQUE, HYDROGÉOLOGIQUE ET FLUVIAL DU SITE Figure II.3 — Modèle conceptuel d’une vallée alluvia"
   },
   {
     "page": 45,
-    "chars": 2384,
-    "words": 368,
+    "chars": 2597,
+    "words": 380,
     "images": 0,
-    "drawings": 16,
-    "start": "CHAPITRE II — MODÈLE GÉOLOGIQUE, HYDROGÉOLOGIQUE ET FLUVIAL DU SITE II.5 Hydrogéologie et pressions interstitielles II.5"
+    "drawings": 13,
+    "start": "CHAPITRE II — MODÈLE GÉOLOGIQUE, HYDROGÉOLOGIQUE ET FLUVIAL DU SITE naturel est indispensable. II.3.3 Formations rocheus"
   },
   {
     "page": 46,
-    "chars": 1495,
-    "words": 217,
+    "chars": 1838,
+    "words": 263,
     "images": 1,
-    "drawings": 7,
-    "start": "CHAPITRE II — MODÈLE GÉOLOGIQUE, HYDROGÉOLOGIQUE ET FLUVIAL DU SITE Donnée Conditions de mesure à consigner Décisions co"
+    "drawings": 16,
+    "start": "CHAPITRE II — MODÈLE GÉOLOGIQUE, HYDROGÉOLOGIQUE ET FLUVIAL DU SITE variation de nappe ou d’une perte de boue et de béto"
   },
   {
     "page": 47,
+    "chars": 1892,
+    "words": 281,
+    "images": 0,
+    "drawings": 7,
+    "start": "CHAPITRE II — MODÈLE GÉOLOGIQUE, HYDROGÉOLOGIQUE ET FLUVIAL DU SITE Observation Interprétations possibles Vérifications "
+  },
+  {
+    "page": 48,
+    "chars": 1743,
+    "words": 268,
+    "images": 1,
+    "drawings": 13,
+    "start": "CHAPITRE II — MODÈLE GÉOLOGIQUE, HYDROGÉOLOGIQUE ET FLUVIAL DU SITE Figure II.5 — Tête d’un piézomètre de suivi des eaux"
+  },
+  {
+    "page": 49,
+    "chars": 1601,
+    "words": 234,
+    "images": 1,
+    "drawings": 10,
+    "start": "CHAPITRE II — MODÈLE GÉOLOGIQUE, HYDROGÉOLOGIQUE ET FLUVIAL DU SITE Donnée Conditions de mesure à consigner Décisions co"
+  },
+  {
+    "page": 50,
     "chars": 1559,
     "words": 220,
     "images": 1,
     "drawings": 19,
-    "start": "CHAPITRE II — MODÈLE GÉOLOGIQUE, HYDROGÉOLOGIQUE ET FLUVIAL DU SITE Figure II.4 — Méandres et barres sédimentaires de la"
+    "start": "CHAPITRE II — MODÈLE GÉOLOGIQUE, HYDROGÉOLOGIQUE ET FLUVIAL DU SITE Figure II.7 — Méandres et barres sédimentaires de la"
   },
   {
-    "page": 48,
-    "chars": 1719,
+    "page": 51,
+    "chars": 1678,
     "words": 261,
     "images": 1,
     "drawings": 1,
     "start": "CHAPITRE II — MODÈLE GÉOLOGIQUE, HYDROGÉOLOGIQUE ET FLUVIAL DU SITE rares, représentation des ponts et obstacles, rugosi"
   },
   {
-    "page": 49,
-    "chars": 1681,
-    "words": 244,
-    "images": 1,
-    "drawings": 1,
-    "start": "CHAPITRE II — MODÈLE GÉOLOGIQUE, HYDROGÉOLOGIQUE ET FLUVIAL DU SITE Figure II.6 — Évolution du lit : (a) aggradation à E"
-  },
-  {
-    "page": 50,
-    "chars": 2526,
-    "words": 356,
-    "images": 0,
-    "drawings": 37,
-    "start": "CHAPITRE II — MODÈLE GÉOLOGIQUE, HYDROGÉOLOGIQUE ET FLUVIAL DU SITE chlorures, acidité et autres agents doivent être ana"
-  },
-  {
-    "page": 51,
-    "chars": 745,
-    "words": 104,
-    "images": 0,
-    "drawings": 1,
-    "start": "CHAPITRE II — MODÈLE GÉOLOGIQUE, HYDROGÉOLOGIQUE ET FLUVIAL DU SITE II.9 Conclusion du chapitre Le modèle de site d’un p"
-  },
-  {
     "page": 52,
+    "chars": 847,
+    "words": 137,
+    "images": 2,
+    "drawings": 1,
+    "start": "CHAPITRE II — MODÈLE GÉOLOGIQUE, HYDROGÉOLOGIQUE ET FLUVIAL DU SITE Figure II.9 — Configurations d’appuis : (a) murs ver"
+  },
+  {
+    "page": 53,
+    "chars": 2538,
+    "words": 348,
+    "images": 0,
+    "drawings": 19,
+    "start": "CHAPITRE II — MODÈLE GÉOLOGIQUE, HYDROGÉOLOGIQUE ET FLUVIAL DU SITE II.7.1 Sols gonflants Le gonflement dépend de la min"
+  },
+  {
+    "page": 54,
+    "chars": 2105,
+    "words": 304,
+    "images": 0,
+    "drawings": 19,
+    "start": "CHAPITRE II — MODÈLE GÉOLOGIQUE, HYDROGÉOLOGIQUE ET FLUVIAL DU SITE II.8 Intégration et contrôle du modèle La cohérence "
+  },
+  {
+    "page": 55,
     "chars": 2242,
     "words": 325,
     "images": 0,
@@ -416,7 +440,7 @@
     "start": "CHAPITRE III — INVESTIGATIONS ET ESSAIS : PROGRAMME ADAPTATIF ET CHOIX DES MÉTHODES III.1 Introduction Une campagne géot"
   },
   {
-    "page": 53,
+    "page": 56,
     "chars": 1594,
     "words": 236,
     "images": 0,
@@ -424,7 +448,7 @@
     "start": "CHAPITRE III — INVESTIGATIONS ET ESSAIS : PROGRAMME ADAPTATIF ET CHOIX DES MÉTHODES III.2.2 Couverture spatiale et échel"
   },
   {
-    "page": 54,
+    "page": 57,
     "chars": 2030,
     "words": 283,
     "images": 1,
@@ -432,111 +456,151 @@
     "start": "CHAPITRE III — INVESTIGATIONS ET ESSAIS : PROGRAMME ADAPTATIF ET CHOIX DES MÉTHODES Figure III.1 — Programme de reconnai"
   },
   {
-    "page": 55,
-    "chars": 2785,
-    "words": 403,
+    "page": 58,
+    "chars": 2387,
+    "words": 339,
     "images": 0,
     "drawings": 19,
     "start": "CHAPITRE III — INVESTIGATIONS ET ESSAIS : PROGRAMME ADAPTATIF ET CHOIX DES MÉTHODES avancements, les pertes de boue, les"
   },
   {
-    "page": 56,
-    "chars": 2122,
-    "words": 337,
-    "images": 0,
-    "drawings": 1,
-    "start": "CHAPITRE III — INVESTIGATIONS ET ESSAIS : PROGRAMME ADAPTATIF ET CHOIX DES MÉTHODES sur le milieu. III.4 Essai de pénétr"
-  },
-  {
-    "page": 57,
-    "chars": 2223,
-    "words": 338,
-    "images": 0,
-    "drawings": 1,
-    "start": "CHAPITRE III — INVESTIGATIONS ET ESSAIS : PROGRAMME ADAPTATIF ET CHOIX DES MÉTHODES III.5.1 Mesures et profil continu Le"
-  },
-  {
-    "page": 58,
-    "chars": 2336,
-    "words": 346,
-    "images": 0,
-    "drawings": 1,
-    "start": "CHAPITRE III — INVESTIGATIONS ET ESSAIS : PROGRAMME ADAPTATIF ET CHOIX DES MÉTHODES des paramètres pressiométriques, don"
-  },
-  {
     "page": 59,
-    "chars": 1763,
-    "words": 256,
+    "chars": 958,
+    "words": 150,
     "images": 1,
-    "drawings": 25,
-    "start": "CHAPITRE III — INVESTIGATIONS ET ESSAIS : PROGRAMME ADAPTATIF ET CHOIX DES MÉTHODES Le DMT ne se confond ni avec le PMT "
+    "drawings": 1,
+    "start": "CHAPITRE III — INVESTIGATIONS ET ESSAIS : PROGRAMME ADAPTATIF ET CHOIX DES MÉTHODES Figure III.2 — Préparation et fendag"
   },
   {
     "page": 60,
-    "chars": 2291,
-    "words": 339,
+    "chars": 2326,
+    "words": 370,
     "images": 0,
-    "drawings": 13,
-    "start": "CHAPITRE III — INVESTIGATIONS ET ESSAIS : PROGRAMME ADAPTATIF ET CHOIX DES MÉTHODES Essai Mesures directes Atouts pour u"
+    "drawings": 1,
+    "start": "CHAPITRE III — INVESTIGATIONS ET ESSAIS : PROGRAMME ADAPTATIF ET CHOIX DES MÉTHODES III.4 Essai de pénétration standard "
   },
   {
     "page": 61,
-    "chars": 2552,
-    "words": 344,
+    "chars": 2241,
+    "words": 338,
     "images": 0,
-    "drawings": 33,
-    "start": "CHAPITRE III — INVESTIGATIONS ET ESSAIS : PROGRAMME ADAPTATIF ET CHOIX DES MÉTHODES et interfaces. Elle ne doit pas être"
+    "drawings": 1,
+    "start": "CHAPITRE III — INVESTIGATIONS ET ESSAIS : PROGRAMME ADAPTATIF ET CHOIX DES MÉTHODES La norme ASTM D5778-20 précise le do"
   },
   {
     "page": 62,
-    "chars": 1858,
-    "words": 280,
+    "chars": 2354,
+    "words": 351,
     "images": 0,
     "drawings": 1,
-    "start": "CHAPITRE III — INVESTIGATIONS ET ESSAIS : PROGRAMME ADAPTATIF ET CHOIX DES MÉTHODES calibrage par des observations direc"
+    "start": "CHAPITRE III — INVESTIGATIONS ET ESSAIS : PROGRAMME ADAPTATIF ET CHOIX DES MÉTHODES L’ancienne NF P94-110-1 date de janv"
   },
   {
     "page": 63,
-    "chars": 1890,
-    "words": 284,
+    "chars": 1766,
+    "words": 248,
     "images": 1,
-    "drawings": 25,
-    "start": "CHAPITRE III — INVESTIGATIONS ET ESSAIS : PROGRAMME ADAPTATIF ET CHOIX DES MÉTHODES Figure III.3 — Principe de calibrage"
+    "drawings": 33,
+    "start": "CHAPITRE III — INVESTIGATIONS ET ESSAIS : PROGRAMME ADAPTATIF ET CHOIX DES MÉTHODES III.7.3 Pénétromètres dynamiques Les"
   },
   {
     "page": 64,
-    "chars": 2600,
-    "words": 357,
-    "images": 0,
-    "drawings": 22,
-    "start": "CHAPITRE III — INVESTIGATIONS ET ESSAIS : PROGRAMME ADAPTATIF ET CHOIX DES MÉTHODES eau douce peu profonde autour de pil"
+    "chars": 1342,
+    "words": 201,
+    "images": 1,
+    "drawings": 1,
+    "start": "CHAPITRE III — INVESTIGATIONS ET ESSAIS : PROGRAMME ADAPTATIF ET CHOIX DES MÉTHODES III.8 Essais de laboratoire III.8.1 "
   },
   {
     "page": 65,
-    "chars": 719,
-    "words": 110,
-    "images": 2,
+    "chars": 838,
+    "words": 126,
+    "images": 1,
     "drawings": 1,
-    "start": "CHAPITRE III — INVESTIGATIONS ET ESSAIS : PROGRAMME ADAPTATIF ET CHOIX DES MÉTHODES Figure III.4 — Deux configurations d"
+    "start": "CHAPITRE III — INVESTIGATIONS ET ESSAIS : PROGRAMME ADAPTATIF ET CHOIX DES MÉTHODES Figure III.5 — Coupelle de Casagrand"
   },
   {
     "page": 66,
-    "chars": 1074,
-    "words": 160,
-    "images": 2,
+    "chars": 1520,
+    "words": 240,
+    "images": 1,
     "drawings": 1,
-    "start": "CHAPITRE III — INVESTIGATIONS ET ESSAIS : PROGRAMME ADAPTATIF ET CHOIX DES MÉTHODES Figure III.6 — Acquisition de résist"
+    "start": "CHAPITRE III — INVESTIGATIONS ET ESSAIS : PROGRAMME ADAPTATIF ET CHOIX DES MÉTHODES s = Σ [Hᵢ/(1+e₀,ᵢ)] · Δeᵢ où Hᵢ est "
   },
   {
     "page": 67,
-    "chars": 937,
-    "words": 144,
+    "chars": 1704,
+    "words": 239,
     "images": 1,
-    "drawings": 1,
-    "start": "CHAPITRE III — INVESTIGATIONS ET ESSAIS : PROGRAMME ADAPTATIF ET CHOIX DES MÉTHODES Figure III.8 — Cellule triaxiale hau"
+    "drawings": 17,
+    "start": "CHAPITRE III — INVESTIGATIONS ET ESSAIS : PROGRAMME ADAPTATIF ET CHOIX DES MÉTHODES III.8.4 Essais spécifiques Les sols "
   },
   {
     "page": 68,
+    "chars": 2429,
+    "words": 341,
+    "images": 0,
+    "drawings": 21,
+    "start": "CHAPITRE III — INVESTIGATIONS ET ESSAIS : PROGRAMME ADAPTATIF ET CHOIX DES MÉTHODES Essai Résultat principal Utilisation"
+  },
+  {
+    "page": 69,
+    "chars": 1492,
+    "words": 229,
+    "images": 1,
+    "drawings": 1,
+    "start": "CHAPITRE III — INVESTIGATIONS ET ESSAIS : PROGRAMME ADAPTATIF ET CHOIX DES MÉTHODES Les deux configurations suivantes mo"
+  },
+  {
+    "page": 70,
+    "chars": 1113,
+    "words": 165,
+    "images": 2,
+    "drawings": 17,
+    "start": "CHAPITRE III — INVESTIGATIONS ET ESSAIS : PROGRAMME ADAPTATIF ET CHOIX DES MÉTHODES Figure III.9 — Méthodes sismiques en"
+  },
+  {
+    "page": 71,
+    "chars": 2567,
+    "words": 377,
+    "images": 0,
+    "drawings": 13,
+    "start": "CHAPITRE III — INVESTIGATIONS ET ESSAIS : PROGRAMME ADAPTATIF ET CHOIX DES MÉTHODES Méthode Grandeur ou contraste Apport"
+  },
+  {
+    "page": 72,
+    "chars": 1454,
+    "words": 198,
+    "images": 1,
+    "drawings": 22,
+    "start": "CHAPITRE III — INVESTIGATIONS ET ESSAIS : PROGRAMME ADAPTATIF ET CHOIX DES MÉTHODES Une table de synthèse ne remplace pa"
+  },
+  {
+    "page": 73,
+    "chars": 487,
+    "words": 76,
+    "images": 1,
+    "drawings": 1,
+    "start": "CHAPITRE III — INVESTIGATIONS ET ESSAIS : PROGRAMME ADAPTATIF ET CHOIX DES MÉTHODES Figure III.12 — Unité de pénétration"
+  },
+  {
+    "page": 74,
+    "chars": 1076,
+    "words": 160,
+    "images": 2,
+    "drawings": 1,
+    "start": "CHAPITRE III — INVESTIGATIONS ET ESSAIS : PROGRAMME ADAPTATIF ET CHOIX DES MÉTHODES Figure III.13 — Acquisition de résis"
+  },
+  {
+    "page": 75,
+    "chars": 938,
+    "words": 144,
+    "images": 1,
+    "drawings": 1,
+    "start": "CHAPITRE III — INVESTIGATIONS ET ESSAIS : PROGRAMME ADAPTATIF ET CHOIX DES MÉTHODES Figure III.15 — Cellule triaxiale ha"
+  },
+  {
+    "page": 76,
     "chars": 1620,
     "words": 224,
     "images": 0,
@@ -544,7 +608,7 @@
     "start": "CHAPITRE III — INVESTIGATIONS ET ESSAIS : PROGRAMME ADAPTATIF ET CHOIX DES MÉTHODES Tableau III.7 — Exemple de matrice d"
   },
   {
-    "page": 69,
+    "page": 77,
     "chars": 1549,
     "words": 224,
     "images": 0,
@@ -552,7 +616,7 @@
     "start": "CHAPITRE IV — MÉCANISMES DE RISQUE ET VULNÉRABILITÉ DES PONTS IV.1 Introduction Les risques géotechniques des ponts résu"
   },
   {
-    "page": 70,
+    "page": 78,
     "chars": 1220,
     "words": 168,
     "images": 1,
@@ -560,7 +624,7 @@
     "start": "CHAPITRE IV — MÉCANISMES DE RISQUE ET VULNÉRABILITÉ DES PONTS Figure IV.1 — Interactions des principales familles de ris"
   },
   {
-    "page": 71,
+    "page": 79,
     "chars": 2328,
     "words": 358,
     "images": 0,
@@ -568,7 +632,7 @@
     "start": "CHAPITRE IV — MÉCANISMES DE RISQUE ET VULNÉRABILITÉ DES PONTS décomposition dépend du matériau et du chargement. Dans le"
   },
   {
-    "page": 72,
+    "page": 80,
     "chars": 1500,
     "words": 229,
     "images": 1,
@@ -576,7 +640,7 @@
     "start": "CHAPITRE IV — MÉCANISMES DE RISQUE ET VULNÉRABILITÉ DES PONTS yₜ = y_d + y_c + y_l yₜ représente l’abaissement total ret"
   },
   {
-    "page": 73,
+    "page": 81,
     "chars": 2436,
     "words": 371,
     "images": 0,
@@ -584,7 +648,7 @@
     "start": "CHAPITRE IV — MÉCANISMES DE RISQUE ET VULNÉRABILITÉ DES PONTS Les paramètres importants comprennent la profondeur et la "
   },
   {
-    "page": 74,
+    "page": 82,
     "chars": 1489,
     "words": 219,
     "images": 1,
@@ -592,7 +656,7 @@
     "start": "CHAPITRE IV — MÉCANISMES DE RISQUE ET VULNÉRABILITÉ DES PONTS Une protection en enrochements ne se choisit pas par habit"
   },
   {
-    "page": 75,
+    "page": 83,
     "chars": 2385,
     "words": 350,
     "images": 0,
@@ -600,7 +664,7 @@
     "start": "CHAPITRE IV — MÉCANISMES DE RISQUE ET VULNÉRABILITÉ DES PONTS IV.5.2 Gradient hydraulique et résistance à l’érosion Pour"
   },
   {
-    "page": 76,
+    "page": 84,
     "chars": 2462,
     "words": 358,
     "images": 0,
@@ -608,7 +672,7 @@
     "start": "CHAPITRE IV — MÉCANISMES DE RISQUE ET VULNÉRABILITÉ DES PONTS IV.6 Instabilité des berges et des pentes La stabilité des"
   },
   {
-    "page": 77,
+    "page": 85,
     "chars": 2194,
     "words": 326,
     "images": 0,
@@ -616,55 +680,71 @@
     "start": "CHAPITRE IV — MÉCANISMES DE RISQUE ET VULNÉRABILITÉ DES PONTS IV.7.2 Sollicitation cyclique La méthode simplifiée histor"
   },
   {
-    "page": 78,
-    "chars": 1814,
-    "words": 268,
-    "images": 1,
-    "drawings": 19,
+    "page": 86,
+    "chars": 1109,
+    "words": 175,
+    "images": 2,
+    "drawings": 7,
     "start": "CHAPITRE IV — MÉCANISMES DE RISQUE ET VULNÉRABILITÉ DES PONTS Figure IV.4 — Chaîne d’évaluation de la liquéfaction, du d"
   },
   {
-    "page": 79,
-    "chars": 2460,
-    "words": 353,
+    "page": 87,
+    "chars": 2252,
+    "words": 330,
+    "images": 0,
+    "drawings": 16,
+    "start": "CHAPITRE IV — MÉCANISMES DE RISQUE ET VULNÉRABILITÉ DES PONTS Simplification incorrecte Pourquoi elle est trompeuse Trai"
+  },
+  {
+    "page": 88,
+    "chars": 2297,
+    "words": 341,
     "images": 0,
     "drawings": 19,
-    "start": "CHAPITRE IV — MÉCANISMES DE RISQUE ET VULNÉRABILITÉ DES PONTS scénarios de rupture avec les charges et la géométrie réel"
+    "start": "CHAPITRE IV — MÉCANISMES DE RISQUE ET VULNÉRABILITÉ DES PONTS IV.9.2 Éditions normatives et responsabilité de vérificati"
   },
   {
-    "page": 80,
-    "chars": 2261,
-    "words": 329,
-    "images": 0,
-    "drawings": 22,
-    "start": "CHAPITRE IV — MÉCANISMES DE RISQUE ET VULNÉRABILITÉ DES PONTS IV.10 Risques liés à l’exécution Les travaux peuvent modif"
-  },
-  {
-    "page": 81,
-    "chars": 1876,
-    "words": 255,
+    "page": 89,
+    "chars": 1749,
+    "words": 245,
     "images": 1,
-    "drawings": 37,
-    "start": "CHAPITRE IV — MÉCANISMES DE RISQUE ET VULNÉRABILITÉ DES PONTS Figure IV.5 — Organisation d’un registre de risques fondé "
+    "drawings": 22,
+    "start": "CHAPITRE IV — MÉCANISMES DE RISQUE ET VULNÉRABILITÉ DES PONTS Tableau IV.7 — Risques d’exécution et données préventives "
   },
   {
-    "page": 82,
+    "page": 90,
+    "chars": 1645,
+    "words": 218,
+    "images": 0,
+    "drawings": 37,
+    "start": "CHAPITRE IV — MÉCANISMES DE RISQUE ET VULNÉRABILITÉ DES PONTS Tableau IV.8 — Synthèse des mécanismes et des données gouv"
+  },
+  {
+    "page": 91,
+    "chars": 574,
+    "words": 88,
+    "images": 1,
+    "drawings": 1,
+    "start": "CHAPITRE IV — MÉCANISMES DE RISQUE ET VULNÉRABILITÉ DES PONTS Figure IV.7 — Inspection hydrographique par fathometer au "
+  },
+  {
+    "page": 92,
     "chars": 1143,
     "words": 176,
     "images": 2,
     "drawings": 1,
-    "start": "CHAPITRE IV — MÉCANISMES DE RISQUE ET VULNÉRABILITÉ DES PONTS Figure IV.6 — Rupture du tablier de Tacoma Narrows le 7 no"
+    "start": "CHAPITRE IV — MÉCANISMES DE RISQUE ET VULNÉRABILITÉ DES PONTS Figure IV.8 — Rupture du tablier de Tacoma Narrows le 7 no"
   },
   {
-    "page": 83,
-    "chars": 970,
+    "page": 93,
+    "chars": 972,
     "words": 152,
     "images": 2,
     "drawings": 1,
-    "start": "CHAPITRE IV — MÉCANISMES DE RISQUE ET VULNÉRABILITÉ DES PONTS Figure IV.8 — Rupture du remblai de culée au Monture Bridg"
+    "start": "CHAPITRE IV — MÉCANISMES DE RISQUE ET VULNÉRABILITÉ DES PONTS Figure IV.10 — Rupture du remblai de culée au Monture Brid"
   },
   {
-    "page": 84,
+    "page": 94,
     "chars": 507,
     "words": 74,
     "images": 0,
@@ -672,7 +752,7 @@
     "start": "CHAPITRE IV — MÉCANISMES DE RISQUE ET VULNÉRABILITÉ DES PONTS l’érosion interne est distinguée du renard seul, la liquéf"
   },
   {
-    "page": 85,
+    "page": 95,
     "chars": 2144,
     "words": 320,
     "images": 0,
@@ -680,7 +760,7 @@
     "start": "CHAPITRE V — INTERPRÉTATION DES DONNÉES ET DÉCISIONS DE FONDATION V.1 Introduction L’interprétation géotechnique transfo"
   },
   {
-    "page": 86,
+    "page": 96,
     "chars": 1435,
     "words": 210,
     "images": 1,
@@ -688,7 +768,7 @@
     "start": "CHAPITRE V — INTERPRÉTATION DES DONNÉES ET DÉCISIONS DE FONDATION V.2.3 Du point au volume Le passage à un volume de sol"
   },
   {
-    "page": 87,
+    "page": 97,
     "chars": 2375,
     "words": 352,
     "images": 0,
@@ -696,7 +776,7 @@
     "start": "CHAPITRE V — INTERPRÉTATION DES DONNÉES ET DÉCISIONS DE FONDATION V.3 Choix des paramètres et incertitudes V.3.1 Paramèt"
   },
   {
-    "page": 88,
+    "page": 98,
     "chars": 2503,
     "words": 364,
     "images": 0,
@@ -704,7 +784,7 @@
     "start": "CHAPITRE V — INTERPRÉTATION DES DONNÉES ET DÉCISIONS DE FONDATION Un coefficient de variation unique n’est pas attribué "
   },
   {
-    "page": 89,
+    "page": 99,
     "chars": 2282,
     "words": 343,
     "images": 0,
@@ -712,87 +792,119 @@
     "start": "CHAPITRE V — INTERPRÉTATION DES DONNÉES ET DÉCISIONS DE FONDATION Cette forme ne tient pas compte à elle seule de l’exce"
   },
   {
-    "page": 90,
-    "chars": 2551,
-    "words": 364,
-    "images": 0,
-    "drawings": 19,
+    "page": 100,
+    "chars": 945,
+    "words": 148,
+    "images": 1,
+    "drawings": 1,
     "start": "CHAPITRE V — INTERPRÉTATION DES DONNÉES ET DÉCISIONS DE FONDATION une décompression et un remaniement. Les paramètres is"
   },
   {
-    "page": 91,
-    "chars": 1532,
-    "words": 218,
-    "images": 1,
-    "drawings": 29,
-    "start": "CHAPITRE V — INTERPRÉTATION DES DONNÉES ET DÉCISIONS DE FONDATION une investigation complémentaire est elle-même un résu"
+    "page": 101,
+    "chars": 2176,
+    "words": 302,
+    "images": 0,
+    "drawings": 19,
+    "start": "CHAPITRE V — INTERPRÉTATION DES DONNÉES ET DÉCISIONS DE FONDATION V.5.3 Déplacements et interaction Les vérifications in"
   },
   {
-    "page": 92,
-    "chars": 2314,
+    "page": 102,
+    "chars": 1460,
+    "words": 209,
+    "images": 1,
+    "drawings": 29,
+    "start": "CHAPITRE V — INTERPRÉTATION DES DONNÉES ET DÉCISIONS DE FONDATION Figure V.3 — Comparaison des solutions de fondation et"
+  },
+  {
+    "page": 103,
+    "chars": 2315,
     "words": 366,
     "images": 0,
     "drawings": 21,
     "start": "CHAPITRE V — INTERPRÉTATION DES DONNÉES ET DÉCISIONS DE FONDATION E_d ≤ R_d E_d est la valeur de calcul de l’effet et R_"
   },
   {
-    "page": 93,
-    "chars": 2302,
-    "words": 322,
+    "page": 104,
+    "chars": 2431,
+    "words": 349,
     "images": 0,
     "drawings": 19,
     "start": "CHAPITRE V — INTERPRÉTATION DES DONNÉES ET DÉCISIONS DE FONDATION sans créer de tableau d’équivalence artificiel. V.8 Se"
   },
   {
-    "page": 94,
-    "chars": 1367,
-    "words": 200,
+    "page": 105,
+    "chars": 500,
+    "words": 80,
     "images": 1,
-    "drawings": 17,
-    "start": "CHAPITRE V — INTERPRÉTATION DES DONNÉES ET DÉCISIONS DE FONDATION V.10 Méthode observationnelle et suivi La méthode obse"
+    "drawings": 1,
+    "start": "CHAPITRE V — INTERPRÉTATION DES DONNÉES ET DÉCISIONS DE FONDATION Figure V.4 — Cellule OJACK360 pour essai bidirectionne"
   },
   {
-    "page": 95,
-    "chars": 1250,
-    "words": 179,
+    "page": 106,
+    "chars": 1002,
+    "words": 148,
     "images": 1,
-    "drawings": 13,
-    "start": "CHAPITRE V — INTERPRÉTATION DES DONNÉES ET DÉCISIONS DE FONDATION Mesure Hypothèse vérifiée Critère à définir avant trav"
+    "drawings": 1,
+    "start": "CHAPITRE V — INTERPRÉTATION DES DONNÉES ET DÉCISIONS DE FONDATION Figure V.5 — Bloc d’enrobage fixé sur une armature de "
   },
   {
-    "page": 96,
-    "chars": 1020,
-    "words": 162,
+    "page": 107,
+    "chars": 1430,
+    "words": 202,
+    "images": 1,
+    "drawings": 25,
+    "start": "CHAPITRE V — INTERPRÉTATION DES DONNÉES ET DÉCISIONS DE FONDATION Figure V.6 — Boucle de la méthode observationnelle pen"
+  },
+  {
+    "page": 108,
+    "chars": 522,
+    "words": 80,
+    "images": 1,
+    "drawings": 1,
+    "start": "CHAPITRE V — INTERPRÉTATION DES DONNÉES ET DÉCISIONS DE FONDATION Figure V.7 — Réalisation de pieux forés : cage de renf"
+  },
+  {
+    "page": 109,
+    "chars": 932,
+    "words": 149,
     "images": 2,
     "drawings": 1,
-    "start": "CHAPITRE V — INTERPRÉTATION DES DONNÉES ET DÉCISIONS DE FONDATION Figure V.5 — Réparation du remblai de culée et protect"
+    "start": "CHAPITRE V — INTERPRÉTATION DES DONNÉES ET DÉCISIONS DE FONDATION Figure V.8 — Réparation du remblai de culée et protect"
   },
   {
-    "page": 97,
-    "chars": 1057,
-    "words": 150,
+    "page": 110,
+    "chars": 966,
+    "words": 145,
+    "images": 1,
+    "drawings": 1,
+    "start": "CHAPITRE V — INTERPRÉTATION DES DONNÉES ET DÉCISIONS DE FONDATION Figure V.10 — Bétonnage de la fondation de la pile pri"
+  },
+  {
+    "page": 111,
+    "chars": 703,
+    "words": 101,
     "images": 0,
     "drawings": 1,
-    "start": "CHAPITRE V — INTERPRÉTATION DES DONNÉES ET DÉCISIONS DE FONDATION les tableaux indiquent leur origine et leurs unités. L"
+    "start": "CHAPITRE V — INTERPRÉTATION DES DONNÉES ET DÉCISIONS DE FONDATION V.12 Conclusion du chapitre L’interprétation des donné"
   },
   {
-    "page": 98,
-    "chars": 2103,
+    "page": 112,
+    "chars": 2104,
     "words": 299,
     "images": 0,
     "drawings": 1,
     "start": "CHAPITRE VI — APPLICATION MÉTHODOLOGIQUE AU CONTEXTE ALGÉRIEN ET SYNTHÈSE MULTIDISCIPLINAIRE VI.1 Introduction Le contex"
   },
   {
-    "page": 99,
-    "chars": 2341,
+    "page": 113,
+    "chars": 2342,
     "words": 335,
     "images": 0,
     "drawings": 1,
     "start": "CHAPITRE VI — APPLICATION MÉTHODOLOGIQUE AU CONTEXTE ALGÉRIEN ET SYNTHÈSE MULTIDISCIPLINAIRE VI.2.2 Sols et roches à com"
   },
   {
-    "page": 100,
+    "page": 114,
     "chars": 2436,
     "words": 341,
     "images": 0,
@@ -800,7 +912,7 @@
     "start": "CHAPITRE VI — APPLICATION MÉTHODOLOGIQUE AU CONTEXTE ALGÉRIEN ET SYNTHÈSE MULTIDISCIPLINAIRE VI.3.2 Approbation du DTR-B"
   },
   {
-    "page": 101,
+    "page": 115,
     "chars": 2486,
     "words": 361,
     "images": 0,
@@ -808,7 +920,7 @@
     "start": "CHAPITRE VI — APPLICATION MÉTHODOLOGIQUE AU CONTEXTE ALGÉRIEN ET SYNTHÈSE MULTIDISCIPLINAIRE VI.4 Apports et limites des"
   },
   {
-    "page": 102,
+    "page": 116,
     "chars": 2357,
     "words": 349,
     "images": 0,
@@ -816,7 +928,7 @@
     "start": "CHAPITRE VI — APPLICATION MÉTHODOLOGIQUE AU CONTEXTE ALGÉRIEN ET SYNTHÈSE MULTIDISCIPLINAIRE Les informations non confir"
   },
   {
-    "page": 103,
+    "page": 117,
     "chars": 2479,
     "words": 358,
     "images": 0,
@@ -824,7 +936,7 @@
     "start": "CHAPITRE VI — APPLICATION MÉTHODOLOGIQUE AU CONTEXTE ALGÉRIEN ET SYNTHÈSE MULTIDISCIPLINAIRE VI.5.3 Enseignement méthodo"
   },
   {
-    "page": 104,
+    "page": 118,
     "chars": 1247,
     "words": 163,
     "images": 1,
@@ -832,7 +944,7 @@
     "start": "CHAPITRE VI — APPLICATION MÉTHODOLOGIQUE AU CONTEXTE ALGÉRIEN ET SYNTHÈSE MULTIDISCIPLINAIRE fondation et la protection "
   },
   {
-    "page": 105,
+    "page": 119,
     "chars": 1663,
     "words": 230,
     "images": 0,
@@ -840,7 +952,7 @@
     "start": "CHAPITRE VI — APPLICATION MÉTHODOLOGIQUE AU CONTEXTE ALGÉRIEN ET SYNTHÈSE MULTIDISCIPLINAIRE VI.7 Trame d’application à "
   },
   {
-    "page": 106,
+    "page": 120,
     "chars": 743,
     "words": 121,
     "images": 2,
@@ -848,23 +960,23 @@
     "start": "CHAPITRE VI — APPLICATION MÉTHODOLOGIQUE AU CONTEXTE ALGÉRIEN ET SYNTHÈSE MULTIDISCIPLINAIRE Figure VI.2 — Chaîne de déc"
   },
   {
-    "page": 107,
-    "chars": 1942,
-    "words": 280,
-    "images": 1,
+    "page": 121,
+    "chars": 1300,
+    "words": 199,
+    "images": 2,
     "drawings": 1,
     "start": "CHAPITRE VI — APPLICATION MÉTHODOLOGIQUE AU CONTEXTE ALGÉRIEN ET SYNTHÈSE MULTIDISCIPLINAIRE Figure VI.4 — Pont de Sidi "
   },
   {
-    "page": 108,
-    "chars": 1254,
-    "words": 178,
+    "page": 122,
+    "chars": 2433,
+    "words": 349,
     "images": 0,
     "drawings": 1,
-    "start": "CHAPITRE VI — APPLICATION MÉTHODOLOGIQUE AU CONTEXTE ALGÉRIEN ET SYNTHÈSE MULTIDISCIPLINAIRE documentés ici par des sour"
+    "start": "CHAPITRE VI — APPLICATION MÉTHODOLOGIQUE AU CONTEXTE ALGÉRIEN ET SYNTHÈSE MULTIDISCIPLINAIRE conclusions d’expertise. Un"
   },
   {
-    "page": 109,
+    "page": 123,
     "chars": 2542,
     "words": 372,
     "images": 0,
@@ -872,7 +984,7 @@
     "start": "CONCLUSION GÉNÉRALE Cette étude bibliographique avait pour objectif de préciser les particularités de la reconnaissance "
   },
   {
-    "page": 110,
+    "page": 124,
     "chars": 2567,
     "words": 382,
     "images": 0,
@@ -880,7 +992,7 @@
     "start": "CONCLUSION GÉNÉRALE et l’état limite doivent être explicites. Le RQD ne se confond pas avec le taux de récupération tota"
   },
   {
-    "page": 111,
+    "page": 125,
     "chars": 1937,
     "words": 276,
     "images": 0,
@@ -888,7 +1000,7 @@
     "start": "CONCLUSION GÉNÉRALE indirectes par des observations directes adaptées ; 4. conserver la chaîne entre mesures brutes, cor"
   },
   {
-    "page": 112,
+    "page": 126,
     "chars": 1934,
     "words": 218,
     "images": 0,
@@ -896,7 +1008,7 @@
     "start": "BIBLIOGRAPHIE AFNOR (2013). NF P94-500, Missions d’ingénierie géotechnique — Classification et spécifications. Norme fra"
   },
   {
-    "page": 113,
+    "page": 127,
     "chars": 2107,
     "words": 287,
     "images": 0,
@@ -904,7 +1016,7 @@
     "start": "BIBLIOGRAPHIE ASTM INTERNATIONAL (2018). ASTM D1586/D1586M-18e1, Standard Test Method for Standard Penetration Test (SPT"
   },
   {
-    "page": 114,
+    "page": 128,
     "chars": 2083,
     "words": 271,
     "images": 0,
@@ -912,7 +1024,7 @@
     "start": "BIBLIOGRAPHIE CEN (2021). EN 206:2013+A2:2021, Concrete — Specification, performance, production and conformity. Bruxell"
   },
   {
-    "page": 115,
+    "page": 129,
     "chars": 2177,
     "words": 271,
     "images": 0,
@@ -920,7 +1032,7 @@
     "start": "BIBLIOGRAPHIE FHWA (2012a). Evaluating Scour at Bridges. 5e éd., HEC-18, publication FHWA-HIF-12-003, avril 2012. Washin"
   },
   {
-    "page": 116,
+    "page": 130,
     "chars": 2261,
     "words": 320,
     "images": 0,
@@ -928,7 +1040,7 @@
     "start": "BIBLIOGRAPHIE Dilatometer Test (DMT) in Soil Investigations — A Report by the ISSMGE Committee TC16. Conférence internat"
   },
   {
-    "page": 117,
+    "page": 131,
     "chars": 1982,
     "words": 273,
     "images": 0,
@@ -936,7 +1048,7 @@
     "start": "BIBLIOGRAPHIE variability ». Canadian Geotechnical Journal, vol. 36, no 4, p. 625–639. DOI : https://doi.org/10.1139/t99"
   },
   {
-    "page": 118,
+    "page": 132,
     "chars": 1251,
     "words": 153,
     "images": 0,
@@ -944,7 +1056,7 @@
     "start": "BIBLIOGRAPHIE Van Nostrand Reinhold. WALTHAM, T., BELL, F.G. et CULSHAW, M. (2005). Sinkholes and Subsidence: Karst and "
   },
   {
-    "page": 119,
+    "page": 133,
     "chars": 2501,
     "words": 343,
     "images": 0,
@@ -952,7 +1064,7 @@
     "start": "ANNEXE A — AIDE-MÉMOIRE POUR UN PROJET DE PONT A.1 Objet et mode d’emploi Cette annexe rassemble des grilles de contrôle"
   },
   {
-    "page": 120,
+    "page": 134,
     "chars": 2548,
     "words": 372,
     "images": 0,
@@ -960,7 +1072,7 @@
     "start": "ANNEXE A — AIDE-MÉMOIRE POUR UN PROJET DE PONT Question de projet Méthodes possibles selon le site Preuve permettant de "
   },
   {
-    "page": 121,
+    "page": 135,
     "chars": 386,
     "words": 63,
     "images": 0,
@@ -968,7 +1080,7 @@
     "start": "ANNEXE A — AIDE-MÉMOIRE POUR UN PROJET DE PONT • Les critères de déplacement sont-ils validés avec le concepteur de la s"
   },
   {
-    "page": 122,
+    "page": 136,
     "chars": 1936,
     "words": 317,
     "images": 0,
@@ -976,7 +1088,7 @@
     "start": "ANNEXE B — FORMULES, UNITÉS ET CONTRÔLES DE COHÉRENCE B.1 Règles d’écriture Une équation est accompagnée de son domaine,"
   },
   {
-    "page": 123,
+    "page": 137,
     "chars": 2554,
     "words": 407,
     "images": 0,
@@ -984,7 +1096,7 @@
     "start": "ANNEXE B — FORMULES, UNITÉS ET CONTRÔLES DE COHÉRENCE B.2 Distinctions à contrôler dans une revue orale ou écrite Affoui"
   },
   {
-    "page": 124,
+    "page": 138,
     "chars": 1099,
     "words": 172,
     "images": 0,

@@ -115,6 +115,11 @@ Le mode d’installation modifie le sol et la résistance. Les pieux battus peuv
 
 Les guides FHWA sur les pieux battus (FHWA, 2016b, 2016c) et les ouvrages de TOMLINSON (2001) insistent sur le lien entre calcul et construction. Les refus, les reprises de battage, les enregistrements de forage et les contrôles de bétonnage apportent des informations sur la cohérence du modèle.
 
+Le matériel de forage conditionne la stabilité du trou, les paramètres d’exécution et les contrôles possibles. Cette foreuse à tarière photographiée à Auckland illustre un équipement de pieux de fondation ; le chantier n’est pas un pont et n’est pas attribué à l’auteur.
+
+[[FIGURE:photo_auger_pile_rig|Foreuse à tarière pour pieux de fondation sur un chantier à Auckland (Nouvelle-Zélande)]]
+[[SOURCE:Ingolfson, Wikimedia Commons, domaine public.]]
+
 ### V.5.3 Déplacements et interaction
 
 Les vérifications incluent le tassement du pieu et du groupe, les déplacements horizontaux, les rotations et la flexion induite par les mouvements du terrain. Les réactions du sol peuvent être représentées par des relations non linéaires ou des modèles de continuum selon le niveau d’analyse requis.
@@ -202,6 +207,16 @@ Les contrôles sont choisis pour vérifier les hypothèses et la qualité des é
 
 Il n’existe pas de pourcentage universel de pieux à tester pour tout projet. Le plan de contrôle dépend de la méthode, de la variabilité, des conséquences d’un défaut, des exigences du référentiel et du retour des premiers éléments. Les résultats sont comparés aux critères définis avant travaux.
 
+Un essai bidirectionnel utilise une cellule de chargement incorporée au pieu et ne se confond pas avec un chargement statique appliqué en tête. L’exemple OJACK360 ci-dessous est photographié pendant l’installation sur un chantier de bâtiment ; il illustre le matériel et non un essai de pieu de pont exécuté pour cette étude.
+
+[[FIGURE:photo_ojack_load_test|Cellule OJACK360 pour essai bidirectionnel de pieu pendant son installation sur un chantier de bâtiment]]
+[[SOURCE:Amiruddin1995, Wikimedia Commons, CC BY-SA 4.0.]]
+
+Les détails de cage et d’enrobage font également partie du contrôle préparatoire. La photographie montre un bloc d’enrobage sur une armature de paroi moulée ; elle ne démontre pas à elle seule la conformité de l’ensemble de la cage ou de l’élément bétonné.
+
+[[FIGURE:photo_diaphragm_wall_spacer|Bloc d’enrobage fixé sur une armature de paroi moulée]]
+[[SOURCE:CMMNA, « Diaphragm wall block », Wikimedia Commons, CC BY-SA 3.0.]]
+
 Les non-conformités déclenchent une revue : vérification du matériel, investigation complémentaire, modification du procédé ou réévaluation du modèle. Elles ne doivent pas être seulement archivées.
 
 ## V.10 Méthode observationnelle et suivi
@@ -236,6 +251,11 @@ Les photographies anciennes sont également utiles pour comprendre les phases de
 
 [[FIGURE:photo_monroe_construction|Monroe Street Bridge en construction à Spokane en 1911 : cintres, arcs et appuis]]
 [[SOURCE:William O. Reed, University of Washington, 1er juin 1911, domaine public, via Wikimedia Commons.]]
+
+Une autre archive permet d’isoler l’opération de bétonnage d’une fondation de pile. Elle est utilisée ici pour la lecture du phasage et du contrôle d’exécution, sans extrapolation de ses matériaux ou de sa géométrie à un projet actuel.
+
+[[FIGURE:photo_story_bridge_foundation|Bétonnage de la fondation de la pile principale nord du Story Bridge à Brisbane (30 janvier 1936)]]
+[[SOURCE:Lands Department, Queensland State Archives, image 3147, domaine public, via Wikimedia Commons.]]
 
 ## V.11 Contenu du dossier géotechnique
 

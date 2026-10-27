@@ -15,8 +15,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 AUDITS = ROOT / "audits"
 DELIVERABLES = ROOT / "deliverables"
-RELEASE_DATE = "2026-10-25"
-EXPECTED_PAGES = 124
+RELEASE_DATE = "2026-10-27"
+EXPECTED_PAGES = 138
 
 DELIVERABLE_NAMES = [
     "These_revisee_BERKANE_Dhiyaddine.pdf",
@@ -160,8 +160,8 @@ def main() -> None:
     checks = {
         "required_files_present": all((ROOT / name).is_file() for name in required_paths),
         "photographic_assets_and_credits_verified": (
-            len(photograph_records) == 24
-            and "**31 photographies**" in photograph_credits
+            len(photograph_records) == 42
+            and "**55 photographies**" in photograph_credits
             and all(
                 item["asset"].startswith("photo_")
                 and item["asset"] in photograph_credits
@@ -181,11 +181,11 @@ def main() -> None:
             and all(reference_qa["checks"].values())
             and reference_qa["counts"] == {
                 "guide_questions": 40, "slide_rows": 15, "journal_revision_rows": 45,
-                "arabic_caption_references": 15, "visual_figure_pages": 45,
+                "arabic_caption_references": 15, "visual_figure_pages": 63,
             }
         ),
         "formatting_profile_source_keyed": (
-            all(token in formatting for token in ("C3", "USTHB-IA", "ULT-FST", "Times New Roman", "25 mm", "1,5", "124 pages"))
+            all(token in formatting for token in ("C3", "USTHB-IA", "ULT-FST", "Times New Roman", "25 mm", "1,5", "138 pages"))
             and "ni une certification de conformité administrative" in formatting
             and "consultation intégrale non revendiquée" in formatting
             and "accès direct indisponible" in formatting
@@ -237,7 +237,7 @@ def main() -> None:
     }
 
     manifest = {
-        "release_id": "BERKANE-Dhiyaddine-revision-2026-10-25",
+        "release_id": "BERKANE-Dhiyaddine-revision-2026-10-27",
         "release_date": RELEASE_DATE,
         "artifact_status": "pass" if all(checks.values()) else "fail",
         "requirement_status": "33_completed_1_blocked",
@@ -257,7 +257,7 @@ def main() -> None:
             "resolved_author_year_occurrences": 93,
             "figures": build["figures"],
             "photographic_assets": len(photograph_records),
-            "photographs": 31,
+            "photographs": 55,
             "photograph_credits": "references/credits_photographies.md",
             "tables_in_pdf": build["tables"],
             "pdf_outline_entries": build["outline_entries"],

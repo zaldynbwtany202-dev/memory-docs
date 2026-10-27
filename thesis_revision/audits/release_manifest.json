@@ -1,11 +1,11 @@
 {
-  "release_id": "BERKANE-Dhiyaddine-revision-2026-10-25",
-  "release_date": "2026-10-25",
+  "release_id": "BERKANE-Dhiyaddine-revision-2026-10-27",
+  "release_date": "2026-10-27",
   "artifact_status": "pass",
   "requirement_status": "33_completed_1_blocked",
   "reference_document": "deliverables/These_revisee_BERKANE_Dhiyaddine.pdf",
   "reference_pagination": {
-    "pages": 124,
+    "pages": 138,
     "paper": "A4",
     "note": "PDF is authoritative; DOCX pagination is renderer-dependent."
   },
@@ -28,50 +28,50 @@
   "deliverables": [
     {
       "path": "deliverables/These_revisee_BERKANE_Dhiyaddine.pdf",
-      "bytes": 25161022,
-      "sha256": "3c358289ec44c82a7b5363fe96559b046912f92f957c143f31874280af7cfc2e"
+      "bytes": 51159351,
+      "sha256": "9b847e13c0c7cf9f7600791b2d05ca8db0ed5b98ef6778899465f1f3adc51933"
     },
     {
       "path": "deliverables/These_revisee_BERKANE_Dhiyaddine.docx",
-      "bytes": 19434455,
-      "sha256": "e8de23846df229397cefac8c74f80adcbb56d753085471395c2f935c4d399383"
+      "bytes": 37708012,
+      "sha256": "18d2ff7a7500aac8787f3283b160c2806c234c2f7dd6baeec77e53b4345d8874"
     },
     {
       "path": "deliverables/Journal_des_revisions_BERKANE_Dhiyaddine.md",
-      "bytes": 13693,
-      "sha256": "de374af873a2b65268074794d379e474b80f52588ba4dd5b6eafa6169f262ea9"
+      "bytes": 13775,
+      "sha256": "2f8d73d83bad31e520fe1e06f29530a387a94903efd4abe371f4641e859d00e6"
     },
     {
       "path": "deliverables/Guide_de_soutenance_BERKANE_Dhiyaddine.md",
-      "bytes": 21472,
-      "sha256": "85980f91456e9070c1594b38ef897c6adf605ccee8d8a6c8c55eda6a0140ee0f"
+      "bytes": 21487,
+      "sha256": "f8b3504b7be44742794e9394d273a13a14ee33690aa5c161fd27183c4b0261b1"
     },
     {
       "path": "deliverables/LISEZ_MOI.md",
       "bytes": 5825,
-      "sha256": "ce7ec6ed4a566377d1bacb119a874ef134be139d7de2a6f6d942dd1b0cc2bc70"
+      "sha256": "ecbc38a476c6461495efea65d64d99e03104bcd0ab514e1dee748d851e3ebb57"
     }
   ],
   "audit_evidence": [
     {
       "path": "audits/build_report.json",
-      "bytes": 4123,
-      "sha256": "959762b127863b7d0ebd6969fcc2c966815a3164109601bf415491726893468a"
+      "bytes": 4565,
+      "sha256": "a66896e862f186daa0848a475b793f4d82b1b5a94a0c8e171c2c98db86035e28"
     },
     {
       "path": "audits/docx_build_report.json",
-      "bytes": 859,
-      "sha256": "33e8de10205b4d570e659bffdadf9a75136944aa58fc37223bbce98f9e421423"
+      "bytes": 861,
+      "sha256": "04cb98bbda16c67363f2bb6d90dc614465d84b2caf0a396b0d33cfdd9811799a"
     },
     {
       "path": "audits/final_pdf_qa.json",
-      "bytes": 4288,
-      "sha256": "60a60f999885e0e6fb0a676df68331b6474fdf9e761b5e9c861a41fb4c85e923"
+      "bytes": 4504,
+      "sha256": "9f7a34807536b15585ce56a50d4a2e1ee3a420c80385ee118c9f40fcf9ff5f6e"
     },
     {
       "path": "audits/docx_content_audit.json",
-      "bytes": 3221,
-      "sha256": "305e01beea12239d0f279d443eaef814bc9feda125c7df18e0ec5cb9101e5595"
+      "bytes": 3224,
+      "sha256": "2cfbd7ec9c057252d5f6889cf44c98c617fa7d79bc383f50236064cb6b9aba14"
     },
     {
       "path": "audits/revised_citation_audit.json",
@@ -80,31 +80,31 @@
     },
     {
       "path": "audits/release_reference_audit.json",
-      "bytes": 3431,
-      "sha256": "e31bede4403980f6f3cf4d79411d667663cbf8cfd089c2f6e81b189846637425"
+      "bytes": 3436,
+      "sha256": "449dc2030674153004b52e82be5cd759e75c3826e243f90bded84cb3ac691682"
     },
     {
       "path": "audits/visual_review.md",
-      "bytes": 6797,
-      "sha256": "865e271d1e1a613ccd0029ac0de34871dcff579fe907816c1f22b5653c12e135"
+      "bytes": 5865,
+      "sha256": "5d08831bd110d5e653f2a030242b6e118ff1da3a1e9266841c629127950c3eb0"
     },
     {
       "path": "audits/registre_etendu_traceability.md",
-      "bytes": 15558,
-      "sha256": "91f7ee00bd3707d490707a1e2986b659009568662af5136d238c6d7442c5298f"
+      "bytes": 15575,
+      "sha256": "f7eb0f6d5d9096f00604043065e8f32c2d069b93f95d54ed8da369b8c1d7bd74"
     },
     {
       "path": "audits/formatting_profile.md",
       "bytes": 8284,
-      "sha256": "2bdce76616e69fd8998a4a11fbc2b61a5af791a7514188992392e058d2e8c2c4"
+      "sha256": "5305201517658d7fab72f05a219f8709e74089925a34f1990a67c9ad08a63ba9"
     }
   ],
   "scientific_summary": {
     "bibliography_entries": 65,
     "resolved_author_year_occurrences": 93,
-    "figures": 45,
-    "photographic_assets": 24,
-    "photographs": 31,
+    "figures": 63,
+    "photographic_assets": 42,
+    "photographs": 55,
     "photograph_credits": "references/credits_photographies.md",
     "tables_in_pdf": 46,
     "pdf_outline_entries": 96
@@ -129,5 +129,5 @@
     "DOCX package/content are audited, but Word-specific visual pagination was not rendered in this environment.",
     "The work is bibliographic/theoretical and is not presented as fieldwork."
   ],
-  "page_reference_count_checked": 334
+  "page_reference_count_checked": 338
 }

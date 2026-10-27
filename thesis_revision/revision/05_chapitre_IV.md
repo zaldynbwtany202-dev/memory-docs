@@ -177,6 +177,11 @@ La reconnaissance doit donc fournir l’épaisseur et la continuité des couches
 [[FIGURE:liquefaction_chain|Chaîne d’évaluation de la liquéfaction, du dépistage aux conséquences]]
 [[SOURCE:schéma original de synthèse d’après SEED et IDRISS (1971), YOUD et al. (2001) et IDRISS et BOULANGER (2008).]]
 
+Les manifestations de surface aident à documenter les conséquences, mais leur présence ou leur absence ne suffit pas à conclure sur tout un site. Les exemples USGS montrent des volcans de sable et un étalement latéral ; ils ne démontrent pas une susceptibilité à la liquéfaction en Algérie.
+
+[[FIGURE:photo_liquefaction_effects|Manifestations de liquéfaction : (a) volcans de sable le long d’une voie ferrée ; (b) escarpement d’étalement latéral et restes de volcan de sable à Nisqually (2001)]]
+[[SOURCE:USGS, « What is liquefaction? » et Open-File Report 03-211, domaine public.]]
+
 [[TABLE:Erreurs à éviter dans l’analyse de liquéfaction|1,2,2]]
 | Simplification incorrecte | Pourquoi elle est trompeuse | Traitement retenu |
 |---|---|---|
@@ -251,6 +256,11 @@ Les interactions sont explicitées : affouillement du pied et instabilité de ri
 | Karst | Cavités, remplissage, eau et discontinuités | Perte d’appui et exécution | Vérification, déplacement, traitement ou fondation adaptée |
 | Agressivité | Chimie, exposition et matériaux | Durabilité des éléments enterrés ou exposés | Classes d’exposition, conception et maintenance |
 | Exécution | Méthode, eau, obstacles et qualité | Défauts et modification du terrain | Contrôles, adaptation de méthode et traçabilité |
+
+Le suivi bathymétrique relie une mesure à une position et à une date. L’inspection hydrographique du Barnhart Island Bridge illustre cette acquisition au droit d’un appui ; elle ne constitue pas une campagne réalisée pour ce mémoire et ne remplace pas l’analyse des tendances entre levés.
+
+[[FIGURE:photo_fathometer_inspection|Inspection hydrographique par fathometer au Barnhart Island Bridge, Massena (New York)]]
+[[SOURCE:McLaren Engineering Group, Wikimedia Commons, CC BY-SA 4.0.]]
 
 La vulnérabilité peut également provenir d’une interaction qui dépasse le seul modèle géotechnique. Le cas de Tacoma Narrows, analysé à la section I.3.5, est rappelé ici pour ne pas réduire tous les désordres à un problème de fondation : la photographie documente la rupture du tablier par un phénomène aérodynamique, non un affouillement.
 

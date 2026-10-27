@@ -174,6 +174,11 @@ Le pont de Sidi Rached complète ces exemples algériens par une structure maço
 [[FIGURE:photo_sidi_rached|Pont de Sidi Rached à Constantine : arches multiples et appuis en gorge]]
 [[SOURCE:Algerie360, « Le Pont de Sidi-Rached, une vieille histoire constantinoise » ; aucune licence libre revendiquée.]]
 
+Deux autres vues algériennes élargissent ce répertoire visuel : les haubans et le pylône du pont Salah Bey à Constantine, puis le viaduc de Cherrata à Berrouaghia. Elles servent à lire les relations entre tablier, appuis et terrain ; aucune information de fondation n’est déduite de ces seules photographies.
+
+[[FIGURE:photo_algerian_viaducts|Ouvrages algériens : (a) pylône et haubans du pont Salah Bey à Constantine ; (b) viaduc de Cherrata à Berrouaghia (wilaya de Médéa)]]
+[[SOURCE:(a) Louadfel, CC BY-SA 4.0 ; (b) Habib kaki, CC0, via Wikimedia Commons.]]
+
 ## VI.8 Recommandations pour les études et la recherche
 
 Les études futures gagneraient à conserver des jeux de données anonymisés lorsque la confidentialité l’exige : logs, résultats bruts, localisation relative, méthodes et interprétations. Cette pratique permettrait de comparer les corrélations et d’évaluer leur validité locale sans copier des paramètres d’un site à l’autre.

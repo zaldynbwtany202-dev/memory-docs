@@ -69,6 +69,11 @@ Le prélèvement, le transport, le stockage et la préparation doivent être con
 | Échantillon de granulats ou gravier | Granulométrie et identification selon la représentativité du prélèvement | Refus, ségrégation et perte des fines possibles |
 | Eau et matériaux pour chimie | Analyses d’agressivité et de composition | Prélèvement, conservation et date essentiels à la validité |
 
+Le fendage et la préparation d’une carotte doivent préserver sa traçabilité et une face représentative pour la description. Cette opération documentée par l’USGS concerne une carotte sédimentaire ; elle n’est pas présentée comme un carottage réalisé pour ce mémoire.
+
+[[FIGURE:photo_core_laboratory|Préparation et fendage d’une carotte sédimentaire au Core Laboratory de l’USGS]]
+[[SOURCE:USGS, Woods Hole Coastal and Marine Science Center, « Core Laboratory », domaine public.]]
+
 ### III.3.3 Investigations en milieu aquatique
 
 Les appuis en cours d’eau imposent des dispositions particulières : barge, plateforme, tubage, guidage, bathymétrie et contrôle des courants. La stabilité de la plateforme et la sécurité des équipes priment sur la continuité du programme. Les variations du niveau d’eau et les conditions de navigation sont intégrées à la planification.
@@ -179,6 +184,16 @@ Les essais d’identification comprennent notamment la teneur en eau, la granulo
 
 La représentativité est centrale. Quelques échantillons ne décrivent pas une couche hétérogène sans une stratégie de prélèvement et une comparaison avec les profils in situ. Les résultats doivent être examinés en distribution et non uniquement en moyenne.
 
+La colonne de tamis, les masses retenues et la perte de fines doivent être consignées pour qu’une courbe granulométrique soit reproductible. Les tamis photographiés illustrent le matériel ; ils ne constituent pas, à eux seuls, un résultat d’analyse.
+
+[[FIGURE:photo_lab_sieves|Tamis de laboratoire de 1 700, 500 et 250 µm utilisés pour le fractionnement granulométrique]]
+[[SOURCE:BMK, « Laboratory sieves », Wikimedia Commons, CC BY-SA 3.0.]]
+
+Pour les limites d’Atterberg, la préparation de la pâte et la géométrie du sillon influencent la répétabilité. La coupelle de Casagrande ci-dessous montre une étape matérielle de l’essai, sans dispenser du protocole ni du compte des coups.
+
+[[FIGURE:photo_casagrande_cup|Coupelle de Casagrande et sillon dans la pâte de sol pour la détermination de la limite de liquidité]]
+[[SOURCE:E smith2000, « Atterberg limits 02 », Wikimedia Commons, domaine public.]]
+
 ### III.8.2 Compressibilité et consolidation
 
 L’essai œdométrique mesure la déformation d’un échantillon sous chargement vertical avec confinement latéral. Il permet d’étudier la compressibilité et, dans les conditions adaptées, la consolidation. La relation simple fondée sur l’indice de compression Cc ne décrit que la partie vierge normalement consolidée de la courbe.
@@ -188,6 +203,11 @@ Pour un sol surconsolidé, le calcul doit distinguer la zone de recompression et
 [[EQ:s = Σ [Hᵢ/(1+e₀,ᵢ)] · Δeᵢ]]
 
 où Hᵢ est l’épaisseur de la couche, e₀,ᵢ son indice des vides initial et Δeᵢ la variation calculée à partir du chemin de contrainte. Cette écriture évite d’appliquer une seule pente à toute la courbe.
+
+Les montages œdométriques suivants illustrent le chargement vertical et le confinement de l’éprouvette. La lecture des tassements, les paliers et le temps de consolidation restent indispensables : une photographie de l’appareil ne remplace aucune courbe d’essai.
+
+[[FIGURE:photo_oedometers|Matériel œdométrique : (a) deux appareils à l’Université de Cambridge ; (b) cadre de mesure de la compressibilité uniaxiale]]
+[[SOURCE:(a) Deryck Chan, Wikimedia Commons, CC BY-SA 4.0 ; (b) Michal Šobr, Wikimedia Commons, CC0.]]
 
 ### III.8.3 Résistance au cisaillement
 
@@ -200,6 +220,11 @@ La boîte de cisaillement impose un plan de déformation et peut convenir à cer
 Les sols gonflants, affaissables, dispersifs ou potentiellement liquéfiables nécessitent des protocoles adaptés. Les essais de gonflement doivent préciser le confinement et l’humidification ; ceux de collapse reproduisent un chargement et une imbibition ; les analyses d’érosion examinent la compatibilité des matériaux et de l’écoulement.
 
 Les essais chimiques sur le sol et l’eau sont reliés aux classes d’exposition et aux matériaux. Une analyse sans condition de prélèvement ni référentiel ne permet pas de prescrire un ciment ou un enrobage.
+
+La mesure de pH ci-dessous est un exemple de caractérisation chimique. Elle doit être complétée, selon la question de durabilité, par les autres analyses et par les conditions d’exposition ; elle ne suffit pas à attribuer une classe d’agressivité.
+
+[[FIGURE:photo_soil_ph_csiro|Détermination du pH d’un échantillon de sol par comparaison colorimétrique au CSIRO]]
+[[SOURCE:CSIRO Forestry and Forest Products, « Testing soil pH », Wikimedia Commons, CC BY 3.0.]]
 
 [[TABLE:Essais de laboratoire et paramètres recherchés|1,1,1,1]]
 | Essai | Résultat principal | Utilisation pour le projet | Précaution dominante |
@@ -232,11 +257,21 @@ Le GPR utilise la propagation d’ondes électromagnétiques. Il peut détecter 
 
 Une réflexion ou une diffraction n’est pas automatiquement une cavité. La vitesse de propagation, le traitement et le calibrage sont nécessaires pour convertir les temps en profondeurs. Les résultats doivent être présentés avec leurs limites de résolution.
 
+Les deux configurations suivantes montrent le déplacement de l’antenne et l’acquisition au sol. Elles proviennent de campagnes externes, dont une au Wadi Ramm en Jordanie, et ne sont pas des investigations de ponts réalisées pour cette révision.
+
+[[FIGURE:photo_gpr_field|Acquisition géoradar : (a) unité GPR mobile en prospection terrestre ; (b) levé GPR au Wadi Ramm (Jordanie, 2005)]]
+[[SOURCE:(a) The Charles Machine Works, CC BY-SA 2.0 ; (b) Archaeo-Physics LLC, domaine public, via Wikimedia Commons.]]
+
 ### III.9.4 Méthodes sismiques
 
 La réfraction et la réflexion sismiques analysent la propagation des ondes pour estimer des géométries et des vitesses. Les ondes P renseignent Vp ; elles ne fournissent pas directement Vs. Pour les paramètres de cisaillement, des méthodes telles que MASW, SASW, cross-hole ou down-hole peuvent être envisagées selon le site et le niveau de preuve requis.
 
 Vs est particulièrement utile pour la réponse dynamique du site, mais la conversion d’un profil de vitesse en paramètres de calcul dépend de la masse volumique, de la gamme de déformation et du modèle adopté.
+
+La source marteau–plaque et l’alignement des récepteurs doivent être documentés avec les distances et les conditions de bruit. Les photographies EPA/USGS illustrent des acquisitions de réfraction et de réflexion ; elles ne prouvent pas l’identification d’un réflecteur sans leurs enregistrements et leur interprétation.
+
+[[FIGURE:photo_seismic_field|Méthodes sismiques en surface : (a) source marteau–plaque pour la réfraction ; (b) équipe USGS en acquisition pour la réflexion]]
+[[SOURCE:US EPA, « Seismic Refraction » et « Seismic Reflection » ; photographies USGS indiquées par l’EPA.]]
 
 [[FIGURE:geophysics_calibration|Principe de calibrage d’une anomalie géophysique par des investigations directes]]
 [[SOURCE:schéma original ; l’anomalie représentée n’est pas une preuve de cavité.]]
@@ -278,7 +313,7 @@ Une table de synthèse ne remplace pas les données brutes. Le rapport distingue
 | Interprétation | Formules, hypothèses, corrections et corrélations | Feuilles de calcul reproductibles et références |
 | Synthèse | Cohérence entre méthodes et incertitudes | Tableau de revue et décisions documentées |
 
-Les photographies suivantes complètent la figure III.2 par des équipements réels. Elles illustrent les conditions d’exécution à consigner, sans documenter une campagne réalisée pour cette révision.
+Les photographies suivantes complètent la figure III.3 par des équipements réels. Elles illustrent les conditions d’exécution à consigner, sans documenter une campagne réalisée pour cette révision.
 
 [[FIGURE:photo_spt_equipment|Deux configurations de matériel de forage équipé pour des essais SPT]]
 [[SOURCE:Engineering LibreTexts, « The Standard Penetration Test », figure 1.15 ; Geoengineering.org, reproduction autorisée indiquée par la source.]]

@@ -18,6 +18,16 @@ La visite confronte ces informations au terrain. Elle porte sur les affleurement
 
 Le FHWA (2016a) présente la caractérisation du site comme une démarche intégrée, depuis les données existantes jusqu’au modèle utilisé pour le projet. Cette approche est particulièrement adaptée aux ponts, où les observations doivent être partagées entre plusieurs disciplines.
 
+La description directe d’un profil aide à distinguer les horizons, leurs limites et les indices d’altération avant toute interpolation. L’exemple ci-dessous provient du Kerala, en Inde ; il illustre une méthode d’observation et ne représente ni un site algérien ni une coupe au droit d’un appui de pont.
+
+[[FIGURE:photo_soil_profile_csiro|Description d’un profil de sol au Kerala (Inde) : horizons, limites et observations de terrain]]
+[[SOURCE:T. Grove, CSIRO, « Soil Profiling India », Wikimedia Commons, CC BY 3.0.]]
+
+La visite doit également repérer les mouvements de versant qui peuvent modifier les accès ou les appuis. Le glissement de Mameyes constitue un exemple documenté d’instabilité ; sa photographie ne fournit ni un mécanisme unique ni des paramètres applicables à un autre site.
+
+[[FIGURE:photo_mameyes_landslide|Glissement de Mameyes à Ponce (Porto Rico, 1985) : exemple d’instabilité de versant documentée par l’USGS]]
+[[SOURCE:Randall Jibson, USGS, Wikimedia Commons, domaine public.]]
+
 ### II.2.2 Observations, interpolations et hypothèses
 
 Un log décrit ce qui a été observé à une position et à une date. Une coupe géologique propose une interprétation entre ces points. Un modèle de calcul ajoute des paramètres et des conditions aux limites. Ces trois niveaux doivent rester distinguables.
@@ -43,7 +53,7 @@ Le modèle doit donc comporter une cartographie des incertitudes : formations ma
 
 Une vallée résulte de processus d’incision, de dépôt et de déplacement du chenal. Les terrasses peuvent préserver des formations anciennes, tandis que la plaine alluviale contient des matériaux plus récents et variables. Le chenal actuel n’occupe pas nécessairement la position des chenaux anciens ; des remblaiements peuvent recouvrir des zones de faible résistance ou des dépôts organiques.
 
-La figure II.1 illustre cette organisation conceptuelle. Elle ne représente pas une coupe type applicable à tous les oueds. Elle montre pourquoi deux appuis proches peuvent rencontrer des conditions différentes et pourquoi la surface topographique ne suffit pas à définir le substratum.
+La figure II.3 illustre cette organisation conceptuelle. Elle ne représente pas une coupe type applicable à tous les oueds. Elle montre pourquoi deux appuis proches peuvent rencontrer des conditions différentes et pourquoi la surface topographique ne suffit pas à définir le substratum.
 
 [[FIGURE:valley_ground_model|Modèle conceptuel d’une vallée alluviale et incertitudes d’interpolation]]
 [[SOURCE:schéma original ; géométrie non normative.]]
@@ -113,6 +123,11 @@ La position de la nappe influence le poids volumique déjaugé, les contraintes 
 
 La piézométrie est conçue selon la formation et la question posée. Un tube ouvert dans une formation perméable ne répond pas comme un capteur dans une argile peu perméable. Le niveau lu doit être associé à la profondeur, au mode d’installation, à la date et aux conditions hydrologiques.
 
+Une tête de piézomètre ne renseigne pas, à elle seule, sur la profondeur filtrante ni sur la formation mesurée. La photographie suivante illustre le point d’observation visible en surface ; le dossier doit conserver également l’installation enterrée, le criblement et les conditions de lecture.
+
+[[FIGURE:photo_groundwater_piezometer|Tête d’un piézomètre de suivi des eaux souterraines à Majorque (Espagne)]]
+[[SOURCE:Chixoy, « Piezometer for groundwater », Wikimedia Commons, CC BY-SA 3.0.]]
+
 ### II.5.2 Perméabilité et écoulement
 
 La loi de Darcy fournit une relation de base pour un écoulement dans un milieu poreux saturé, dans son domaine de validité :
@@ -166,6 +181,11 @@ Les analyses doivent expliciter les incertitudes : qualité des séries, extrapo
 ### II.6.3 Mobilité du lit et des berges
 
 Les indices de mobilité comprennent les changements de tracé, les dépôts récents, les arbres affaissés, les escarpements d’érosion, les anciennes protections et les variations de cote entre levés. Ils doivent être recherchés sur une longueur de rivière suffisante pour comprendre les processus, et non seulement à l’emprise du pont.
+
+Les escarpements et les pertes de matériau visibles sur les deux exemples suivants sont des indices de recul de berge. Leur vitesse et leur effet sur une fondation ne peuvent être établis sans dates, levés répétés et analyse des conditions hydrologiques.
+
+[[FIGURE:photo_riverbank_erosion|Érosion de berges : (a) recul récent sur la Wye après des crues ; (b) dépôts glaciaires exposés au bord de la River Sand (Royaume-Uni)]]
+[[SOURCE:(a) Pauline Eccles ; (b) Mick Garratt, Geograph / Wikimedia Commons, CC BY-SA 2.0.]]
 
 L’historique du lit permet de distinguer une tendance à long terme d’une réponse à un événement. Les aménagements en amont, les extractions de granulats, les barrages et les changements d’occupation du bassin peuvent modifier l’équilibre sédimentaire. Leur étude évite d’attribuer toute évolution à la seule présence de la pile.
 

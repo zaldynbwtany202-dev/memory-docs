@@ -214,5 +214,167 @@
       214
     ],
     "sha256": "604e81eab4b02689b545b92450a73025282129ad20b0c1d8f1b155f9b92bb163"
+  },
+  {
+    "asset": "photo_soil_profile_csiro.png",
+    "source_file": "/home/user/memory-docs/image-search/site-commons-wikimedia-org-soil-sieve-an-2.jpg",
+    "pixel_size": [
+      1800,
+      1188
+    ],
+    "sha256": "cf91106e87fa22f89a6ff8f584281473646b399df34ff8696a41a37565b5602a"
+  },
+  {
+    "asset": "photo_groundwater_piezometer.png",
+    "source_file": "/home/user/memory-docs/image-search/wikimedia-commons-file-piezometer-for-gr-1.jpg",
+    "pixel_size": [
+      500,
+      333
+    ],
+    "sha256": "27d68d40baba2bdbd3f30c43c35c437dd2bd4de079ac849c828ecb6a2c26c606"
+  },
+  {
+    "asset": "photo_riverbank_erosion.png",
+    "source_file": "/home/user/memory-docs/image-search/site-commons-wikimedia-org-river-bank-er-1.jpg + /home/user/memory-docs/image-search/site-commons-wikimedia-org-river-bank-er-2.jpg",
+    "pixel_size": [
+      1500,
+      650
+    ],
+    "sha256": "c2c4e0733ea86d775c003177d41500b690514a841e6080def185dac70e482abd"
+  },
+  {
+    "asset": "photo_mameyes_landslide.png",
+    "source_file": "/home/user/memory-docs/image-search/site-commons-wikimedia-org-landslide-roa-2.jpg",
+    "pixel_size": [
+      500,
+      336
+    ],
+    "sha256": "e2549e484bf5b9e9d95ca1c0559da71e51f3ab5c719d1eadf4df20db7c8fe3bb"
+  },
+  {
+    "asset": "photo_gpr_field.png",
+    "source_file": "/home/user/memory-docs/image-search/wikimedia-commons-ground-penetrating-rad-2.jpg + /home/user/memory-docs/image-search/wikimedia-commons-file-radarsurvey-jpg-a-1.jpg",
+    "pixel_size": [
+      1500,
+      650
+    ],
+    "sha256": "148957096dad78741283abf7b19987b19689f910ab8e0e4f3811b2fff880e7c7"
+  },
+  {
+    "asset": "photo_core_laboratory.png",
+    "source_file": "/home/user/memory-docs/image-search/rock-core-lab-shelves-joshua-hicks-usgs--2.jpg",
+    "pixel_size": [
+      1336,
+      1785
+    ],
+    "sha256": "3fe4eab8193a2631b7e740ca7e2a5a1c9bc45b36769845ddd65917229f3f781d"
+  },
+  {
+    "asset": "photo_seismic_field.png",
+    "source_file": "/home/user/memory-docs/image-search/seismic-refraction-hammer-plate-field-se-1.jpg + /home/user/memory-docs/image-search/seismic-refraction-hammer-plate-field-se-2.jpg",
+    "pixel_size": [
+      1500,
+      650
+    ],
+    "sha256": "faa113873e69a67a5f28fc523169d1dcf0d1f6680fb6b6ca9cb45d675b51af1d"
+  },
+  {
+    "asset": "photo_oedometers.png",
+    "source_file": "/home/user/memory-docs/image-search/wikimedia-commons-file-oedometer-jpg-der-1.jpg + /home/user/memory-docs/image-search/wikimedia-commons-file-oedometer-jpg-der-2.jpg",
+    "pixel_size": [
+      1500,
+      650
+    ],
+    "sha256": "85a938875c677886d5208ab49a495bf65f30d5cad6ef5830231bfe27d8cb802d"
+  },
+  {
+    "asset": "photo_casagrande_cup.png",
+    "source_file": "/home/user/memory-docs/image-search/wikimedia-commons-atterberg-limits-jpg-a-1.jpg",
+    "pixel_size": [
+      500,
+      667
+    ],
+    "sha256": "c4a18207236aae758263a0180f1cd3451c131fcffc219286695489560a86aab2"
+  },
+  {
+    "asset": "photo_lab_sieves.png",
+    "source_file": "/home/user/memory-docs/image-search/wikimedia-commons-file-laboratory-sieves-1.jpg",
+    "pixel_size": [
+      500,
+      375
+    ],
+    "sha256": "e7bcbbdc356ce1d7666f3efe62432055ca5eed830a443d0b4a6d71a394e51d43"
+  },
+  {
+    "asset": "photo_soil_ph_csiro.png",
+    "source_file": "/home/user/memory-docs/image-search/wikimedia-commons-csiro-scienceimage-174-2.jpg",
+    "pixel_size": [
+      500,
+      336
+    ],
+    "sha256": "66ad22d001b109ea07034aeefaa0e7c0f8aae44534c3c1559b46ff80ecf7a7e5"
+  },
+  {
+    "asset": "photo_liquefaction_effects.png",
+    "source_file": "/home/user/memory-docs/image-search/site-usgs-gov-liquefaction-sand-boil-pho-1.jpg + /home/user/memory-docs/image-search/site-usgs-gov-liquefaction-sand-boil-pho-4.jpg",
+    "pixel_size": [
+      1500,
+      650
+    ],
+    "sha256": "778e2a3b26d9328b60bbea6b06a07838daa790368dd13154260ffc237498ce77"
+  },
+  {
+    "asset": "photo_fathometer_inspection.png",
+    "source_file": "/home/user/memory-docs/image-search/site-commons-wikimedia-org-bridge-inspec-1.jpg",
+    "pixel_size": [
+      960,
+      720
+    ],
+    "sha256": "2185b5e8217f4ef758b07a1ec1e4f3b33512885dcda7ab1b160bdefe152c9048"
+  },
+  {
+    "asset": "photo_auger_pile_rig.png",
+    "source_file": "/home/user/memory-docs/image-search/wikimedia-commons-pile-wall-drilling-01--2.jpg",
+    "pixel_size": [
+      500,
+      666
+    ],
+    "sha256": "e37939d077691412f76faa971a68b3a5969927c6d3bc7484d615e876455da1bc"
+  },
+  {
+    "asset": "photo_ojack_load_test.png",
+    "source_file": "/home/user/memory-docs/image-search/wikimedia-commons-ojack360-jpg-static-lo-1.jpg",
+    "pixel_size": [
+      500,
+      375
+    ],
+    "sha256": "92d9914abba2bcb1cbabf364d12d92ea6e45f2f8efd54ce69b88677c1aca944b"
+  },
+  {
+    "asset": "photo_diaphragm_wall_spacer.png",
+    "source_file": "/home/user/memory-docs/image-search/site-commons-wikimedia-org-diaphragm-wal-3.jpg",
+    "pixel_size": [
+      960,
+      720
+    ],
+    "sha256": "c9da3163d8c9cbac91116aa9ccceb80d184e831a1a28ba138c661a2759dd0616"
+  },
+  {
+    "asset": "photo_story_bridge_foundation.png",
+    "source_file": "/home/user/memory-docs/image-search/queensland-state-archives-3147-placing-c-1.png",
+    "pixel_size": [
+      500,
+      665
+    ],
+    "sha256": "5d7828fe304110090d4c17e8c138b85932d601ecba741ff75c195af5b996fa29"
+  },
+  {
+    "asset": "photo_algerian_viaducts.png",
+    "source_file": "/home/user/memory-docs/image-search/site-commons-wikimedia-org-salah-bey-via-1.jpg + /home/user/memory-docs/image-search/berrouaghia-viaduc-de-cherrata-habib-kak-2.jpg",
+    "pixel_size": [
+      1500,
+      650
+    ],
+    "sha256": "a5a37d0cd520237470fe0ba008150cab61fca5ac949d19598377d03d655d9453"
   }
 ]
