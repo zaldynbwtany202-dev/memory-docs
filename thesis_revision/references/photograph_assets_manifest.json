@@ -376,5 +376,50 @@
       650
     ],
     "sha256": "a5a37d0cd520237470fe0ba008150cab61fca5ac949d19598377d03d655d9453"
+  },
+  {
+    "asset": "photo_early_masonry.png",
+    "source_file": "/home/user/memory-docs/image-search/pont-du-gard-004-jpg-1.jpg",
+    "pixel_size": [
+      960,
+      717
+    ],
+    "sha256": "dde8d6061471dbb17ba12d1cb41a348b7a6c8ad06e02217939820b7ee63e32fe"
+  },
+  {
+    "asset": "photo_early_cantilever.png",
+    "source_file": "/home/user/memory-docs/image-search/forth-bridge-wikimedia-commons-file-jpg-1.jpg",
+    "pixel_size": [
+      1800,
+      928
+    ],
+    "sha256": "1689e7a269c3b5b324865afd10e44920f68e7a7785c014baebeda4ed417c315f"
+  },
+  {
+    "asset": "photo_early_metal_arches.png",
+    "source_file": "/home/user/memory-docs/image-search/site-commons-wikimedia-org-garabit-viadu-1.jpg + /home/user/memory-docs/image-search/sydney-harbour-bridge-from-circular-quay-2.jpg",
+    "pixel_size": [
+      1800,
+      536
+    ],
+    "sha256": "26fc127fa61ba8985d00bc2a35bca42e04b1f16fefae462d50454db524da7c58"
+  },
+  {
+    "asset": "photo_early_suspension.png",
+    "source_file": "/home/user/memory-docs/image-search/goldengatebridge-001-jpg-2.jpg + /home/user/memory-docs/image-search/akashi-kaikyo-bridge-wikimedia-commons-p-1.jpg",
+    "pixel_size": [
+      1800,
+      628
+    ],
+    "sha256": "085375e5cbb9ceb709ba73cf01b46a53512405d9669d36e0476a114aed669598"
+  },
+  {
+    "asset": "photo_early_beam_cablestay.png",
+    "source_file": "/home/user/memory-docs/image-search/nb-confederation-bridge1-jpg-1.jpg + /home/user/memory-docs/image-search/oresund-bridge-wikimedia-commons-photogr-3.jpg",
+    "pixel_size": [
+      1800,
+      497
+    ],
+    "sha256": "760141b00b1d8cb3637a3ec11b72bc8f643db7a420c4ba7a6bf20379ee95be0d"
   }
 ]

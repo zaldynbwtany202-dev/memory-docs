@@ -1,7 +1,7 @@
 {
   "status": "pass",
   "pdf": "deliverables/These_revisee_BERKANE_Dhiyaddine.pdf",
-  "pages": 138,
+  "pages": 141,
   "checks": {
     "guide_40_question_references_match_curated_final_pdf": true,
     "guide_15_slide_references_match_curated_final_pdf": true,
@@ -16,52 +16,52 @@
     "guide_questions": 40,
     "slide_rows": 15,
     "journal_revision_rows": 45,
-    "arabic_caption_references": 15,
-    "visual_figure_pages": 63
+    "arabic_caption_references": 20,
+    "visual_figure_pages": 68
   },
   "major_pages_expected": {
-    "ANNEXE A": 133,
-    "ANNEXE B": 136,
-    "BIBLIOGRAPHIE": 126,
+    "ANNEXE A": 136,
+    "ANNEXE B": 139,
+    "BIBLIOGRAPHIE": 129,
     "CHAPITRE I": 19,
-    "CHAPITRE II": 40,
-    "CHAPITRE III": 55,
-    "CHAPITRE IV": 77,
-    "CHAPITRE V": 95,
-    "CHAPITRE VI": 112,
-    "CONCLUSION GÉNÉRALE": 123,
+    "CHAPITRE II": 43,
+    "CHAPITRE III": 58,
+    "CHAPITRE IV": 80,
+    "CHAPITRE V": 98,
+    "CHAPITRE VI": 115,
+    "CONCLUSION GÉNÉRALE": 126,
     "INTRODUCTION GÉNÉRALE": 14
   },
   "major_pages_actual": {
     "ANNEXE A": [
-      133
-    ],
-    "ANNEXE B": [
       136
     ],
+    "ANNEXE B": [
+      139
+    ],
     "BIBLIOGRAPHIE": [
-      126
+      129
     ],
     "CHAPITRE I": [
       19
     ],
     "CHAPITRE II": [
-      40
+      43
     ],
     "CHAPITRE III": [
-      55
+      58
     ],
     "CHAPITRE IV": [
-      77
+      80
     ],
     "CHAPITRE V": [
-      95
+      98
     ],
     "CHAPITRE VI": [
-      112
+      115
     ],
     "CONCLUSION GÉNÉRALE": [
-      123
+      126
     ],
     "INTRODUCTION GÉNÉRALE": [
       14
@@ -74,23 +74,23 @@
     ],
     [
       "II.6",
-      49
+      52
     ],
     [
       "IV.1",
-      78
+      81
     ],
     [
       "IV.2",
-      80
+      83
     ],
     [
       "IV.3",
-      82
+      85
     ],
     [
       "IV.4",
-      86
+      89
     ]
   ],
   "v03_actual": [
@@ -100,71 +100,96 @@
     ],
     [
       "II.6",
-      49
+      52
     ],
     [
       "IV.1",
-      78
+      81
     ],
     [
       "IV.2",
-      80
+      83
     ],
     [
       "IV.3",
-      82
+      85
     ],
     [
       "IV.4",
-      86
+      89
     ]
   ],
   "caption_failures": [],
   "verified_caption_references": [
     {
       "row": "A07",
+      "caption": "Figure I.5",
+      "page": 24
+    },
+    {
+      "row": "A07",
       "caption": "Figure I.3",
+      "page": 22
+    },
+    {
+      "row": "A07",
+      "caption": "Figure I.4",
       "page": 23
     },
     {
       "row": "A08",
-      "caption": "Figure I.4",
-      "page": 25
+      "caption": "Figure I.6",
+      "page": 26
+    },
+    {
+      "row": "A08",
+      "caption": "Figure I.7",
+      "page": 28
+    },
+    {
+      "row": "A08",
+      "caption": "Figure I.8",
+      "page": 29
+    },
+    {
+      "row": "A08",
+      "caption": "Figure I.9",
+      "page": 30
     },
     {
       "row": "A11",
       "caption": "Figure IV.6",
-      "page": 89
+      "page": 92
     },
     {
       "row": "A12",
       "caption": "Tableau III.3",
-      "page": 63
+      "page": 66
     },
     {
       "row": "A14",
       "caption": "Figure III.10",
-      "page": 70
+      "page": 73
     },
     {
       "row": "A17",
       "caption": "Figure V.3",
-      "page": 102
+      "page": 105
     },
     {
       "row": "A18",
       "caption": "Figure IV.2",
-      "page": 80
+      "page": 83
     },
     {
       "row": "A21",
       "caption": "Figure VI.1",
-      "page": 118
+      "page": 121
     },
     {
       "row": "V01",
-      "caption": "Figure I.4",
-      "page": 25
+      "caption": "Figure I.6",
+      "page": 26
     },
     {
       "row": "V05",
@@ -179,22 +204,22 @@
     {
       "row": "V06",
       "caption": "Figure IV.2",
-      "page": 80
+      "page": 83
     },
     {
       "row": "V07",
       "caption": "Figure II.6",
-      "page": 49
+      "page": 52
     },
     {
       "row": "V08",
       "caption": "Figure III.10",
-      "page": 70
+      "page": 73
     },
     {
       "row": "V09",
-      "caption": "Figure I.3",
-      "page": 23
+      "caption": "Figure I.5",
+      "page": 24
     }
   ],
   "note": "Topic ranges are curated from the final PDF; caption pages and major-part starts are independently derived from build/PDF evidence."

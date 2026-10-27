@@ -46,6 +46,9 @@ Les ponts antiques en maçonnerie reposent principalement sur la compression. Le
 
 Le pont romain d’Alcántara, construit entre 103 et 106, illustre cette organisation par arcs de maçonnerie et piles munies de brise-glaces. Son évaluation récente associe recherche historique, relevé laser terrestre, géoradar et analyse structurale ; elle rappelle aussi que le minage des piles et la conservation des maçonneries doivent être examinés à partir de la géométrie et des matériaux réels, non d’une image idéalisée de l’ouvrage ancien (CORTÉS PÉREZ et al., 2018).
 
+[[FIGURE:photo_early_masonry|Pont du Gard (France) : les trois niveaux d’arcs du pont-aqueduc romain]]
+[[SOURCE:photographie de Marc Ryckaert, « Pont du Gard 004 », Wikimedia Commons, CC BY 2.5.]]
+
 L’enseignement bibliographique n’est pas de reproduire ces solutions, mais de reconnaître la permanence de certains problèmes : accès à un fond sain, maîtrise de l’eau pendant les travaux, résistance du terrain aux poussées et protection des appuis. L’évolution des matériaux n’a supprimé aucune de ces questions.
 
 ### I.3.2 Révolution industrielle : fonte, fer et acier
@@ -53,6 +56,9 @@ L’enseignement bibliographique n’est pas de reproduire ces solutions, mais d
 Les ponts métalliques ont introduit de nouvelles formes et des portées accrues. L’Iron Bridge de 1779 illustre l’emploi de la fonte dans un arc ; les développements ultérieurs de l’acier ont permis des poutres, treillis, arcs et structures suspendues plus élancés. Le Brooklyn Bridge, ouvert en 1883, constitue un jalon de la suspension par câbles d’acier.
 
 Ces changements ont déplacé une partie des difficultés vers les pylônes, les ancrages et les assemblages, sans réduire le rôle du terrain. Les structures plus légères peuvent être sensibles au soulèvement, au vent et aux mouvements d’appuis ; les charges concentrées aux tours exigent une connaissance détaillée de la portance et des déplacements.
+
+[[FIGURE:photo_early_cantilever|Forth Bridge (Écosse) : travées en porte-à-faux et piles du pont ferroviaire]]
+[[SOURCE:photographie de MrMasterKeyboard, « Forth Bridge 2022 », Wikimedia Commons, CC BY-SA 4.0.]]
 
 ### I.3.3 Béton armé et précontrainte : continuité et maîtrise des déformations
 
@@ -96,7 +102,7 @@ Ces deux événements montrent qu’un pont peut être vulnérable par un mécan
 
 ### I.4.1 Lecture par le fonctionnement mécanique
 
-La figure I.3 distingue les familles selon leur principe porteur. Elle ne prétend pas couvrir toutes les formes mixtes. Un pont à poutres peut être métallique ou en béton ; un arc peut être en maçonnerie, en acier ou en béton ; un ouvrage haubané peut associer plusieurs matériaux. Le matériau et le système structural sont donc deux axes complémentaires.
+La figure I.6 distingue les familles selon leur principe porteur. Elle ne prétend pas couvrir toutes les formes mixtes. Un pont à poutres peut être métallique ou en béton ; un arc peut être en maçonnerie, en acier ou en béton ; un ouvrage haubané peut associer plusieurs matériaux. Le matériau et le système structural sont donc deux axes complémentaires.
 
 [[FIGURE:four_bridge_families|Quatre familles structurales et chemins principaux de transmission des charges]]
 [[SOURCE:schéma original de synthèse d’après les principes présentés par CHEN et DUAN (2014).]]
@@ -125,6 +131,9 @@ Les arcs de maçonnerie, les arcs en béton et les arcs métalliques ne partagen
 
 Le développement des arcs illustre une règle générale : une solution efficace dans un massif rocheux compétent ne se transpose pas directement dans une vallée alluviale compressible. Le choix du système structural et celui de la fondation sont interdépendants.
 
+[[FIGURE:photo_early_metal_arches|Arcs métalliques : (a) viaduc de Garabit (France) ; (b) Sydney Harbour Bridge (Australie)]]
+[[SOURCE:(a) kitmasterbloke, CC BY 2.0 ; (b) JJ Harrison, CC BY-SA 3.0 ; Wikimedia Commons ; composition et recadrages.]]
+
 ### I.4.4 Ponts suspendus
 
 Dans un pont suspendu, le tablier est supporté par des suspentes reliées aux câbles principaux. Ceux-ci transmettent des efforts aux pylônes et aux ancrages. La reconnaissance doit couvrir ces zones parfois éloignées du chenal principal. Le terrain des ancrages peut être sollicité en traction, en compression inclinée ou par une combinaison d’effets, selon le système retenu.
@@ -133,6 +142,9 @@ Les pylônes concentrent des charges importantes et peuvent être sensibles aux 
 
 L’évolution des câbles et des méthodes de construction a permis de grandes portées, mais a aussi accru l’exigence de coordination entre structure et géotechnique. Les hypothèses de rigidité du terrain utilisées dans le modèle structural doivent être compatibles avec les données d’essais et avec les niveaux de déformation attendus.
 
+[[FIGURE:photo_early_suspension|Ponts suspendus : (a) Golden Gate Bridge (États-Unis) ; (b) pont d’Akashi Kaikyō (Japon), vue aérienne]]
+[[SOURCE:(a) Rich Niewiroski Jr., CC BY 2.5 ; (b) made based on National Land Image Information (Color Aerial Photographs), Ministry of Land, Infrastructure, Transport and Tourism ; Wikimedia Commons ; composition et recadrages.]]
+
 ### I.4.5 Ponts haubanés
 
 Dans un pont haubané, les haubans relient directement le tablier aux pylônes. Leur disposition influence la flexion du tablier, la compression des pylônes et les réactions aux appuis. Les phases de construction et de tension des haubans modifient progressivement le système : la situation finale ne suffit pas à définir toutes les sollicitations des fondations.
@@ -140,6 +152,9 @@ Dans un pont haubané, les haubans relient directement le tablier aux pylônes. 
 La reconnaissance doit fournir des paramètres adaptés aux déplacements de faible amplitude comme aux vérifications ultimes. La variation des réactions pendant le montage, le fluage du béton et les tassements différés peuvent nécessiter des itérations entre le modèle géotechnique et le modèle structural.
 
 Les ponts haubanés et suspendus partagent des éléments — pylônes, câbles et grandes portées — mais leur chemin de charge n’est pas identique. Les regrouper sous une même prescription de fondation effacerait précisément les différences utiles à la reconnaissance.
+
+[[FIGURE:photo_early_beam_cablestay|Ouvrages contemporains : (a) pont de la Confédération (Canada), poutres-caissons ; (b) pont de l’Øresund (Danemark–Suède), travée haubanée]]
+[[SOURCE:(a) Wladyslaw, CC BY-SA 3.0 ; (b) Philaweb (Paul Bischoff), CC BY 3.0 ; Wikimedia Commons ; composition et recadrages.]]
 
 ### I.4.6 Exemples, atouts et limites de chaque famille
 

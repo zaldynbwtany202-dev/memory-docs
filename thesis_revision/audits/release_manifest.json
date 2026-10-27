@@ -5,7 +5,7 @@
   "requirement_status": "33_completed_1_blocked",
   "reference_document": "deliverables/These_revisee_BERKANE_Dhiyaddine.pdf",
   "reference_pagination": {
-    "pages": 138,
+    "pages": 141,
     "paper": "A4",
     "note": "PDF is authoritative; DOCX pagination is renderer-dependent."
   },
@@ -28,50 +28,50 @@
   "deliverables": [
     {
       "path": "deliverables/These_revisee_BERKANE_Dhiyaddine.pdf",
-      "bytes": 51159351,
-      "sha256": "9b847e13c0c7cf9f7600791b2d05ca8db0ed5b98ef6778899465f1f3adc51933"
+      "bytes": 60538808,
+      "sha256": "4c531e72fb0eef12a056b325eb25d5e61f6389e2e4105176a0244367c9e30c9f"
     },
     {
       "path": "deliverables/These_revisee_BERKANE_Dhiyaddine.docx",
-      "bytes": 37708012,
-      "sha256": "18d2ff7a7500aac8787f3283b160c2806c234c2f7dd6baeec77e53b4345d8874"
+      "bytes": 44716917,
+      "sha256": "6d36ee6b3fcab29f9441f6dcdc62c132c028e56f2110b6a004c70ee3dd5c5785"
     },
     {
       "path": "deliverables/Journal_des_revisions_BERKANE_Dhiyaddine.md",
-      "bytes": 13775,
-      "sha256": "2f8d73d83bad31e520fe1e06f29530a387a94903efd4abe371f4641e859d00e6"
+      "bytes": 13843,
+      "sha256": "82c7fdb4e7552c6a4534ccc5a3de14563d4eb10bca03eac7301049f0f0b78366"
     },
     {
       "path": "deliverables/Guide_de_soutenance_BERKANE_Dhiyaddine.md",
-      "bytes": 21487,
-      "sha256": "f8b3504b7be44742794e9394d273a13a14ee33690aa5c161fd27183c4b0261b1"
+      "bytes": 21505,
+      "sha256": "a90aa3f52ad1a88a62c91e0f0803d71e73063a1cad8f92e0cef6311c792ac7c2"
     },
     {
       "path": "deliverables/LISEZ_MOI.md",
-      "bytes": 5825,
-      "sha256": "ecbc38a476c6461495efea65d64d99e03104bcd0ab514e1dee748d851e3ebb57"
+      "bytes": 5829,
+      "sha256": "76cb387c663a203baca470cf4ea0918726e91212f3a97bdbac4c12220f3d04af"
     }
   ],
   "audit_evidence": [
     {
       "path": "audits/build_report.json",
-      "bytes": 4565,
-      "sha256": "a66896e862f186daa0848a475b793f4d82b1b5a94a0c8e171c2c98db86035e28"
+      "bytes": 4681,
+      "sha256": "bd5bee73a27a96508f5b174e2f27b400b90439c58cff5c3cf5e94def006844a1"
     },
     {
       "path": "audits/docx_build_report.json",
       "bytes": 861,
-      "sha256": "04cb98bbda16c67363f2bb6d90dc614465d84b2caf0a396b0d33cfdd9811799a"
+      "sha256": "97b8710af6bf6f6ef56873e831b9752f896dda284562f563c0529415468a99b8"
     },
     {
       "path": "audits/final_pdf_qa.json",
-      "bytes": 4504,
-      "sha256": "9f7a34807536b15585ce56a50d4a2e1ee3a420c80385ee118c9f40fcf9ff5f6e"
+      "bytes": 4564,
+      "sha256": "399fff0ca8fdf8c3e325d347494f21c1503d6422c94230b405c3b9c689ec1597"
     },
     {
       "path": "audits/docx_content_audit.json",
       "bytes": 3224,
-      "sha256": "2cfbd7ec9c057252d5f6889cf44c98c617fa7d79bc383f50236064cb6b9aba14"
+      "sha256": "566a4d5359868ba2010ccf66a3591b9f55697f08c50a5a98850fefc8f98e7531"
     },
     {
       "path": "audits/revised_citation_audit.json",
@@ -80,31 +80,31 @@
     },
     {
       "path": "audits/release_reference_audit.json",
-      "bytes": 3436,
-      "sha256": "449dc2030674153004b52e82be5cd759e75c3826e243f90bded84cb3ac691682"
+      "bytes": 3841,
+      "sha256": "4d066cf018e2d0400a53833959d7c17343b6b3b3e2af07adde3aba8c34d14538"
     },
     {
       "path": "audits/visual_review.md",
-      "bytes": 5865,
-      "sha256": "5d08831bd110d5e653f2a030242b6e118ff1da3a1e9266841c629127950c3eb0"
+      "bytes": 6462,
+      "sha256": "2e45b9b40e76253e0539874371fca5b7f941430a0731e34c5a5f5ae58a5b3f0a"
     },
     {
       "path": "audits/registre_etendu_traceability.md",
-      "bytes": 15575,
-      "sha256": "f7eb0f6d5d9096f00604043065e8f32c2d069b93f95d54ed8da369b8c1d7bd74"
+      "bytes": 15755,
+      "sha256": "1a81e06e28f4da92c8d3562d02624329728153bde8e7d9121d71021c9dff1cbb"
     },
     {
       "path": "audits/formatting_profile.md",
       "bytes": 8284,
-      "sha256": "5305201517658d7fab72f05a219f8709e74089925a34f1990a67c9ad08a63ba9"
+      "sha256": "c6e75ea3b30cc24e10a903ed8cb7186cd79688a636ffbf01536b8d9bcab5f92b"
     }
   ],
   "scientific_summary": {
     "bibliography_entries": 65,
     "resolved_author_year_occurrences": 93,
-    "figures": 63,
-    "photographic_assets": 42,
-    "photographs": 55,
+    "figures": 68,
+    "photographic_assets": 47,
+    "photographs": 63,
     "photograph_credits": "references/credits_photographies.md",
     "tables_in_pdf": 46,
     "pdf_outline_entries": 96
@@ -129,5 +129,5 @@
     "DOCX package/content are audited, but Word-specific visual pagination was not rendered in this environment.",
     "The work is bibliographic/theoretical and is not presented as fieldwork."
   ],
-  "page_reference_count_checked": 338
+  "page_reference_count_checked": 345
 }

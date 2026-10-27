@@ -16,7 +16,7 @@ ROOT = Path(__file__).resolve().parents[1]
 AUDITS = ROOT / "audits"
 DELIVERABLES = ROOT / "deliverables"
 RELEASE_DATE = "2026-10-27"
-EXPECTED_PAGES = 138
+EXPECTED_PAGES = 141
 
 DELIVERABLE_NAMES = [
     "These_revisee_BERKANE_Dhiyaddine.pdf",
@@ -160,8 +160,8 @@ def main() -> None:
     checks = {
         "required_files_present": all((ROOT / name).is_file() for name in required_paths),
         "photographic_assets_and_credits_verified": (
-            len(photograph_records) == 42
-            and "**55 photographies**" in photograph_credits
+            len(photograph_records) == 47
+            and "**63 photographies**" in photograph_credits
             and all(
                 item["asset"].startswith("photo_")
                 and item["asset"] in photograph_credits
@@ -181,11 +181,11 @@ def main() -> None:
             and all(reference_qa["checks"].values())
             and reference_qa["counts"] == {
                 "guide_questions": 40, "slide_rows": 15, "journal_revision_rows": 45,
-                "arabic_caption_references": 15, "visual_figure_pages": 63,
+                "arabic_caption_references": 20, "visual_figure_pages": 68,
             }
         ),
         "formatting_profile_source_keyed": (
-            all(token in formatting for token in ("C3", "USTHB-IA", "ULT-FST", "Times New Roman", "25 mm", "1,5", "138 pages"))
+            all(token in formatting for token in ("C3", "USTHB-IA", "ULT-FST", "Times New Roman", "25 mm", "1,5", "141 pages"))
             and "ni une certification de conformité administrative" in formatting
             and "consultation intégrale non revendiquée" in formatting
             and "accès direct indisponible" in formatting
@@ -229,7 +229,7 @@ def main() -> None:
         ),
         "journal_guide_and_register_page_references_in_range": bool(page_refs) and all(1 <= n <= EXPECTED_PAGES for n in page_refs),
         "no_stale_98_or_99_page_release_claim": not re.search(
-            r"(?<!\d)(?:98|99) pages\b|(?<!\d)(?:98|99) صفحة|الـ(?:98|99)\b|1–(?:98|99)\b",
+            r"(?<!\d)(?:98|99|138) pages\b|(?<!\d)(?:98|99|138) صفحة|الـ(?:98|99|138)\b|1–(?:98|99|138)\b",
             journal + guide + readme + visual + expanded_trace + memory + progress + cahier,
         ),
         "docx_renderer_limit_explicit": "renderer-dependent" in docx_qa["rendering_note"],
@@ -257,7 +257,7 @@ def main() -> None:
             "resolved_author_year_occurrences": 93,
             "figures": build["figures"],
             "photographic_assets": len(photograph_records),
-            "photographs": 55,
+            "photographs": 63,
             "photograph_credits": "references/credits_photographies.md",
             "tables_in_pdf": build["tables"],
             "pdf_outline_entries": build["outline_entries"],
